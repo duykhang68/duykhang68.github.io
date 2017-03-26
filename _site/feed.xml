@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hieu's blog</title>
+    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</description>
+    <link>http://hieuhtr.github.io/</link>
+    <atom:link href="http://hieuhtr.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 26 Mar 2017 13:58:23 +0700</pubDate>
+    <lastBuildDate>Sun, 26 Mar 2017 13:58:23 +0700</lastBuildDate>
+    <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>Habit and Time management</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Habit: something that you do often and regularly, sometimes without knowing that you are doing it&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;habit&quot;&gt;Habit&lt;/h4&gt;
+&lt;p&gt;It takes 21 days to form a new habit&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Do it For Yourself&lt;/li&gt;
+  &lt;li&gt;Know the Benefits&lt;/li&gt;
+  &lt;li&gt;Know the Pain&lt;/li&gt;
+  &lt;li&gt;Start Simple&lt;/li&gt;
+  &lt;li&gt;Make it Daily&lt;/li&gt;
+  &lt;li&gt;Stay Consistent&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;time-management&quot;&gt;Time management&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Most important thing&lt;/strong&gt;: Work more when you’re in the zone. Relax when you’re not.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It’s normal to have days where you just can’t work,  and days where you’ll work 12 hours straight.&lt;/li&gt;
+  &lt;li&gt;Stop multi-tasking. It merely kills your focus.&lt;/li&gt;
+  &lt;li&gt;We’re always more focused and productive with limited time.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!--description--&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Work is the best way to get working. Start with short tasks to get the ball rolling.&lt;/li&gt;
+  &lt;li&gt;Doing is better than perfect.&lt;/li&gt;
+  &lt;li&gt;More work hours doesn’t mean more productivity. Use constraints as opportunities.&lt;/li&gt;
+  &lt;li&gt;Separate thinking and execution to execute faster and think better.&lt;/li&gt;
+  &lt;li&gt;Always know the one thing you really need to get done during the day.&lt;/li&gt;
+  &lt;li&gt;Only ever work on the thing that will have the biggest impact.&lt;/li&gt;
+  &lt;li&gt;Set deadlines for everything. Don’t let tasks go on indefinitely.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 12 Mar 2017 00:00:00 +0700</pubDate>
+        <link>http://hieuhtr.github.io/mindset/2017/03/12/habit-time-management.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/mindset/2017/03/12/habit-time-management.html</guid>
+        
+        
+        <category>mindset</category>
+        
+      </item>
+    
+      <item>
+        <title>What is FLUSH TABLES WITH READ LOCK in MySQL?</title>
+        <description>&lt;p&gt;&lt;strong&gt;Command:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FLUSH&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TABLES&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WITH&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;READ&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;LOCK&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;What exactly does command do?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Set the global read lock - after this step, &lt;code class=&quot;highlighter-rouge&quot;&gt;insert/update/delete/replace/alter statements&lt;/code&gt; cannot run&lt;/li&gt;
+  &lt;li&gt;Close open tables - this step will block until all statements started previously have stopped&lt;/li&gt;
+  &lt;li&gt;Set a flag to block commits&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!--description--&gt;
+
+&lt;p&gt;&lt;strong&gt;It means:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Closes all open tables&lt;/li&gt;
+  &lt;li&gt;Locks all tables for all databases with a global read lock&lt;/li&gt;
+  &lt;li&gt;MySQL is in READ only mode, cannot WRITE anything, except one case (see below)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;insert/update/delete/replace/alter&lt;/code&gt; statements cannot run&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FLUSH TABLES WITH READ LOCK&lt;/code&gt; does &lt;strong&gt;not prevent&lt;/strong&gt; the server from &lt;strong&gt;inserting rows into the log tables&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;How to unlock and keep MySQL back to normal?&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Use &lt;code class=&quot;highlighter-rouge&quot;&gt;UNLOCK TABLES&lt;/code&gt; to release the lock&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;important&quot;&gt;Important:&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;The session that holds the lock can read the table (but not write it)&lt;/li&gt;
+  &lt;li&gt;It prevents other sessions from modifying tables during periods&lt;/li&gt;
+  &lt;li&gt;If you don’t keep this session open to keep Locking
+    &lt;ul&gt;
+      &lt;li&gt;Other sessions can write into tables&lt;/li&gt;
+      &lt;li&gt;If you run &lt;code class=&quot;highlighter-rouge&quot;&gt;FLUSH TABLES WITH READ LOCK&lt;/code&gt; for preparing &lt;code class=&quot;highlighter-rouge&quot;&gt;mysqldump&lt;/code&gt;, you must keep this session, and run &lt;code class=&quot;highlighter-rouge&quot;&gt;mysqldump&lt;/code&gt; in &lt;strong&gt;another session&lt;/strong&gt;.&lt;/li&gt;
+      &lt;li&gt;Because If you don’t keep, the &lt;code class=&quot;highlighter-rouge&quot;&gt;binlog&lt;/code&gt; and the &lt;code class=&quot;highlighter-rouge&quot;&gt;position&lt;/code&gt; of &lt;code class=&quot;highlighter-rouge&quot;&gt;binlog&lt;/code&gt; may be changed during this session&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Need discussion?&lt;/strong&gt;
+Go https://github.com/hieuhtr/Blog/issues/8&lt;/p&gt;
+</description>
+        <pubDate>Wed, 08 Mar 2017 00:00:00 +0700</pubDate>
+        <link>http://hieuhtr.github.io/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</guid>
+        
+        
+        <category>technical</category>
+        
+      </item>
+    
+      <item>
+        <title>What the Fuck Gilfoyle Does?</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;It’s not magic, it’s talent and sweat. People like me ensure your packets get delivered unsniffed. So what do I do? I make sure that one bad config on one key component doesn’t bankrupt the entire fucking company. That’s what the fuck I do&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Jared:&lt;/strong&gt; So, um, can you kinda catch me up on what you see as your role in the company? What do you do?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gilfoyle:&lt;/strong&gt; What do I do? System architecture, networking and security. No one in this house can touch me on that.&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;p&gt;&lt;strong&gt;Jared:&lt;/strong&gt; Okay, that’s good to know.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gilfoyle:&lt;/strong&gt; But does anybody appreciate that? While you were busy minoring in gender studies and singing a capella at Sarah Lawrence, I was gaining root access to NSA servers. I was one click away from starting a second Iranian Revolution.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Jared:&lt;/strong&gt; I actually went to Vassar.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gilfoyle:&lt;/strong&gt; I prevent cross-site scripting. 
+I monitor for DDoS attacks, emergency database rollbacks, and faulty transaction handlings. 
+The Internet - heard of it? - transfers half a petabyte of data minute; 
+do you have any idea how that happens? 
+All those YouPorn ones and zeroes streaming directly to your shitty little smartphone day after day, 
+every dipshit who shits his pants if he can’t get the new dubstep Skrillex remix in under twelve seconds?&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;h4 id=&quot;its-not-magic-its-talent-and-sweat&quot;&gt;It’s not magic, it’s talent and sweat.&lt;/h4&gt;
+  &lt;p&gt;&lt;strong&gt;Gilfoyle&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;People like me ensure your packets get delivered unsniffed. 
+So what do I do? 
+I makes sure that one bad config on one key component doesn’t bankrupt the entire fucking company. 
+That’s what the fuck I do.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Richard:&lt;/strong&gt; …That’s basically what I told him.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 20 Feb 2017 00:00:00 +0700</pubDate>
+        <link>http://hieuhtr.github.io/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</guid>
+        
+        
+        <category>mindset</category>
+        
+      </item>
+    
+      <item>
+        <title>How to apply evaluate opensource project?</title>
+        <description>&lt;p&gt;Get the most out of open source. Open source software is free for you to use and explore. 
+Get involved to perfect your craft and be part of something big - from &lt;a href=&quot;https://github.com/explore&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;question&quot;&gt;Question:&lt;/h4&gt;
+
+&lt;p&gt;Just want to ask how would you read / learn / evaluate an open source project to see whether it is suitable to apply to your current system? 
+Like what steps you guys taking, etc?&lt;/p&gt;
+
+&lt;h4 id=&quot;answer&quot;&gt;Answer:&lt;/h4&gt;
+
+&lt;!--description--&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Github stars/how old the open source/latest &lt;strong&gt;stable release&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;does it come from trustworthy organization (apache, good company..)&lt;/li&gt;
+  &lt;li&gt;does its well-documented and well-maintained&lt;/li&gt;
+  &lt;li&gt;Features/documents and community.&lt;/li&gt;
+  &lt;li&gt;is it actively developing (latest commit …)&lt;/li&gt;
+  &lt;li&gt;read through its document &amp;amp; samples&lt;/li&gt;
+  &lt;li&gt;try answer question: does it solve our problems?&lt;/li&gt;
+  &lt;li&gt;Github issues &amp;amp; code.&lt;/li&gt;
+  &lt;li&gt;Run small demo see how it works.&lt;/li&gt;
+  &lt;li&gt;make plan to apply it into internal system / execute plan&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 05 Feb 2017 00:00:00 +0700</pubDate>
+        <link>http://hieuhtr.github.io/technical/2017/02/05/apply-evaluate-opensource-project.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/02/05/apply-evaluate-opensource-project.html</guid>
+        
+        
+        <category>technical</category>
+        
+      </item>
+    
+      <item>
+        <title>How Homebrew works?</title>
+        <description>&lt;p&gt;Homebrew — The missing package manager for macOS. Here is the Official site: &lt;a href=&quot;https://brew.sh&quot;&gt;https://brew.sh&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;what-is-homebrew&quot;&gt;What is Homebrew?&lt;/h4&gt;
+
+&lt;p&gt;Homebrew is a package manager for OS X. It allows a user to easily install software from the larger body of UNIX and open source software on the Mac. 
+If you know linux, you can compare the &lt;strong&gt;brew&lt;/strong&gt; command with the &lt;strong&gt;apt-get&lt;/strong&gt; command (on Debian)&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Official site:&lt;/strong&gt; &lt;a href=&quot;https://brew.sh&quot;&gt;https://brew.sh&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Homebrew on Github:&lt;/strong&gt; &lt;a href=&quot;https://github.com/Homebrew/brew&quot;&gt;https://github.com/Homebrew/brew&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;how-to-install&quot;&gt;How to install?&lt;/h4&gt;
+
+&lt;p&gt;Open terminal or iterm2 on your Mac and paste this line at a Terminal prompt.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; /usr/bin/ruby -e &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;homebrew-walkthrough-by-example&quot;&gt;Homebrew Walkthrough by example&lt;/h4&gt;
+
+&lt;p&gt;Install Screenfetch using brew:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Screenfetch is a Fetches system/theme information in terminal for Linux desktop screenshots.&lt;/li&gt;
+  &lt;li&gt;It is a “Bash Screenshot Information Tool”. This handy Bash script can be used to generate one of those nifty terminal theme information + ASCII distribution logos you see in everyone’s screenshots nowadays. It will auto-detect your distribution and display an ASCII version of that distribution’s logo and some valuable information to the right. There are options to specify no ASCII art, colors, taking a screenshot upon displaying info, and even customizing the screenshot command! This script is very easy to add to and can easily be extended.&lt;/li&gt;
+  &lt;li&gt;Install Screenfetch: &lt;strong&gt;brew install screenfetch&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Now, you can use screenfetch command on your Mac&lt;/li&gt;
+  &lt;li&gt;More information about screenfetch, see here: https://github.com/KittyKatt/screenFetch&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Some packages of Linux that you can install on Mac using brew:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;wget, coreutils, gcc, imagemagick, geoip&lt;/li&gt;
+  &lt;li&gt;nmap https://nmap.org/&lt;/li&gt;
+  &lt;li&gt;sqlmap http://sqlmap.org/&lt;/li&gt;
+  &lt;li&gt;ncdu https://dev.yorhel.nl/ncdu&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See all on &lt;a href=&quot;http://brewformulas.org/&quot;&gt;Homebrew formulas index&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;how-it-works&quot;&gt;How it works?&lt;/h4&gt;
+
+&lt;p&gt;Overview:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Homebrew is based on Git and Ruby.&lt;/li&gt;
+  &lt;li&gt;The first time you install it, it’ll set things up in &lt;strong&gt;/usr/local/&lt;/strong&gt; by default&lt;/li&gt;
+  &lt;li&gt;Every time you run &lt;strong&gt;brew update&lt;/strong&gt; it does a &lt;strong&gt;git pull&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;You can check all information about package like htop, you can using &lt;strong&gt;brew desc htop&lt;/strong&gt; and &lt;strong&gt;brew info htop&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;DevOps at MacbookPro &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; /usr/local/Cellar/nmap/7.40
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew desc htop
+htop: Improved top &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;interactive process viewer&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+DevOps at MacbookPro &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; /usr/local/Cellar/nmap/7.40
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew info htop
+htop: stable 2.0.2 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;bottled&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, HEAD
+Improved top &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;interactive process viewer&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+https://hisham.hm/htop/
+Conflicts with: htop-osx
+/usr/local/Cellar/htop/2.0.2 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;10 files, 183.8K&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+  Poured from bottle on 2017-01-15 at 02:50:09
+From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/htop.rb
+&lt;span class=&quot;gp&quot;&gt;==&amp;gt; &lt;/span&gt;Dependencies
+Optional: homebrew/dupes/ncurses ✘
+&lt;span class=&quot;gp&quot;&gt;==&amp;gt; &lt;/span&gt;Options
+--with-ncurses
+	Build using homebrew ncurses &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;enables mouse scroll&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+--HEAD
+	Install HEAD version
+&lt;span class=&quot;gp&quot;&gt;==&amp;gt; &lt;/span&gt;Caveats
+htop requires root privileges to correctly display all running processes,
+so you will need to run &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;sudo htop&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;.
+You should be certain that you trust any software you grant root privileges.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;When you run &lt;strong&gt;brew install htop&lt;/strong&gt;, Homebrew fetches the URL (here that’s https://homebrew.bintray.com/bottles/htop-2.0.2.sierra.bottle.tar.gz) using &lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt; and stores the archive in a cache directory so you won’t download it twice&lt;/li&gt;
+  &lt;li&gt;It computes its checksum and compares it against the one the formula provides, to ensure you’re downloading the right file.&lt;/li&gt;
+  &lt;li&gt;Verifying &lt;strong&gt;htop-2.0.2.sierra.bottle.tar.gz&lt;/strong&gt; checksum: sha256 &lt;strong&gt;179be9dccb80cee0c5e1a1f58c8f72ce7b2328ede30fb71dcdf336539be2f487&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;The development cutting edge of htop is decribled in &lt;strong&gt;url “https://github.com/hishamhm/htop.git”&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;One package can depend on other formulae; have patches and external resources; download stuff from Git, SVN, Mercurial or through FTP; and more.&lt;/li&gt;
+  &lt;li&gt;Homebrew provide bottles (pre-built formulae); which are essentially formulae built by a bot then stored as a &lt;code class=&quot;highlighter-rouge&quot;&gt;.tar.gz&lt;/code&gt; on a server so that you can download them directly instead of re-building everything from source every time. Bottles are defined in formulae and brew install use them when they’re available.&lt;/li&gt;
+  &lt;li&gt;Need &lt;strong&gt;ncurses&lt;/strong&gt; before install &lt;strong&gt;htop&lt;/strong&gt; - optional&lt;/li&gt;
+  &lt;li&gt;Here is &lt;strong&gt;htop.rb&lt;/strong&gt;, it is a package definition written in Ruby. These formulae are Ruby files that describe the software they install and contain instructions to install and test it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Htop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Formula&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Improved top (interactive process viewer)&quot;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;homepage&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://hisham.hm/htop/&quot;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://hisham.hm/htop/releases/2.0.2/htop-2.0.2.tar.gz&quot;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;sha256&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;179be9dccb80cee0c5e1a1f58c8f72ce7b2328ede30fb71dcdf336539be2f487&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;bottle&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sha256&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;555ff188b1990fb0a5b4634beef196ed1fb843336b99cac33d0291d592d93233&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:sierra&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sha256&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;b13e6457905778a75d2627e1586e14ab20920001bed16b84c1fb64a258715741&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:el_capitan&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sha256&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;f50fd11325a34da989c268f1e4bb998c4b8415079c23a95c267088e9576bef3e&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:yosemite&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sha256&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;785c2806efe12a008c2fc958f567501e2931d2457261eed721ffae374f989498&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:mavericks&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://github.com/hishamhm/htop.git&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;depends_on&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;autoconf&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:build&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;depends_on&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;automake&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:build&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;depends_on&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;libtool&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:build&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;with-ncurses&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Build using homebrew ncurses (enables mouse scroll)&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;depends_on&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;homebrew/dupes/ncurses&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:optional&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;conflicts_with&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;htop-osx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:because&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;both install an `htop` binary&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;install&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./autogen.sh&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;head?&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./configure&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;--prefix=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prefix&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;make&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;install&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;caveats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;undent&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;htop&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requires&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;privileges&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;correctly&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;all&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;running&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;processes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
+    so you will need to run `sudo htop`.
+    You should be certain that you trust any software you grant root privileges.
+&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;    EOS&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pipe_output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/htop&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;q&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;reference&quot;&gt;Reference&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;https://www.quora.com/How-does-Homebrew-work-internally&lt;/li&gt;
+  &lt;li&gt;https://github.com/Homebrew/brew/blob/master/docs/Formula-Cookbook.md&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Sun, 15 Jan 2017 00:00:00 +0700</pubDate>
+        <link>http://hieuhtr.github.io/technical/2017/01/15/how-homebrew-works.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/01/15/how-homebrew-works.html</guid>
+        
+        
+        <category>technical</category>
+        
+      </item>
+    
+      <item>
+        <title>Note cho năm 2016</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Năm 2016 là đánh dấu rất nhiều biến chuyển cả về lối sống, suy nghĩ và cách hành động.
+Tổng kết 1 số thứ trong năm 2016, để sau này có cái mà nhìn lại:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;làm-được-học-được&quot;&gt;Làm được, học được:&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tự lên plan, tự suy nghĩ strategy của crawler, tự vẽ tự build được scalable architecture cho luận văn, bản thân cảm thấy rất tâm huyết cho công trình 1 năm. Thanks thím Linh đã đồng hành nửa năm đầu, thanks thím Cát đã đồng hành nửa năm sau, thanks chuỗi cf TCH vì là cái nơi để team đặt góc chiến lược ở đó&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!--description--&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Có việc làm, có nơi để trải nghiệm, học tập những kiến thức nền tảng và những công nghệ mới, có nơi để cống hiến sức trẻ, nhiệt huyết (ở Codebox - SalesHood).&lt;/li&gt;
+  &lt;li&gt;Become more fearless từ anh Ân&lt;/li&gt;
+  &lt;li&gt;Học được “Always know why you do what you do” từ anh Trí (nhưng chưa áp dụng triệt để, còn tệ quá)&lt;/li&gt;
+  &lt;li&gt;Học được nhiều thứ về cách optimize resource từ anh Bình, học được cách suy nghĩ về tư duy build product, tự cover mọi thứ, học được cách suy nghĩ là feature nào cũng có thể làm được của anh Quân (ở 3forcom)&lt;/li&gt;
+  &lt;li&gt;Đọc nhiều bài viết chất lượng từ quora, medium, kipalog. Unlike, unfollow những thứ nhảm nhí vớ vẩn trên social như facebook.&lt;/li&gt;
+  &lt;li&gt;Tham gia nhiều cộng đồng như grokking vietnam, vietnamrb, …  quen được, trò chuyện được với mấy anh (huydx, huytd, anhduy, xluffy, rebyn, checkraiser, …. ) Nhờ mấy anh này mà mới biết trình độ mình siêu tệ, cần improve rất nhiều. Được khai sáng là nên đào sâu về giải thuật, về kiến trúc hệ thống, về operating system,… hơn là chỉ quan tâm về framework, công nghệ ở bề mặt.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;chưa-làm-được-cần-cải-thiện&quot;&gt;Chưa làm được, cần cải thiện&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Đọc sách rất ít, phải nói là siêu ít, cuốn Antifragile mua cả năm mà chưa đọc xong nữa @@&lt;/li&gt;
+  &lt;li&gt;Những môn như Đồ hoạ máy tính (CG) méo hiểu học để làm gì và học như thế nào :(&lt;/li&gt;
+  &lt;li&gt;Về quê thăm ba mẹ ít&lt;/li&gt;
+  &lt;li&gt;Sống còn cảm tính, trẻ trâu, bốc đồng, chưa focus vô được trọng tâm&lt;/li&gt;
+  &lt;li&gt;Lười biếng, không ngó ngàng gì đến thể dục thể thao&lt;/li&gt;
+  &lt;li&gt;Tiếng Anh siêu tệ mà không có kế hoạch rõ ràng để cải thiện, cứ than vãn :(&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 08 Jan 2017 00:00:00 +0700</pubDate>
+        <link>http://hieuhtr.github.io/mindset/2017/01/08/Note-cho-nam-2016.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/mindset/2017/01/08/Note-cho-nam-2016.html</guid>
+        
+        
+        <category>mindset</category>
+        
+      </item>
+    
+      <item>
+        <title>Styles at a glance</title>
+        <description>&lt;p&gt;Simple is a beautiful but functional jekyll theme. The font-type setting looks really good when writers use CJK mixed with English.&lt;/p&gt;
+
+&lt;p&gt;First of all, let’s have a glance at the basic styles: &lt;a href=&quot;http://github.com/wild-flame/jekyll-simple&quot;&gt;link&lt;/a&gt;, &lt;strong&gt;strong&lt;/strong&gt;, &lt;em&gt;italic&lt;/em&gt;, &lt;del&gt;deletion&lt;/del&gt;, &lt;ins&gt;insertion&lt;/ins&gt;.&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;h3 id=&quot;headers&quot;&gt;Headers:&lt;/h3&gt;
+
+&lt;h1 id=&quot;header-1&quot;&gt;Header 1&lt;/h1&gt;
+
+&lt;h2 id=&quot;header-2&quot;&gt;Header 2&lt;/h2&gt;
+
+&lt;h3 id=&quot;header-3&quot;&gt;Header 3&lt;/h3&gt;
+
+&lt;h4 id=&quot;header-4&quot;&gt;Header 4&lt;/h4&gt;
+
+&lt;h5 id=&quot;header-5&quot;&gt;Header 5&lt;/h5&gt;
+
+&lt;h6 id=&quot;header-6&quot;&gt;Header 6&lt;/h6&gt;
+
+&lt;h3 id=&quot;lists&quot;&gt;Lists:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;list item 1&lt;/li&gt;
+  &lt;li&gt;list item 2&lt;/li&gt;
+  &lt;li&gt;list item 3&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;list item 1&lt;/li&gt;
+  &lt;li&gt;list item 2&lt;/li&gt;
+  &lt;li&gt;list item 3&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;blockquote&quot;&gt;Blockquote:&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;basscss-colors&quot;&gt;&lt;a href=&quot;http://www.basscss.com/&quot;&gt;BASSCSS&lt;/a&gt; colors:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;span class=&quot;black&quot;&gt;black&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;gray&quot;&gt;gray&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;silver&quot;&gt;silver&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;white&quot;&gt;white&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;aqua&quot;&gt;aqua&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;blue&quot;&gt;blue&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;navy&quot;&gt;navy&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;teal&quot;&gt;teal&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;green&quot;&gt;green&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;olive&quot;&gt;olive&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;lime&quot;&gt;lime&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;yellow&quot;&gt;yellow&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;orange&quot;&gt;orange&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;red&quot;&gt;red&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;fuchsia&quot;&gt;fuchsia&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;purple&quot;&gt;purple&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;maroon&quot;&gt;maroon&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;horizontal-rule&quot;&gt;Horizontal rule:&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;image&quot;&gt;Image:&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/image.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;table&quot;&gt;Table:&lt;/h3&gt;
+
+&lt;table&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;Name&lt;/th&gt;
+			&lt;th&gt;Age&lt;/th&gt;
+			&lt;th&gt;Fruit&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Alex&lt;/td&gt;
+			&lt;td&gt;22&lt;/td&gt;
+			&lt;td&gt;Apple&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Bran&lt;/td&gt;
+			&lt;td&gt;20&lt;/td&gt;
+			&lt;td&gt;Orange&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Mike&lt;/td&gt;
+			&lt;td&gt;21&lt;/td&gt;
+			&lt;td&gt;Waltermelon&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;code-snippet&quot;&gt;Code snippet&lt;/h3&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// index.js&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'foo'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 03 Jul 2016 00:00:00 +0700</pubDate>
+        <link>http://hieuhtr.github.io/technical/2016/07/03/styles-for-simple.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2016/07/03/styles-for-simple.html</guid>
+        
+        
+        <category>technical</category>
+        
+      </item>
+    
+      <item>
+        <title>Welcome to Jekyll!</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 19 Jun 2016 20:06:26 +0700</pubDate>
+        <link>http://hieuhtr.github.io/technical/2016/06/19/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2016/06/19/welcome-to-jekyll.html</guid>
+        
+        
+        <category>technical</category>
+        
+      </item>
+    
+  </channel>
+</rss>
