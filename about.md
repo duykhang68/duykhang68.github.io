@@ -6,8 +6,6 @@ permalink: /about/
 
 This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.
 
-Not necessarily in that order
-
 #### Where am I:
 
 * [Facebook](https://web.facebook.com/huynhtrunghieu.cs)
