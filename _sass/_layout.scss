@@ -54,6 +54,7 @@ body {
 .logo {
   margin-bottom:12.5px;
   font-weight:$font-weight-bold;
+  background-color: #F7F7F7;
 }
 .logo a {
   -webkit-transition:.4s;
@@ -186,6 +187,11 @@ input#menu-toggle {
 
 .post_header {
   margin-bottom:1rem;
+  background-color: #F7F7F7;
+}
+
+.article_header {
+  background-color: #F7F7F7;
 }
 
 .post_title {

@@ -931,7 +931,8 @@ body {
 
 .logo {
   margin-bottom: 12.5px;
-  font-weight: 600; }
+  font-weight: 600;
+  background-color: #F7F7F7; }
 
 .logo a {
   -webkit-transition: .4s;
@@ -1027,7 +1028,11 @@ input#menu-toggle {
     font-weight: 400; }
 
 .post_header {
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  background-color: #F7F7F7; }
+
+.article_header {
+  background-color: #F7F7F7; }
 
 .post_title {
   margin-bottom: 0.5rem; }
