@@ -565,7 +565,7 @@ h1 {
   font-size: 2.2rem;
   line-height: 1.2;
   letter-spacing: 0rem;
-  color: #ff6600; }
+  color: #e47911; }
 
 h2 {
   font-size: 2.0rem;
@@ -620,7 +620,7 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #ff6600;
+  color: #e47911;
   text-decoration: none;
   -webkit-transition: color .4s;
   transition: color .4s; }
@@ -886,7 +886,7 @@ blockquote {
   line-height: 1.8rem;
   border-left: 4px solid #D0E5F2;
   font-size: 1.45rem;
-  color: #156963; }
+  color: #0087CC; }
 
 /* layout */
 html, .container {
