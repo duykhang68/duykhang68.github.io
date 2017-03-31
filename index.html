@@ -20,7 +20,7 @@ title: Hieu's blog
           {% else %}
           {{ post.excerpt }}
           {% endif %} 
-          <a class="read-more" href="{{ post.url | prepend: site.baseurl }}"> ... more  </a>
+          <a class="read-more" href="{{ post.url | prepend: site.baseurl }}"> ❯❯❯ MORE  </a>
         </p> 
       </div>
       <footer class="post_meta">
@@ -57,6 +57,6 @@ title: Hieu's blog
     </article>
     {% endfor %}
 
-    <div class="pagination older-post"><a href="./archive"><data data-icon="ei-arrow-right"></data> Archive  </a></div>
+    <div class="pagination older-post"><a href="./archive"><data data-icon="ei-arrow-right"></data> All posts</a></div>
   </div>
 </div>
