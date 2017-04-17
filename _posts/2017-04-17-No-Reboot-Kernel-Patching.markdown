@@ -25,7 +25,7 @@ Most important: kpatch ensures that hot patches are applied atomically and safel
 
 ![With live patching in place, calls to patched kernel functions invoke their replacement counterparts](/assets/img/kpatch-how-it-works.png)
 
-Read more at: https://www.youtube.com/watch?v=juyQ5TsJRTA
+Read more at: [https://www.youtube.com/watch?v=juyQ5TsJRTA](https://www.youtube.com/watch?v=juyQ5TsJRTA)
 
 ### How about kGraft, how it work?
 - **kGraft**, on the other hand, handles each thread one by one, as they make system calls (without forcing them to freeze first) until all of the threads are running the patched code. At this point, the patch is fully installed and the old code is replaced. This process takes longer to complete the patch, but it does it without any downtime
@@ -33,8 +33,8 @@ Read more at: https://www.youtube.com/watch?v=juyQ5TsJRTA
 !["World views" or "universes", maintained by kGraft in a read-copy-update fashion](/assets/img/kGraft-how-it-works.png)
 
 ### Reference: 
-1. https://en.wikipedia.org/wiki/Kpatch
-2. http://www.linuxjournal.com/content/no-reboot-kernel-patching-and-why-you-should-care
-3. https://github.com/dynup/kpatch
-4. https://en.wikipedia.org/wiki/KGraft
-5. https://www.suse.com/communities/blog/kgraft-live-kernel-patching/
+1. [https://en.wikipedia.org/wiki/Kpatch](https://en.wikipedia.org/wiki/Kpatch)
+2. [http://www.linuxjournal.com/content/no-reboot-kernel-patching-and-why-you-should-care](http://www.linuxjournal.com/content/no-reboot-kernel-patching-and-why-you-should-care)
+3. [https://github.com/dynup/kpatch](https://github.com/dynup/kpatch)
+4. [https://en.wikipedia.org/wiki/KGraft](https://en.wikipedia.org/wiki/KGraft)
+5. [https://www.suse.com/communities/blog/kgraft-live-kernel-patching/](https://www.suse.com/communities/blog/kgraft-live-kernel-patching/)

@@ -5,8 +5,8 @@
     <description></description>
     <link>http://hieuhtr.github.io/</link>
     <atom:link href="http://hieuhtr.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 17 Apr 2017 22:45:11 +0700</pubDate>
-    <lastBuildDate>Mon, 17 Apr 2017 22:45:11 +0700</lastBuildDate>
+    <pubDate>Mon, 17 Apr 2017 22:58:16 +0700</pubDate>
+    <lastBuildDate>Mon, 17 Apr 2017 22:58:16 +0700</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -37,7 +37,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/kpatch-how-it-works.png&quot; alt=&quot;With live patching in place, calls to patched kernel functions invoke their replacement counterparts&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Read more at: https://www.youtube.com/watch?v=juyQ5TsJRTA&lt;/p&gt;
+&lt;p&gt;Read more at: &lt;a href=&quot;https://www.youtube.com/watch?v=juyQ5TsJRTA&quot;&gt;https://www.youtube.com/watch?v=juyQ5TsJRTA&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;how-about-kgraft-how-it-work&quot;&gt;How about kGraft, how it work?&lt;/h3&gt;
 &lt;ul&gt;
@@ -48,11 +48,11 @@
 
 &lt;h3 id=&quot;reference&quot;&gt;Reference:&lt;/h3&gt;
 &lt;ol&gt;
-  &lt;li&gt;https://en.wikipedia.org/wiki/Kpatch&lt;/li&gt;
-  &lt;li&gt;http://www.linuxjournal.com/content/no-reboot-kernel-patching-and-why-you-should-care&lt;/li&gt;
-  &lt;li&gt;https://github.com/dynup/kpatch&lt;/li&gt;
-  &lt;li&gt;https://en.wikipedia.org/wiki/KGraft&lt;/li&gt;
-  &lt;li&gt;https://www.suse.com/communities/blog/kgraft-live-kernel-patching/&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Kpatch&quot;&gt;https://en.wikipedia.org/wiki/Kpatch&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.linuxjournal.com/content/no-reboot-kernel-patching-and-why-you-should-care&quot;&gt;http://www.linuxjournal.com/content/no-reboot-kernel-patching-and-why-you-should-care&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/dynup/kpatch&quot;&gt;https://github.com/dynup/kpatch&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/KGraft&quot;&gt;https://en.wikipedia.org/wiki/KGraft&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.suse.com/communities/blog/kgraft-live-kernel-patching/&quot;&gt;https://www.suse.com/communities/blog/kgraft-live-kernel-patching/&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 17 Apr 2017 00:00:00 +0700</pubDate>
