@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>No Reboot Kernel patching</title>
+  <meta name="description" content="Why we need patching linux kernel?  Kernel patches are released for a number of reasons, but fixing security holes is the most frequent reason. This is why i...">
+
+  <!-- todo: include this into main.css -->
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://hieuhtr.github.io/technical/2017/04/17/No-Reboot-Kernel-Patching.html">
+  <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="http://hieuhtr.github.io/feed.xml">
+</head>
+
+  <body>
+    <div class="page-content">
+      <div class="container">
+        <div class="three columns">
+          <header class="site-header">
+
+  <h2 class="logo"><a href="/">Hieu's blog</a></h2>
+
+  <div class="nav">
+    
+    <label for="menu-toggle" class="menu-icon">
+        <!--div data-icon="ei-navicon"></div-->
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+    </label>
+    <input type="checkbox" id="menu-toggle">
+
+    <div class="site-nav">
+      <nav>
+        <ul class="page-link">
+          <li><a href="/">Home</a></li>
+          <li><a href="/archive">Posts</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</header>
+
+        </div>
+
+        <div class="nine columns" style="z-index:100;">
+          <div class="wrapper">
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="article_header">
+    <h2 class="post_title" itemprop="name headline">No Reboot Kernel patching</h1>
+    <time class="post_date">17 April 2017, Monday</time>
+  </header>
+
+  <div class="article-content" itemprop="articleBody">
+    <h3 id="why-we-need-patching-linux-kernel">Why we need patching linux kernel?</h3>
+<ul>
+  <li>Kernel patches are released for a number of reasons, but fixing security holes is the most frequent reason. This is why it’s important to install the patch as soon as possible.</li>
+  <li>Unlike other operating systems, Linux is able to update many different parts of the system without a reboot, but the kernel is different. Every running process integrates with the kernel intimately, so switching out parts of the kernel while it is running is quite risky. So, When the kernel is updated via a patch, the system needs to <code class="highlighter-rouge">reboot</code></li>
+</ul>
+
+<!--description-->
+
+<h3 id="no-reboot-kernel-patching">“No Reboot” Kernel patching</h3>
+<ul>
+  <li>On the other hand, rebooting the computer is irksome, and in some cases, where uptime is important, it can be a real issue. This is why “no reboot” kernel patching has been a priority for many administrators.</li>
+  <li>Some servers and critical real-time applications must not be taken down without advanced scheduling, even for a few minutes. This can be a pain when administrators need to keep the system secure and a patch is released to repair a newly discovered security hole. In this case, no-reboot patching becomes a real boon</li>
+  <li>Recognizing this need, <strong>Red Hat</strong> has been working on <code class="highlighter-rouge">kpatch</code>, and <code class="highlighter-rouge">SUSE</code> has been working on <code class="highlighter-rouge">kGraft</code>. Both of these programs are designed to accomplish the same task, but they take a different approach and have different strengths.</li>
+  <li>But this doesn’t mean that system reboots are gone forever. Even on a system with the Linux 4.0 kernel, there will be security updates that still require a reboot, because there are other non-kernel components that can require patching, and some of these require a reboot as part of the process.</li>
+</ul>
+
+<h3 id="how-kpatch-works">How Kpatch works?</h3>
+<ul>
+  <li><strong>kpatch</strong> is a Linux dynamic kernel patching infrastructure which allows you to patch a running kernel without rebooting or restarting any processes.</li>
+  <li><strong>Kpatch</strong> freezes every process and then reroutes system calls from the old kernel functions to the new, patched functions, before removing the old code. Because it handles every running process in one sweeping move, it runs quite fast - one to forty milliseconds and it’s done. However, during this time the processes are frozen, <code class="highlighter-rouge">which means there is some downtime</code> - a mere fraction of a second, but in certain situations, that may be unacceptable.</li>
+</ul>
+
+<p>Most important: kpatch ensures that hot patches are applied atomically and safely by <code class="highlighter-rouge">stopping all running processes</code> while the hot patch is applied, and by ensuring that none of the stopped processes is running inside the functions that are to be patched</p>
+
+<p><img src="/assets/img/kpatch-how-it-works.png" alt="With live patching in place, calls to patched kernel functions invoke their replacement counterparts" /></p>
+
+<p>Read more at: https://www.youtube.com/watch?v=juyQ5TsJRTA</p>
+
+<h3 id="how-about-kgraft-how-it-work">How about kGraft, how it work?</h3>
+<ul>
+  <li><strong>kGraft</strong>, on the other hand, handles each thread one by one, as they make system calls (without forcing them to freeze first) until all of the threads are running the patched code. At this point, the patch is fully installed and the old code is replaced. This process takes longer to complete the patch, but it does it without any downtime</li>
+</ul>
+
+<p><img src="/assets/img/kGraft-how-it-works.png" alt="&quot;World views&quot; or &quot;universes&quot;, maintained by kGraft in a read-copy-update fashion" /></p>
+
+<h3 id="reference">Reference:</h3>
+<ol>
+  <li>https://en.wikipedia.org/wiki/Kpatch</li>
+  <li>http://www.linuxjournal.com/content/no-reboot-kernel-patching-and-why-you-should-care</li>
+  <li>https://github.com/dynup/kpatch</li>
+  <li>https://en.wikipedia.org/wiki/KGraft</li>
+  <li>https://www.suse.com/communities/blog/kgraft-live-kernel-patching/</li>
+</ol>
+
+  </div>
+
+  <footer class="article-footer">
+
+  <section class="share">
+  <a class="share-link" href="" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+    Twitter
+  </a>
+  <a class="share-link" href="" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+    Facebook
+  </a>
+</section>
+
+
+  <hr/>
+
+  <section class="author">
+  <div class="authorimage box" style="background: url(/assets/img/avatar2017.jpg)"></div>
+  <div class="authorinfo box">
+    <p>ABOUT ME</p>
+    <p class="bio">
+      My name is Hieu. I'm an Engineer who likes learning, discussing, and solving interesting problems. These days, I'm focusing on DevOps and Infrastructure.
+    </p>
+  </div>
+</section>
+
+
+  </footer>
+
+  
+
+
+</article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
