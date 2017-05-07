@@ -3,11 +3,43 @@
   <channel>
     <title>Hieu's blog</title>
     <description></description>
-    <link>http://hieuhtr.github.io/</link>
-    <atom:link href="http://hieuhtr.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 17 Apr 2017 22:58:16 +0700</pubDate>
-    <lastBuildDate>Mon, 17 Apr 2017 22:58:16 +0700</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 07 May 2017 17:40:52 +0700</pubDate>
+    <lastBuildDate>Sun, 07 May 2017 17:40:52 +0700</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>Who are we seeking to become?</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;behavior will become part of you&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We get what we invest in. The time we spend comes back, with interest.&lt;/p&gt;
+
+&lt;p&gt;If you practice five minutes of new, difficult banjo music &lt;code class=&quot;highlighter-rouge&quot;&gt;every day&lt;/code&gt;, you’ll become a &lt;code class=&quot;highlighter-rouge&quot;&gt;better&lt;/code&gt; banjo player. If you spend a little bit more time each day &lt;code class=&quot;highlighter-rouge&quot;&gt;whining&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;feeling ashamed&lt;/code&gt;, that behavior will become part of you. The words you type, the people you hang with, the media you consume…&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;p&gt;The difference between who you are now and who you were five years ago is largely due to how you’ve spent your time along the way.&lt;/p&gt;
+
+&lt;p&gt;The habits we groove become who we are, one minute at a time.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;A small thing, repeated, is not a small thing.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And the same thing is true for brands, organizations and movements.&lt;/p&gt;
+
+&lt;p&gt;From &lt;a href=&quot;http://sethgodin.typepad.com/seths_blog/2017/04/who-are-we-seeking-to-become.html&quot;&gt;sethgodin&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 07 May 2017 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/mindset/2017/05/07/Who-are-we-seeking-to-become.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/05/07/Who-are-we-seeking-to-become.html</guid>
+        
+        
+        <category>mindset</category>
+        
+      </item>
     
       <item>
         <title>No Reboot Kernel patching</title>
@@ -56,8 +88,8 @@
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 17 Apr 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/technical/2017/04/17/No-Reboot-Kernel-Patching.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/04/17/No-Reboot-Kernel-Patching.html</guid>
+        <link>http://localhost:4000/technical/2017/04/17/No-Reboot-Kernel-Patching.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/04/17/No-Reboot-Kernel-Patching.html</guid>
         
         
         <category>technical</category>
@@ -154,8 +186,8 @@
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 09 Apr 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/technical/2017/04/09/How-DNS-works.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/04/09/How-DNS-works.html</guid>
+        <link>http://localhost:4000/technical/2017/04/09/How-DNS-works.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/04/09/How-DNS-works.html</guid>
         
         
         <category>technical</category>
@@ -202,8 +234,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 12 Mar 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/mindset/2017/03/12/habit-time-management.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/mindset/2017/03/12/habit-time-management.html</guid>
+        <link>http://localhost:4000/mindset/2017/03/12/habit-time-management.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/03/12/habit-time-management.html</guid>
         
         
         <category>mindset</category>
@@ -263,8 +295,8 @@
 Go https://github.com/hieuhtr/Blog/issues/8&lt;/p&gt;
 </description>
         <pubDate>Wed, 08 Mar 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</guid>
+        <link>http://localhost:4000/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</guid>
         
         
         <category>technical</category>
@@ -309,8 +341,8 @@ That’s what the fuck I do.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Richard:&lt;/strong&gt; …That’s basically what I told him.&lt;/p&gt;
 </description>
         <pubDate>Mon, 20 Feb 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</guid>
+        <link>http://localhost:4000/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</guid>
         
         
         <category>mindset</category>
@@ -345,8 +377,8 @@ Like what steps you guys taking, etc?&lt;/p&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 05 Feb 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/technical/2017/02/05/apply-evaluate-opensource-project.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/02/05/apply-evaluate-opensource-project.html</guid>
+        <link>http://localhost:4000/technical/2017/02/05/apply-evaluate-opensource-project.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/02/05/apply-evaluate-opensource-project.html</guid>
         
         
         <category>technical</category>
@@ -501,8 +533,8 @@ You should be certain that you trust any software you grant root privileges.
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 15 Jan 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/technical/2017/01/15/how-homebrew-works.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/01/15/how-homebrew-works.html</guid>
+        <link>http://localhost:4000/technical/2017/01/15/how-homebrew-works.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/01/15/how-homebrew-works.html</guid>
         
         
         <category>technical</category>
@@ -545,8 +577,8 @@ Tổng kết 1 số thứ trong năm 2016, để sau này có cái mà nhìn l�
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 08 Jan 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/mindset/2017/01/08/Note-cho-nam-2016.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/mindset/2017/01/08/Note-cho-nam-2016.html</guid>
+        <link>http://localhost:4000/mindset/2017/01/08/Note-cho-nam-2016.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/01/08/Note-cho-nam-2016.html</guid>
         
         
         <category>mindset</category>
