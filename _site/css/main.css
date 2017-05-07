@@ -1130,7 +1130,8 @@ body.custom-background {
   font-variant: small-caps; }
   .category-name h2 {
     letter-spacing: 0;
-    border-bottom: 1px solid #ddd; }
+    border-bottom: 1px solid #ddd;
+    color: #0087CC; }
 
 div.post_title span.date {
   font-size: 80%;
