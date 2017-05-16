@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Friends
-permalink: /Friends/
+permalink: /friends/
 ---
 
 #### Here are a couple of sites I would recommend you to check out.
