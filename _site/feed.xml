@@ -3,11 +3,86 @@
   <channel>
     <title>Hieu's blog</title>
     <description></description>
-    <link>http://hieuhtr.github.io/</link>
-    <atom:link href="http://hieuhtr.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 16 May 2017 21:38:55 +0700</pubDate>
-    <lastBuildDate>Tue, 16 May 2017 21:38:55 +0700</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 21 May 2017 13:29:45 +0700</pubDate>
+    <lastBuildDate>Sun, 21 May 2017 13:29:45 +0700</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>Ways to get more things done</title>
+        <description>&lt;p&gt;&lt;strong&gt;Let’s define productivity&lt;/strong&gt;. Productivity is a measure of efficiency of a person completing a task. We often assume that productivity means getting more things done each day. Wrong. Productivity is getting important things done consistently. And no matter what you are working on, there are only a &lt;code class=&quot;highlighter-rouge&quot;&gt;few things&lt;/code&gt; that are &lt;code class=&quot;highlighter-rouge&quot;&gt;truly important&lt;/code&gt;. Being productive is about maintaining a steady, average speed on a few things, not maximum speed on everything.&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;h2 id=&quot;warren-buffetts-2-list-strategy-for-focused-attention&quot;&gt;Warren Buffett’s “2 List” Strategy for Focused Attention&lt;/h2&gt;
+&lt;p&gt;Buffett uses a simple 3-step productivity strategy to help his employees determine their priorities and actions. You may find this method useful for making decisions and getting yourself to commit to doing one thing right away&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 1:&lt;/strong&gt; Write down your top &lt;code class=&quot;highlighter-rouge&quot;&gt;25 career goals&lt;/code&gt;. Or you could also complete this exercise with goals for a shorter timeline. For example, write down the top 25 things you want to &lt;code class=&quot;highlighter-rouge&quot;&gt;accomplish this week&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 2:&lt;/strong&gt; Review this list and circle top &lt;strong&gt;5 goals&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 3:&lt;/strong&gt; Start working on top 5 goals right away. Everything in 20 things that you didn’t circle just became your avoid-At-All-Cost list.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;No matter what, these things get no attention from you until you’ve succeeded with your top 5&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/one-goal.jpg&quot; alt=&quot;Goal&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;ivy-lees-simple-method-for-achieving-peak-productivity&quot;&gt;Ivy Lee’s simple method for achieving peak productivity:&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;At the end of each work day, write down the six most important things you need to accomplish tomorrow. Do not write down more than six tasks.&lt;/li&gt;
+  &lt;li&gt;Prioritize those six items in order of their true importance.&lt;/li&gt;
+  &lt;li&gt;When you arrive tomorrow, concentrate only on the first task. Work until the first task is finished before moving on to the second task.&lt;/li&gt;
+  &lt;li&gt;Approach the rest of your list in the same fashion. At the end of the day, move any unfinished items to a new list of six tasks for the following day.&lt;/li&gt;
+  &lt;li&gt;Repeat this process every working day.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;the-eisenhower-box-how-to-be-more-productive&quot;&gt;The Eisenhower Box: How to be More Productive&lt;/h2&gt;
+&lt;p&gt;Using the decision matrix for taking action and organizing your tasks.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Urgent and important (tasks you will do immediately).&lt;/li&gt;
+  &lt;li&gt;Important, but not urgent (tasks you will schedule to do later).&lt;/li&gt;
+  &lt;li&gt;Urgent, but not important (tasks you will delegate to someone else).&lt;/li&gt;
+  &lt;li&gt;Neither urgent nor important (tasks that you will eliminate).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/eisenhower-box.jpg&quot; alt=&quot;Eisenhower Box&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;something-more&quot;&gt;Something more&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Technically, we are capable of doing 2 things at the same time.&lt;/li&gt;
+  &lt;li&gt;What’s imposible? is concerntrating on two tasks at once. During any single instant, you are concertrating on one or the other.&lt;/li&gt;
+  &lt;li&gt;Most people don’t have trouble with focusing. They have trouble with deciding.&lt;/li&gt;
+  &lt;li&gt;Most healthy humans have a brain that is capable of focusing if we get the distractions out of the way.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Have you ever had a task that you absolutely had to get done? What happened? You got it done because the deadline made the decision for you. Maybe you procrastinated beforehand, but once things became urgent and you were forced to make a decision, you took action.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It doesn’t matter how long your goal will take, just get started.&lt;/li&gt;
+  &lt;li&gt;Turning the temperature down or moving to a cooler place is an easy way to focus your mind and body.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;Reference:&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://jamesclear.com/ivy-lee&quot;&gt;http://jamesclear.com/ivy-lee&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://jamesclear.com/focus&quot;&gt;http://jamesclear.com/focus&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://jamesclear.com/eisenhower-box&quot;&gt;http://jamesclear.com/eisenhower-box&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Sun, 21 May 2017 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/mindset/2017/05/21/Show-me-a-way-to-get-more-things-done.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/05/21/Show-me-a-way-to-get-more-things-done.html</guid>
+        
+        
+        <category>mindset</category>
+        
+      </item>
     
       <item>
         <title>Who are we seeking to become?</title>
@@ -33,8 +108,8 @@
 &lt;p&gt;From &lt;a href=&quot;http://sethgodin.typepad.com/seths_blog/2017/04/who-are-we-seeking-to-become.html&quot;&gt;sethgodin&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 07 May 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/mindset/2017/05/07/Who-are-we-seeking-to-become.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/mindset/2017/05/07/Who-are-we-seeking-to-become.html</guid>
+        <link>http://localhost:4000/mindset/2017/05/07/Who-are-we-seeking-to-become.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/05/07/Who-are-we-seeking-to-become.html</guid>
         
         
         <category>mindset</category>
@@ -88,8 +163,8 @@
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 17 Apr 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/technical/2017/04/17/No-Reboot-Kernel-Patching.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/04/17/No-Reboot-Kernel-Patching.html</guid>
+        <link>http://localhost:4000/technical/2017/04/17/No-Reboot-Kernel-Patching.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/04/17/No-Reboot-Kernel-Patching.html</guid>
         
         
         <category>technical</category>
@@ -186,8 +261,8 @@
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 09 Apr 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/technical/2017/04/09/How-DNS-works.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/04/09/How-DNS-works.html</guid>
+        <link>http://localhost:4000/technical/2017/04/09/How-DNS-works.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/04/09/How-DNS-works.html</guid>
         
         
         <category>technical</category>
@@ -234,8 +309,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 12 Mar 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/mindset/2017/03/12/habit-time-management.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/mindset/2017/03/12/habit-time-management.html</guid>
+        <link>http://localhost:4000/mindset/2017/03/12/habit-time-management.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/03/12/habit-time-management.html</guid>
         
         
         <category>mindset</category>
@@ -295,8 +370,8 @@
 Go https://github.com/hieuhtr/Blog/issues/8&lt;/p&gt;
 </description>
         <pubDate>Wed, 08 Mar 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</guid>
+        <link>http://localhost:4000/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</guid>
         
         
         <category>technical</category>
@@ -341,8 +416,8 @@ That’s what the fuck I do.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Richard:&lt;/strong&gt; …That’s basically what I told him.&lt;/p&gt;
 </description>
         <pubDate>Mon, 20 Feb 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</guid>
+        <link>http://localhost:4000/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</guid>
         
         
         <category>mindset</category>
@@ -377,8 +452,8 @@ Like what steps you guys taking, etc?&lt;/p&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 05 Feb 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/technical/2017/02/05/apply-evaluate-opensource-project.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/02/05/apply-evaluate-opensource-project.html</guid>
+        <link>http://localhost:4000/technical/2017/02/05/apply-evaluate-opensource-project.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/02/05/apply-evaluate-opensource-project.html</guid>
         
         
         <category>technical</category>
@@ -533,8 +608,8 @@ You should be certain that you trust any software you grant root privileges.
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 15 Jan 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/technical/2017/01/15/how-homebrew-works.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/01/15/how-homebrew-works.html</guid>
+        <link>http://localhost:4000/technical/2017/01/15/how-homebrew-works.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/01/15/how-homebrew-works.html</guid>
         
         
         <category>technical</category>
@@ -577,8 +652,8 @@ Tổng kết 1 số thứ trong năm 2016, để sau này có cái mà nhìn l�
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 08 Jan 2017 00:00:00 +0700</pubDate>
-        <link>http://hieuhtr.github.io/mindset/2017/01/08/Note-cho-nam-2016.html</link>
-        <guid isPermaLink="true">http://hieuhtr.github.io/mindset/2017/01/08/Note-cho-nam-2016.html</guid>
+        <link>http://localhost:4000/mindset/2017/01/08/Note-cho-nam-2016.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/01/08/Note-cho-nam-2016.html</guid>
         
         
         <category>mindset</category>

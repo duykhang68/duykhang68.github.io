@@ -11,8 +11,8 @@
   <!-- todo: include this into main.css -->
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://hieuhtr.github.io/">
-  <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="http://hieuhtr.github.io/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="http://localhost:4000/feed.xml">
 </head>
 
   <body>
@@ -56,6 +56,45 @@
             <div class="home">
   <div class="post-list">
 
+    
+
+    <article class="post_card post">
+      <header class="post_header">
+        <h2 class="post_title"><a href="/mindset/2017/05/21/Show-me-a-way-to-get-more-things-done.html">Ways to get more things done</a></h2>
+        <time class="post_date">21 May 2017, Sunday</time>
+      </header>
+      <div class="post_excerpt">
+        <p>
+          
+          <p><strong>Let’s define productivity</strong>. Productivity is a measure of efficiency of a person completing a task. We often assume that productivity means getting more things done each day. Wrong. Productivity is getting important things done consistently. And no matter what you are working on, there are only a <code class="highlighter-rouge">few things</code> that are <code class="highlighter-rouge">truly important</code>. Being productive is about maintaining a steady, average speed on a few things, not maximum speed on everything.</p>
+
+
+           
+          <a class="read-more" href="/mindset/2017/05/21/Show-me-a-way-to-get-more-things-done.html"> ❯❯❯ MORE  </a>
+        </p> 
+      </div>
+      <footer class="post_meta">
+
+
+        
+        <!--
+        
+        <a href="/category/mindset">
+          <data data-icon="ei-archive"></data>
+          mindset</a>
+        
+        -->
+
+        <!--
+        
+        -->
+
+        <!--p class="readmore">
+          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
+        </p-->
+      </footer>
+      <hr/>
+    </article>
     
 
     <article class="post_card post">
@@ -244,55 +283,6 @@
         <a href="/category/mindset">
           <data data-icon="ei-archive"></data>
           mindset</a>
-        
-        -->
-
-        <!--
-        
-        -->
-
-        <!--p class="readmore">
-          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
-        </p-->
-      </footer>
-      <hr/>
-    </article>
-    
-
-    <article class="post_card post">
-      <header class="post_header">
-        <h2 class="post_title"><a href="/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html">What is FLUSH TABLES WITH READ LOCK in MySQL?</a></h2>
-        <time class="post_date">08 March 2017, Wednesday</time>
-      </header>
-      <div class="post_excerpt">
-        <p>
-          
-          <p><strong>Command:</strong></p>
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">FLUSH</span> <span class="n">TABLES</span> <span class="k">WITH</span> <span class="k">READ</span> <span class="k">LOCK</span><span class="p">;</span>
-</code></pre>
-</div>
-<p><strong>What exactly does command do?</strong></p>
-
-<ol>
-  <li>Set the global read lock - after this step, <code class="highlighter-rouge">insert/update/delete/replace/alter statements</code> cannot run</li>
-  <li>Close open tables - this step will block until all statements started previously have stopped</li>
-  <li>Set a flag to block commits</li>
-</ol>
-
-
-           
-          <a class="read-more" href="/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html"> ❯❯❯ MORE  </a>
-        </p> 
-      </div>
-      <footer class="post_meta">
-
-
-        
-        <!--
-        
-        <a href="/category/technical">
-          <data data-icon="ei-archive"></data>
-          technical</a>
         
         -->
 
