@@ -3,10 +3,10 @@
   <channel>
     <title>Hieu's blog</title>
     <description></description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 25 May 2017 21:27:59 +0700</pubDate>
-    <lastBuildDate>Thu, 25 May 2017 21:27:59 +0700</lastBuildDate>
+    <link>http://hieuhtr.github.io/</link>
+    <atom:link href="http://hieuhtr.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 26 May 2017 00:08:32 +0700</pubDate>
+    <lastBuildDate>Fri, 26 May 2017 00:08:32 +0700</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -76,8 +76,8 @@
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 21 May 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/mindset/2017/05/21/Show-me-a-way-to-get-more-things-done.html</link>
-        <guid isPermaLink="true">http://localhost:4000/mindset/2017/05/21/Show-me-a-way-to-get-more-things-done.html</guid>
+        <link>http://hieuhtr.github.io/mindset/2017/05/21/Show-me-a-way-to-get-more-things-done.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/mindset/2017/05/21/Show-me-a-way-to-get-more-things-done.html</guid>
         
         
         <category>mindset</category>
@@ -108,8 +108,8 @@
 &lt;p&gt;From &lt;a href=&quot;http://sethgodin.typepad.com/seths_blog/2017/04/who-are-we-seeking-to-become.html&quot;&gt;sethgodin&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 07 May 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/mindset/2017/05/07/Who-are-we-seeking-to-become.html</link>
-        <guid isPermaLink="true">http://localhost:4000/mindset/2017/05/07/Who-are-we-seeking-to-become.html</guid>
+        <link>http://hieuhtr.github.io/mindset/2017/05/07/Who-are-we-seeking-to-become.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/mindset/2017/05/07/Who-are-we-seeking-to-become.html</guid>
         
         
         <category>mindset</category>
@@ -163,8 +163,8 @@
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 17 Apr 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/04/17/No-Reboot-Kernel-Patching.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/04/17/No-Reboot-Kernel-Patching.html</guid>
+        <link>http://hieuhtr.github.io/technical/2017/04/17/No-Reboot-Kernel-Patching.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/04/17/No-Reboot-Kernel-Patching.html</guid>
         
         
         <category>technical</category>
@@ -261,8 +261,8 @@
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 09 Apr 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/04/09/How-DNS-works.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/04/09/How-DNS-works.html</guid>
+        <link>http://hieuhtr.github.io/technical/2017/04/09/How-DNS-works.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/04/09/How-DNS-works.html</guid>
         
         
         <category>technical</category>
@@ -309,8 +309,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 12 Mar 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/mindset/2017/03/12/habit-time-management.html</link>
-        <guid isPermaLink="true">http://localhost:4000/mindset/2017/03/12/habit-time-management.html</guid>
+        <link>http://hieuhtr.github.io/mindset/2017/03/12/habit-time-management.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/mindset/2017/03/12/habit-time-management.html</guid>
         
         
         <category>mindset</category>
@@ -370,8 +370,8 @@
 Go https://github.com/hieuhtr/Blog/issues/8&lt;/p&gt;
 </description>
         <pubDate>Wed, 08 Mar 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</guid>
+        <link>http://hieuhtr.github.io/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</guid>
         
         
         <category>technical</category>
@@ -416,8 +416,8 @@ That’s what the fuck I do.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Richard:&lt;/strong&gt; …That’s basically what I told him.&lt;/p&gt;
 </description>
         <pubDate>Mon, 20 Feb 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</link>
-        <guid isPermaLink="true">http://localhost:4000/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</guid>
+        <link>http://hieuhtr.github.io/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</guid>
         
         
         <category>mindset</category>
@@ -452,8 +452,8 @@ Like what steps you guys taking, etc?&lt;/p&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 05 Feb 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/02/05/apply-evaluate-opensource-project.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/02/05/apply-evaluate-opensource-project.html</guid>
+        <link>http://hieuhtr.github.io/technical/2017/02/05/apply-evaluate-opensource-project.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/02/05/apply-evaluate-opensource-project.html</guid>
         
         
         <category>technical</category>
@@ -608,8 +608,8 @@ You should be certain that you trust any software you grant root privileges.
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 15 Jan 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/01/15/how-homebrew-works.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/01/15/how-homebrew-works.html</guid>
+        <link>http://hieuhtr.github.io/technical/2017/01/15/how-homebrew-works.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/technical/2017/01/15/how-homebrew-works.html</guid>
         
         
         <category>technical</category>
@@ -652,8 +652,8 @@ Tổng kết 1 số thứ trong năm 2016, để sau này có cái mà nhìn l�
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 08 Jan 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/mindset/2017/01/08/Note-cho-nam-2016.html</link>
-        <guid isPermaLink="true">http://localhost:4000/mindset/2017/01/08/Note-cho-nam-2016.html</guid>
+        <link>http://hieuhtr.github.io/mindset/2017/01/08/Note-cho-nam-2016.html</link>
+        <guid isPermaLink="true">http://hieuhtr.github.io/mindset/2017/01/08/Note-cho-nam-2016.html</guid>
         
         
         <category>mindset</category>
