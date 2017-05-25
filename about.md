@@ -16,7 +16,6 @@ I hope you’ll enjoy it.
 
 #### Today I learned
 * [Check issues](https://github.com/hieuhtr/Blog/issues)
-* https://jsfiddle.net/b7tbgd1p/
 
 #### About this blog's platform
 * Simple, blog-aware, static site generator: [Jekyll](https://jekyllrb.com)
