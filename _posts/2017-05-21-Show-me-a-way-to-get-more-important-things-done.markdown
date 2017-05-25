@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Ways to get more things done
+title:  Ways to get more important things done
 category: mindset
 description: 
 ---
