@@ -2,7 +2,7 @@
 layout: post
 title:  Note cho năm 2016
 category: mindset
-description: 
+description: Always know why you do what you do 
 ---
 
 > Năm 2016 là đánh dấu rất nhiều biến chuyển cả về lối sống, suy nghĩ và cách hành động.

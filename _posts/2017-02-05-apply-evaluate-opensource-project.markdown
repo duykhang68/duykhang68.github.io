@@ -2,7 +2,7 @@
 layout: post
 title:  How to apply evaluate opensource project?
 category: technical
-description: 
+description: Try answer question "does it solve our problems?" 
 ---
 
 Get the most out of open source. Open source software is free for you to use and explore. 

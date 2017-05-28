@@ -2,7 +2,7 @@
 layout: post
 title:  Habit and Time management
 category: mindset
-description: 
+description: Work more when you’re in the zone. Relax when you’re not.
 ---
 
 > Habit: something that you do often and regularly, sometimes without knowing that you are doing it

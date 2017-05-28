@@ -2,7 +2,7 @@
 layout: post
 title:  How DNS works
 category: technical
-description: 
+description: Without DNS, we would only be able to visit any website directly via IP address, no human-readable anymore 
 ---
 > Without DNS, we would only be able to visit any website directly via IP address, no human-readable anymore
 

@@ -6,8 +6,7 @@
   /* Adds a hyphen where the word breaks */
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  hyphens: auto; }
+  -moz-hyphens: auto; }
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
@@ -610,7 +609,8 @@ h6 {
   h6 {
     font-size: 1.1rem; } }
 p {
-  margin-top: 0; }
+  margin-top: 0;
+  text-align: start; }
 
 .read-more {
   color: #888888; }

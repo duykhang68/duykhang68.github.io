@@ -2,7 +2,7 @@
 layout: post
 title:  What is FLUSH TABLES WITH READ LOCK in MySQL?
 category: technical
-description: 
+description: Set a flag to block commits 
 ---
 
 **Command:** 

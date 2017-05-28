@@ -2,7 +2,7 @@
 layout: post
 title: No Reboot Kernel patching
 category: technical
-description: 
+description: Rebooting the computer is irksome, and in some cases, where uptime is important, it can be a real issue.
 ---
 
 ### Why we need patching linux kernel?

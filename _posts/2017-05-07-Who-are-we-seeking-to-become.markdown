@@ -2,7 +2,7 @@
 layout: post
 title: Who are we seeking to become?
 category: mindset
-description: 
+description: A small thing, repeated, is not a small thing. 
 ---
 
 > behavior will become part of you

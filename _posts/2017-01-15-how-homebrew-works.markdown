@@ -2,7 +2,7 @@
 layout: post
 title:  How Homebrew works?
 category: technical 
-description: 
+description: Homebrew is based on Git and Ruby 
 ---
 
 Homebrew — The missing package manager for macOS. Here is the Official site: [https://brew.sh](https://brew.sh)
