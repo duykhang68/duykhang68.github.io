@@ -6,6 +6,7 @@ layout: default
   <header class="article_header">
     <h1 class="post_title" itemprop="name headline">{{ page.title }}</h1>
     <time class="post_date">{{ page.date | date: "%d %B %Y, %A" }}</time>
+    <a class="post_date"> - {{ page.content | number_of_words | divided_by:180 | plus:1 }} min read</a>
     <div class="issues" style="float: right">
       <a class="github-button" href="https://github.com/hieuhtr/Blog/issues" data-show-count="true" aria-label="Issue hieuhtr/Blog on GitHub">Explore</a>
     </div>
