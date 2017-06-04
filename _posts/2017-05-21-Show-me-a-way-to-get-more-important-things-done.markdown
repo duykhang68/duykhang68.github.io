@@ -22,8 +22,6 @@ Buffett uses a simple 3-step productivity strategy to help his employees determi
 
 > No matter what, these things get no attention from you until you’ve succeeded with your top 5
 
-![Goal](/assets/img/one-goal.jpg)
-
 ## Ivy Lee's simple method for achieving peak productivity:
 
 1. At the end of each work day, write down the six most important things you need to accomplish tomorrow. Do not write down more than six tasks.

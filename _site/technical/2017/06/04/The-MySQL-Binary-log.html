@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>The MySQL binary log</title>
+  <meta name="description" content="The binary log contains events that describe database changes such as table creation operations or changes to table data. It also contains events for stateme...">
+
+  <!-- todo: include this into main.css -->
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/technical/2017/06/04/The-MySQL-Binary-log.html">
+  <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="http://localhost:4000/feed.xml">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script async src="http://localhost:4000/assets/dist/fetch.min.js"></script>
+  <script src="http://localhost:4000/assets/dist/github-calendar.min.js"></script>
+  <link rel="stylesheet" href="http://localhost:4000/assets/dist/github-calendar.css"/>
+  <script src="http://localhost:4000/assets/dist/pace.min.js"></script>
+  <link href="http://localhost:4000/assets/dist/pace.css" rel="stylesheet" />
+</head>
+  <body>
+    <div class="page-content">
+      <div class="container">
+        <div class="three columns">
+          <header class="site-header">
+
+  <h2 class="logo"><a href="https://github.com/hieuhtr/Blog/issues">Today I Learned</a></h2>
+
+  <div class="nav">
+    
+    <label for="menu-toggle" class="menu-icon">
+        <!--div data-icon="ei-navicon"></div-->
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+    </label>
+    <input type="checkbox" id="menu-toggle">
+
+    <div class="site-nav">
+      <nav>
+        <ul class="page-link">
+          <li><a href="/">Home</a></li>
+          <li><a href="/archive">Posts</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/friends">Friends</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</header>
+
+        </div>
+
+        <div class="nine columns" style="z-index:100;">
+          <div class="wrapper">
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="article_header">
+    <h1 class="post_title" itemprop="name headline">The MySQL binary log</h1>
+    <time class="post_date">04 June 2017, Sunday</time>
+    <div class="issues" style="float: right">
+      <a class="github-button" href="https://github.com/hieuhtr/Blog/issues" data-show-count="true" aria-label="Issue hieuhtr/Blog on GitHub">Explore</a>
+    </div>
+  </header>
+
+  <div class="article-content" itemprop="articleBody">
+    <p><strong>The binary log</strong> contains <code class="highlighter-rouge">events</code> that describe <code class="highlighter-rouge">database changes</code> such as table creation operations or changes to table data. It also contains events for statements that <strong>potentially could have made changes</strong> (for example, a DELETE which matched no rows), unless row-based logging is used. The binary log also contains information about <code class="highlighter-rouge">how long each statement</code> took that <strong>updated data</strong>.</p>
+
+<p><img src="/assets/img/master-binlog.png" alt="Binlog" /></p>
+
+<!--description-->
+
+<h2 id="the-binary-log-has-two-important-purposes">The binary log has two important purposes:</h2>
+<ol>
+  <li>
+    <p>For replication, the binary log on a master replication server provides a record of the data changes to be sent to slave servers.
+The master server sends the events contained in its binary log to its slaves, 
+which <code class="highlighter-rouge">execute</code> those events to make the <code class="highlighter-rouge">same data changes</code> that were made on the master</p>
+  </li>
+  <li>
+    <p>Certain <code class="highlighter-rouge">data recovery operations</code> require use of the binary log. After a backup has been restored, 
+the events in the binary log that were recorded after the backup was made are re-executed.
+These events bring databases up to date from the point of the backup</p>
+  </li>
+</ol>
+
+<p><strong>Note:</strong></p>
+<ul>
+  <li>The binary log is <code class="highlighter-rouge">not used</code> for statements such as <code class="highlighter-rouge">SELECT</code> or <code class="highlighter-rouge">SHOW</code> that do <code class="highlighter-rouge">not modify data</code>.</li>
+  <li>To log all statements (for example, to identify a problem query), use the <code class="highlighter-rouge">general query log</code></li>
+  <li>Running a server with binary logging enabled makes performance slightly slower.</li>
+  <li>However, the benefits of the binary log in enabling you to set up replication and for restore operations generally outweigh this minor performance decrement.</li>
+  <li>The binary log is generally resilient to unexpected halts because only complete transactions are logged or read back</li>
+  <li>Slave server in replication  by default does not write to its own binary log any data modifications that are received from the replication master. 
+But sometime we want to log these modifications, slave can do that. This is done when a slave is also to <code class="highlighter-rouge">act as a master</code> to <code class="highlighter-rouge">other slaves</code> in chained replication.</li>
+</ul>
+
+<h2 id="binary-log-files">Binary log files</h2>
+<ul>
+  <li>
+    <p><strong>mysqld</strong> appends a numeric extension to the binary log base name to generate binlog file names.
+The number increases each time the server creates a new log file, thus creating an ordered series of files.</p>
+  </li>
+  <li>
+    <p>The server creates a <strong>new file</strong> in the series each time it <strong>starts or flushes</strong> the logs. 
+The server also creates a new binary log file automatically after the current log’s size reaches <code class="highlighter-rouge">max_binlog_size</code>. 
+A binary log file may become larger than max_binlog_size if you are using large transactions because a transaction is written to the file in one piece, never split between files.</p>
+  </li>
+  <li>To keep track of which binary log files have been used, mysqld also creates a <strong>binary log index file</strong> that contains the names of all used binary log files. By default, this has the same base name as the binary log file, with the extension <code class="highlighter-rouge">.index</code>. You can change the name of the binary log index file with the <code class="highlighter-rouge">--log-bin-index[=file_name]</code> option. You should not manually edit this file while mysqld is running; doing so would confuse mysqld.</li>
+  <li>A client that has the <strong>SUPER privilege</strong> can disable binary logging of its own statements by using a <code class="highlighter-rouge">SET sql_log_bin=0</code> statement</li>
+</ul>
+
+<h2 id="type-of-binlog">Type of binlog</h2>
+<p>The format of the events recorded in the binary log is dependent on the binary logging format. The server uses several logging formats to record information in the binary log. <code class="highlighter-rouge">Three format</code> types are supported:</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">row-based</code>: In row-based logging, the <strong>master writes events</strong> to the binary log that indicate how <strong>individual table rows are affected</strong>.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">statement-based</code>: Replication capabilities in MySQL originally were based on <strong>propagation of SQL statements</strong> from master to slave. This is called statement-based logging.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">mixed-base</code>: A third option is also available: mixed logging. With mixed logging, <strong>statement-based logging is used by default</strong>, but the logging mode <strong>switches automatically to row-based</strong> in certain cases as described below.</p>
+  </li>
+</ul>
+
+<p>The exact format employed depends on the version of MySQL being used. The logging format can also be set or limited by the storage engine being used. This helps to eliminate issues when replicating certain statements between a master and slave which are using different storage engines</p>
+
+<p><strong>Note:</strong>
+With <code class="highlighter-rouge">statement-based</code> replication, there may be issues with replicating nondeterministic statements. Issue: “Statement may not be safe to log in statement format”. You can avoid these issues by using MySQL’s <code class="highlighter-rouge">row-based</code> replication instead.</p>
+
+<p><strong>In MySQL <code class="highlighter-rouge">row-based</code> replication</strong>, each row change event contains two images, a “before” image whose columns are matched against when searching for the row to be updated, and an “after” image containing the changes. Normally, MySQL logs full rows (that is, all columns) for both the before and after images. However, it is not strictly necessary to include every column in both images, and we can often save disk, memory, and network usage by logging only those columns which are actually required.</p>
+
+<p>In MySQL 5.6, you can cause the server to log full or minimal rows using the <code class="highlighter-rouge">binlog_row_image</code> system variable. This variable actually takes one of three possible values, as shown in the following list:</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">full</code>: Log all columns in both the before image and the after image.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">minimal</code>: Log only those columns in the before image that are required to identify the row to be changed; log only those columns in the after image that are actually changed.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">noblob</code>: Log all columns (same as full), except for BLOB and TEXT columns that are not required to identify rows, or that have not changed.</p>
+  </li>
+</ul>
+
+<h2 id="binlog-operations">Binlog operations</h2>
+<p><code class="highlighter-rouge">/etc/mysql/conf.d/replication-binlog.cnf</code></p>
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="n">mysqld</span><span class="p">]</span>
+<span class="o">&lt;</span><span class="k">variable</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span>
+</code></pre>
+</div>
+
+<ol>
+  <li>Enable binary logging and set file base name
+    <div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">log</span><span class="o">-</span><span class="n">bin</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">-</span><span class="n">bin</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Set index file for binary log file names
+    <div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">log</span><span class="o">-</span><span class="n">bin</span><span class="o">-</span><span class="k">index</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">-</span><span class="n">bin</span><span class="p">.</span><span class="k">index</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Config binlog format: <strong>one</strong> of them
+    <div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">binlog</span><span class="o">-</span><span class="n">format</span> <span class="o">=</span> <span class="k">STATEMENT</span>
+<span class="k">or</span>
+<span class="n">binlog</span><span class="o">-</span><span class="n">format</span> <span class="o">=</span> <span class="k">ROW</span>
+<span class="k">or</span>
+<span class="n">binlog</span><span class="o">-</span><span class="n">format</span> <span class="o">=</span> <span class="n">MIXED</span> 
+</code></pre>
+    </div>
+  </li>
+  <li>In ROW based, config server to log full or minimal rows
+    <div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">binlog_row_image</span> <span class="o">=</span> <span class="k">FULL</span> <span class="o">#</span><span class="n">Log</span> <span class="k">all</span> <span class="n">columns</span>
+<span class="n">binlog_row_image</span> <span class="o">=</span> <span class="n">MINIMAL</span> <span class="o">#</span><span class="n">Log</span> <span class="k">only</span> <span class="n">changed</span> <span class="n">columns</span><span class="p">,</span> <span class="k">and</span> <span class="n">columns</span> <span class="n">needed</span> <span class="k">to</span> <span class="n">identify</span> <span class="k">rows</span>
+<span class="n">binlog_row_image</span> <span class="o">=</span> <span class="n">NOBLOB</span> <span class="o">#</span><span class="n">Log</span> <span class="k">all</span> <span class="n">columns</span><span class="p">,</span> <span class="k">except</span> <span class="k">for</span> <span class="n">unneeded</span> <span class="n">BLOB</span> <span class="k">and</span> <span class="n">TEXT</span> <span class="n">columns</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Set number of days for automatic binary log file removal. The default is 0, which means “no automatic removal.”
+    <div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">expire</span><span class="o">-</span><span class="n">logs</span><span class="o">-</span><span class="n">days</span> <span class="o">=</span> <span class="mi">10</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Remove binary log files manually
+    <div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">PURGE</span> <span class="n">BINARY</span> <span class="n">LOGS</span><span class="p">;</span>
+<span class="k">or</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">RESET</span> <span class="n">MASTER</span><span class="p">;</span>
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<h2 id="reference">Reference:</h2>
+<ol>
+  <li><a href="https://dev.mysql.com/doc/refman/5.6/en/binary-log.html">https://dev.mysql.com/doc/refman/5.6/en/binary-log.html</a></li>
+  <li><a href="https://dev.mysql.com/doc/refman/5.6/en/binary-log-formats.html">https://dev.mysql.com/doc/refman/5.6/en/binary-log-formats.html</a></li>
+  <li><a href="https://dev.mysql.com/doc/refman/5.6/en/replication-rbr-safe-unsafe.html">https://dev.mysql.com/doc/refman/5.6/en/replication-rbr-safe-unsafe.html</a></li>
+</ol>
+
+  </div>
+
+  <footer class="article-footer">
+
+  <hr/>
+
+  <section class="author">
+  <div class="authorimage box" style="background: url(/assets/img/avatar2017.jpg)"></div>
+  <div class="authorinfo box">
+    <p class="bio" style="color: #222">
+      My name is Hieu. I'm an Engineer who likes learning, discussing, and solving interesting problems. These days, I'm focusing on DevOps and Infrastructure.
+    </p>
+    <a class="github-button" href="https://github.com/hieuhtr" data-size="large" data-show-count="true" aria-label="Follow @hieuhtr on GitHub">Follow @hieuhtr</a>
+  </div>
+  <hr style="border-top: 0px"></<hr>
+  <div class="calendar"></div>
+</section>
+<script>
+  GitHubCalendar(".calendar", "hieuhtr");
+</script>
+
+  </footer>
+
+  
+
+
+</article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
