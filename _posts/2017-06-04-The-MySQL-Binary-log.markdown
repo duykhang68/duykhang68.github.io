@@ -3,6 +3,8 @@ layout: post
 title: The MySQL binary log
 category: technical
 description: Binlog is the special kind of log provided by MySQL wich record the log of database changes
+image:
+ path: /assets/img/master-binlog.png
 ---
 
 **The binary log** contains `events` that describe `database changes` such as table creation operations or changes to table data. It also contains events for statements that **potentially could have made changes** (for example, a DELETE which matched no rows), unless row-based logging is used. The binary log also contains information about `how long each statement` took that **updated data**.
