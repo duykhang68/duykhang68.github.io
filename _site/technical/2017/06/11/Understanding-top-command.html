@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Understanding top command</title>
+  <meta name="description" content="top command is a performance monitoring program which is used frequently to monitor processor activity in real-time, current tasks being serviced by the kern...">
+
+  <!-- todo: include this into main.css -->
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/technical/2017/06/11/Understanding-top-command.html">
+  <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="http://localhost:4000/feed.xml">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script async src="http://localhost:4000/assets/dist/fetch.min.js"></script>
+  <script src="http://localhost:4000/assets/dist/github-calendar.min.js"></script>
+  <link rel="stylesheet" href="http://localhost:4000/assets/dist/github-calendar.css"/>
+  <script src="http://localhost:4000/assets/dist/pace.min.js"></script>
+  <link href="http://localhost:4000/assets/dist/pace.css" rel="stylesheet" />
+</head>
+  <body>
+    <div class="page-content">
+      <div class="container">
+        <div class="three columns">
+          <header class="site-header">
+
+  <h2 class="logo"><a href="https://github.com/hieuhtr/Blog/issues">Today I Learned</a></h2>
+
+  <div class="nav">
+    
+    <label for="menu-toggle" class="menu-icon">
+        <!--div data-icon="ei-navicon"></div-->
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+    </label>
+    <input type="checkbox" id="menu-toggle">
+
+    <div class="site-nav">
+      <nav>
+        <ul class="page-link">
+          <li><a href="/">Home</a></li>
+          <li><a href="/archive">Posts</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/friends">Friends</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</header>
+
+        </div>
+
+        <div class="nine columns" style="z-index:100;">
+          <div class="wrapper">
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="article_header">
+    <h1 class="post_title" itemprop="name headline">Understanding top command</h1>
+    <time class="post_date">11 June 2017, Sunday</time>
+    <a class="post_date"> - 4 min read</a>
+    <div class="issues" style="float: right">
+      <a class="github-button" href="https://github.com/hieuhtr/Blog/issues" data-show-count="true" aria-label="Issue hieuhtr/Blog on GitHub">Explore</a>
+    </div>
+  </header>
+
+  <div class="article-content" itemprop="articleBody">
+    <p><strong><code class="highlighter-rouge">top</code></strong> command is a performance monitoring program which is used frequently to monitor processor activity in <strong>real-time</strong>, current tasks being serviced by the kernel, help <strong>discovering</strong> and <strong>diagnosing</strong> problems in <strong>CPU</strong> and <strong>memory usage</strong>. It’s available under many Unix/Linux operating systems.</p>
+
+<p><img src="/assets/img/top-command-optimized.gif" alt="" /></p>
+
+<!--description-->
+
+<h2 id="description-from-man-page">Description from man page:</h2>
+
+<p>The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of processes or threads currently being managed by the Linux kernel. The types of system summary information shown and the types order and size of information displayed for processes are all user configurable and that configuration can be  made persistent across restarts.</p>
+
+<p>The program provides a limited interactive interface for process manipulation as well as a much more extensive interface for personal configuration - encompassing every aspect of its operation. And while top is referred to throughout this document, you are free to name the program anything you wish. That new name, possibly an alias, will then be reflected on top’s display and used when reading and writing a configuration file.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="err">❯❯</span> <span class="n">top</span>
+<span class="n">top</span> <span class="o">-</span> <span class="mi">14</span><span class="p">:</span><span class="mi">43</span><span class="p">:</span><span class="mi">23</span> <span class="n">up</span> <span class="mi">18</span> <span class="n">days</span><span class="p">,</span> <span class="mi">22</span><span class="p">:</span><span class="mo">05</span><span class="p">,</span>  <span class="mi">1</span> <span class="n">user</span><span class="p">,</span>  <span class="n">load</span> <span class="n">average</span><span class="p">:</span> <span class="mf">0.21</span><span class="p">,</span> <span class="mf">0.18</span><span class="p">,</span> <span class="mf">0.12</span>
+<span class="n">Tasks</span><span class="p">:</span> <span class="mi">119</span> <span class="n">total</span><span class="p">,</span>   <span class="mi">1</span> <span class="n">running</span><span class="p">,</span> <span class="mi">118</span> <span class="n">sleeping</span><span class="p">,</span>   <span class="mi">0</span> <span class="n">stopped</span><span class="p">,</span>   <span class="mi">0</span> <span class="n">zombie</span>
+<span class="o">%</span><span class="n">Cpu0</span>  <span class="p">:</span>  <span class="mf">2.0</span> <span class="n">us</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="n">sy</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="n">ni</span><span class="p">,</span> <span class="mf">98.0</span> <span class="nb">id</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="n">wa</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="n">hi</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="n">si</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="n">st</span>
+<span class="o">%</span><span class="n">Cpu1</span>  <span class="p">:</span>  <span class="mf">1.3</span> <span class="n">us</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="n">sy</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="n">ni</span><span class="p">,</span> <span class="mf">98.3</span> <span class="nb">id</span><span class="p">,</span>  <span class="mf">0.3</span> <span class="n">wa</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="n">hi</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="n">si</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="n">st</span>
+<span class="n">MiB</span> <span class="n">Mem</span><span class="p">:</span>  <span class="mf">7983.977</span> <span class="n">total</span><span class="p">,</span> <span class="mf">7748.160</span> <span class="n">used</span><span class="p">,</span>  <span class="mf">235.816</span> <span class="n">free</span><span class="p">,</span>  <span class="mf">170.492</span> <span class="n">buffers</span>
+<span class="n">MiB</span> <span class="n">Swap</span><span class="p">:</span>    <span class="mf">0.000</span> <span class="n">total</span><span class="p">,</span>    <span class="mf">0.000</span> <span class="n">used</span><span class="p">,</span>    <span class="mf">0.000</span> <span class="n">free</span><span class="o">.</span> <span class="mf">2608.723</span> <span class="n">cached</span> <span class="n">Mem</span>
+
+  <span class="n">PID</span> <span class="n">USER</span>      <span class="n">PR</span>  <span class="n">NI</span>    <span class="n">VIRT</span>    <span class="n">RES</span>    <span class="n">SHR</span> <span class="n">S</span>  <span class="o">%</span><span class="n">CPU</span> <span class="o">%</span><span class="n">MEM</span>     <span class="n">TIME</span><span class="o">+</span> <span class="n">COMMAND</span>
+ <span class="mi">1153</span> <span class="n">elastic</span><span class="o">+</span>  <span class="mi">20</span>   <span class="mi">0</span> <span class="mf">20.771</span><span class="n">g</span> <span class="mf">4.308</span><span class="n">g</span> <span class="mf">147.2</span><span class="n">m</span> <span class="n">S</span>   <span class="mf">3.3</span> <span class="mf">55.3</span>   <span class="mi">1219</span><span class="p">:</span><span class="mi">42</span> <span class="n">java</span>
+    <span class="mi">8</span> <span class="n">root</span>      <span class="mi">20</span>   <span class="mi">0</span>    <span class="mf">0.0</span><span class="n">m</span>   <span class="mf">0.0</span><span class="n">m</span>   <span class="mf">0.0</span><span class="n">m</span> <span class="n">S</span>   <span class="mf">0.3</span>  <span class="mf">0.0</span>   <span class="mi">5</span><span class="p">:</span><span class="mf">02.90</span> <span class="n">rcuos</span><span class="o">/</span><span class="mi">0</span>
+    <span class="mi">1</span> <span class="n">root</span>      <span class="mi">20</span>   <span class="mi">0</span>   <span class="mf">32.7</span><span class="n">m</span>   <span class="mf">2.4</span><span class="n">m</span>   <span class="mf">1.0</span><span class="n">m</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.0</span>   <span class="mi">0</span><span class="p">:</span><span class="mf">01.45</span> <span class="n">init</span>
+    <span class="mi">2</span> <span class="n">root</span>      <span class="mi">20</span>   <span class="mi">0</span>    <span class="mf">0.0</span><span class="n">m</span>   <span class="mf">0.0</span><span class="n">m</span>   <span class="mf">0.0</span><span class="n">m</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.0</span>   <span class="mi">0</span><span class="p">:</span><span class="mf">00.00</span> <span class="n">kthreadd</span>
+    <span class="mi">3</span> <span class="n">root</span>      <span class="mi">20</span>   <span class="mi">0</span>    <span class="mf">0.0</span><span class="n">m</span>   <span class="mf">0.0</span><span class="n">m</span>   <span class="mf">0.0</span><span class="n">m</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.0</span>   <span class="mi">0</span><span class="p">:</span><span class="mf">00.78</span> <span class="n">ksoftirqd</span><span class="o">/</span><span class="mi">0</span>
+    <span class="mi">5</span> <span class="n">root</span>       <span class="mi">0</span> <span class="o">-</span><span class="mi">20</span>    <span class="mf">0.0</span><span class="n">m</span>   <span class="mf">0.0</span><span class="n">m</span>   <span class="mf">0.0</span><span class="n">m</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.0</span>   <span class="mi">0</span><span class="p">:</span><span class="mf">00.00</span> <span class="n">kworker</span><span class="o">/</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="n">H</span>
+    <span class="mi">7</span> <span class="n">root</span>      <span class="mi">20</span>   <span class="mi">0</span>    <span class="mf">0.0</span><span class="n">m</span>   <span class="mf">0.0</span><span class="n">m</span>   <span class="mf">0.0</span><span class="n">m</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.0</span>   <span class="mi">2</span><span class="p">:</span><span class="mf">55.95</span> <span class="n">rcu_sched</span>
+</code></pre>
+</div>
+
+
+  </div>
+
+  <footer class="article-footer">
+
+  <hr/>
+
+  <section class="author">
+  <div class="authorimage box" style="background: url(/assets/img/avatar2017.jpg)"></div>
+  <div class="authorinfo box">
+    <p class="bio" style="color: #222">
+      My name is Hieu. I'm an Engineer who likes learning, discussing, and solving interesting problems. These days, I'm focusing on DevOps and Infrastructure.
+    </p>
+    <a class="github-button" href="https://github.com/hieuhtr" data-size="large" data-show-count="true" aria-label="Follow @hieuhtr on GitHub">Follow @hieuhtr</a>
+  </div>
+  <hr style="border-top: 0px"></<hr>
+  <div class="calendar"></div>
+</section>
+<script>
+  GitHubCalendar(".calendar", "hieuhtr");
+</script>
+
+  </footer>
+
+  
+
+
+</article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
