@@ -10,10 +10,6 @@ I decided to start this blog in order to share my passion with people like me an
 
 I hope you’ll enjoy it.
 
-<iframe src="https://giphy.com/embed/xUA7bhWIfVafdRFeQ8" width="480" height="242" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/xUA7bhWIfVafdRFeQ8">via GIPHY</a></p>
-
-![](https://j.gifs.com/vgAO0n.gif)
-
 #### Where am I:
 * [Facebook](https://web.facebook.com/huynhtrunghieu.cs)
 * [Github](https://github.com/hieuhtr)
