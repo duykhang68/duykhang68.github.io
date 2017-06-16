@@ -9,7 +9,7 @@ description: A small thing, repeated, is not a small thing.
 
 We get what we invest in. The time we spend comes back, with interest.
 
-If you practice five minutes of new, difficult banjo music `every day`, you'll become a `better` banjo player. If you spend a little bit more time each day `whining` or `feeling ashamed`, that behavior will become part of you. The words you type, the people you hang with, the media you consume...
+If you practice five minutes of new, difficult banjo music `every day`, you'll become a `better` banjo player. If you spend a little bit more time each day `whining` or `feeling ashamed`, that behavior will become part of you. The words you type, the people you hang with, the media you consume
 
 <!--description-->
 
