@@ -367,6 +367,8 @@ td:last-child {
   padding-right: 0; }
 
 
+
+
 /* Spacing
 –––––––––––––––––––––––––––––––––––––––––––––––––– 
 button,
@@ -437,6 +439,11 @@ hr {
 img {
     max-width: 100%;
     vertical-align: middle;
+}
+
+img[alt="large-img"] { 
+  max-width:  920px; 
+  display: block;
 }
 
 /* blockquote */ 
