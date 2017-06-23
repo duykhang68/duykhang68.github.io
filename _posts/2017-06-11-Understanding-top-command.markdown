@@ -35,11 +35,3 @@ MiB Swap:    0.000 total,    0.000 used,    0.000 free. 2608.723 cached Mem
     5 root       0 -20    0.0m   0.0m   0.0m S   0.0  0.0   0:00.00 kworker/0:0H
     7 root      20   0    0.0m   0.0m   0.0m S   0.0  0.0   2:55.95 rcu_sched
 ```
-
-
-
-
-
-
-
-
