@@ -5,8 +5,8 @@
     <description>This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 23 Jun 2017 22:03:34 +0700</pubDate>
-    <lastBuildDate>Fri, 23 Jun 2017 22:03:34 +0700</lastBuildDate>
+    <pubDate>Fri, 23 Jun 2017 22:05:08 +0700</pubDate>
+    <lastBuildDate>Fri, 23 Jun 2017 22:05:08 +0700</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
