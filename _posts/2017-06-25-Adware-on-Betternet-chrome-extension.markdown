@@ -7,7 +7,6 @@ description:
 
 Sometime when clicking to any urls on internet, chrome redirects to ads sites like [http://eltrack.pro/azkzkyvodi](http://eltrack.pro/azkzkyvodi) or something like this. Also see `pornographic ads` on new tab
 
-My current system is: 
 - Mac OS Sierra 10.12.5 (16F73)
 - Chrome Version 59.0.3071.109 (Official Build) (64-bit)
 
@@ -33,7 +32,7 @@ My current system is:
 ![](/assets/img/betternet-adware.png)
 
 **Step 6.** Expand source of [http://eltrack.pro](http://eltrack.pro)
-- I saw that my browser will be redirected/injected to a fucking FB campaign, **Pixel ID** = `1666009176948198`
+- My browser is redirected/injected to a fucking FB campaign, **Pixel ID** = `1666009176948198`
 
     ```html
     <!-- Facebook Pixel Code -->
@@ -56,7 +55,7 @@ My current system is:
 
 - This url `tintuc-vn.com` in source of ads site
 
-    ```
+    ```sql
     ❯❯ nslookup tintuc-vn.com
     Server:		8.8.8.8
     Address:	8.8.8.8#53
@@ -70,7 +69,7 @@ My current system is:
 
 - which ports are opened?
 
-    ```
+    ```sql
     ❯❯ sudo nmap 136.243.94.239
     Password:
 

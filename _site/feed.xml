@@ -5,15 +5,14 @@
     <description>This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 25 Jun 2017 17:53:10 +0700</pubDate>
-    <lastBuildDate>Sun, 25 Jun 2017 17:53:10 +0700</lastBuildDate>
+    <pubDate>Sun, 25 Jun 2017 21:15:25 +0700</pubDate>
+    <lastBuildDate>Sun, 25 Jun 2017 21:15:25 +0700</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
         <title>Adware on Betternet chrome extension</title>
         <description>&lt;p&gt;Sometime when clicking to any urls on internet, chrome redirects to ads sites like &lt;a href=&quot;http://eltrack.pro/azkzkyvodi&quot;&gt;http://eltrack.pro/azkzkyvodi&lt;/a&gt; or something like this. Also see &lt;code class=&quot;highlighter-rouge&quot;&gt;pornographic ads&lt;/code&gt; on new tab&lt;/p&gt;
 
-&lt;p&gt;My current system is:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Mac OS Sierra 10.12.5 (16F73)&lt;/li&gt;
   &lt;li&gt;Chrome Version 59.0.3071.109 (Official Build) (64-bit)&lt;/li&gt;
@@ -45,7 +44,7 @@
 &lt;p&gt;&lt;strong&gt;Step 6.&lt;/strong&gt; Expand source of &lt;a href=&quot;http://eltrack.pro&quot;&gt;http://eltrack.pro&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;I saw that my browser will be redirected/injected to a fucking FB campaign, &lt;strong&gt;Pixel ID&lt;/strong&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;1666009176948198&lt;/code&gt;&lt;/p&gt;
+    &lt;p&gt;My browser is redirected/injected to a fucking FB campaign, &lt;strong&gt;Pixel ID&lt;/strong&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;1666009176948198&lt;/code&gt;&lt;/p&gt;
 
     &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Facebook Pixel Code --&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
@@ -69,13 +68,13 @@
   &lt;li&gt;
     &lt;p&gt;This url &lt;code class=&quot;highlighter-rouge&quot;&gt;tintuc-vn.com&lt;/code&gt; in source of ads site&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ❯❯ nslookup tintuc-vn.com
-  Server:		8.8.8.8
-  Address:	8.8.8.8#53
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;err&quot;&gt;❯❯&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nslookup&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tintuc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;		&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;	&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;53&lt;/span&gt;
 
-  Non-authoritative answer:
-  Name:	tintuc-vn.com
-  Address: 136.243.94.239
+  &lt;span class=&quot;n&quot;&gt;Non&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authoritative&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;	&lt;span class=&quot;n&quot;&gt;tintuc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;136&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;243&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;94&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;239&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
   &lt;/li&gt;
@@ -85,29 +84,29 @@
   &lt;li&gt;
     &lt;p&gt;which ports are opened?&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ❯❯ sudo nmap 136.243.94.239
-  Password:
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;err&quot;&gt;❯❯&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nmap&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;136&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;243&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;94&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;239&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
 
-  Starting Nmap 7.40 ( https://nmap.org ) at 2017-06-25 16:58 +07
-  Nmap scan report for static.239.94.243.136.clients.your-server.de (136.243.94.239)
-  Host is up (0.53s latency).
-  Not shown: 987 closed ports
-  PORT     STATE SERVICE
-  21/tcp   open  ftp
-  22/tcp   open  ssh
-  25/tcp   open  smtp
-  53/tcp   open  domain
-  80/tcp   open  http
-  106/tcp  open  pop3pw
-  110/tcp  open  pop3
-  143/tcp  open  imap
-  443/tcp  open  https
-  465/tcp  open  smtps
-  993/tcp  open  imaps
-  995/tcp  open  pop3s
-  8443/tcp open  https-alt
+  &lt;span class=&quot;n&quot;&gt;Starting&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Nmap&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;40&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nmap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;org&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2017&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;06&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;58&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;07&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Nmap&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scan&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;report&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;239&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;94&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;243&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;136&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clients&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;your&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;136&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;243&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;94&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;239&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;Host&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;up&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;53&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;latency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;Not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;987&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;closed&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ports&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;PORT&lt;/span&gt;     &lt;span class=&quot;k&quot;&gt;STATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SERVICE&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;open&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;ftp&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;open&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;ssh&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;open&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;smtp&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;53&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;open&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;domain&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;open&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;106&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;open&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;pop3pw&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;110&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;open&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;pop3&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;143&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;open&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;imap&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;443&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;open&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;https&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;465&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;open&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;smtps&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;993&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;open&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;imaps&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;995&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;open&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;pop3s&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;8443&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tcp&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;open&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alt&lt;/span&gt;
 
-  Nmap done: 1 IP address (1 host up) scanned in 60.24 seconds
+  &lt;span class=&quot;n&quot;&gt;Nmap&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IP&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;address&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;host&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;up&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scanned&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;24&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seconds&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
   &lt;/li&gt;
@@ -130,23 +129,59 @@
     
       <item>
         <title>Understanding top command</title>
-        <description>&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;top&lt;/code&gt;&lt;/strong&gt; command is a performance monitoring program which is used frequently to monitor processor activity in &lt;strong&gt;real-time&lt;/strong&gt;, current tasks being serviced by the kernel, help &lt;strong&gt;discovering&lt;/strong&gt; and &lt;strong&gt;diagnosing&lt;/strong&gt; problems in &lt;strong&gt;CPU&lt;/strong&gt; and &lt;strong&gt;memory usage&lt;/strong&gt;. It’s available under many Unix/Linux operating systems.&lt;/p&gt;
+        <description>&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;#understanding-top-command&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;top&lt;/code&gt;&lt;/a&gt;&lt;/strong&gt; is a monitoring program which is used frequently for tracking process’s resource usage and its activity in &lt;strong&gt;real-time&lt;/strong&gt;, show current tasks being serviced by the kernel, help &lt;strong&gt;discovering&lt;/strong&gt; and &lt;strong&gt;diagnosing&lt;/strong&gt; overload or capacity of system by seeing &lt;strong&gt;CPU &amp;amp; Mem usage&lt;/strong&gt;. It’s available under many Unix/Linux operating systems.&lt;/p&gt;
+
+&lt;p&gt;Keyword: &lt;a href=&quot;#understanding-top-command&quot;&gt;top&lt;/a&gt;, &lt;a href=&quot;#date-and-uptime&quot;&gt;uptime&lt;/a&gt;, &lt;a href=&quot;#number-of-logged-users&quot;&gt;users&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/top-command-optimized.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;!--description--&gt;
 
 &lt;h2 id=&quot;description-from-man-page&quot;&gt;Description from man page:&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RTFM&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of processes or threads currently being managed by the Linux kernel. The types of system summary information shown and the types order and size of information displayed for processes are all user configurable and that configuration can be  made persistent across restarts.&lt;/p&gt;
 
-&lt;p&gt;The program provides a limited interactive interface for process manipulation as well as a much more extensive interface for personal configuration - encompassing every aspect of its operation. And while top is referred to throughout this document, you are free to name the program anything you wish. That new name, possibly an alias, will then be reflected on top’s display and used when reading and writing a configuration file.&lt;/p&gt;
+&lt;p&gt;The program provides a limited interactive interface for process manipulation as well as a much more extensive interface for personal configuration - encompassing every aspect of its operation. And while top is referred to throughout this document, you are free to name the program anything you wish. That new name, possibly an alias, will then be reflected on top’s display and used when reading and writing a configuration file. …&lt;/p&gt;
 
-&lt;h2 id=&quot;quick-explaination&quot;&gt;Quick explaination&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;❯❯ Need more?&lt;/strong&gt; See &lt;a href=&quot;http://man7.org/linux/man-pages/man1/top.1.html&quot;&gt;http://man7.org/linux/man-pages/man1/top.1.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;But it’s too fucking long 💢 and want to see the whole picture? 🌟 Sure, I have a picture below&lt;/p&gt;
+
+&lt;h2 id=&quot;understanding-top-command&quot;&gt;Understanding top command&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/top-command.png&quot; alt=&quot;large-img&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;date-and-uptime&quot;&gt;Date and uptime&lt;/h3&gt;
+&lt;p&gt;Current time is &lt;strong&gt;13:41:31&lt;/strong&gt;, and system has been running for over &lt;strong&gt;5 weeks&lt;/strong&gt;, from last boot on &lt;strong&gt;May 17&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;top - 13:41:31 up 38 days, 21:04,  3 users,  load average: 0.01, 0.09, 0.13
+❯❯ date
+Sun Jun 25 13:41:31 UTC 2017
+❯❯ uptime
+13:41:31 up 38 days, 21:04,  3 users,  load average: 0.01, 0.09, 0.13
+❯❯ uptime -p
+up 5 weeks, 3 days, 21 hours, 6 minutes
+❯❯ uptime -s
+2017-05-17 16:37:26
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;number-of-logged-users&quot;&gt;Number of logged users&lt;/h3&gt;
+&lt;p&gt;I have 3 logged users and what they are doing:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;one is running ssh to other&lt;/li&gt;
+  &lt;li&gt;one is on bash shell&lt;/li&gt;
+  &lt;li&gt;and … me with &lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt; command&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;3 users
+❯❯ w
+ 13:41:31 up 38 days, 21:04,  3 users,  load average: 0.00, 0.01, 0.05
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+ubuntu   pts/0    x.205.x.xxx      13:09    1:34   0.07s  0.03s ssh abc.xyz
+ubuntu   pts/3    x.64.xx.xxx      05:11    8:36m  0.05s  0.01s -bash
+ubuntu   pts/6    x.161.x.xxx      13:47    3.00s  0.04s  0.00s w
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 </description>
         <pubDate>Sun, 11 Jun 2017 00:00:00 +0700</pubDate>
         <link>http://localhost:4000/technical/2017/06/11/Understanding-top-command.html</link>

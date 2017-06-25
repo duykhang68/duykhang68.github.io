@@ -63,7 +63,7 @@
   <header class="article_header">
     <h1 class="post_title" itemprop="name headline">Adware on Betternet chrome extension</h1>
     <time class="post_date">25 June 2017, Sunday</time>
-    <a class="post_date"> - 4 min read</a>
+    <a class="post_date"> - 5 min read</a>
     <div class="issues" style="float: right">
       <a class="github-button" href="https://github.com/hieuhtr/Blog/issues" data-show-count="true" aria-label="Issue hieuhtr/Blog on GitHub">Explore</a>
     </div>
@@ -72,7 +72,6 @@
   <div class="article-content" itemprop="articleBody">
     <p>Sometime when clicking to any urls on internet, chrome redirects to ads sites like <a href="http://eltrack.pro/azkzkyvodi">http://eltrack.pro/azkzkyvodi</a> or something like this. Also see <code class="highlighter-rouge">pornographic ads</code> on new tab</p>
 
-<p>My current system is:</p>
 <ul>
   <li>Mac OS Sierra 10.12.5 (16F73)</li>
   <li>Chrome Version 59.0.3071.109 (Official Build) (64-bit)</li>
@@ -104,7 +103,7 @@
 <p><strong>Step 6.</strong> Expand source of <a href="http://eltrack.pro">http://eltrack.pro</a></p>
 <ul>
   <li>
-    <p>I saw that my browser will be redirected/injected to a fucking FB campaign, <strong>Pixel ID</strong> = <code class="highlighter-rouge">1666009176948198</code></p>
+    <p>My browser is redirected/injected to a fucking FB campaign, <strong>Pixel ID</strong> = <code class="highlighter-rouge">1666009176948198</code></p>
 
     <div class="language-html highlighter-rouge"><pre class="highlight"><code>  <span class="c">&lt;!-- Facebook Pixel Code --&gt;</span>
   <span class="nt">&lt;script&gt;</span>
@@ -128,13 +127,13 @@
   <li>
     <p>This url <code class="highlighter-rouge">tintuc-vn.com</code> in source of ads site</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>  ❯❯ nslookup tintuc-vn.com
-  Server:		8.8.8.8
-  Address:	8.8.8.8#53
+    <div class="language-sql highlighter-rouge"><pre class="highlight"><code>  <span class="err">❯❯</span> <span class="n">nslookup</span> <span class="n">tintuc</span><span class="o">-</span><span class="n">vn</span><span class="p">.</span><span class="n">com</span>
+  <span class="n">Server</span><span class="p">:</span>		<span class="mi">8</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">8</span>
+  <span class="n">Address</span><span class="p">:</span>	<span class="mi">8</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">8</span><span class="o">#</span><span class="mi">53</span>
 
-  Non-authoritative answer:
-  Name:	tintuc-vn.com
-  Address: 136.243.94.239
+  <span class="n">Non</span><span class="o">-</span><span class="n">authoritative</span> <span class="n">answer</span><span class="p">:</span>
+  <span class="n">Name</span><span class="p">:</span>	<span class="n">tintuc</span><span class="o">-</span><span class="n">vn</span><span class="p">.</span><span class="n">com</span>
+  <span class="n">Address</span><span class="p">:</span> <span class="mi">136</span><span class="p">.</span><span class="mi">243</span><span class="p">.</span><span class="mi">94</span><span class="p">.</span><span class="mi">239</span>
 </code></pre>
     </div>
   </li>
@@ -144,29 +143,29 @@
   <li>
     <p>which ports are opened?</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>  ❯❯ sudo nmap 136.243.94.239
-  Password:
+    <div class="language-sql highlighter-rouge"><pre class="highlight"><code>  <span class="err">❯❯</span> <span class="n">sudo</span> <span class="n">nmap</span> <span class="mi">136</span><span class="p">.</span><span class="mi">243</span><span class="p">.</span><span class="mi">94</span><span class="p">.</span><span class="mi">239</span>
+  <span class="n">Password</span><span class="p">:</span>
 
-  Starting Nmap 7.40 ( https://nmap.org ) at 2017-06-25 16:58 +07
-  Nmap scan report for static.239.94.243.136.clients.your-server.de (136.243.94.239)
-  Host is up (0.53s latency).
-  Not shown: 987 closed ports
-  PORT     STATE SERVICE
-  21/tcp   open  ftp
-  22/tcp   open  ssh
-  25/tcp   open  smtp
-  53/tcp   open  domain
-  80/tcp   open  http
-  106/tcp  open  pop3pw
-  110/tcp  open  pop3
-  143/tcp  open  imap
-  443/tcp  open  https
-  465/tcp  open  smtps
-  993/tcp  open  imaps
-  995/tcp  open  pop3s
-  8443/tcp open  https-alt
+  <span class="n">Starting</span> <span class="n">Nmap</span> <span class="mi">7</span><span class="p">.</span><span class="mi">40</span> <span class="p">(</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">nmap</span><span class="p">.</span><span class="n">org</span> <span class="p">)</span> <span class="k">at</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">25</span> <span class="mi">16</span><span class="p">:</span><span class="mi">58</span> <span class="o">+</span><span class="mi">07</span>
+  <span class="n">Nmap</span> <span class="n">scan</span> <span class="n">report</span> <span class="k">for</span> <span class="k">static</span><span class="p">.</span><span class="mi">239</span><span class="p">.</span><span class="mi">94</span><span class="p">.</span><span class="mi">243</span><span class="p">.</span><span class="mi">136</span><span class="p">.</span><span class="n">clients</span><span class="p">.</span><span class="n">your</span><span class="o">-</span><span class="n">server</span><span class="p">.</span><span class="n">de</span> <span class="p">(</span><span class="mi">136</span><span class="p">.</span><span class="mi">243</span><span class="p">.</span><span class="mi">94</span><span class="p">.</span><span class="mi">239</span><span class="p">)</span>
+  <span class="k">Host</span> <span class="k">is</span> <span class="n">up</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">53</span><span class="n">s</span> <span class="n">latency</span><span class="p">).</span>
+  <span class="k">Not</span> <span class="n">shown</span><span class="p">:</span> <span class="mi">987</span> <span class="n">closed</span> <span class="n">ports</span>
+  <span class="n">PORT</span>     <span class="k">STATE</span> <span class="n">SERVICE</span>
+  <span class="mi">21</span><span class="o">/</span><span class="n">tcp</span>   <span class="k">open</span>  <span class="n">ftp</span>
+  <span class="mi">22</span><span class="o">/</span><span class="n">tcp</span>   <span class="k">open</span>  <span class="n">ssh</span>
+  <span class="mi">25</span><span class="o">/</span><span class="n">tcp</span>   <span class="k">open</span>  <span class="n">smtp</span>
+  <span class="mi">53</span><span class="o">/</span><span class="n">tcp</span>   <span class="k">open</span>  <span class="k">domain</span>
+  <span class="mi">80</span><span class="o">/</span><span class="n">tcp</span>   <span class="k">open</span>  <span class="n">http</span>
+  <span class="mi">106</span><span class="o">/</span><span class="n">tcp</span>  <span class="k">open</span>  <span class="n">pop3pw</span>
+  <span class="mi">110</span><span class="o">/</span><span class="n">tcp</span>  <span class="k">open</span>  <span class="n">pop3</span>
+  <span class="mi">143</span><span class="o">/</span><span class="n">tcp</span>  <span class="k">open</span>  <span class="n">imap</span>
+  <span class="mi">443</span><span class="o">/</span><span class="n">tcp</span>  <span class="k">open</span>  <span class="n">https</span>
+  <span class="mi">465</span><span class="o">/</span><span class="n">tcp</span>  <span class="k">open</span>  <span class="n">smtps</span>
+  <span class="mi">993</span><span class="o">/</span><span class="n">tcp</span>  <span class="k">open</span>  <span class="n">imaps</span>
+  <span class="mi">995</span><span class="o">/</span><span class="n">tcp</span>  <span class="k">open</span>  <span class="n">pop3s</span>
+  <span class="mi">8443</span><span class="o">/</span><span class="n">tcp</span> <span class="k">open</span>  <span class="n">https</span><span class="o">-</span><span class="n">alt</span>
 
-  Nmap done: 1 IP address (1 host up) scanned in 60.24 seconds
+  <span class="n">Nmap</span> <span class="n">done</span><span class="p">:</span> <span class="mi">1</span> <span class="n">IP</span> <span class="n">address</span> <span class="p">(</span><span class="mi">1</span> <span class="k">host</span> <span class="n">up</span><span class="p">)</span> <span class="n">scanned</span> <span class="k">in</span> <span class="mi">60</span><span class="p">.</span><span class="mi">24</span> <span class="n">seconds</span>
 </code></pre>
     </div>
   </li>
