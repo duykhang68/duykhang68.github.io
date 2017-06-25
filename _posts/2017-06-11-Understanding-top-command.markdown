@@ -7,7 +7,7 @@ description: help discovering and diagnosing problems in CPU and memory usage
 
 **[`top`](#understanding-top-command)** is a monitoring program which is used frequently for tracking process's resource usage and its activity in **real-time**, show current tasks being serviced by the kernel, help **discovering** and **diagnosing** overload or capacity of system by seeing **CPU & Mem usage**. It's available under many Unix/Linux operating systems.
 
-Keyword: [top](#understanding-top-command), [uptime](#date-and-uptime), [users](#number-of-logged-users)
+Keyword: [top](#understanding-top-command), [uptime](#date-and-uptime), [users](#number-of-logged-users), [load average](#load-average)
 
 ![](/assets/img/top-command-optimized.gif)
 
@@ -55,6 +55,6 @@ ubuntu   pts/0    x.205.x.xxx      13:09    1:34   0.07s  0.03s ssh abc.xyz
 ubuntu   pts/3    x.64.xx.xxx      05:11    8:36m  0.05s  0.01s -bash
 ubuntu   pts/6    x.161.x.xxx      13:47    3.00s  0.04s  0.00s w
 ```
-
+### Load average
 
 
