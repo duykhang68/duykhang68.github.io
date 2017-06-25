@@ -5,9 +5,128 @@
     <description>This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 23 Jun 2017 22:05:08 +0700</pubDate>
-    <lastBuildDate>Fri, 23 Jun 2017 22:05:08 +0700</lastBuildDate>
+    <pubDate>Sun, 25 Jun 2017 17:53:10 +0700</pubDate>
+    <lastBuildDate>Sun, 25 Jun 2017 17:53:10 +0700</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>Adware on Betternet chrome extension</title>
+        <description>&lt;p&gt;Sometime when clicking to any urls on internet, chrome redirects to ads sites like &lt;a href=&quot;http://eltrack.pro/azkzkyvodi&quot;&gt;http://eltrack.pro/azkzkyvodi&lt;/a&gt; or something like this. Also see &lt;code class=&quot;highlighter-rouge&quot;&gt;pornographic ads&lt;/code&gt; on new tab&lt;/p&gt;
+
+&lt;p&gt;My current system is:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Mac OS Sierra 10.12.5 (16F73)&lt;/li&gt;
+  &lt;li&gt;Chrome Version 59.0.3071.109 (Official Build) (64-bit)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;TL;DR: Remove Betternet out of chrome&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/betternet-adware-links.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;h2 id=&quot;steps-to-debug-and-figure-out-adware&quot;&gt;Steps to debug and figure out adware&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Hold ads site on tab, don’t close it because it’s hard to find logs later&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Open &lt;strong&gt;Chrome DevTools&lt;/strong&gt;, go to &lt;code class=&quot;highlighter-rouge&quot;&gt;console&lt;/code&gt; tab&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; I saw chrome has some unknown logs from &lt;code class=&quot;highlighter-rouge&quot;&gt;insertion.js:189&lt;/code&gt;, comes from extension with ID = &lt;code class=&quot;highlighter-rouge&quot;&gt;gjknjjomckknofjidppipffbpoekiipm&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/betternet-adware-logs.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Goto &lt;a href=&quot;chrome://extensions/&quot;&gt;chrome://extensions/&lt;/a&gt; and find &lt;code class=&quot;highlighter-rouge&quot;&gt;gjknjjomckknofjidppipffbpoekiipm&lt;/code&gt;, it’s &lt;strong&gt;betternet&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 5.&lt;/strong&gt; Figure out more, google search with term “betternet extension adware”, here is best write-up about this &lt;a href=&quot;https://restoreprivacy.com/betternet-review/&quot;&gt;https://restoreprivacy.com/betternet-review/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/betternet-adware.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 6.&lt;/strong&gt; Expand source of &lt;a href=&quot;http://eltrack.pro&quot;&gt;http://eltrack.pro&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;I saw that my browser will be redirected/injected to a fucking FB campaign, &lt;strong&gt;Pixel ID&lt;/strong&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;1666009176948198&lt;/code&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Facebook Pixel Code --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fbq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fbq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callMethod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callMethod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_fbq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_fbq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loaded&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=!&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'2.0'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;async&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=!&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parentNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;insertBefore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'script'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'https://connect.facebook.net/en_US/fbevents.js'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;fbq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'init'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1666009176948198'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Insert your pixel ID here.&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;fbq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'track'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'PageView'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;noscript&amp;gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;display:none&quot;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://www.facebook.com/tr?id=1666009176948198&amp;amp;ev=PageView&amp;amp;noscript=1&quot;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&amp;lt;/noscript&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- DO NOT MODIFY --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- End Facebook Pixel Code --&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;This url &lt;code class=&quot;highlighter-rouge&quot;&gt;tintuc-vn.com&lt;/code&gt; in source of ads site&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ❯❯ nslookup tintuc-vn.com
+  Server:		8.8.8.8
+  Address:	8.8.8.8#53
+
+  Non-authoritative answer:
+  Name:	tintuc-vn.com
+  Address: 136.243.94.239
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;whois this domain: &lt;a href=&quot;https://whois.icann.org/en/lookup?name=tintuc-vn.com&quot;&gt;https://whois.icann.org/en/lookup?name=tintuc-vn.com&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;which ports are opened?&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ❯❯ sudo nmap 136.243.94.239
+  Password:
+
+  Starting Nmap 7.40 ( https://nmap.org ) at 2017-06-25 16:58 +07
+  Nmap scan report for static.239.94.243.136.clients.your-server.de (136.243.94.239)
+  Host is up (0.53s latency).
+  Not shown: 987 closed ports
+  PORT     STATE SERVICE
+  21/tcp   open  ftp
+  22/tcp   open  ssh
+  25/tcp   open  smtp
+  53/tcp   open  domain
+  80/tcp   open  http
+  106/tcp  open  pop3pw
+  110/tcp  open  pop3
+  143/tcp  open  imap
+  443/tcp  open  https
+  465/tcp  open  smtps
+  993/tcp  open  imaps
+  995/tcp  open  pop3s
+  8443/tcp open  https-alt
+
+  Nmap done: 1 IP address (1 host up) scanned in 60.24 seconds
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-should-i-do&quot;&gt;What should I do?&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Remove this Betternet chrome extension&lt;/li&gt;
+  &lt;li&gt;Report to google&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 25 Jun 2017 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</guid>
+        
+        
+        <category>technical</category>
+        
+      </item>
     
       <item>
         <title>Understanding top command</title>
@@ -18,6 +137,8 @@
 &lt;!--description--&gt;
 
 &lt;h2 id=&quot;description-from-man-page&quot;&gt;Description from man page:&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RTFM&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of processes or threads currently being managed by the Linux kernel. The types of system summary information shown and the types order and size of information displayed for processes are all user configurable and that configuration can be  made persistent across restarts.&lt;/p&gt;
 
@@ -594,42 +715,6 @@ That’s what the fuck I do.&lt;/p&gt;
         
         
         <category>mindset</category>
-        
-      </item>
-    
-      <item>
-        <title>How to apply evaluate opensource project?</title>
-        <description>&lt;p&gt;Get the most out of open source. Open source software is free for you to use and explore. 
-Get involved to perfect your craft and be part of something big - from &lt;a href=&quot;https://github.com/explore&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;question&quot;&gt;Question:&lt;/h4&gt;
-
-&lt;p&gt;Just want to ask how would you read / learn / evaluate an open source project to see whether it is suitable to apply to your current system? 
-Like what steps you guys taking, etc?&lt;/p&gt;
-
-&lt;h4 id=&quot;answer&quot;&gt;Answer:&lt;/h4&gt;
-
-&lt;!--description--&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Github stars/how old the open source/latest &lt;strong&gt;stable release&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;does it come from trustworthy organization (apache, good company..)&lt;/li&gt;
-  &lt;li&gt;does its well-documented and well-maintained&lt;/li&gt;
-  &lt;li&gt;Features/documents and community.&lt;/li&gt;
-  &lt;li&gt;is it actively developing (latest commit …)&lt;/li&gt;
-  &lt;li&gt;read through its document &amp;amp; samples&lt;/li&gt;
-  &lt;li&gt;try answer question: does it solve our problems?&lt;/li&gt;
-  &lt;li&gt;Github issues &amp;amp; code.&lt;/li&gt;
-  &lt;li&gt;Run small demo see how it works.&lt;/li&gt;
-  &lt;li&gt;make plan to apply it into internal system / execute plan&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Sun, 05 Feb 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/02/05/apply-evaluate-opensource-project.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/02/05/apply-evaluate-opensource-project.html</guid>
-        
-        
-        <category>technical</category>
         
       </item>
     

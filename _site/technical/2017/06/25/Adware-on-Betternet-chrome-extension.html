@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Adware on Betternet chrome extension</title>
+  <meta name="description" content="Sometime when clicking to any urls on internet, chrome redirects to ads sites like http://eltrack.pro/azkzkyvodi or something like this. Also see pornographi...">
+
+  <!-- todo: include this into main.css -->
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html">
+  <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="http://localhost:4000/feed.xml">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script async src="http://localhost:4000/assets/dist/fetch.min.js"></script>
+  <script src="http://localhost:4000/assets/dist/github-calendar.min.js"></script>
+  <link rel="stylesheet" href="http://localhost:4000/assets/dist/github-calendar.css"/>
+  <script src="http://localhost:4000/assets/dist/pace.min.js"></script>
+  <link href="http://localhost:4000/assets/dist/pace.css" rel="stylesheet" />
+</head>
+  <body>
+    <div class="page-content">
+      <div class="container">
+        <div class="three columns">
+          <header class="site-header">
+
+  <h2 class="logo"><a href="https://github.com/hieuhtr/Blog/issues">Today I Learned</a></h2>
+
+  <div class="nav">
+    
+    <label for="menu-toggle" class="menu-icon">
+        <!--div data-icon="ei-navicon"></div-->
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+    </label>
+    <input type="checkbox" id="menu-toggle">
+
+    <div class="site-nav">
+      <nav>
+        <ul class="page-link">
+          <li><a href="/">Home</a></li>
+          <li><a href="/archive">Posts</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/friends">Friends</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</header>
+
+        </div>
+
+        <div class="nine columns" style="z-index:100;">
+          <div class="wrapper">
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="article_header">
+    <h1 class="post_title" itemprop="name headline">Adware on Betternet chrome extension</h1>
+    <time class="post_date">25 June 2017, Sunday</time>
+    <a class="post_date"> - 4 min read</a>
+    <div class="issues" style="float: right">
+      <a class="github-button" href="https://github.com/hieuhtr/Blog/issues" data-show-count="true" aria-label="Issue hieuhtr/Blog on GitHub">Explore</a>
+    </div>
+  </header>
+
+  <div class="article-content" itemprop="articleBody">
+    <p>Sometime when clicking to any urls on internet, chrome redirects to ads sites like <a href="http://eltrack.pro/azkzkyvodi">http://eltrack.pro/azkzkyvodi</a> or something like this. Also see <code class="highlighter-rouge">pornographic ads</code> on new tab</p>
+
+<p>My current system is:</p>
+<ul>
+  <li>Mac OS Sierra 10.12.5 (16F73)</li>
+  <li>Chrome Version 59.0.3071.109 (Official Build) (64-bit)</li>
+</ul>
+
+<blockquote>
+  <p>TL;DR: Remove Betternet out of chrome</p>
+</blockquote>
+
+<p><img src="/assets/img/betternet-adware-links.png" alt="" /></p>
+
+<!--description-->
+
+<h2 id="steps-to-debug-and-figure-out-adware">Steps to debug and figure out adware</h2>
+<p><strong>Step 1.</strong> Hold ads site on tab, don’t close it because it’s hard to find logs later</p>
+
+<p><strong>Step 2.</strong> Open <strong>Chrome DevTools</strong>, go to <code class="highlighter-rouge">console</code> tab</p>
+
+<p><strong>Step 3.</strong> I saw chrome has some unknown logs from <code class="highlighter-rouge">insertion.js:189</code>, comes from extension with ID = <code class="highlighter-rouge">gjknjjomckknofjidppipffbpoekiipm</code></p>
+
+<p><img src="/assets/img/betternet-adware-logs.png" alt="" /></p>
+
+<p><strong>Step 4.</strong> Goto <a href="chrome://extensions/">chrome://extensions/</a> and find <code class="highlighter-rouge">gjknjjomckknofjidppipffbpoekiipm</code>, it’s <strong>betternet</strong></p>
+
+<p><strong>Step 5.</strong> Figure out more, google search with term “betternet extension adware”, here is best write-up about this <a href="https://restoreprivacy.com/betternet-review/">https://restoreprivacy.com/betternet-review/</a></p>
+
+<p><img src="/assets/img/betternet-adware.png" alt="" /></p>
+
+<p><strong>Step 6.</strong> Expand source of <a href="http://eltrack.pro">http://eltrack.pro</a></p>
+<ul>
+  <li>
+    <p>I saw that my browser will be redirected/injected to a fucking FB campaign, <strong>Pixel ID</strong> = <code class="highlighter-rouge">1666009176948198</code></p>
+
+    <div class="language-html highlighter-rouge"><pre class="highlight"><code>  <span class="c">&lt;!-- Facebook Pixel Code --&gt;</span>
+  <span class="nt">&lt;script&gt;</span>
+  <span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nx">e</span><span class="p">,</span><span class="nx">v</span><span class="p">,</span><span class="nx">n</span><span class="p">,</span><span class="nx">t</span><span class="p">,</span><span class="nx">s</span><span class="p">){</span><span class="k">if</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">fbq</span><span class="p">)</span><span class="k">return</span><span class="p">;</span><span class="nx">n</span><span class="o">=</span><span class="nx">f</span><span class="p">.</span><span class="nx">fbq</span><span class="o">=</span><span class="kd">function</span><span class="p">()</span>
+  <span class="p">{</span><span class="nx">n</span><span class="p">.</span><span class="nx">callMethod</span><span class="p">?</span> <span class="nx">n</span><span class="p">.</span><span class="nx">callMethod</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="nx">arguments</span><span class="p">):</span><span class="nx">n</span><span class="p">.</span><span class="nx">queue</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">)}</span>
+  <span class="p">;</span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">f</span><span class="p">.</span><span class="nx">_fbq</span><span class="p">)</span><span class="nx">f</span><span class="p">.</span><span class="nx">_fbq</span><span class="o">=</span><span class="nx">n</span><span class="p">;</span>
+  <span class="nx">n</span><span class="p">.</span><span class="nx">push</span><span class="o">=</span><span class="nx">n</span><span class="p">;</span><span class="nx">n</span><span class="p">.</span><span class="nx">loaded</span><span class="o">=!</span><span class="mi">0</span><span class="p">;</span><span class="nx">n</span><span class="p">.</span><span class="nx">version</span><span class="o">=</span><span class="s1">'2.0'</span><span class="p">;</span><span class="nx">n</span><span class="p">.</span><span class="nx">queue</span><span class="o">=</span><span class="p">[];</span><span class="nx">t</span><span class="o">=</span><span class="nx">b</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span><span class="nx">t</span><span class="p">.</span><span class="nx">async</span><span class="o">=!</span><span class="mi">0</span><span class="p">;</span>
+  <span class="nx">t</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="nx">v</span><span class="p">;</span><span class="nx">s</span><span class="o">=</span><span class="nx">b</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="nx">e</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span><span class="nx">s</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span><span class="nx">s</span><span class="p">)}(</span><span class="nb">window</span><span class="p">,</span>
+  <span class="nb">document</span><span class="p">,</span><span class="s1">'script'</span><span class="p">,</span><span class="s1">'https://connect.facebook.net/en_US/fbevents.js'</span><span class="p">);</span>
+  <span class="nx">fbq</span><span class="p">(</span><span class="s1">'init'</span><span class="p">,</span> <span class="s1">'1666009176948198'</span><span class="p">);</span> <span class="c1">// Insert your pixel ID here.</span>
+  <span class="nx">fbq</span><span class="p">(</span><span class="s1">'track'</span><span class="p">,</span> <span class="s1">'PageView'</span><span class="p">);</span>
+  <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;noscript&gt;&lt;img</span> <span class="na">height=</span><span class="s">"1"</span> <span class="na">width=</span><span class="s">"1"</span> <span class="na">style=</span><span class="s">"display:none"</span>
+  <span class="na">src=</span><span class="s">"https://www.facebook.com/tr?id=1666009176948198&amp;ev=PageView&amp;noscript=1"</span>
+  <span class="nt">/&gt;&lt;/noscript&gt;</span>
+  <span class="c">&lt;!-- DO NOT MODIFY --&gt;</span>
+  <span class="c">&lt;!-- End Facebook Pixel Code --&gt;</span>
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>This url <code class="highlighter-rouge">tintuc-vn.com</code> in source of ads site</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>  ❯❯ nslookup tintuc-vn.com
+  Server:		8.8.8.8
+  Address:	8.8.8.8#53
+
+  Non-authoritative answer:
+  Name:	tintuc-vn.com
+  Address: 136.243.94.239
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>whois this domain: <a href="https://whois.icann.org/en/lookup?name=tintuc-vn.com">https://whois.icann.org/en/lookup?name=tintuc-vn.com</a></p>
+  </li>
+  <li>
+    <p>which ports are opened?</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>  ❯❯ sudo nmap 136.243.94.239
+  Password:
+
+  Starting Nmap 7.40 ( https://nmap.org ) at 2017-06-25 16:58 +07
+  Nmap scan report for static.239.94.243.136.clients.your-server.de (136.243.94.239)
+  Host is up (0.53s latency).
+  Not shown: 987 closed ports
+  PORT     STATE SERVICE
+  21/tcp   open  ftp
+  22/tcp   open  ssh
+  25/tcp   open  smtp
+  53/tcp   open  domain
+  80/tcp   open  http
+  106/tcp  open  pop3pw
+  110/tcp  open  pop3
+  143/tcp  open  imap
+  443/tcp  open  https
+  465/tcp  open  smtps
+  993/tcp  open  imaps
+  995/tcp  open  pop3s
+  8443/tcp open  https-alt
+
+  Nmap done: 1 IP address (1 host up) scanned in 60.24 seconds
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+<h2 id="what-should-i-do">What should I do?</h2>
+<ul>
+  <li>Remove this Betternet chrome extension</li>
+  <li>Report to google</li>
+</ul>
+
+  </div>
+
+  <footer class="article-footer">
+
+  <hr/>
+
+  <section class="author">
+  <div class="authorimage box" style="background: url(/assets/img/avatar2017.jpg)"></div>
+  <div class="authorinfo box">
+    <p class="bio" style="color: #222">
+      My name is Hieu. I'm an Engineer who likes learning, discussing, and solving interesting problems. These days, I'm focusing on DevOps and Infrastructure.
+    </p>
+    <a class="github-button" href="https://github.com/hieuhtr" data-size="large" data-show-count="true" aria-label="Follow @hieuhtr on GitHub">Follow @hieuhtr</a>
+  </div>
+  <hr style="border-top: 0px"></<hr>
+  <div class="calendar"></div>
+</section>
+<script>
+  GitHubCalendar(".calendar", "hieuhtr");
+</script>
+
+  </footer>
+
+  
+
+
+</article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
