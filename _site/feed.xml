@@ -5,8 +5,8 @@
     <description>This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://llnx.me/</link>
     <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 26 Jun 2017 20:30:00 +0700</pubDate>
-    <lastBuildDate>Mon, 26 Jun 2017 20:30:00 +0700</lastBuildDate>
+    <pubDate>Mon, 26 Jun 2017 21:42:47 +0700</pubDate>
+    <lastBuildDate>Mon, 26 Jun 2017 21:42:47 +0700</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -148,7 +148,7 @@
 
 &lt;h2 id=&quot;understanding-top-command&quot;&gt;Understanding top command&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/top-command.png&quot; alt=&quot;large-img&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/top-command.png&quot; alt=&quot;large-img&quot; title=&quot;Top command explaination&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;date-and-uptime&quot;&gt;Date and uptime&lt;/h3&gt;
 &lt;p&gt;Current time is &lt;strong&gt;13:41:31&lt;/strong&gt;, and system has been running for over &lt;strong&gt;5 weeks&lt;/strong&gt;, from last boot on &lt;strong&gt;May 17&lt;/strong&gt;&lt;/p&gt;
@@ -278,7 +278,7 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;binlog-operations&quot;&gt;Binlog operations&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/mysql/conf.d/replication-binlog.cnf&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Manual config binlog in this file: &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/mysql/conf.d/replication-binlog.cnf&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mysqld&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;variable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;

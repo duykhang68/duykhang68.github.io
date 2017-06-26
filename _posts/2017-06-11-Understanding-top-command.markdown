@@ -18,13 +18,13 @@ The top program provides a dynamic real-time view of a running system. It can di
 
 The program provides a limited interactive interface for process manipulation as well as a much more extensive interface for personal configuration - encompassing every aspect of its operation. And while top is referred to throughout this document, you are free to name the program anything you wish. That new name, possibly an alias, will then be reflected on top's display and used when reading and writing a configuration file. ... 
 
-**❯❯ Need more?** See [http://man7.org/linux/man-pages/man1/top.1.html](http://man7.org/linux/man-pages/man1/top.1.html)
+**❯❯ Need more?** See <http://man7.org/linux/man-pages/man1/top.1.html>
 
 But it's too fucking long 💢 and want to see the whole picture? 🌟 Sure, I have a picture below
 
 ## Understanding top command
 
-![large-img](/assets/img/top-command.png)
+![large-img](/assets/img/top-command.png "Top command explaination")
 
 ### Date and uptime
 Current time is **13:41:31**, and system has been running for over **5 weeks**, from last boot on **May 17**

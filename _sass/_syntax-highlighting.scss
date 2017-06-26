@@ -89,6 +89,10 @@ green     #859900  operators, other keywords
     .il{ color: #2aa198 } /* Literal.Number.Integer.Long */
 }
 
+.highlight {
+    margin-top: 1px;
+}
+
 .highlight .hll { background-color: #ffffcc }
 .highlight  { background: #ffffff; }
 .highlight .c { color: #aaaaaa; font-style: italic } /* Comment */

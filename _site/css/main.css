@@ -555,16 +555,18 @@ body {
 
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: 2rem;
+h2, h3, h4, h5, h6 {
+  margin-top: 2rem;
+  margin-bottom: 0px;
   font-weight: 500; }
 
 h1 {
   font-size: 2.2rem;
   line-height: 1.2;
   letter-spacing: 0rem;
-  color: #e47911; }
+  color: #e47911;
+  font-weight: 500;
+  margin: 0px; }
 
 h2 {
   font-size: 2.0rem;
@@ -615,8 +617,8 @@ h6 {
   h6 {
     font-size: 1.1rem; } }
 p {
-  margin-top: 0;
-  text-align: start; }
+  text-align: start;
+  margin: 0.5rem; }
 
 .read-more {
   color: #888888; }
@@ -793,7 +795,8 @@ code {
   font-size: 90%;
   white-space: nowrap;
   background-image: url(/assets/img/snippet_bg.png);
-  border: 1px dashed #E1E1E1; }
+  border: 1px dashed #E1E1E1;
+  line-height: 1.5; }
 
 pre > code {
   display: block;
@@ -838,9 +841,6 @@ form {
   margin-bottom: 1.25rem; }
 
  */
-p {
-  margin-bottom: 1.25rem; }
-
 /* Utilities
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .u-full-width {
@@ -1506,6 +1506,9 @@ green     #859900  operators, other keywords
     color: #268bd2; }
   .highlight-old .il {
     color: #2aa198; }
+
+.highlight {
+  margin-top: 1px; }
 
 .highlight .hll {
   background-color: #ffffcc; }

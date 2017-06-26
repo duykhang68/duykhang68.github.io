@@ -67,7 +67,7 @@ In MySQL 5.6, you can cause the server to log full or minimal rows using the `bi
 - `noblob`: Log all columns (same as full), except for BLOB and TEXT columns that are not required to identify rows, or that have not changed.
 
 ## Binlog operations
-`/etc/mysql/conf.d/replication-binlog.cnf`
+Manual config binlog in this file: **`/etc/mysql/conf.d/replication-binlog.cnf`**
 ```sql
 [mysqld]
 <variable> = <value>
