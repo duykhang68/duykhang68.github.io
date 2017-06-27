@@ -23,7 +23,7 @@ kramdown:
 # just leave someone empty to disable it
 google_analytics: UA-76496708-3
 disqus_shortname:
-fbc-comments-firebase: "https://llnx-comment.firebaseapp.com/"
+fbc-comments-firebase: "https://llnx-comment.firebaseio.com/"
 
 # used this for post_excerpt at index_page
 excerpt_separator: <!--description-->
