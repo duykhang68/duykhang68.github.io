@@ -7,7 +7,7 @@ description: help discovering and diagnosing problems in CPU and memory usage
 
 **[`top`](#understanding-top-command)** is a monitoring program which is used frequently for tracking process's resource usage and its activity in **real-time**, show current tasks being serviced by the kernel, help **discovering** and **diagnosing** overload or capacity of system by seeing **CPU & Mem usage**. It's available under many Unix/Linux operating systems.
 
-Keyword: [top](#understanding-top-command), [uptime](#date-and-uptime), [users](#number-of-logged-users), [load average](#load-average)
+Keyword: [top](#understanding-top-command), [uptime](#1-date-and-uptime), [users](#2-number-of-logged-users), [load average](#3-load-average)
 
 ![](/assets/img/top-command-optimized.gif)
 
@@ -26,8 +26,8 @@ But it's too fucking long 💢 and want to see the whole picture? 🌟 Sure, I h
 
 ![large-img](/assets/img/top-command.png "Top command explaination")
 
-### Date and uptime
-Current time is **13:41:31**, and system has been running for over **5 weeks**, from last boot on **May 17**
+### 1. Date and uptime
+Current time is **13:41**, and system has been running for over **5 weeks**, from last boot on **May 17**
 ```
 top - 13:41:31 up 38 days, 21:04,  3 users,  load average: 0.01, 0.09, 0.13
 ❯❯ date
@@ -40,7 +40,7 @@ up 5 weeks, 3 days, 21 hours, 6 minutes
 2017-05-17 16:37:26
 ```
 
-### Number of logged users
+### 2. Number of logged users
 I have 3 logged users and what they are doing:
 - one is running ssh to other
 - one is on bash shell
@@ -55,6 +55,7 @@ ubuntu   pts/0    x.205.x.xxx      13:09    1:34   0.07s  0.03s ssh abc.xyz
 ubuntu   pts/3    x.64.xx.xxx      05:11    8:36m  0.05s  0.01s -bash
 ubuntu   pts/6    x.161.x.xxx      13:47    3.00s  0.04s  0.00s w
 ```
-### Load average
 
+### 3. Load average
+...
 
