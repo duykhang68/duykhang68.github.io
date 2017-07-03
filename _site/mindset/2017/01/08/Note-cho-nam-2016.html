@@ -103,6 +103,7 @@ Tổng kết 1 số thứ trong năm 2016, để sau này có cái mà nhìn l�
   <li>Tiếng Anh siêu tệ mà không có kế hoạch rõ ràng để cải thiện, cứ than vãn :(</li>
 </ul>
 
+    <div id="gitment-container"></div>
   </div>
 
   <footer class="article-footer">
@@ -130,6 +131,19 @@ Tổng kết 1 số thứ trong năm 2016, để sau này có cái mà nhìn l�
 
 
 </article>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'hieuhtr',
+  repo: 'hieuhtr.github.io',
+  oauth: {
+    client_id: '638f29259139b299c74e',
+    client_secret: 'fd699f58f759559b935c6a184474a4761bd35201',
+  },
+})
+gitment.render('gitment-container')
+</script>
 
           </div>
         </div>
