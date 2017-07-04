@@ -446,11 +446,12 @@ a.gitment-editor-footer-tip:hover {
 .gitment-markdown {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  line-height: 1.5;
-  color: #333;
+  font-size: 60%;
+  font-size: 15px;
+  line-height: 1.625;
+  color: #222;
+  font-weight: 400;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 16px;
-  line-height: 1.5;
   word-wrap: break-word;
 }
 
