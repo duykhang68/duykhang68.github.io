@@ -33,6 +33,13 @@ h3 { font-size: 18px;
      line-height: 28px;
      font-family: 'Merriweather', serif;
 }
+h4 { font-weight: 300;
+     margin: 5px 0 0;
+     font-size: 15px;
+     padding: 0 13px 10px;
+     border-radius:2px;
+    font-family: 'Merriweather', serif;
+}
 h2, h3 { margin-top: 5px }
 a { color: #e47911;
     display: inline-block;
@@ -107,6 +114,7 @@ ul.skills li:last-child{
 .row:after { clear: both }
 .col { float: left }
 .col-right { float: right }
+.col-left { float: left }
 
 /*
  Page Rules
