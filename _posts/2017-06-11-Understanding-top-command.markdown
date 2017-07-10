@@ -60,5 +60,6 @@ ubuntu   pts/6    x.161.x.xxx      13:47    3.00s  0.04s  0.00s w
 ```
 
 ### 3. Load average
-...
+
+CPUs is the first target for system performance analysis. Process threads will be queue and waiting to run if there is more demand for CPU resources than avalable resources. ...
 
