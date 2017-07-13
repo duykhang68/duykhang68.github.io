@@ -3,10 +3,10 @@
   <channel>
     <title>Hieu's blog</title>
     <description>This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 13 Jul 2017 20:40:52 +0700</pubDate>
-    <lastBuildDate>Thu, 13 Jul 2017 20:40:52 +0700</lastBuildDate>
+    <link>https://llnx.me/</link>
+    <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 13 Jul 2017 20:41:42 +0700</pubDate>
+    <lastBuildDate>Thu, 13 Jul 2017 20:41:42 +0700</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -119,8 +119,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 25 Jun 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</guid>
+        <link>https://llnx.me/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</guid>
         
         
         <category>technical</category>
@@ -191,8 +191,8 @@ ubuntu   pts/6    x.161.x.xxx      13:47    3.00s  0.04s  0.00s w
 
 </description>
         <pubDate>Sun, 11 Jun 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/06/11/Understanding-top-command.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/11/Understanding-top-command.html</guid>
+        <link>https://llnx.me/technical/2017/06/11/Understanding-top-command.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/06/11/Understanding-top-command.html</guid>
         
         
         <category>technical</category>
@@ -339,8 +339,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 04 Jun 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/06/04/The-MySQL-Binary-log.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/04/The-MySQL-Binary-log.html</guid>
+        <link>https://llnx.me/technical/2017/06/04/The-MySQL-Binary-log.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/06/04/The-MySQL-Binary-log.html</guid>
         
         
         <category>technical</category>
@@ -412,8 +412,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 21 May 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</link>
-        <guid isPermaLink="true">http://localhost:4000/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</guid>
+        <link>https://llnx.me/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</link>
+        <guid isPermaLink="true">https://llnx.me/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</guid>
         
         
         <category>mindset</category>
@@ -444,8 +444,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;p&gt;From &lt;a href=&quot;http://sethgodin.typepad.com/seths_blog/2017/04/who-are-we-seeking-to-become.html&quot;&gt;sethgodin&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 07 May 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/mindset/2017/05/07/Who-are-we-seeking-to-become.html</link>
-        <guid isPermaLink="true">http://localhost:4000/mindset/2017/05/07/Who-are-we-seeking-to-become.html</guid>
+        <link>https://llnx.me/mindset/2017/05/07/Who-are-we-seeking-to-become.html</link>
+        <guid isPermaLink="true">https://llnx.me/mindset/2017/05/07/Who-are-we-seeking-to-become.html</guid>
         
         
         <category>mindset</category>
@@ -499,8 +499,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 17 Apr 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/04/17/No-Reboot-Kernel-Patching.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/04/17/No-Reboot-Kernel-Patching.html</guid>
+        <link>https://llnx.me/technical/2017/04/17/No-Reboot-Kernel-Patching.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/04/17/No-Reboot-Kernel-Patching.html</guid>
         
         
         <category>technical</category>
@@ -597,8 +597,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 09 Apr 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/04/09/How-DNS-works.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/04/09/How-DNS-works.html</guid>
+        <link>https://llnx.me/technical/2017/04/09/How-DNS-works.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/04/09/How-DNS-works.html</guid>
         
         
         <category>technical</category>
@@ -645,8 +645,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 12 Mar 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/mindset/2017/03/12/habit-time-management.html</link>
-        <guid isPermaLink="true">http://localhost:4000/mindset/2017/03/12/habit-time-management.html</guid>
+        <link>https://llnx.me/mindset/2017/03/12/habit-time-management.html</link>
+        <guid isPermaLink="true">https://llnx.me/mindset/2017/03/12/habit-time-management.html</guid>
         
         
         <category>mindset</category>
@@ -706,8 +706,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 Go https://github.com/hieuhtr/Blog/issues/8&lt;/p&gt;
 </description>
         <pubDate>Wed, 08 Mar 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</guid>
+        <link>https://llnx.me/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</guid>
         
         
         <category>technical</category>
@@ -752,8 +752,8 @@ That’s what the fuck I do.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Richard:&lt;/strong&gt; …That’s basically what I told him.&lt;/p&gt;
 </description>
         <pubDate>Mon, 20 Feb 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</link>
-        <guid isPermaLink="true">http://localhost:4000/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</guid>
+        <link>https://llnx.me/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</link>
+        <guid isPermaLink="true">https://llnx.me/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</guid>
         
         
         <category>mindset</category>
