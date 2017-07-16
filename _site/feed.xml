@@ -3,10 +3,10 @@
   <channel>
     <title>Hieu's blog</title>
     <description>This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
-    <link>https://llnx.me/</link>
-    <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 Jul 2017 14:39:08 +0700</pubDate>
-    <lastBuildDate>Sun, 16 Jul 2017 14:39:08 +0700</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 16 Jul 2017 22:07:32 +0700</pubDate>
+    <lastBuildDate>Sun, 16 Jul 2017 22:07:32 +0700</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -119,8 +119,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 25 Jun 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</guid>
+        <link>http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</guid>
         
         
         <category>technical</category>
@@ -134,7 +134,8 @@
 &lt;p&gt;Keyword: &lt;a href=&quot;/technical/2017/06/11/Understanding-top-command.html#understanding-top-command&quot;&gt;top&lt;/a&gt;, 
          &lt;a href=&quot;/technical/2017/06/11/Understanding-top-command.html#1-date-and-uptime&quot;&gt;uptime&lt;/a&gt;, 
          &lt;a href=&quot;/technical/2017/06/11/Understanding-top-command.html#2-number-of-logged-users&quot;&gt;users&lt;/a&gt;, 
-         &lt;a href=&quot;/technical/2017/06/11/Understanding-top-command.html#3-load-average&quot;&gt;load average&lt;/a&gt;&lt;/p&gt;
+         &lt;a href=&quot;/technical/2017/06/11/Understanding-top-command.html#3-load-average&quot;&gt;load average&lt;/a&gt;,
+         &lt;a href=&quot;/technical/2017/06/11/Understanding-top-command.html#4-processthread-state&quot;&gt;process/thread state&lt;/a&gt;,&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/top-command-optimized.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -186,13 +187,41 @@ ubuntu   pts/6    x.161.x.xxx      13:47    3.00s  0.04s  0.00s w
 &lt;/div&gt;
 
 &lt;h3 id=&quot;3-load-average&quot;&gt;3. Load average&lt;/h3&gt;
+&lt;p&gt;The &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;load average&lt;/code&gt;&lt;/strong&gt; is a number corresponding to the average number of &lt;strong&gt;runnable processes&lt;/strong&gt; on the system. The load average is often listed as three sets of numbers, which represent the load average for the past 1, 5, and 15 minutes. - from &lt;a href=&quot;https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Introduction_To_System_Administration/s2-bandwidth-rhlspec-cpu.html&quot;&gt;RedHat&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;CPUs is the first target for system performance analysis. Process threads will be queue and waiting to run if there is more demand for CPU resources than avalable resources. …&lt;/p&gt;
+&lt;p&gt;On Linux systems, these numbers include &lt;strong&gt;processes wanting to run on CPU&lt;/strong&gt;, as well as processes blocked in uninterruptible I/O (usually disk I/O). This gives a high level idea of &lt;strong&gt;resource load&lt;/strong&gt; (or demand). The three numbers give us some idea of &lt;strong&gt;how load is changing over time&lt;/strong&gt;. For example, if you’ve been asked to check a problem server, and the 1 minute value is much lower than the 15 minute value, then you might have logged in too late and missed the issue - from &lt;a href=&quot;https://medium.com/netflix-techblog/linux-performance-analysis-in-60-000-milliseconds-accc10403c55&quot;&gt;Netfilx Techblog&lt;/a&gt;&lt;/p&gt;
 
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Runable processes&lt;/code&gt;&lt;/strong&gt; means: running and blocked processes (usually by I/O). That’s really important because it means that you can have &lt;code class=&quot;highlighter-rouge&quot;&gt;0% CPU usage&lt;/code&gt; and still have &lt;code class=&quot;highlighter-rouge&quot;&gt;high load&lt;/code&gt;. The processes blocked on I/O show up in the “&lt;strong&gt;D&lt;/strong&gt;” state in &lt;code class=&quot;highlighter-rouge&quot;&gt;ps&lt;/code&gt;, header “STAT” or “S”&lt;/p&gt;
+
+&lt;p&gt;Lower numbers are better than higher numbers. If the third number is &lt;strong&gt;too high&lt;/strong&gt; (15 minutes ago), I think we got a problem about the performance to deal with. But what’s the &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Threshold&lt;/code&gt;&lt;/strong&gt;, what’s too high. We need a reasonable and &lt;strong&gt;acceptable value&lt;/strong&gt; for comparison.&lt;/p&gt;
+
+&lt;h3 id=&quot;31-single-logical-cpu&quot;&gt;3.1 Single logical CPU&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;In general&lt;/strong&gt;, with &lt;code class=&quot;highlighter-rouge&quot;&gt;one logical CPU&lt;/code&gt; - 1 vCPU, &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Threshold = 0.7&lt;/code&gt;&lt;/strong&gt; is a best practice, many sysadmins will draw a line at 0.70.&lt;/p&gt;
+
+&lt;p&gt;For example in case of 1 vCPU:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;load average: 1.25, 0.60, 4.20
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;over the last 1 minute: System was overloaded by &lt;code class=&quot;highlighter-rouge&quot;&gt;5% on average&lt;/code&gt;. 0.25 processes were waiting for the CPU&lt;/li&gt;
+  &lt;li&gt;over the last 5 minutes: CPU &lt;code class=&quot;highlighter-rouge&quot;&gt;idled for 40%&lt;/code&gt; of the time. &lt;strong&gt;It’s acceptable&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;over the last 15 minutes: System was &lt;code class=&quot;highlighter-rouge&quot;&gt;overloaded by 320%&lt;/code&gt; on average. 3.20 processes were waiting for the CPU.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;32--multi-logical-cpus&quot;&gt;3.2  Multi-logical CPUs&lt;/h3&gt;
+&lt;p&gt;With 4 logical CPUs system? It’s still healthy with a load of 2.80 - 3.00.
+On multi-logical CPUs system, the load is relative to the number of vCPUs available. The “100% utilization” mark is 1.00 on a single-logical CPU system, 2.00, on a dual vCPUs, 4.00 on a quad-vCPUs, etc.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;💢 &lt;strong&gt;Confusing&lt;/strong&gt; about vCPUs/cores/threads - See &lt;a href=&quot;https://github.com/hieuhtr/Blog/issues/55&quot;&gt;CPU Architecture fundamental&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;🌟 For deep understanding about load average - See &lt;a href=&quot;http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages&quot;&gt;this post&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;4-processthread-state&quot;&gt;4. Process/Thread state&lt;/h3&gt;
 </description>
         <pubDate>Sun, 11 Jun 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/06/11/Understanding-top-command.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/06/11/Understanding-top-command.html</guid>
+        <link>http://localhost:4000/technical/2017/06/11/Understanding-top-command.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/11/Understanding-top-command.html</guid>
         
         
         <category>technical</category>
@@ -339,8 +368,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 04 Jun 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/06/04/The-MySQL-Binary-log.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/06/04/The-MySQL-Binary-log.html</guid>
+        <link>http://localhost:4000/technical/2017/06/04/The-MySQL-Binary-log.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/04/The-MySQL-Binary-log.html</guid>
         
         
         <category>technical</category>
@@ -412,8 +441,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 21 May 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</link>
-        <guid isPermaLink="true">https://llnx.me/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</guid>
+        <link>http://localhost:4000/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</guid>
         
         
         <category>mindset</category>
@@ -444,8 +473,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;p&gt;From &lt;a href=&quot;http://sethgodin.typepad.com/seths_blog/2017/04/who-are-we-seeking-to-become.html&quot;&gt;sethgodin&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 07 May 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/mindset/2017/05/07/Who-are-we-seeking-to-become.html</link>
-        <guid isPermaLink="true">https://llnx.me/mindset/2017/05/07/Who-are-we-seeking-to-become.html</guid>
+        <link>http://localhost:4000/mindset/2017/05/07/Who-are-we-seeking-to-become.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/05/07/Who-are-we-seeking-to-become.html</guid>
         
         
         <category>mindset</category>
@@ -499,8 +528,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 17 Apr 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/04/17/No-Reboot-Kernel-Patching.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/04/17/No-Reboot-Kernel-Patching.html</guid>
+        <link>http://localhost:4000/technical/2017/04/17/No-Reboot-Kernel-Patching.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/04/17/No-Reboot-Kernel-Patching.html</guid>
         
         
         <category>technical</category>
@@ -597,8 +626,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 09 Apr 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/04/09/How-DNS-works.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/04/09/How-DNS-works.html</guid>
+        <link>http://localhost:4000/technical/2017/04/09/How-DNS-works.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/04/09/How-DNS-works.html</guid>
         
         
         <category>technical</category>
@@ -645,8 +674,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 12 Mar 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/mindset/2017/03/12/habit-time-management.html</link>
-        <guid isPermaLink="true">https://llnx.me/mindset/2017/03/12/habit-time-management.html</guid>
+        <link>http://localhost:4000/mindset/2017/03/12/habit-time-management.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/03/12/habit-time-management.html</guid>
         
         
         <category>mindset</category>
@@ -706,8 +735,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 Go https://github.com/hieuhtr/Blog/issues/8&lt;/p&gt;
 </description>
         <pubDate>Wed, 08 Mar 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</guid>
+        <link>http://localhost:4000/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</guid>
         
         
         <category>technical</category>
@@ -752,8 +781,8 @@ That’s what the fuck I do.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Richard:&lt;/strong&gt; …That’s basically what I told him.&lt;/p&gt;
 </description>
         <pubDate>Mon, 20 Feb 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</link>
-        <guid isPermaLink="true">https://llnx.me/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</guid>
+        <link>http://localhost:4000/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</guid>
         
         
         <category>mindset</category>
