@@ -11,7 +11,7 @@
   <!-- todo: include this into main.css -->
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/technical/2017/06/11/Understanding-top-command.html">
+  <link rel="canonical" href="http://localhost:4000/technical/2017/07/16/Understanding-top-command.html">
   <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="http://localhost:4000/feed.xml">
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <script async src="http://localhost:4000/assets/dist/fetch.min.js"></script>
@@ -64,7 +64,7 @@
 
   <header class="article_header">
     <h1 class="post_title" itemprop="name headline">Understanding top command</h1>
-    <time class="post_date">11 June 2017, Sunday</time>
+    <time class="post_date">16 July 2017, Sunday</time>
     <a class="post_date"> - 5 min read</a>
     <div class="issues" style="float: right">
       <a class="github-button" href="https://github.com/hieuhtr/Blog/issues" data-show-count="true" aria-label="Issue hieuhtr/Blog on GitHub">Explore</a>
@@ -74,11 +74,11 @@
   <div class="article-content" itemprop="articleBody">
     <p><strong><a href="#understanding-top-command"><code class="highlighter-rouge">top</code></a></strong> is a monitoring program which is used frequently for tracking process’s resource usage and its activity in <strong>real-time</strong>, show current tasks being serviced by the kernel, help <strong>discovering</strong> and <strong>diagnosing</strong> overload or capacity of system by seeing <strong>CPU &amp; Mem usage</strong>. It’s available under many Unix/Linux operating systems.</p>
 
-<p>Keyword: <a href="/technical/2017/06/11/Understanding-top-command.html#understanding-top-command">top</a>, 
-         <a href="/technical/2017/06/11/Understanding-top-command.html#1-date-and-uptime">uptime</a>, 
-         <a href="/technical/2017/06/11/Understanding-top-command.html#2-number-of-logged-users">users</a>, 
-         <a href="/technical/2017/06/11/Understanding-top-command.html#3-load-average">load average</a>,
-         <a href="/technical/2017/06/11/Understanding-top-command.html#4-processthread-state">process/thread state</a>,</p>
+<p>Keyword: <a href="/technical/2017/07/16/Understanding-top-command.html#understanding-top-command">top</a>, 
+         <a href="/technical/2017/07/16/Understanding-top-command.html#1-date-and-uptime">uptime</a>, 
+         <a href="/technical/2017/07/16/Understanding-top-command.html#2-number-of-logged-users">users</a>, 
+         <a href="/technical/2017/07/16/Understanding-top-command.html#3-load-average">load average</a>,
+         <a href="/technical/2017/07/16/Understanding-top-command.html#4-processthread-state">process/thread state</a></p>
 
 <p><img src="/assets/img/top-command-optimized.gif" alt="" /></p>
 
@@ -146,7 +146,7 @@ ubuntu   pts/6    x.161.x.xxx      13:47    3.00s  0.04s  0.00s w
 </code></pre>
 </div>
 <ul>
-  <li>over the last 1 minute: System was overloaded by <code class="highlighter-rouge">5% on average</code>. 0.25 processes were waiting for the CPU</li>
+  <li>over the last 1 minute: System was overloaded by <code class="highlighter-rouge">25% on average</code>. 0.25 processes were waiting for the CPU</li>
   <li>over the last 5 minutes: CPU <code class="highlighter-rouge">idled for 40%</code> of the time. <strong>It’s acceptable</strong></li>
   <li>over the last 15 minutes: System was <code class="highlighter-rouge">overloaded by 320%</code> on average. 3.20 processes were waiting for the CPU.</li>
 </ul>

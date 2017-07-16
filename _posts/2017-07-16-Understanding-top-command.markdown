@@ -7,11 +7,11 @@ description: help discovering and diagnosing problems in CPU and memory usage
 
 **[`top`](#understanding-top-command)** is a monitoring program which is used frequently for tracking process's resource usage and its activity in **real-time**, show current tasks being serviced by the kernel, help **discovering** and **diagnosing** overload or capacity of system by seeing **CPU & Mem usage**. It's available under many Unix/Linux operating systems.
 
-Keyword: [top]({% post_url 2017-06-11-Understanding-top-command %}#understanding-top-command), 
-         [uptime]({% post_url 2017-06-11-Understanding-top-command %}#1-date-and-uptime), 
-         [users]({% post_url 2017-06-11-Understanding-top-command %}#2-number-of-logged-users), 
-         [load average]({% post_url 2017-06-11-Understanding-top-command %}#3-load-average),
-         [process/thread state]({% post_url 2017-06-11-Understanding-top-command %}#4-processthread-state),
+Keyword: [top]({% post_url 2017-07-16-Understanding-top-command %}#understanding-top-command), 
+         [uptime]({% post_url 2017-07-16-Understanding-top-command %}#1-date-and-uptime), 
+         [users]({% post_url 2017-07-16-Understanding-top-command %}#2-number-of-logged-users), 
+         [load average]({% post_url 2017-07-16-Understanding-top-command %}#3-load-average),
+         [process/thread state]({% post_url 2017-07-16-Understanding-top-command %}#4-processthread-state)
 
 ![](/assets/img/top-command-optimized.gif)
 
@@ -76,7 +76,7 @@ For example in case of 1 vCPU:
 ```
 load average: 1.25, 0.60, 4.20
 ```
-- over the last 1 minute: System was overloaded by `5% on average`. 0.25 processes were waiting for the CPU
+- over the last 1 minute: System was overloaded by `25% on average`. 0.25 processes were waiting for the CPU
 - over the last 5 minutes: CPU `idled for 40%` of the time. **It's acceptable**
 - over the last 15 minutes: System was `overloaded by 320%` on average. 3.20 processes were waiting for the CPU.
 
