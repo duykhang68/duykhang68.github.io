@@ -81,12 +81,24 @@ load average: 1.25, 0.60, 4.20
 - over the last 15 minutes: System was `overloaded by 320%` on average. 3.20 processes were waiting for the CPU.
 
 ### 3.2  Multi-logical CPUs
-With 4 logical CPUs system? It's still healthy with a load of 2.80 - 3.00.
-On multi-logical CPUs system, the load is relative to the number of vCPUs available. The "100% utilization" mark is 1.00 on a single-logical CPU system, 2.00, on a dual vCPUs, 4.00 on a quad-vCPUs, etc.
+With 4 logical CPUs system? It's still healthy with a load of 2.80 - 3.00. On multi-logical CPUs system, the load is relative to the number of vCPUs available. 
 
----
-💢 **Confusing** about vCPUs/cores/threads - See [CPU Architecture fundamental](https://github.com/hieuhtr/Blog/issues/55)
+The "100% utilization" mark is 1.00 on a single-logical CPU system, 2.00, on a dual vCPUs, 4.00 on a quad-vCPUs, etc.
 
-🌟 For deep understanding about load average - See [this post](http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages)
+In `top` command, press `1` for each vCPU is displayed seperately, also to know number of vCPU.
+I have 4 vCPUs in this case, using EC2 AWS C4 type, low load average
+```
+top - 09:10:00 up 32 days, 6 min,  2 users,  load average: 0.01, 0.04, 0.05
+Tasks: 125 total,   1 running, 124 sleeping,   0 stopped,   0 zombie
+%Cpu0  :  0.7 us,  0.0 sy,  0.0 ni, 99.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu1  :  0.0 us,  0.3 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu2  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu3  :  5.0 us,  0.3 sy,  0.0 ni, 94.6 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+```
+
+Something more:
+- 💢 **Confusing** about vCPUs/cores/threads - See [CPU Architecture fundamental](https://github.com/hieuhtr/Blog/issues/55)
+- 🌟 For **deep understanding** about load average - See [this post](http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages)
+- 🌟 For another example - See [wiki](https://en.wikipedia.org/wiki/Load_%28computing%29#Unix-style_load_calculation) 
 
 ### 4. Process/Thread state

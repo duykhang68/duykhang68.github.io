@@ -65,7 +65,7 @@
   <header class="article_header">
     <h1 class="post_title" itemprop="name headline">Understanding top command</h1>
     <time class="post_date">16 July 2017, Sunday</time>
-    <a class="post_date"> - 5 min read</a>
+    <a class="post_date"> - 6 min read</a>
     <div class="issues" style="float: right">
       <a class="github-button" href="https://github.com/hieuhtr/Blog/issues" data-show-count="true" aria-label="Issue hieuhtr/Blog on GitHub">Explore</a>
     </div>
@@ -152,13 +152,27 @@ ubuntu   pts/6    x.161.x.xxx      13:47    3.00s  0.04s  0.00s w
 </ul>
 
 <h3 id="32--multi-logical-cpus">3.2  Multi-logical CPUs</h3>
-<p>With 4 logical CPUs system? It’s still healthy with a load of 2.80 - 3.00.
-On multi-logical CPUs system, the load is relative to the number of vCPUs available. The “100% utilization” mark is 1.00 on a single-logical CPU system, 2.00, on a dual vCPUs, 4.00 on a quad-vCPUs, etc.</p>
+<p>With 4 logical CPUs system? It’s still healthy with a load of 2.80 - 3.00. On multi-logical CPUs system, the load is relative to the number of vCPUs available.</p>
 
-<hr />
-<p>💢 <strong>Confusing</strong> about vCPUs/cores/threads - See <a href="https://github.com/hieuhtr/Blog/issues/55">CPU Architecture fundamental</a></p>
+<p>The “100% utilization” mark is 1.00 on a single-logical CPU system, 2.00, on a dual vCPUs, 4.00 on a quad-vCPUs, etc.</p>
 
-<p>🌟 For deep understanding about load average - See <a href="http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages">this post</a></p>
+<p>In <code class="highlighter-rouge">top</code> command, press <code class="highlighter-rouge">1</code> for each vCPU is displayed seperately, also to know number of vCPU.
+I have 4 vCPUs in this case, using EC2 AWS C4 type, low load average</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>top - 09:10:00 up 32 days, 6 min,  2 users,  load average: 0.01, 0.04, 0.05
+Tasks: 125 total,   1 running, 124 sleeping,   0 stopped,   0 zombie
+%Cpu0  :  0.7 us,  0.0 sy,  0.0 ni, 99.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu1  :  0.0 us,  0.3 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu2  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu3  :  5.0 us,  0.3 sy,  0.0 ni, 94.6 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+</code></pre>
+</div>
+
+<p>Something more:</p>
+<ul>
+  <li>💢 <strong>Confusing</strong> about vCPUs/cores/threads - See <a href="https://github.com/hieuhtr/Blog/issues/55">CPU Architecture fundamental</a></li>
+  <li>🌟 For <strong>deep understanding</strong> about load average - See <a href="http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages">this post</a></li>
+  <li>🌟 For another example - See <a href="https://en.wikipedia.org/wiki/Load_%28computing%29#Unix-style_load_calculation">wiki</a></li>
+</ul>
 
 <h3 id="4-processthread-state">4. Process/Thread state</h3>
 
@@ -207,6 +221,6 @@ gitment.render('gitment-container')
         </div>
       </div>
     </div>
-    <script data-cfasync="false" src="https://pepper.swat.io/embed.js?eyJwb3NpdGlvbiI6ImxlZnQiLCJjb2xvciI6ImU0NzkxMSIsImN1c3RvbUNvbG9yIjp0cnVlLCJpY29uIjoicGFjbWFuIiwicHJvbm91biI6Im1lIiwibGFuZ3VhZ2UiOiJlbiIsImJyYW5kZWQiOmZhbHNlLCJpbnRyb1RleHQiOm51bGwsImNoYW5uZWxzIjpbWyJ0ZWxlZ3JhbSIsImhpZXVodHIiLCJzb2NpYWwiXSxbInNreXBlIiwiaHV5bmh0cnVuZ2hpZXUuY3NAb3V0bG9vay5jb20iLCJzb2NpYWwiXSxbIm1lc3NlbmdlciIsImh1eW5odHJ1bmdoaWV1LmNzIiwic29jaWFsIl0sWyJlbWFpbCIsImh1eW5odHJ1bmdoaWV1LmNzQGdtYWlsLmNvbSIsImNsYXNzaWMiXV19"></script>
+    <script async data-cfasync="false" src="https://pepper.swat.io/embed.js?eyJwb3NpdGlvbiI6ImxlZnQiLCJjb2xvciI6ImU0NzkxMSIsImN1c3RvbUNvbG9yIjp0cnVlLCJpY29uIjoicGFjbWFuIiwicHJvbm91biI6Im1lIiwibGFuZ3VhZ2UiOiJlbiIsImJyYW5kZWQiOmZhbHNlLCJpbnRyb1RleHQiOm51bGwsImNoYW5uZWxzIjpbWyJ0ZWxlZ3JhbSIsImhpZXVodHIiLCJzb2NpYWwiXSxbInNreXBlIiwiaHV5bmh0cnVuZ2hpZXUuY3NAb3V0bG9vay5jb20iLCJzb2NpYWwiXSxbIm1lc3NlbmdlciIsImh1eW5odHJ1bmdoaWV1LmNzIiwic29jaWFsIl0sWyJlbWFpbCIsImh1eW5odHJ1bmdoaWV1LmNzQGdtYWlsLmNvbSIsImNsYXNzaWMiXV19"></script>
   </body>
 </html>
