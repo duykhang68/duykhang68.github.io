@@ -69,7 +69,7 @@ On Linux systems, these numbers include **processes wanting to run on CPU**, as 
 
 Lower numbers are better than higher numbers. If the third number is **too high** (15 minutes ago), I think we got a problem about the performance to deal with. But what's the **`Threshold`**, what's too high. We need a reasonable and **acceptable value** for comparison.
 
-### 3.1 Single logical CPU
+#### 3.1 Single logical CPU
 **In general**, with `one logical CPU` - 1 vCPU, **`Threshold = 0.7`** is a best practice, many sysadmins will draw a line at 0.70.
 
 For example in case of 1 vCPU: 
@@ -80,7 +80,7 @@ load average: 1.25, 0.60, 4.20
 - over the last 5 minutes: CPU `idled for 40%` of the time. **It's acceptable**
 - over the last 15 minutes: System was `overloaded by 320%` on average. 3.20 processes were waiting for the CPU.
 
-### 3.2  Multi-logical CPUs
+#### 3.2  Multi-logical CPUs
 With 4 logical CPUs system? It's still healthy with a load of 2.80 - 3.00. On multi-logical CPUs system, the load is relative to the number of vCPUs available. 
 
 The "100% utilization" mark is 1.00 on a single-logical CPU system, 2.00, on a dual vCPUs, 4.00 on a quad-vCPUs, etc.
@@ -100,5 +100,6 @@ Something more:
 - 💢 **Confusing** about vCPUs/cores/threads - See [CPU Architecture fundamental](https://github.com/hieuhtr/Blog/issues/55)
 - 🌟 For **deep understanding** about load average - See [this post](http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages)
 - 🌟 For another example - See [wiki](https://en.wikipedia.org/wiki/Load_%28computing%29#Unix-style_load_calculation) 
+- 🌟 Case: High load average but low CPU ultilization - See [this post](https://www.pitt-pladdy.com/blog/_20150829-125708_0100_Linux_performance_metric_myths_Load_Average_IO_Wait_/)
 
 ### 4. Process/Thread state
