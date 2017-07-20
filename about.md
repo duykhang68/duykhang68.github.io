@@ -13,6 +13,7 @@ I hope you’ll enjoy it.
 #### Where am I:
 * [Facebook](https://web.facebook.com/huynhtrunghieu.cs)
 * [Github](https://github.com/hieuhtr)
+* [Linkedin](https://www.linkedin.com/in/huynhtrunghieucs)
 
 #### Today I learned
 * [Check issues](https://github.com/hieuhtr/Blog/issues)
