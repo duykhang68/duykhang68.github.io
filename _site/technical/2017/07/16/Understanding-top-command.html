@@ -11,14 +11,14 @@
     <!-- todo: include this into main.css -->
 
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="https://llnx.me/technical/2017/07/16/Understanding-top-command.html">
-    <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="https://llnx.me /feed.xml ">
+    <link rel="canonical" href="http://localhost:4000/technical/2017/07/16/Understanding-top-command.html">
+    <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="http://localhost:4000 /feed.xml ">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script async src="https://llnx.me/assets/dist/fetch.min.js"></script>
-    <script src="https://llnx.me/assets/dist/github-calendar.min.js"></script>
-    <link rel="stylesheet" href="https://llnx.me/assets/dist/github-calendar.css" />
-    <script src="https://llnx.me/assets/dist/pace.min.js"></script>
-    <link href="https://llnx.me/assets/dist/pace.css" rel="stylesheet" />
+    <script async src="http://localhost:4000/assets/dist/fetch.min.js"></script>
+    <script src="http://localhost:4000/assets/dist/github-calendar.min.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/dist/github-calendar.css" />
+    <script src="http://localhost:4000/assets/dist/pace.min.js"></script>
+    <link href="http://localhost:4000/assets/dist/pace.css" rel="stylesheet" />
     <script>
         (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -85,7 +85,7 @@
   <header class="article_header">
     <h1 class="post_title" itemprop="name headline">Understanding top command</h1>
     <time class="post_date">16 July 2017, Sunday</time>
-    <a class="post_date"> - 6 min read</a>
+    <a class="post_date"> - 11 min read</a>
     <div class="issues" style="float: right">
       <a class="github-button" href="https://github.com/hieuhtr/Blog/issues" data-show-count="true" aria-label="Issue hieuhtr/Blog on GitHub">Explore</a>
     </div>
@@ -98,7 +98,8 @@
          <a href="/technical/2017/07/16/Understanding-top-command.html#1-date-and-uptime">uptime</a>, 
          <a href="/technical/2017/07/16/Understanding-top-command.html#2-number-of-logged-users">users</a>, 
          <a href="/technical/2017/07/16/Understanding-top-command.html#3-load-average">load average</a>,
-         <a href="/technical/2017/07/16/Understanding-top-command.html#4-processthread-state">process/thread state</a></p>
+         <a href="/technical/2017/07/16/Understanding-top-command.html#4-processthread-state">process/thread state</a>,
+         <a href="/technical/2017/07/16/Understanding-top-command.html#5-cpu-organization-and-operation">CPU operation</a></p>
 
 <p><img src="/assets/img/top-command-optimized.gif" alt="" /></p>
 
@@ -196,6 +197,77 @@ Tasks: 125 total,   1 running, 124 sleeping,   0 stopped,   0 zombie
 </ul>
 
 <h3 id="4-processthread-state">4. Process/Thread state</h3>
+<p>Let’s focus on <strong>Area1</strong> in that <a href="/technical/2017/07/16/Understanding-top-command.html#understanding-top-command">overview picture</a> above. In that top area, <code class="highlighter-rouge">top</code> shows the total number of processes and how many of them are running. But it says <strong>Tasks</strong> not <strong>Processes</strong>. Because another name for a process is a task. The Linux kernel internally refers to processes as tasks.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>Tasks: 283 total,   1 running, 282 sleeping,   0 stopped,   0 zombie
+</code></pre>
+</div>
+<p>From the time a process is born to when it is terminated, the process proceeds through various states. Those states can include <strong>Runnable</strong>, <strong>Running</strong>, <strong>Sleeping</strong> (in memory and on disk), and <strong>Zombie</strong> states - from <a href="https://access.redhat.com/sites/default/files/attachments/processstates_20120831.pdf">Redhat</a></p>
+
+<p><img src="/assets/img/process-state.png" alt="" title="Process state life cycle" /></p>
+
+<h4 id="41-runable-state">4.1 Runable state</h4>
+<p>When a process is in a Runnable state, it means it has all the resources it needs to run, except that the CPU
+is not available.</p>
+
+<p>For example: A process is dealing with I/O, so it does not immediately need the CPU,  when the process finishes the I/O operation, a signal is generated to the CPU and the scheduler keeps that process in the run queue (the list of ready-to-run processes maintained by the kernel) - <strong>Runable</strong>. When the CPU is available, this process will enter into <strong>Running</strong> state</p>
+
+<h4 id="42-running-state">4.2 Running state</h4>
+<p>The process that is executing and using the CPU at a particular moment is called a <strong>Running</strong> process.</p>
+
+<p>A CPU can execute either in kernel mode (sy) or in user mode (us). When a user initiates a process, the process starts working in user mode. That user mode process does not have access to kernel data structures or algorithms. Each CPU type provides special instructions to switch from user mode to kernel mode - they’re <strong>system calls</strong></p>
+
+<p><strong>System calls</strong>: communication chanel between user space program and kernel</p>
+
+<h4 id="43-sleeping-state">4.3 Sleeping state</h4>
+<p>A process enters a <strong>Sleeping</strong> state when it needs resources that are not currently available. At that point, it either goes voluntarily into Sleep state or the kernel puts it into Sleep state. Going into Sleep state means the process immediately gives up its access to the CPU.</p>
+
+<p>When the resource the process is waiting on becomes available, a signal is sent to the CPU. The next time the scheduler gets a chance to schedule this sleeping process, the scheduler will put the process either in Running or Runnable state</p>
+
+<h4 id="44-terminatedstopped-state">4.4 Terminated/Stopped state</h4>
+<p>Processes can end when they call the exit system themselves or receive signals to end. We use <code class="highlighter-rouge">kill -9 &lt;PID&gt;</code> to kill a process.</p>
+
+<p>See more at <a href="https://github.com/hieuhtr/Blog/blob/master/2017/Signal-of-Linux.md">Signals</a></p>
+
+<h4 id="45-zombie-state">4.5 Zombie state</h4>
+<p>When a process dies on Linux, it isn’t all removed from memory immediately — its process descriptor stays in memory (the process descriptor only takes a tiny amount of memory). The process’s status becomes <code class="highlighter-rouge">EXIT_ZOMBIE</code> and the process’s parent is notified that its child process has died with the <code class="highlighter-rouge">SIGCHLD</code> signal. The parent process is then supposed to execute the <code class="highlighter-rouge">wait()</code> system call to read the dead process’s exit status and other information. This allows the parent process to get information from the dead process. After <code class="highlighter-rouge">wait()</code> is called, the zombie process is completely removed from memory.</p>
+
+<p>This normally happens very quickly, so you won’t see zombie processes accumulating on your system. However, if a parent process isn’t programmed properly and never calls wait(), its zombie children will stick around in memory until they’re cleaned up. - from <a href="https://www.howtogeek.com/119815/htg-explains-what-is-a-zombie-process-on-linux/">here</a></p>
+
+<p>Zombies that exist for more than a short period of time typically indicate a bug in the parent program, or just an uncommon decision to not reap children (see example). If the parent program is no longer running, zombie processes typically indicate a bug in the operating system. - from <a href="https://en.wikipedia.org/wiki/Zombie_process">Wiki</a></p>
+
+<hr />
+
+<p>Here are the different values that the s, stat and state output specifiers (header “STAT” or “S”) will display to describe the state of a process:</p>
+
+<ul>
+  <li>D:    uninterruptible sleep (usually IO)</li>
+  <li>R:    running or runnable (on run queue)</li>
+  <li>S:    interruptible sleep (waiting for an event to complete)</li>
+  <li>T:    stopped by job control signal</li>
+  <li>t:    stopped by debugger during the tracing</li>
+  <li>W:    paging (not valid since the 2.6.xx kernel)</li>
+  <li>X:    dead (should never be seen)</li>
+  <li>Z:    defunct (“zombie”) process, terminated but not reaped by its parent</li>
+</ul>
+
+<p>See state of all processes by using <code class="highlighter-rouge">ps -el</code> command.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>❯❯ ps -el
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+4 S     0     1     0  0  80   0 - 29910 -      ?        00:00:04 systemd
+1 S     0     2     0  0  80   0 -     0 -      ?        00:00:00 kthreadd
+1 S     0     4     2  0  60 -20 -     0 -      ?        00:00:00 kworker/0:0H
+...
+</code></pre>
+</div>
+
+<p>Something more:</p>
+<ul>
+  <li>Understanding Linux Process States- See <a href="https://access.redhat.com/sites/default/files/attachments/processstates_20120831.pdf">document from RedHat</a></li>
+  <li>Signals- See <a href="https://github.com/hieuhtr/Blog/blob/master/2017/Signal-of-Linux.md">Signals of Linux</a></li>
+  <li>Zombie process - See <a href="https://en.wikipedia.org/wiki/Zombie_process">Wiki</a></li>
+</ul>
+
+<h3 id="5-cpu-organization-and-operation">5. CPU organization and operation</h3>
 
     <div id="gitment-container"></div>
   </div>

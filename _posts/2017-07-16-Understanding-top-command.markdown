@@ -11,7 +11,8 @@ Keyword: [top]({% post_url 2017-07-16-Understanding-top-command %}#understanding
          [uptime]({% post_url 2017-07-16-Understanding-top-command %}#1-date-and-uptime), 
          [users]({% post_url 2017-07-16-Understanding-top-command %}#2-number-of-logged-users), 
          [load average]({% post_url 2017-07-16-Understanding-top-command %}#3-load-average),
-         [process/thread state]({% post_url 2017-07-16-Understanding-top-command %}#4-processthread-state)
+         [process/thread state]({% post_url 2017-07-16-Understanding-top-command %}#4-processthread-state),
+         [CPU operation]({% post_url 2017-07-16-Understanding-top-command %}#5-cpu-organization-and-operation)
 
 ![](/assets/img/top-command-optimized.gif)
 
@@ -103,3 +104,72 @@ Something more:
 - 🌟 Case: High load average but low CPU ultilization - See [this post](https://www.pitt-pladdy.com/blog/_20150829-125708_0100_Linux_performance_metric_myths_Load_Average_IO_Wait_/)
 
 ### 4. Process/Thread state
+Let's focus on **Area1** in that [overview picture]({% post_url 2017-07-16-Understanding-top-command %}#understanding-top-command) above. In that top area, `top` shows the total number of processes and how many of them are running. But it says **Tasks** not **Processes**. Because another name for a process is a task. The Linux kernel internally refers to processes as tasks.
+```
+Tasks: 283 total,   1 running, 282 sleeping,   0 stopped,   0 zombie
+```
+From the time a process is born to when it is terminated, the process proceeds through various states. Those states can include **Runnable**, **Running**, **Sleeping** (in memory and on disk), and **Zombie** states - from [Redhat](https://access.redhat.com/sites/default/files/attachments/processstates_20120831.pdf)
+
+![](/assets/img/process-state.png "Process state life cycle")
+
+#### 4.1 Runable state
+When a process is in a Runnable state, it means it has all the resources it needs to run, except that the CPU
+is not available. 
+
+For example: A process is dealing with I/O, so it does not immediately need the CPU,  when the process finishes the I/O operation, a signal is generated to the CPU and the scheduler keeps that process in the run queue (the list of ready-to-run processes maintained by the kernel) - **Runable**. When the CPU is available, this process will enter into **Running** state
+
+#### 4.2 Running state
+The process that is executing and using the CPU at a particular moment is called a **Running** process.
+
+A CPU can execute either in kernel mode (sy) or in user mode (us). When a user initiates a process, the process starts working in user mode. That user mode process does not have access to kernel data structures or algorithms. Each CPU type provides special instructions to switch from user mode to kernel mode - they're **system calls**
+
+**System calls**: communication chanel between user space program and kernel
+
+
+#### 4.3 Sleeping state
+A process enters a **Sleeping** state when it needs resources that are not currently available. At that point, it either goes voluntarily into Sleep state or the kernel puts it into Sleep state. Going into Sleep state means the process immediately gives up its access to the CPU.
+
+When the resource the process is waiting on becomes available, a signal is sent to the CPU. The next time the scheduler gets a chance to schedule this sleeping process, the scheduler will put the process either in Running or Runnable state
+
+#### 4.4 Terminated/Stopped state
+Processes can end when they call the exit system themselves or receive signals to end. We use `kill -9 <PID>` to kill a process.
+
+See more at [Signals](https://github.com/hieuhtr/Blog/blob/master/2017/Signal-of-Linux.md)
+
+#### 4.5 Zombie state
+When a process dies on Linux, it isn’t all removed from memory immediately — its process descriptor stays in memory (the process descriptor only takes a tiny amount of memory). The process’s status becomes `EXIT_ZOMBIE` and the process’s parent is notified that its child process has died with the `SIGCHLD` signal. The parent process is then supposed to execute the `wait()` system call to read the dead process’s exit status and other information. This allows the parent process to get information from the dead process. After `wait()` is called, the zombie process is completely removed from memory.
+
+This normally happens very quickly, so you won’t see zombie processes accumulating on your system. However, if a parent process isn’t programmed properly and never calls wait(), its zombie children will stick around in memory until they’re cleaned up. - from [here](https://www.howtogeek.com/119815/htg-explains-what-is-a-zombie-process-on-linux/)
+
+Zombies that exist for more than a short period of time typically indicate a bug in the parent program, or just an uncommon decision to not reap children (see example). If the parent program is no longer running, zombie processes typically indicate a bug in the operating system. - from [Wiki](https://en.wikipedia.org/wiki/Zombie_process)
+
+---
+
+Here are the different values that the s, stat and state output specifiers (header "STAT" or "S") will display to describe the state of a process:
+
+- D:    uninterruptible sleep (usually IO)
+- R:    running or runnable (on run queue)
+- S:    interruptible sleep (waiting for an event to complete)
+- T:    stopped by job control signal
+- t:    stopped by debugger during the tracing
+- W:    paging (not valid since the 2.6.xx kernel)
+- X:    dead (should never be seen)
+- Z:    defunct ("zombie") process, terminated but not reaped by its parent
+
+See state of all processes by using `ps -el` command.
+```
+❯❯ ps -el
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+4 S     0     1     0  0  80   0 - 29910 -      ?        00:00:04 systemd
+1 S     0     2     0  0  80   0 -     0 -      ?        00:00:00 kthreadd
+1 S     0     4     2  0  60 -20 -     0 -      ?        00:00:00 kworker/0:0H
+...
+```
+
+Something more:
+- Understanding Linux Process States- See [document from RedHat](https://access.redhat.com/sites/default/files/attachments/processstates_20120831.pdf)
+- Signals- See [Signals of Linux](https://github.com/hieuhtr/Blog/blob/master/2017/Signal-of-Linux.md)
+- Zombie process - See [Wiki](https://en.wikipedia.org/wiki/Zombie_process)
+
+
+### 5. CPU organization and operation

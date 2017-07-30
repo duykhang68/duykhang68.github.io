@@ -3,10 +3,10 @@
   <channel>
     <title>Hieu's blog</title>
     <description>This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
-    <link>https://llnx.me/</link>
-    <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 24 Jul 2017 22:50:53 +0700</pubDate>
-    <lastBuildDate>Mon, 24 Jul 2017 22:50:53 +0700</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 30 Jul 2017 21:04:49 +0700</pubDate>
+    <lastBuildDate>Sun, 30 Jul 2017 21:04:49 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
@@ -17,7 +17,8 @@
          &lt;a href=&quot;/technical/2017/07/16/Understanding-top-command.html#1-date-and-uptime&quot;&gt;uptime&lt;/a&gt;, 
          &lt;a href=&quot;/technical/2017/07/16/Understanding-top-command.html#2-number-of-logged-users&quot;&gt;users&lt;/a&gt;, 
          &lt;a href=&quot;/technical/2017/07/16/Understanding-top-command.html#3-load-average&quot;&gt;load average&lt;/a&gt;,
-         &lt;a href=&quot;/technical/2017/07/16/Understanding-top-command.html#4-processthread-state&quot;&gt;process/thread state&lt;/a&gt;&lt;/p&gt;
+         &lt;a href=&quot;/technical/2017/07/16/Understanding-top-command.html#4-processthread-state&quot;&gt;process/thread state&lt;/a&gt;,
+         &lt;a href=&quot;/technical/2017/07/16/Understanding-top-command.html#5-cpu-organization-and-operation&quot;&gt;CPU operation&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/top-command-optimized.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -115,10 +116,81 @@ Tasks: 125 total,   1 running, 124 sleeping,   0 stopped,   0 zombie
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;4-processthread-state&quot;&gt;4. Process/Thread state&lt;/h3&gt;
+&lt;p&gt;Let’s focus on &lt;strong&gt;Area1&lt;/strong&gt; in that &lt;a href=&quot;/technical/2017/07/16/Understanding-top-command.html#understanding-top-command&quot;&gt;overview picture&lt;/a&gt; above. In that top area, &lt;code class=&quot;highlighter-rouge&quot;&gt;top&lt;/code&gt; shows the total number of processes and how many of them are running. But it says &lt;strong&gt;Tasks&lt;/strong&gt; not &lt;strong&gt;Processes&lt;/strong&gt;. Because another name for a process is a task. The Linux kernel internally refers to processes as tasks.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Tasks: 283 total,   1 running, 282 sleeping,   0 stopped,   0 zombie
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;From the time a process is born to when it is terminated, the process proceeds through various states. Those states can include &lt;strong&gt;Runnable&lt;/strong&gt;, &lt;strong&gt;Running&lt;/strong&gt;, &lt;strong&gt;Sleeping&lt;/strong&gt; (in memory and on disk), and &lt;strong&gt;Zombie&lt;/strong&gt; states - from &lt;a href=&quot;https://access.redhat.com/sites/default/files/attachments/processstates_20120831.pdf&quot;&gt;Redhat&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/process-state.png&quot; alt=&quot;&quot; title=&quot;Process state life cycle&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;41-runable-state&quot;&gt;4.1 Runable state&lt;/h4&gt;
+&lt;p&gt;When a process is in a Runnable state, it means it has all the resources it needs to run, except that the CPU
+is not available.&lt;/p&gt;
+
+&lt;p&gt;For example: A process is dealing with I/O, so it does not immediately need the CPU,  when the process finishes the I/O operation, a signal is generated to the CPU and the scheduler keeps that process in the run queue (the list of ready-to-run processes maintained by the kernel) - &lt;strong&gt;Runable&lt;/strong&gt;. When the CPU is available, this process will enter into &lt;strong&gt;Running&lt;/strong&gt; state&lt;/p&gt;
+
+&lt;h4 id=&quot;42-running-state&quot;&gt;4.2 Running state&lt;/h4&gt;
+&lt;p&gt;The process that is executing and using the CPU at a particular moment is called a &lt;strong&gt;Running&lt;/strong&gt; process.&lt;/p&gt;
+
+&lt;p&gt;A CPU can execute either in kernel mode (sy) or in user mode (us). When a user initiates a process, the process starts working in user mode. That user mode process does not have access to kernel data structures or algorithms. Each CPU type provides special instructions to switch from user mode to kernel mode - they’re &lt;strong&gt;system calls&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;System calls&lt;/strong&gt;: communication chanel between user space program and kernel&lt;/p&gt;
+
+&lt;h4 id=&quot;43-sleeping-state&quot;&gt;4.3 Sleeping state&lt;/h4&gt;
+&lt;p&gt;A process enters a &lt;strong&gt;Sleeping&lt;/strong&gt; state when it needs resources that are not currently available. At that point, it either goes voluntarily into Sleep state or the kernel puts it into Sleep state. Going into Sleep state means the process immediately gives up its access to the CPU.&lt;/p&gt;
+
+&lt;p&gt;When the resource the process is waiting on becomes available, a signal is sent to the CPU. The next time the scheduler gets a chance to schedule this sleeping process, the scheduler will put the process either in Running or Runnable state&lt;/p&gt;
+
+&lt;h4 id=&quot;44-terminatedstopped-state&quot;&gt;4.4 Terminated/Stopped state&lt;/h4&gt;
+&lt;p&gt;Processes can end when they call the exit system themselves or receive signals to end. We use &lt;code class=&quot;highlighter-rouge&quot;&gt;kill -9 &amp;lt;PID&amp;gt;&lt;/code&gt; to kill a process.&lt;/p&gt;
+
+&lt;p&gt;See more at &lt;a href=&quot;https://github.com/hieuhtr/Blog/blob/master/2017/Signal-of-Linux.md&quot;&gt;Signals&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;45-zombie-state&quot;&gt;4.5 Zombie state&lt;/h4&gt;
+&lt;p&gt;When a process dies on Linux, it isn’t all removed from memory immediately — its process descriptor stays in memory (the process descriptor only takes a tiny amount of memory). The process’s status becomes &lt;code class=&quot;highlighter-rouge&quot;&gt;EXIT_ZOMBIE&lt;/code&gt; and the process’s parent is notified that its child process has died with the &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGCHLD&lt;/code&gt; signal. The parent process is then supposed to execute the &lt;code class=&quot;highlighter-rouge&quot;&gt;wait()&lt;/code&gt; system call to read the dead process’s exit status and other information. This allows the parent process to get information from the dead process. After &lt;code class=&quot;highlighter-rouge&quot;&gt;wait()&lt;/code&gt; is called, the zombie process is completely removed from memory.&lt;/p&gt;
+
+&lt;p&gt;This normally happens very quickly, so you won’t see zombie processes accumulating on your system. However, if a parent process isn’t programmed properly and never calls wait(), its zombie children will stick around in memory until they’re cleaned up. - from &lt;a href=&quot;https://www.howtogeek.com/119815/htg-explains-what-is-a-zombie-process-on-linux/&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Zombies that exist for more than a short period of time typically indicate a bug in the parent program, or just an uncommon decision to not reap children (see example). If the parent program is no longer running, zombie processes typically indicate a bug in the operating system. - from &lt;a href=&quot;https://en.wikipedia.org/wiki/Zombie_process&quot;&gt;Wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Here are the different values that the s, stat and state output specifiers (header “STAT” or “S”) will display to describe the state of a process:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;D:    uninterruptible sleep (usually IO)&lt;/li&gt;
+  &lt;li&gt;R:    running or runnable (on run queue)&lt;/li&gt;
+  &lt;li&gt;S:    interruptible sleep (waiting for an event to complete)&lt;/li&gt;
+  &lt;li&gt;T:    stopped by job control signal&lt;/li&gt;
+  &lt;li&gt;t:    stopped by debugger during the tracing&lt;/li&gt;
+  &lt;li&gt;W:    paging (not valid since the 2.6.xx kernel)&lt;/li&gt;
+  &lt;li&gt;X:    dead (should never be seen)&lt;/li&gt;
+  &lt;li&gt;Z:    defunct (“zombie”) process, terminated but not reaped by its parent&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See state of all processes by using &lt;code class=&quot;highlighter-rouge&quot;&gt;ps -el&lt;/code&gt; command.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;❯❯ ps -el
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+4 S     0     1     0  0  80   0 - 29910 -      ?        00:00:04 systemd
+1 S     0     2     0  0  80   0 -     0 -      ?        00:00:00 kthreadd
+1 S     0     4     2  0  60 -20 -     0 -      ?        00:00:00 kworker/0:0H
+...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Something more:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Understanding Linux Process States- See &lt;a href=&quot;https://access.redhat.com/sites/default/files/attachments/processstates_20120831.pdf&quot;&gt;document from RedHat&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Signals- See &lt;a href=&quot;https://github.com/hieuhtr/Blog/blob/master/2017/Signal-of-Linux.md&quot;&gt;Signals of Linux&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Zombie process - See &lt;a href=&quot;https://en.wikipedia.org/wiki/Zombie_process&quot;&gt;Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5-cpu-organization-and-operation&quot;&gt;5. CPU organization and operation&lt;/h3&gt;
 </description>
         <pubDate>Sun, 16 Jul 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/07/16/Understanding-top-command.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/07/16/Understanding-top-command.html</guid>
+        <link>http://localhost:4000/technical/2017/07/16/Understanding-top-command.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/07/16/Understanding-top-command.html</guid>
         
         
         <category>technical</category>
@@ -235,8 +307,8 @@ Tasks: 125 total,   1 running, 124 sleeping,   0 stopped,   0 zombie
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 25 Jun 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</guid>
+        <link>http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</guid>
         
         
         <category>technical</category>
@@ -383,8 +455,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 04 Jun 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/06/04/The-MySQL-Binary-log.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/06/04/The-MySQL-Binary-log.html</guid>
+        <link>http://localhost:4000/technical/2017/06/04/The-MySQL-Binary-log.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/04/The-MySQL-Binary-log.html</guid>
         
         
         <category>technical</category>
@@ -456,8 +528,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 21 May 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</link>
-        <guid isPermaLink="true">https://llnx.me/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</guid>
+        <link>http://localhost:4000/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</guid>
         
         
         <category>mindset</category>
@@ -488,8 +560,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;p&gt;From &lt;a href=&quot;http://sethgodin.typepad.com/seths_blog/2017/04/who-are-we-seeking-to-become.html&quot;&gt;sethgodin&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 07 May 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/mindset/2017/05/07/Who-are-we-seeking-to-become.html</link>
-        <guid isPermaLink="true">https://llnx.me/mindset/2017/05/07/Who-are-we-seeking-to-become.html</guid>
+        <link>http://localhost:4000/mindset/2017/05/07/Who-are-we-seeking-to-become.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/05/07/Who-are-we-seeking-to-become.html</guid>
         
         
         <category>mindset</category>
@@ -543,8 +615,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 17 Apr 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/04/17/No-Reboot-Kernel-Patching.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/04/17/No-Reboot-Kernel-Patching.html</guid>
+        <link>http://localhost:4000/technical/2017/04/17/No-Reboot-Kernel-Patching.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/04/17/No-Reboot-Kernel-Patching.html</guid>
         
         
         <category>technical</category>
@@ -641,8 +713,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 09 Apr 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/04/09/How-DNS-works.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/04/09/How-DNS-works.html</guid>
+        <link>http://localhost:4000/technical/2017/04/09/How-DNS-works.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/04/09/How-DNS-works.html</guid>
         
         
         <category>technical</category>
@@ -689,8 +761,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 12 Mar 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/mindset/2017/03/12/habit-time-management.html</link>
-        <guid isPermaLink="true">https://llnx.me/mindset/2017/03/12/habit-time-management.html</guid>
+        <link>http://localhost:4000/mindset/2017/03/12/habit-time-management.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/03/12/habit-time-management.html</guid>
         
         
         <category>mindset</category>
@@ -750,8 +822,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 Go https://github.com/hieuhtr/Blog/issues/8&lt;/p&gt;
 </description>
         <pubDate>Wed, 08 Mar 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</guid>
+        <link>http://localhost:4000/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html</guid>
         
         
         <category>technical</category>
@@ -796,8 +868,8 @@ That’s what the fuck I do.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Richard:&lt;/strong&gt; …That’s basically what I told him.&lt;/p&gt;
 </description>
         <pubDate>Mon, 20 Feb 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</link>
-        <guid isPermaLink="true">https://llnx.me/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</guid>
+        <link>http://localhost:4000/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</guid>
         
         
         <category>mindset</category>
