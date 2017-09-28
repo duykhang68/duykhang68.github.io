@@ -1,16 +1,17 @@
-# jekyll-simple
+# About this repo
 
-## simple
-simple is a theme designed for blogger using static site generator like jekyll, Hexo etc.
+This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset. I decided to start this blog in order to share my passion with people like me and to improve my knowledge.
 
-Especially for those who writes in both Chinese and English. The font-type setting looks really good when writers use Chinese mixed with English.
+I hope you’ll enjoy it.
 
-Supposedly, this could work with Japanese as well but never had a chance to try.
+## Where am I:
+* [Facebook](https://web.facebook.com/huynhtrunghieu.cs)
+* [Github](https://github.com/hieuhtr)
+* [Linkedin](https://www.linkedin.com/in/huynhtrunghieucs)
 
-## Story behind this theme
+## Today I learned
+* [Check issues](https://github.com/hieuhtr/Blog/issues)
 
-It has been long that using font with Chinese in web was a tedious and time-consuming work. It would be almost impossible to make different OS or devices to look the same.
-
-iOS 9 has pulished some new fonts in Chinese and I decided to make one theme that looks good on iOS devices, at the same time, making it acceptable on computers using other fonts.
-
-So mobile goes first, then the macOS.
+## About this blog's platform
+* Simple, blog-aware, static site generator: [Jekyll](https://jekyllrb.com)
+* You can find the source code for this theme at: [jekyll-simple](https://github.com/wild-flame/jekyll-simple)
