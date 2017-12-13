@@ -5,8 +5,8 @@
     <description>This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 28 Sep 2017 21:49:43 +0700</pubDate>
-    <lastBuildDate>Thu, 28 Sep 2017 21:49:43 +0700</lastBuildDate>
+    <pubDate>Wed, 13 Dec 2017 23:42:36 +0700</pubDate>
+    <lastBuildDate>Wed, 13 Dec 2017 23:42:36 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
@@ -467,9 +467,7 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
         <title>Ways to get more important things done</title>
         <description>&lt;p&gt;&lt;strong&gt;Let’s define productivity&lt;/strong&gt;. Productivity is a measure of efficiency of a person completing a task. We often assume that productivity means getting more things done each day. Wrong. Productivity is getting important things done consistently. And no matter what you are working on, there are only a &lt;code class=&quot;highlighter-rouge&quot;&gt;few things&lt;/code&gt; that are &lt;code class=&quot;highlighter-rouge&quot;&gt;truly important&lt;/code&gt;. Being productive is about maintaining a steady, average speed on a few things, not maximum speed on everything.&lt;/p&gt;
 
-&lt;!--description--&gt;
-
-&lt;h2 id=&quot;warren-buffetts-2-list-strategy-for-focused-attention&quot;&gt;Warren Buffett’s “2 List” Strategy for Focused Attention&lt;/h2&gt;
+&lt;h3 id=&quot;warren-buffetts-2-list-strategy-for-focused-attention&quot;&gt;Warren Buffett’s “2 List” Strategy for Focused Attention&lt;/h3&gt;
 &lt;p&gt;Buffett uses a simple 3-step productivity strategy to help his employees determine their priorities and actions. You may find this method useful for making decisions and getting yourself to commit to doing one thing right away&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 1:&lt;/strong&gt; Write down your top &lt;code class=&quot;highlighter-rouge&quot;&gt;25 career goals&lt;/code&gt;. Or you could also complete this exercise with goals for a shorter timeline. For example, write down the top 25 things you want to &lt;code class=&quot;highlighter-rouge&quot;&gt;accomplish this week&lt;/code&gt;.&lt;/p&gt;
@@ -482,7 +480,9 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
   &lt;p&gt;No matter what, these things get no attention from you until you’ve succeeded with your top 5&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;ivy-lees-simple-method-for-achieving-peak-productivity&quot;&gt;Ivy Lee’s simple method for achieving peak productivity:&lt;/h2&gt;
+&lt;!--description--&gt;
+
+&lt;h3 id=&quot;ivy-lees-simple-method-for-achieving-peak-productivity&quot;&gt;Ivy Lee’s simple method for achieving peak productivity:&lt;/h3&gt;
 
 &lt;ol&gt;
   &lt;li&gt;At the end of each work day, write down the six most important things you need to accomplish tomorrow. Do not write down more than six tasks.&lt;/li&gt;
@@ -492,7 +492,7 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
   &lt;li&gt;Repeat this process every working day.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;the-eisenhower-box-how-to-be-more-productive&quot;&gt;The Eisenhower Box: How to be More Productive&lt;/h2&gt;
+&lt;h3 id=&quot;the-eisenhower-box-how-to-be-more-productive&quot;&gt;The Eisenhower Box: How to be More Productive&lt;/h3&gt;
 &lt;p&gt;Using the decision matrix for taking action and organizing your tasks.&lt;/p&gt;
 
 &lt;ol&gt;
@@ -546,14 +546,14 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 
 &lt;p&gt;If you practice five minutes of new, difficult banjo music &lt;code class=&quot;highlighter-rouge&quot;&gt;every day&lt;/code&gt;, you’ll become a &lt;code class=&quot;highlighter-rouge&quot;&gt;better&lt;/code&gt; banjo player. If you spend a little bit more time each day &lt;code class=&quot;highlighter-rouge&quot;&gt;whining&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;feeling ashamed&lt;/code&gt;, that behavior will become part of you. The words you type, the people you hang with, the media you consume&lt;/p&gt;
 
-&lt;!--description--&gt;
-
 &lt;p&gt;The difference between who you are now and who you were five years ago is largely due to how you’ve spent your time along the way.&lt;/p&gt;
 
 &lt;p&gt;The habits we groove become who we are, one minute at a time.&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;A small thing, repeated, is not a small thing.&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;!--description--&gt;
 
 &lt;p&gt;And the same thing is true for brands, organizations and movements.&lt;/p&gt;
 
@@ -576,8 +576,6 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
   &lt;li&gt;Unlike other operating systems, Linux is able to update many different parts of the system without a reboot, but the kernel is different. Every running process integrates with the kernel intimately, so switching out parts of the kernel while it is running is quite risky. So, When the kernel is updated via a patch, the system needs to &lt;code class=&quot;highlighter-rouge&quot;&gt;reboot&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;!--description--&gt;
-
 &lt;h3 id=&quot;no-reboot-kernel-patching&quot;&gt;“No Reboot” Kernel patching&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;On the other hand, rebooting the computer is irksome, and in some cases, where uptime is important, it can be a real issue. This is why “no reboot” kernel patching has been a priority for many administrators.&lt;/li&gt;
@@ -585,6 +583,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
   &lt;li&gt;Recognizing this need, &lt;strong&gt;Red Hat&lt;/strong&gt; has been working on &lt;code class=&quot;highlighter-rouge&quot;&gt;kpatch&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;SUSE&lt;/code&gt; has been working on &lt;code class=&quot;highlighter-rouge&quot;&gt;kGraft&lt;/code&gt;. Both of these programs are designed to accomplish the same task, but they take a different approach and have different strengths.&lt;/li&gt;
   &lt;li&gt;But this doesn’t mean that system reboots are gone forever. Even on a system with the Linux 4.0 kernel, there will be security updates that still require a reboot, because there are other non-kernel components that can require patching, and some of these require a reboot as part of the process.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;!--description--&gt;
 
 &lt;h3 id=&quot;how-kpatch-works&quot;&gt;How Kpatch works?&lt;/h3&gt;
 &lt;ul&gt;
@@ -639,8 +639,6 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
   &lt;li&gt;DNS works on both the TCP and UDP Protocols, &lt;strong&gt;port 53&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;!--description--&gt;
-
 &lt;h3 id=&quot;how-does-dns-work&quot;&gt;How does DNS work?&lt;/h3&gt;
 
 &lt;p&gt;Whenever you visit a domain such as &lt;a href=&quot;https://github.com&quot;&gt;github.com&lt;/a&gt;, the browser’s journey begins »&amp;gt;&lt;/p&gt;
@@ -656,6 +654,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
   &lt;li&gt;True: Return IP address of this domain for making a request&lt;/li&gt;
   &lt;li&gt;False: Didn’t know it before –&amp;gt; call OS (step3)&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;!--description--&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 3&lt;/strong&gt;: DNS cache on OS&lt;/p&gt;
 &lt;ul&gt;
@@ -727,7 +727,7 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
   &lt;p&gt;Habit: something that you do often and regularly, sometimes without knowing that you are doing it&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4 id=&quot;habit&quot;&gt;Habit&lt;/h4&gt;
+&lt;h3 id=&quot;habit&quot;&gt;Habit&lt;/h3&gt;
 &lt;p&gt;It takes 21 days to form a new habit&lt;/p&gt;
 
 &lt;ul&gt;
@@ -739,7 +739,7 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
   &lt;li&gt;Stay Consistent&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;time-management&quot;&gt;Time management&lt;/h4&gt;
+&lt;h3 id=&quot;time-management&quot;&gt;Time management&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Most important thing&lt;/strong&gt;: Work more when you’re in the zone. Relax when you’re not.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -840,8 +840,6 @@ Go https://github.com/hieuhtr/Blog/issues/8&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Gilfoyle:&lt;/strong&gt; What do I do? System architecture, networking and security. No one in this house can touch me on that.&lt;/p&gt;
 
-&lt;!--description--&gt;
-
 &lt;p&gt;&lt;strong&gt;Jared:&lt;/strong&gt; Okay, that’s good to know.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Gilfoyle:&lt;/strong&gt; But does anybody appreciate that? While you were busy minoring in gender studies and singing a capella at Sarah Lawrence, I was gaining root access to NSA servers. I was one click away from starting a second Iranian Revolution.&lt;/p&gt;
@@ -854,6 +852,8 @@ The Internet - heard of it? - transfers half a petabyte of data minute;
 do you have any idea how that happens? 
 All those YouPorn ones and zeroes streaming directly to your shitty little smartphone day after day, 
 every dipshit who shits his pants if he can’t get the new dubstep Skrillex remix in under twelve seconds?&lt;/p&gt;
+
+&lt;!--description--&gt;
 
 &lt;blockquote&gt;
   &lt;h4 id=&quot;its-not-magic-its-talent-and-sweat&quot;&gt;It’s not magic, it’s talent and sweat.&lt;/h4&gt;

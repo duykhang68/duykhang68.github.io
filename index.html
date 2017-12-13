@@ -6,27 +6,57 @@ title: Hieu's blog
 <div class="home">
   <div class="post-list">
 
-    {% for post in site.posts limit:5%}
+    {% for post in paginator.posts %}
+    
+        <article class="post_card post">
+          <header class="post_header">
+            <h1 class="post_title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h2>
+            <time class="post_date">{{ post.date | date: "%d %B %Y, %A" }}</time>
+            <a class="post_date"> - {{ post.content | number_of_words | divided_by:180 | plus:1 }} min read</a>
+          </header>
+    
+          <div class="post_excerpt" title="Read full article" onclick="location.href='{{ post.url | prepend: site.baseurl }}';" style="cursor: pointer;">
+            <p>
+              {{ post.excerpt }} 
+            </p> 
+          </div>
+    
+          <footer class="post_meta">
+          </footer>
+          <hr/>
+        </article>
+        {% endfor %}
+    
+        {% if paginator.total_pages > 1 %}
+        <div class="pagination">
+          {% if paginator.previous_page %}
+            {% if paginator.page == 2 %}
+              <a href="{{ site.siteurl }}/">&laquo; Prev</a>
+            {% else %}
+              <a href="{{ site.siteurl }}/page{{ paginator.previous_page }}/">&laquo; Prev</a>
+            {% endif %}    
+          {% else %}
+            <span>&laquo; Prev</span>
+          {% endif %}
+      
+          {% if paginator.next_page %}
+            <a class='next' href="{{ site.siteurl }}/page{{ paginator.next_page }}/">Next &raquo;</a>
+          {% else %}
+            <span class='next'>Next &raquo;</span>
+          {% endif %}
+        </div>
+        {% endif %}
+    
 
-    <article class="post_card post">
-      <header class="post_header">
-        <h1 class="post_title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h2>
-        <time class="post_date">{{ post.date | date: "%d %B %Y, %A" }}</time>
-        <a class="post_date"> - {{ post.content | number_of_words | divided_by:180 | plus:1 }} min read</a>
-      </header>
-
-      <div class="post_excerpt" title="Read full article" onclick="location.href='{{ post.url | prepend: site.baseurl }}';" style="cursor: pointer;">
-        <p>
-          {{ post.excerpt }} 
-        </p> 
-      </div>
-
-      <footer class="post_meta">
-      </footer>
-      <hr/>
-    </article>
-    {% endfor %}
-
-    <div class="pagination older-post"><a href="./archive"><data data-icon="ei-arrow-right"></data> All posts</a></div>
   </div>
 </div>
+<script src="{{ site.url }}/assets/dist/jquery-1.11.1.js"></script>
+<script src="{{ site.url }}/assets/dist/jquery.jscroll.js"></script>
+
+<script type="text/javascript">
+// content selector is used to extract the additional items
+$('.post-list').jscroll({
+    contentSelector: ".post-list",
+    nextSelector: '.next'
+});
+</script>

@@ -9,13 +9,13 @@ description: Rebooting the computer is irksome, and in some cases, where uptime 
 - Kernel patches are released for a number of reasons, but fixing security holes is the most frequent reason. This is why it's important to install the patch as soon as possible.
 - Unlike other operating systems, Linux is able to update many different parts of the system without a reboot, but the kernel is different. Every running process integrates with the kernel intimately, so switching out parts of the kernel while it is running is quite risky. So, When the kernel is updated via a patch, the system needs to `reboot`
 
-<!--description-->
-
 ### "No Reboot" Kernel patching
 - On the other hand, rebooting the computer is irksome, and in some cases, where uptime is important, it can be a real issue. This is why "no reboot" kernel patching has been a priority for many administrators.
 - Some servers and critical real-time applications must not be taken down without advanced scheduling, even for a few minutes. This can be a pain when administrators need to keep the system secure and a patch is released to repair a newly discovered security hole. In this case, no-reboot patching becomes a real boon
 - Recognizing this need, **Red Hat** has been working on `kpatch`, and `SUSE` has been working on `kGraft`. Both of these programs are designed to accomplish the same task, but they take a different approach and have different strengths.
 - But this doesn't mean that system reboots are gone forever. Even on a system with the Linux 4.0 kernel, there will be security updates that still require a reboot, because there are other non-kernel components that can require patching, and some of these require a reboot as part of the process.
+
+<!--description-->
 
 ### How Kpatch works?
 - **kpatch** is a Linux dynamic kernel patching infrastructure which allows you to patch a running kernel without rebooting or restarting any processes.

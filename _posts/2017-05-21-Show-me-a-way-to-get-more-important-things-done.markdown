@@ -9,9 +9,7 @@ image:
 
 **Let's define productivity**. Productivity is a measure of efficiency of a person completing a task. We often assume that productivity means getting more things done each day. Wrong. Productivity is getting important things done consistently. And no matter what you are working on, there are only a `few things` that are `truly important`. Being productive is about maintaining a steady, average speed on a few things, not maximum speed on everything.
 
-<!--description-->
-
-## Warren Buffett’s “2 List” Strategy for Focused Attention
+### Warren Buffett’s “2 List” Strategy for Focused Attention
 Buffett uses a simple 3-step productivity strategy to help his employees determine their priorities and actions. You may find this method useful for making decisions and getting yourself to commit to doing one thing right away
 
 **Step 1:** Write down your top `25 career goals`. Or you could also complete this exercise with goals for a shorter timeline. For example, write down the top 25 things you want to `accomplish this week`.
@@ -22,7 +20,9 @@ Buffett uses a simple 3-step productivity strategy to help his employees determi
 
 > No matter what, these things get no attention from you until you’ve succeeded with your top 5
 
-## Ivy Lee's simple method for achieving peak productivity:
+<!--description-->
+
+### Ivy Lee's simple method for achieving peak productivity:
 
 1. At the end of each work day, write down the six most important things you need to accomplish tomorrow. Do not write down more than six tasks.
 2. Prioritize those six items in order of their true importance.
@@ -30,7 +30,7 @@ Buffett uses a simple 3-step productivity strategy to help his employees determi
 4. Approach the rest of your list in the same fashion. At the end of the day, move any unfinished items to a new list of six tasks for the following day.
 5. Repeat this process every working day.
 
-## The Eisenhower Box: How to be More Productive
+### The Eisenhower Box: How to be More Productive
 Using the decision matrix for taking action and organizing your tasks.
 
 1. Urgent and important (tasks you will do immediately).

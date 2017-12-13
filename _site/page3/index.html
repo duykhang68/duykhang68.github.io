@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>How DNS works</title>
-    <meta name="description" content="  Without DNS, we would only be able to visit any website directly via IP address, no human-readable anymoreDNS: Basic concept and information  DNS stands fo...">
+    <title>Hieu's blog</title>
+    <meta name="description" content="This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.">
 
     <!-- todo: include this into main.css -->
 
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://localhost:4000/technical/2017/04/09/How-DNS-works.html">
+    <link rel="canonical" href="http://localhost:4000/page3/">
     <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="http://localhost:4000 /feed.xml ">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script async src="http://localhost:4000/assets/dist/fetch.min.js"></script>
@@ -80,19 +80,21 @@
 
         <div class="nine columns" style="z-index:100;">
           <div class="wrapper">
-            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <div class="home">
+  <div class="post-list">
 
-  <header class="article_header">
-    <h1 class="special_title" itemprop="name headline">How DNS works</h1>
-    <time class="post_date">09 April 2017, Sunday</time>
-    <a class="post_date"> - 3 min read</a>
-    <div class="issues" style="float: right">
-      <a class="github-button" href="https://github.com/hieuhtr/Blog/issues" data-show-count="true" aria-label="Issue hieuhtr/Blog on GitHub">Explore</a>
-    </div>
-  </header>
-
-  <div class="article-content" itemprop="articleBody">
-    <blockquote>
+    
+    
+        <article class="post_card post">
+          <header class="post_header">
+            <h1 class="post_title"><a href="/technical/2017/04/09/How-DNS-works.html">How DNS works</a></h2>
+            <time class="post_date">09 April 2017, Sunday</time>
+            <a class="post_date"> - 3 min read</a>
+          </header>
+    
+          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2017/04/09/How-DNS-works.html';" style="cursor: pointer;">
+            <p>
+              <blockquote>
   <p>Without DNS, we would only be able to visit any website directly via IP address, no human-readable anymore</p>
 </blockquote>
 
@@ -122,91 +124,118 @@
   <li>False: Didn’t know it before –&gt; call OS (step3)</li>
 </ul>
 
-<!--description-->
-
-<p><strong>Step 3</strong>: DNS cache on OS</p>
-<ul>
-  <li>TODO: OS receive request from chrome, then check its DNS cache, see <code class="highlighter-rouge">mDNSResponder</code> on MacOS</li>
-  <li>True: Return IP of <a href="https://github.com">github.com</a> for browser</li>
-  <li>False: OS didn’t know it before same as browser, OS call the Resolver (Recursive DNS servers)</li>
-</ul>
-
-<p><strong>Step 4</strong>: The Resolver on ISP (Internet Service Provider)</p>
-<ul>
-  <li>TODO: local OS sends a DNS Query to the Resolver by using UDP Protocol over Port 53, the Resolver will check its cache to find IP for <a href="https://github.com">github.com</a></li>
-  <li>True: Return IP address for OS</li>
-  <li>False: ISP didn’t know it before same as our OS. ISP will ask the <strong>Root server</strong></li>
-</ul>
-
-<p><strong>Step 5</strong>: The <strong>ROOT</strong> servers - see <a href="https://www.iana.org/domains/root/servers">https://www.iana.org/domains/root/servers</a></p>
-<ul>
-  <li>Fact: We have 13 root server for DNS around the world. They don’t know the answer, but they know where to find it.</li>
-  <li>TODO: Root look at the first part of request, reading from right to left <strong>.com</strong> &lt;–</li>
-  <li>Direct our request to <strong>Top-Level Domain</strong> (TLD) name servers for <strong>.com</strong>, it’s Verisign TLD</li>
-  <li>ISP will store TLD information, no need ask the root again.</li>
-</ul>
-
-<p><strong>Step 6</strong>: The <strong>TLD nameservers</strong></p>
-<ul>
-  <li>TODO: The TLD nameservers review the next part of our request - <strong>github</strong></li>
-  <li>Direct our query to the nameservers responsible for this specific domain</li>
-  <li>These <strong>Authoritative nameservers</strong> are responsible for knowing all the information about a specific domain, which are stored in DNS records</li>
-</ul>
-
-<p><strong>Step 7</strong>: The <strong>Authoritative nameservers</strong></p>
-<ul>
-  <li>TODO: The Resolver (ISP) retrieves the A record for github.com from the <strong>authoritative nameservers</strong> and stores the record in ISP’s local cache</li>
-  <li>More keywords: <code class="highlighter-rouge">time-to-live</code> value, Domain Registrar, types of records</li>
-</ul>
-
-<p><strong>Step 8</strong>: Receive the answer</p>
-<ul>
-  <li>TODO: Resolver returns the A record back to OS</li>
-  <li>OS stores the record in its cache, reads the IP address then passes information to Chrome</li>
-  <li>Chrome stores the record in its cache</li>
-</ul>
-
-<h4 id="finally-chrome-opens-a-connection-to-the-webserver-and-receives-the-site">Finally, Chrome opens a connection to the webserver and receives the site.</h4>
-
-<blockquote>
-  <p>This entire process, from start to finish, takes only <strong>milliseconds</strong> to complete.</p>
+ 
+            </p> 
+          </div>
+    
+          <footer class="post_meta">
+          </footer>
+          <hr/>
+        </article>
+        
+    
+        <article class="post_card post">
+          <header class="post_header">
+            <h1 class="post_title"><a href="/mindset/2017/03/12/habit-time-management.html">Habit and Time management</a></h2>
+            <time class="post_date">12 March 2017, Sunday</time>
+            <a class="post_date"> - 2 min read</a>
+          </header>
+    
+          <div class="post_excerpt" title="Read full article" onclick="location.href='/mindset/2017/03/12/habit-time-management.html';" style="cursor: pointer;">
+            <p>
+              <blockquote>
+  <p>Habit: something that you do often and regularly, sometimes without knowing that you are doing it</p>
 </blockquote>
 
-<p>Reference:</p>
+<h3 id="habit">Habit</h3>
+<p>It takes 21 days to form a new habit</p>
+
+<ul>
+  <li>Do it For Yourself</li>
+  <li>Know the Benefits</li>
+  <li>Know the Pain</li>
+  <li>Start Simple</li>
+  <li>Make it Daily</li>
+  <li>Stay Consistent</li>
+</ul>
+
+<h3 id="time-management">Time management</h3>
+<p><strong>Most important thing</strong>: Work more when you’re in the zone. Relax when you’re not.</p>
+
+<ul>
+  <li>It’s normal to have days where you just can’t work,  and days where you’ll work 12 hours straight.</li>
+  <li>Stop multi-tasking. It merely kills your focus.</li>
+  <li>We’re always more focused and productive with limited time.</li>
+</ul>
+
+ 
+            </p> 
+          </div>
+    
+          <footer class="post_meta">
+          </footer>
+          <hr/>
+        </article>
+        
+    
+        <article class="post_card post">
+          <header class="post_header">
+            <h1 class="post_title"><a href="/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html">What is FLUSH TABLES WITH READ LOCK in MySQL?</a></h2>
+            <time class="post_date">08 March 2017, Wednesday</time>
+            <a class="post_date"> - 2 min read</a>
+          </header>
+    
+          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html';" style="cursor: pointer;">
+            <p>
+              <p><strong>Command:</strong></p>
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">FLUSH</span> <span class="n">TABLES</span> <span class="k">WITH</span> <span class="k">READ</span> <span class="k">LOCK</span><span class="p">;</span>
+</code></pre>
+</div>
+<p><strong>What exactly does command do?</strong></p>
+
 <ol>
-  <li>https://howdns.works</li>
-  <li>http://dyn.com/blog/dns-why-its-important-how-it-works/</li>
-  <li>https://www.verisign.com/en_US/website-presence/online/how-dns-works</li>
+  <li>Set the global read lock - after this step, <code class="highlighter-rouge">insert/update/delete/replace/alter statements</code> cannot run</li>
+  <li>Close open tables - this step will block until all statements started previously have stopped</li>
+  <li>Set a flag to block commits</li>
 </ol>
 
-    <div id="gitment-container"></div>
+ 
+            </p> 
+          </div>
+    
+          <footer class="post_meta">
+          </footer>
+          <hr/>
+        </article>
+        
+    
+        
+        <div class="pagination">
+          
+            
+              <a href="/page2/">&laquo; Prev</a>
+                
+          
+      
+          
+            <a class='next' href="/page4/">Next &raquo;</a>
+          
+        </div>
+        
+    
+
   </div>
+</div>
+<script src="http://localhost:4000/assets/dist/jquery-1.11.1.js"></script>
+<script src="http://localhost:4000/assets/dist/jquery.jscroll.js"></script>
 
-  <footer class="article-footer">
-
-  <hr/>
-
-  <section class="author">
-  <div class="authorimage box" style="background: url(/assets/img/avatar.jpg)"></div>
-  <div class="authorinfo box">
-    <p class="bio" style="color: #222">
-      I'm an engineer who likes learning, discussing, and solving problems. These days, I'm focusing on DevOps because I'd love to help ensure that services stay up and running, while continuing to ship software to customers rapidly. I also have a passion for building robust infrastructure at world scale. 
-    </p>
-    <a class="github-button" href="https://github.com/hieuhtr" data-size="large" data-show-count="true" aria-label="Follow @hieuhtr on GitHub">Follow @hieuhtr</a>
-  </div>
-  <hr style="border-top: 0px"></<hr>
-  <div class="calendar"></div>
-</section>
-<script>
-  GitHubCalendar(".calendar", "hieuhtr");
+<script type="text/javascript">
+// content selector is used to extract the additional items
+$('.post-list').jscroll({
+    contentSelector: ".post-list",
+    nextSelector: '.next'
+});
 </script>
-
-  </footer>
-
-  
-
-</article>
-
           </div>
         </div>
       </div>

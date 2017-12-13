@@ -12,8 +12,6 @@ Homebrew — The missing package manager for macOS. Here is the Official site: [
 Homebrew is a package manager for OS X. It allows a user to easily install software from the larger body of UNIX and open source software on the Mac. 
 If you know linux, you can compare the **brew** command with the **apt-get** command (on Debian)
 
-<!--description-->
-
 + **Official site:** [https://brew.sh](https://brew.sh)
 + **Homebrew on Github:** [https://github.com/Homebrew/brew](https://github.com/Homebrew/brew)
 
@@ -24,6 +22,7 @@ Open terminal or iterm2 on your Mac and paste this line at a Terminal prompt.
 ```shell
  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
+<!--description-->
 
 #### Homebrew Walkthrough by example
 

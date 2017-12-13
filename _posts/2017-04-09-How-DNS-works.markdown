@@ -14,8 +14,6 @@ description: Without DNS, we would only be able to visit any website directly vi
 - Without DNS, we would only be able to visit any website directly via IP address, no human-readable anymore
 - DNS works on both the TCP and UDP Protocols, **port 53**
 
-<!--description-->
-
 ### How does DNS work?
 
 Whenever you visit a domain such as [github.com](https://github.com), the browser's journey begins >>>
@@ -27,6 +25,8 @@ Whenever you visit a domain such as [github.com](https://github.com), the browse
   - TODO: DNS query on chrome's cache, see `chrome://net-internals/#dns`
   - True: Return IP address of this domain for making a request
   - False: Didn't know it before --> call OS (step3)
+
+<!--description-->
 
 **Step 3**: DNS cache on OS
   - TODO: OS receive request from chrome, then check its DNS cache, see `mDNSResponder` on MacOS

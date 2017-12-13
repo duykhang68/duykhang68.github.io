@@ -11,8 +11,6 @@ description: It's not magic, it's talent and sweat.
 
 **Gilfoyle:** What do I do? System architecture, networking and security. No one in this house can touch me on that. 
 
-<!--description-->
-
 **Jared:** Okay, that's good to know. 
 
 **Gilfoyle:** But does anybody appreciate that? While you were busy minoring in gender studies and singing a capella at Sarah Lawrence, I was gaining root access to NSA servers. I was one click away from starting a second Iranian Revolution. 
@@ -25,6 +23,8 @@ The Internet - heard of it? - transfers half a petabyte of data minute;
 do you have any idea how that happens? 
 All those YouPorn ones and zeroes streaming directly to your shitty little smartphone day after day, 
 every dipshit who shits his pants if he can't get the new dubstep Skrillex remix in under twelve seconds? 
+
+<!--description-->
 
 > #### It's not magic, it's talent and sweat.
 > **Gilfoyle** 

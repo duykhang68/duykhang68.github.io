@@ -14,6 +14,9 @@ url: "https://llnx.me" # the base hostname & protocol for your site
 twitter_username:  
 github_username: hieuhtr 
 
+plugins: [jekyll-paginate]
+paginate: 5
+
 # Build settings
 markdown: kramdown
 kramdown:

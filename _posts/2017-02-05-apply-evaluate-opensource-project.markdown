@@ -13,9 +13,9 @@ Get involved to perfect your craft and be part of something big - from [Github](
 Just want to ask how would you read / learn / evaluate an open source project to see whether it is suitable to apply to your current system? 
 Like what steps you guys taking, etc?
 
-#### Answer:
-
 <!--description-->
+
+#### Answer:
 
 + Github stars/how old the open source/latest **stable release**
 + does it come from trustworthy organization (apache, good company..)

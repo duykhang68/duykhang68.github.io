@@ -1046,6 +1046,10 @@ input#menu-toggle {
   margin-bottom: 0.5rem;
   color: #0087CC; }
 
+.special_title {
+  margin-bottom: 0.5rem;
+  color: #e47911; }
+
 .post_date {
   color: #888;
   font-size: 1.4rem; }
