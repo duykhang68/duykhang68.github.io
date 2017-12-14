@@ -5,9 +5,163 @@
     <description>This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 13 Dec 2017 23:42:36 +0700</pubDate>
-    <lastBuildDate>Wed, 13 Dec 2017 23:42:36 +0700</lastBuildDate>
+    <pubDate>Thu, 14 Dec 2017 13:42:02 +0700</pubDate>
+    <lastBuildDate>Thu, 14 Dec 2017 13:42:02 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
+    
+      <item>
+        <title>Increase EBS volume of AWS on linux</title>
+        <description>&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A disk volume 32GB &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/xvdf1&lt;/code&gt; is mounted into /var/lib/mysql&lt;/li&gt;
+  &lt;li&gt;This volume is out of space, need to be extend size to 64GB&lt;/li&gt;
+  &lt;li&gt;Extended to 64GB on aws console, but from ec2 point of view, it’s just 32GB&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Root cause: didn’t merge partition after extending&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;h2 id=&quot;step-by-step&quot;&gt;Step by step&lt;/h2&gt;
+
+&lt;h5 id=&quot;step1-collect-information&quot;&gt;Step1: Collect information&lt;/h5&gt;
+
+&lt;p&gt;Check disk ID&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@webapp-unstable:~# blkid
+/dev/xvda1: LABEL=&quot;cloudimg-rootfs&quot; UUID=&quot;4573eb39-57f3-439b-9a73-8aef508afd3f&quot; TYPE=&quot;ext4&quot; PARTUUID=&quot;965243d6-01&quot;
+/dev/xvdf1: UUID=&quot;d56d3b3e-4385-48a7-ba95-6d3884d5dca8&quot; TYPE=&quot;ext4&quot; PARTUUID=&quot;cc52698e-01&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Check size disk and mount point of /dev/xvdf1&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@webapp-unstable:~# lsblk
+NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+xvda    202:0    0  16G  0 disk
+└─xvda1 202:1    0  16G  0 part /
+xvdf    202:80   0  64G  0 disk
+└─xvdf1 202:81   0  32G  0 part /var/lib/mysql
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;step-2-unmount-this-volume-out-of-system&quot;&gt;Step 2: Unmount this volume out of system&lt;/h5&gt;
+
+&lt;p&gt;Unmount&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@webapp-unstable:~# umount /dev/xvdf1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Check after unmount&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@webapp-unstable:~# lsblk
+NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+xvda    202:0    0  16G  0 disk
+└─xvda1 202:1    0  16G  0 part /
+xvdf    202:80   0  64G  0 disk
+└─xvdf1 202:81   0  32G  0 part
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;step-3-delete-and-re-create-new-partition&quot;&gt;Step 3: Delete and re create new partition&lt;/h5&gt;
+
+&lt;p&gt;Why? Because old partition is using 32GB only, should delete and re-create new one. After that, the new one will use all of space 64GB&lt;/p&gt;
+
+&lt;p&gt;Using fdisk or parted/gparted&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@webapp-unstable:~# fdisk /dev/xvdf
+
+Welcome to fdisk (util-linux 2.27.1).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+
+Command (m for help): p
+Disk /dev/xvdf: 64 GiB, 68719476736 bytes, 134217728 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0xcc52698e
+
+Device     Boot Start      End  Sectors Size Id Type
+/dev/xvdf1       2048 67108863 67106816  32G 83 Linux
+
+Command (m for help): d
+Selected partition 1
+Partition 1 has been deleted.
+
+Command (m for help): n
+Partition type
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended (container for logical partitions)
+Select (default p): p
+Partition number (1-4, default 1):
+First sector (2048-134217727, default 2048):
+Last sector, +sectors or +size{K,M,G,T,P} (2048-134217727, default 134217727):
+
+Created a new partition 1 of type 'Linux' and of size 64 GiB.
+
+Command (m for help): p
+Disk /dev/xvdf: 64 GiB, 68719476736 bytes, 134217728 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0xcc52698e
+
+Device     Boot Start       End   Sectors Size Id Type
+/dev/xvdf1       2048 134217727 134215680  64G 83 Linux
+
+Command (m for help): w
+The partition table has been altered.
+Calling ioctl() to re-read partition table.
+Syncing disks.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;step-4-resize-file-system-of-this-volume&quot;&gt;Step 4: Resize file system of this volume&lt;/h5&gt;
+
+&lt;p&gt;Using &lt;code class=&quot;highlighter-rouge&quot;&gt;resize2fs&lt;/code&gt; because this volume is ext4 format&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@webapp-unstable:~# resize2fs /dev/xvdf1
+resize2fs 1.42.13 (17-May-2015)
+Filesystem at /dev/xvdf1 is mounted on /var/lib/mysql; on-line resizing required
+old_desc_blocks = 2, new_desc_blocks = 4
+The filesystem on /dev/xvdf1 is now 16776960 (4k) blocks long.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Check after resizing&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@webapp-unstable:~# lsblk
+NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+xvda    202:0    0  16G  0 disk
+└─xvda1 202:1    0  16G  0 part /
+xvdf    202:80   0  64G  0 disk
+└─xvdf1 202:81   0  64G  0 part /var/lib/mysql
+root@webapp-unstable:~# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            2.0G     0  2.0G   0% /dev
+tmpfs           396M   41M  355M  11% /run
+/dev/xvda1       16G  6.9G  8.6G  45% /
+tmpfs           2.0G     0  2.0G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           2.0G     0  2.0G   0% /sys/fs/cgroup
+tmpfs           396M     0  396M   0% /run/user/1000
+/dev/xvdf1       63G   30G   31G  50% /var/lib/mysql
+
+root@webapp-unstable:~# mount -fav
+/                        : ignored
+/var/lib/mysql           : already mounted
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;DONE&lt;/p&gt;
+</description>
+        <pubDate>Thu, 14 Dec 2017 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/technical/2017/12/14/Increase-EBS-volume.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/12/14/Increase-EBS-volume.html</guid>
+        
+        
+        <category>technical</category>
+        
+      </item>
     
       <item>
         <title>Understanding top command</title>
@@ -827,52 +981,6 @@ Go https://github.com/hieuhtr/Blog/issues/8&lt;/p&gt;
         
         
         <category>technical</category>
-        
-      </item>
-    
-      <item>
-        <title>What the Fuck Gilfoyle Does?</title>
-        <description>&lt;blockquote&gt;
-  &lt;p&gt;It’s not magic, it’s talent and sweat. People like me ensure your packets get delivered unsniffed. So what do I do? I make sure that one bad config on one key component doesn’t bankrupt the entire fucking company. That’s what the fuck I do&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;Jared:&lt;/strong&gt; So, um, can you kinda catch me up on what you see as your role in the company? What do you do?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Gilfoyle:&lt;/strong&gt; What do I do? System architecture, networking and security. No one in this house can touch me on that.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Jared:&lt;/strong&gt; Okay, that’s good to know.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Gilfoyle:&lt;/strong&gt; But does anybody appreciate that? While you were busy minoring in gender studies and singing a capella at Sarah Lawrence, I was gaining root access to NSA servers. I was one click away from starting a second Iranian Revolution.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Jared:&lt;/strong&gt; I actually went to Vassar.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Gilfoyle:&lt;/strong&gt; I prevent cross-site scripting. 
-I monitor for DDoS attacks, emergency database rollbacks, and faulty transaction handlings. 
-The Internet - heard of it? - transfers half a petabyte of data minute; 
-do you have any idea how that happens? 
-All those YouPorn ones and zeroes streaming directly to your shitty little smartphone day after day, 
-every dipshit who shits his pants if he can’t get the new dubstep Skrillex remix in under twelve seconds?&lt;/p&gt;
-
-&lt;!--description--&gt;
-
-&lt;blockquote&gt;
-  &lt;h4 id=&quot;its-not-magic-its-talent-and-sweat&quot;&gt;It’s not magic, it’s talent and sweat.&lt;/h4&gt;
-  &lt;p&gt;&lt;strong&gt;Gilfoyle&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;People like me ensure your packets get delivered unsniffed. 
-So what do I do? 
-I makes sure that one bad config on one key component doesn’t bankrupt the entire fucking company. 
-That’s what the fuck I do.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Richard:&lt;/strong&gt; …That’s basically what I told him.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 20 Feb 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</link>
-        <guid isPermaLink="true">http://localhost:4000/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html</guid>
-        
-        
-        <category>mindset</category>
         
       </item>
     
