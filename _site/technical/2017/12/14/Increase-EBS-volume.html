@@ -95,18 +95,22 @@
     <h2 id="problem">Problem</h2>
 
 <ul>
-  <li>A disk volume 32GB <code class="highlighter-rouge">/dev/xvdf1</code> is mounted into /var/lib/mysql</li>
+  <li>A disk volume 32GB <code class="highlighter-rouge">/dev/xvdf1</code> is mounted into <code class="highlighter-rouge">/var/lib/mysql</code></li>
   <li>This volume is out of space, need to be extend size to 64GB</li>
   <li>Extended to 64GB on aws console, but from ec2 point of view, it’s just 32GB</li>
 </ul>
 
-<p>Root cause: didn’t merge partition after extending</p>
+<p>Root cause: didn’t merge partition after extending and resize fs</p>
+
+<p><img src="/assets/img/ebs-aws.png" alt="" /></p>
 
 <!--description-->
 
-<h2 id="step-by-step">Step by step</h2>
+<h2 id="solution">Solution</h2>
 
-<h5 id="step1-collect-information">Step1: Collect information</h5>
+<p>Resize file system to larger size of this volume</p>
+
+<h3 id="step1-collect-information">Step1: Collect information</h3>
 
 <p>Check disk ID</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>root@webapp-unstable:~# blkid
@@ -115,7 +119,7 @@
 </code></pre>
 </div>
 
-<p>Check size disk and mount point of /dev/xvdf1</p>
+<p>Check size disk and mount point of <code class="highlighter-rouge">/dev/xvdf1</code></p>
 <div class="highlighter-rouge"><pre class="highlight"><code>root@webapp-unstable:~# lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 xvda    202:0    0  16G  0 disk
@@ -125,7 +129,7 @@ xvdf    202:80   0  64G  0 disk
 </code></pre>
 </div>
 
-<h5 id="step-2-unmount-this-volume-out-of-system">Step 2: Unmount this volume out of system</h5>
+<h3 id="step-2-unmount-this-volume-out-of-system">Step 2: Unmount this volume out of system</h3>
 
 <p>Unmount</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>root@webapp-unstable:~# umount /dev/xvdf1
@@ -142,11 +146,11 @@ xvdf    202:80   0  64G  0 disk
 </code></pre>
 </div>
 
-<h5 id="step-3-delete-and-re-create-new-partition">Step 3: Delete and re create new partition</h5>
+<h3 id="step-3-delete-and-recreate-new-partition">Step 3: Delete and recreate new partition</h3>
 
 <p>Why? Because old partition is using 32GB only, should delete and re-create new one. After that, the new one will use all of space 64GB</p>
 
-<p>Using fdisk or parted/gparted</p>
+<p>Using <code class="highlighter-rouge">fdisk</code> or <code class="highlighter-rouge">parted/gparted</code></p>
 <div class="highlighter-rouge"><pre class="highlight"><code>root@webapp-unstable:~# fdisk /dev/xvdf
 
 Welcome to fdisk (util-linux 2.27.1).
@@ -198,9 +202,9 @@ Syncing disks.
 </code></pre>
 </div>
 
-<h5 id="step-4-resize-file-system-of-this-volume">Step 4: Resize file system of this volume</h5>
+<h3 id="step-4-resize-file-system-of-this-volume">Step 4: Resize file system of this volume</h3>
 
-<p>Using <code class="highlighter-rouge">resize2fs</code> because this volume is ext4 format</p>
+<p>Using <code class="highlighter-rouge">resize2fs</code> because this volume is <code class="highlighter-rouge">ext4</code> format</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>root@webapp-unstable:~# resize2fs /dev/xvdf1
 resize2fs 1.42.13 (17-May-2015)
 Filesystem at /dev/xvdf1 is mounted on /var/lib/mysql; on-line resizing required
@@ -233,7 +237,11 @@ root@webapp-unstable:~# mount -fav
 </code></pre>
 </div>
 
-<p>DONE</p>
+<p>DONE.</p>
+
+<h2 id="reference">Reference</h2>
+
+<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html</a></p>
 
     <div id="gitment-container"></div>
   </div>

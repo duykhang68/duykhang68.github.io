@@ -97,12 +97,14 @@
               <h2 id="problem">Problem</h2>
 
 <ul>
-  <li>A disk volume 32GB <code class="highlighter-rouge">/dev/xvdf1</code> is mounted into /var/lib/mysql</li>
+  <li>A disk volume 32GB <code class="highlighter-rouge">/dev/xvdf1</code> is mounted into <code class="highlighter-rouge">/var/lib/mysql</code></li>
   <li>This volume is out of space, need to be extend size to 64GB</li>
   <li>Extended to 64GB on aws console, but from ec2 point of view, it’s just 32GB</li>
 </ul>
 
-<p>Root cause: didn’t merge partition after extending</p>
+<p>Root cause: didn’t merge partition after extending and resize fs</p>
+
+<p><img src="/assets/img/ebs-aws.png" alt="" /></p>
 
  
             </p> 

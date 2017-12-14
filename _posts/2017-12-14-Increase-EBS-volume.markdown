@@ -7,17 +7,21 @@ description: Increase AWS EBS volume
 
 ## Problem
 
-- A disk volume 32GB `/dev/xvdf1` is mounted into /var/lib/mysql
+- A disk volume 32GB `/dev/xvdf1` is mounted into `/var/lib/mysql`
 - This volume is out of space, need to be extend size to 64GB
 - Extended to 64GB on aws console, but from ec2 point of view, it's just 32GB
 
-Root cause: didn't merge partition after extending
+Root cause: didn't merge partition after extending and resize fs
+
+![](/assets/img/ebs-aws.png)
 
 <!--description-->
 
-## Step by step
+## Solution
 
-##### Step1: Collect information
+Resize file system to larger size of this volume
+
+### Step1: Collect information
 
 Check disk ID
 ```
@@ -26,7 +30,7 @@ root@webapp-unstable:~# blkid
 /dev/xvdf1: UUID="d56d3b3e-4385-48a7-ba95-6d3884d5dca8" TYPE="ext4" PARTUUID="cc52698e-01"
 ```
 
-Check size disk and mount point of /dev/xvdf1
+Check size disk and mount point of `/dev/xvdf1`
 ```
 root@webapp-unstable:~# lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
@@ -36,7 +40,7 @@ xvdf    202:80   0  64G  0 disk
 └─xvdf1 202:81   0  32G  0 part /var/lib/mysql
 ```
 
-##### Step 2: Unmount this volume out of system 
+### Step 2: Unmount this volume out of system 
 
 Unmount
 ```
@@ -53,11 +57,11 @@ xvdf    202:80   0  64G  0 disk
 └─xvdf1 202:81   0  32G  0 part
 ```
 
-##### Step 3: Delete and re create new partition
+### Step 3: Delete and recreate new partition
 
 Why? Because old partition is using 32GB only, should delete and re-create new one. After that, the new one will use all of space 64GB
 
-Using fdisk or parted/gparted
+Using `fdisk` or `parted/gparted`
 ```
 root@webapp-unstable:~# fdisk /dev/xvdf
 
@@ -109,9 +113,9 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-##### Step 4: Resize file system of this volume
+### Step 4: Resize file system of this volume
 
-Using `resize2fs` because this volume is ext4 format
+Using `resize2fs` because this volume is `ext4` format
 ```
 root@webapp-unstable:~# resize2fs /dev/xvdf1
 resize2fs 1.42.13 (17-May-2015)
@@ -144,4 +148,8 @@ root@webapp-unstable:~# mount -fav
 /var/lib/mysql           : already mounted
 ```
 
-DONE
+DONE.
+
+## Reference
+
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html)
