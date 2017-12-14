@@ -11,7 +11,7 @@ description: Increase AWS EBS volume
 - This volume is out of space, need to be extend size to 64GB
 - Extended to 64GB on aws console, but from ec2 point of view, it's just 32GB
 
-Root cause: didn't merge partition after extending and resize fs
+**`Rootcause`**: didn't merge partition after extending and resize fs
 
 ![](/assets/img/ebs-aws.png)
 
