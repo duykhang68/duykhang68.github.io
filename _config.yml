@@ -14,18 +14,23 @@ url: "https://llnx.me" # the base hostname & protocol for your site
 twitter_username:  
 github_username: hieuhtr 
 
-plugins: [jekyll-paginate]
+plugins: 
+  - jekyll-paginate
+  - jekyll-analytics
+
+# jekyll-paginate     
 paginate: 5
+
+# jekyll-analytics
+jekyll_analytics:
+  GoogleAnalytics:          # Add, if you want to track with Google Analytics
+    id: UA-120893719-1      # Required - replace with your tracking id
+    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking
 
 # Build settings
 markdown: kramdown
 kramdown:
   input: GFM
-
-# Third-party services
-# just leave someone empty to disable it
-#google_analytics: UA-76496708-3
-#disqus_shortname:
 
 # used this for post_excerpt at index_page
 excerpt_separator: <!--description-->
