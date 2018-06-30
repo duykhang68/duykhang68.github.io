@@ -16,16 +16,9 @@ github_username: hieuhtr
 
 plugins: 
   - jekyll-paginate
-  - jekyll-analytics
 
 # jekyll-paginate     
 paginate: 5
-
-# jekyll-analytics
-jekyll_analytics:
-  GoogleAnalytics:          # Add, if you want to track with Google Analytics
-    id: UA-120893719-1      # Required - replace with your tracking id
-    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking
 
 # Build settings
 markdown: kramdown
