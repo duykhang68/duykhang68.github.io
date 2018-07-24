@@ -81,6 +81,37 @@
     
         <article class="post_card post">
           <header class="post_header">
+            <h1 class="post_title"><a href="/technical/2018/07/24/RDS-as-a-fckin-service.html">RDS as-a-fckin-service</a></h2>
+            <time class="post_date">24 July 2018, Tuesday</time>
+            <a class="post_date"> - 1 min read</a>
+          </header>
+    
+          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2018/07/24/RDS-as-a-fckin-service.html';" style="cursor: pointer;">
+            <p>
+              <p><strong>AWS RDS document</strong>: 
+Depending on the DB instance class and the amount of storage, it can take up to 20 minutes before the new instance is available.</p>
+
+<p><strong>Reality</strong>:</p>
+<ul>
+  <li>RDB instance status: creating</li>
+  <li>RDS stuck in this fucking step nearly 2 hours and couting</li>
+  <li>db-fuck-as-a-service</li>
+</ul>
+
+<p><img src="/assets/img/rds.png" alt="" /></p>
+
+ 
+            </p> 
+          </div>
+    
+          <footer class="post_meta">
+          </footer>
+          <hr/>
+        </article>
+        
+    
+        <article class="post_card post">
+          <header class="post_header">
             <h1 class="post_title"><a href="/technical/2018/07/18/Mindset-for-building-HA-system.html">Mindset for building HA and scalable system</a></h2>
             <time class="post_date">18 July 2018, Wednesday</time>
             <a class="post_date"> - 3 min read</a>
@@ -192,29 +223,6 @@
 </blockquote>
 
 <p><img src="/assets/img/betternet-adware-links.png" alt="" /></p>
-
- 
-            </p> 
-          </div>
-    
-          <footer class="post_meta">
-          </footer>
-          <hr/>
-        </article>
-        
-    
-        <article class="post_card post">
-          <header class="post_header">
-            <h1 class="post_title"><a href="/technical/2017/06/04/The-MySQL-Binary-log.html">The MySQL binary log</a></h2>
-            <time class="post_date">04 June 2017, Sunday</time>
-            <a class="post_date"> - 7 min read</a>
-          </header>
-    
-          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2017/06/04/The-MySQL-Binary-log.html';" style="cursor: pointer;">
-            <p>
-              <p><strong>The binary log</strong> contains <code class="highlighter-rouge">events</code> that describe <code class="highlighter-rouge">database changes</code> such as table creation operations or changes to table data. It also contains events for statements that <strong>potentially could have made changes</strong> (for example, a DELETE which matched no rows), unless row-based logging is used. The binary log also contains information about <code class="highlighter-rouge">how long each statement</code> took that <strong>updated data</strong>.</p>
-
-<p><img src="/assets/img/master-binlog.png" alt="Binlog" /></p>
 
  
             </p> 

@@ -5,9 +5,50 @@
     <description>This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://llnx.me/</link>
     <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 18 Jul 2018 22:38:38 +0700</pubDate>
-    <lastBuildDate>Wed, 18 Jul 2018 22:38:38 +0700</lastBuildDate>
+    <pubDate>Tue, 24 Jul 2018 18:50:38 +0700</pubDate>
+    <lastBuildDate>Tue, 24 Jul 2018 18:50:38 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
+    
+      <item>
+        <title>RDS as-a-fckin-service</title>
+        <description>&lt;p&gt;&lt;strong&gt;AWS RDS document&lt;/strong&gt;: 
+Depending on the DB instance class and the amount of storage, it can take up to 20 minutes before the new instance is available.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Reality&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;RDB instance status: creating&lt;/li&gt;
+  &lt;li&gt;RDS stuck in this fucking step nearly 2 hours and couting&lt;/li&gt;
+  &lt;li&gt;db-fuck-as-a-service&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/rds.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;h3 id=&quot;i-guest-aka-initiation-step-by-step&quot;&gt;I guest aka initiation step-by-step&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Somehow the init RDB button will trigger a form with all specs, then send sms directly to a fucking devops guy of AWS ;)))&lt;/li&gt;
+  &lt;li&gt;Then that guy will goto AWS console, init new EC2 manually by his hand, use &lt;code class=&quot;highlighter-rouge&quot;&gt;rds-fucking-root.pem&lt;/code&gt; keypairs&lt;/li&gt;
+  &lt;li&gt;YEAH, then then then pick &lt;code class=&quot;highlighter-rouge&quot;&gt;ansible-playbook&lt;/code&gt; from somewhere in the internet then run this fuck&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;AND NOW: we have super-HA-scalable-db-as-a-service behind RDS term&lt;/p&gt;
+
+&lt;p&gt;Fact (trustme): nslookup of RDS domain, it will result EC2 domains&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html&quot;&gt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 24 Jul 2018 00:00:00 +0700</pubDate>
+        <link>https://llnx.me/technical/2018/07/24/RDS-as-a-fckin-service.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2018/07/24/RDS-as-a-fckin-service.html</guid>
+        
+        
+        <category>technical</category>
+        
+      </item>
     
       <item>
         <title>Mindset for building HA and scalable system</title>
@@ -967,54 +1008,6 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
         
         
         <category>technical</category>
-        
-      </item>
-    
-      <item>
-        <title>Habit and Time management</title>
-        <description>&lt;blockquote&gt;
-  &lt;p&gt;Habit: something that you do often and regularly, sometimes without knowing that you are doing it&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;habit&quot;&gt;Habit&lt;/h3&gt;
-&lt;p&gt;It takes 21 days to form a new habit&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Do it For Yourself&lt;/li&gt;
-  &lt;li&gt;Know the Benefits&lt;/li&gt;
-  &lt;li&gt;Know the Pain&lt;/li&gt;
-  &lt;li&gt;Start Simple&lt;/li&gt;
-  &lt;li&gt;Make it Daily&lt;/li&gt;
-  &lt;li&gt;Stay Consistent&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;time-management&quot;&gt;Time management&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Most important thing&lt;/strong&gt;: Work more when you’re in the zone. Relax when you’re not.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;It’s normal to have days where you just can’t work,  and days where you’ll work 12 hours straight.&lt;/li&gt;
-  &lt;li&gt;Stop multi-tasking. It merely kills your focus.&lt;/li&gt;
-  &lt;li&gt;We’re always more focused and productive with limited time.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!--description--&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Work is the best way to get working. Start with short tasks to get the ball rolling.&lt;/li&gt;
-  &lt;li&gt;Doing is better than perfect.&lt;/li&gt;
-  &lt;li&gt;More work hours doesn’t mean more productivity. Use constraints as opportunities.&lt;/li&gt;
-  &lt;li&gt;Separate thinking and execution to execute faster and think better.&lt;/li&gt;
-  &lt;li&gt;Always know the one thing you really need to get done during the day.&lt;/li&gt;
-  &lt;li&gt;Only ever work on the thing that will have the biggest impact.&lt;/li&gt;
-  &lt;li&gt;Set deadlines for everything. Don’t let tasks go on indefinitely.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Sun, 12 Mar 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/mindset/2017/03/12/habit-time-management.html</link>
-        <guid isPermaLink="true">https://llnx.me/mindset/2017/03/12/habit-time-management.html</guid>
-        
-        
-        <category>mindset</category>
         
       </item>
     
