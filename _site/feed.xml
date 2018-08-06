@@ -5,9 +5,47 @@
     <description>This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://llnx.me/</link>
     <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 01 Aug 2018 21:18:20 +0700</pubDate>
-    <lastBuildDate>Wed, 01 Aug 2018 21:18:20 +0700</lastBuildDate>
+    <pubDate>Mon, 06 Aug 2018 14:28:32 +0700</pubDate>
+    <lastBuildDate>Mon, 06 Aug 2018 14:28:32 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
+    
+      <item>
+        <title>Learning logs from 6Aug to 12Aug</title>
+        <description>&lt;ol&gt;
+  &lt;li&gt;Export large tables in MySQL&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!--description--&gt;
+
+&lt;h3 id=&quot;1-export-large-tables-in-mysql&quot;&gt;1. Export large tables in MySQL&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Large tables&lt;/li&gt;
+  &lt;li&gt;Progress&lt;/li&gt;
+  &lt;li&gt;Compression&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tmux new -s exporting
+mysqldump -udevops -pxxxxxx -hhost.xxxx \
+           dbname table1 table2 table3 | pv | gzip -9 &amp;gt; 3tables.sql.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/a/21091197/5402121&quot;&gt;https://stackoverflow.com/a/21091197/5402121&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Mon, 06 Aug 2018 00:00:00 +0700</pubDate>
+        <link>https://llnx.me/today-i-learned/2018/08/06/Learning-logs-from-6Aug-to-12Aug.html</link>
+        <guid isPermaLink="true">https://llnx.me/today-i-learned/2018/08/06/Learning-logs-from-6Aug-to-12Aug.html</guid>
+        
+        
+        <category>today-i-learned</category>
+        
+      </item>
     
       <item>
         <title>RDS as-a-fckin-service</title>
@@ -907,104 +945,6 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
         <pubDate>Mon, 17 Apr 2017 00:00:00 +0700</pubDate>
         <link>https://llnx.me/technical/2017/04/17/No-Reboot-Kernel-Patching.html</link>
         <guid isPermaLink="true">https://llnx.me/technical/2017/04/17/No-Reboot-Kernel-Patching.html</guid>
-        
-        
-        <category>technical</category>
-        
-      </item>
-    
-      <item>
-        <title>How DNS works</title>
-        <description>&lt;blockquote&gt;
-  &lt;p&gt;Without DNS, we would only be able to visit any website directly via IP address, no human-readable anymore&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;dns-basic-concept-and-information&quot;&gt;DNS: Basic concept and information&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;DNS stands for Domain Name System&lt;/li&gt;
-  &lt;li&gt;Its purpose is to resolve and translate human-readable website name to IPv4 or IPv6 address&lt;/li&gt;
-  &lt;li&gt;It’s basically a large Database which resides on various servers around the world, that contains the names and IP address of various host/domains.&lt;/li&gt;
-  &lt;li&gt;Without DNS, we would only be able to visit any website directly via IP address, no human-readable anymore&lt;/li&gt;
-  &lt;li&gt;DNS works on both the TCP and UDP Protocols, &lt;strong&gt;port 53&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;how-does-dns-work&quot;&gt;How does DNS work?&lt;/h3&gt;
-
-&lt;p&gt;Whenever you visit a domain such as &lt;a href=&quot;https://github.com&quot;&gt;github.com&lt;/a&gt;, the browser’s journey begins »&amp;gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Step 1&lt;/strong&gt;: Request information&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;TODO: Type &lt;code class=&quot;highlighter-rouge&quot;&gt;github.com&lt;/code&gt; to address bar of Chrome, it’s a new request for browser&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Step 2&lt;/strong&gt;: DNS cache on Chrome&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;TODO: DNS query on chrome’s cache, see &lt;code class=&quot;highlighter-rouge&quot;&gt;chrome://net-internals/#dns&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;True: Return IP address of this domain for making a request&lt;/li&gt;
-  &lt;li&gt;False: Didn’t know it before –&amp;gt; call OS (step3)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!--description--&gt;
-
-&lt;p&gt;&lt;strong&gt;Step 3&lt;/strong&gt;: DNS cache on OS&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;TODO: OS receive request from chrome, then check its DNS cache, see &lt;code class=&quot;highlighter-rouge&quot;&gt;mDNSResponder&lt;/code&gt; on MacOS&lt;/li&gt;
-  &lt;li&gt;True: Return IP of &lt;a href=&quot;https://github.com&quot;&gt;github.com&lt;/a&gt; for browser&lt;/li&gt;
-  &lt;li&gt;False: OS didn’t know it before same as browser, OS call the Resolver (Recursive DNS servers)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Step 4&lt;/strong&gt;: The Resolver on ISP (Internet Service Provider)&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;TODO: local OS sends a DNS Query to the Resolver by using UDP Protocol over Port 53, the Resolver will check its cache to find IP for &lt;a href=&quot;https://github.com&quot;&gt;github.com&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;True: Return IP address for OS&lt;/li&gt;
-  &lt;li&gt;False: ISP didn’t know it before same as our OS. ISP will ask the &lt;strong&gt;Root server&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Step 5&lt;/strong&gt;: The &lt;strong&gt;ROOT&lt;/strong&gt; servers - see &lt;a href=&quot;https://www.iana.org/domains/root/servers&quot;&gt;https://www.iana.org/domains/root/servers&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Fact: We have 13 root server for DNS around the world. They don’t know the answer, but they know where to find it.&lt;/li&gt;
-  &lt;li&gt;TODO: Root look at the first part of request, reading from right to left &lt;strong&gt;.com&lt;/strong&gt; &amp;lt;–&lt;/li&gt;
-  &lt;li&gt;Direct our request to &lt;strong&gt;Top-Level Domain&lt;/strong&gt; (TLD) name servers for &lt;strong&gt;.com&lt;/strong&gt;, it’s Verisign TLD&lt;/li&gt;
-  &lt;li&gt;ISP will store TLD information, no need ask the root again.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Step 6&lt;/strong&gt;: The &lt;strong&gt;TLD nameservers&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;TODO: The TLD nameservers review the next part of our request - &lt;strong&gt;github&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Direct our query to the nameservers responsible for this specific domain&lt;/li&gt;
-  &lt;li&gt;These &lt;strong&gt;Authoritative nameservers&lt;/strong&gt; are responsible for knowing all the information about a specific domain, which are stored in DNS records&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Step 7&lt;/strong&gt;: The &lt;strong&gt;Authoritative nameservers&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;TODO: The Resolver (ISP) retrieves the A record for github.com from the &lt;strong&gt;authoritative nameservers&lt;/strong&gt; and stores the record in ISP’s local cache&lt;/li&gt;
-  &lt;li&gt;More keywords: &lt;code class=&quot;highlighter-rouge&quot;&gt;time-to-live&lt;/code&gt; value, Domain Registrar, types of records&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Step 8&lt;/strong&gt;: Receive the answer&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;TODO: Resolver returns the A record back to OS&lt;/li&gt;
-  &lt;li&gt;OS stores the record in its cache, reads the IP address then passes information to Chrome&lt;/li&gt;
-  &lt;li&gt;Chrome stores the record in its cache&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;finally-chrome-opens-a-connection-to-the-webserver-and-receives-the-site&quot;&gt;Finally, Chrome opens a connection to the webserver and receives the site.&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;This entire process, from start to finish, takes only &lt;strong&gt;milliseconds&lt;/strong&gt; to complete.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Reference:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;https://howdns.works&lt;/li&gt;
-  &lt;li&gt;http://dyn.com/blog/dns-why-its-important-how-it-works/&lt;/li&gt;
-  &lt;li&gt;https://www.verisign.com/en_US/website-presence/online/how-dns-works&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Sun, 09 Apr 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/04/09/How-DNS-works.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/04/09/How-DNS-works.html</guid>
         
         
         <category>technical</category>
