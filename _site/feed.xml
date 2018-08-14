@@ -5,15 +5,15 @@
     <description>This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://llnx.me/</link>
     <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Aug 2018 14:28:32 +0700</pubDate>
-    <lastBuildDate>Mon, 06 Aug 2018 14:28:32 +0700</lastBuildDate>
+    <pubDate>Tue, 14 Aug 2018 11:15:32 +0700</pubDate>
+    <lastBuildDate>Tue, 14 Aug 2018 11:15:32 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
         <title>Learning logs from 6Aug to 12Aug</title>
         <description>&lt;ol&gt;
   &lt;li&gt;Export large tables in MySQL&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;Bash completion on debian 9&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;!--description--&gt;
@@ -32,10 +32,26 @@ mysqldump -udevops -pxxxxxx -hhost.xxxx \
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
+&lt;h3 id=&quot;2-bash-completion-on-debian-9&quot;&gt;2. Bash completion on debian 9&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Autocomplete / hint when pressing tab&lt;/li&gt;
+  &lt;li&gt;Apply for all user/profile&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install bash-completion
+
+# In file /etc/profile
+if [ -f /etc/bash_completion ]; then
+ . /etc/bash_completion
+fi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/a/21091197/5402121&quot;&gt;https://stackoverflow.com/a/21091197/5402121&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://packages.debian.org/stretch/bash-completion&quot;&gt;https://packages.debian.org/stretch/bash-completion&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 06 Aug 2018 00:00:00 +0700</pubDate>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Learning logs from 6Aug to 12Aug</title>
-    <meta name="description" content="  Export large tables in MySQL  ">
+    <meta name="description" content="  Export large tables in MySQL  Bash completion on debian 9">
 
     <!-- todo: include this into main.css -->
 
@@ -88,7 +88,7 @@
   <div class="article-content" itemprop="articleBody">
     <ol>
   <li>Export large tables in MySQL</li>
-  <li></li>
+  <li>Bash completion on debian 9</li>
 </ol>
 
 <!--description-->
@@ -107,10 +107,26 @@ mysqldump -udevops -pxxxxxx -hhost.xxxx \
 </code></pre>
 </div>
 
+<h3 id="2-bash-completion-on-debian-9">2. Bash completion on debian 9</h3>
+
+<ul>
+  <li>Autocomplete / hint when pressing tab</li>
+  <li>Apply for all user/profile</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>apt install bash-completion
+
+# In file /etc/profile
+if [ -f /etc/bash_completion ]; then
+ . /etc/bash_completion
+fi
+</code></pre>
+</div>
+
 <h2 id="references">References</h2>
 <ol>
   <li><a href="https://stackoverflow.com/a/21091197/5402121">https://stackoverflow.com/a/21091197/5402121</a></li>
-  <li></li>
+  <li><a href="https://packages.debian.org/stretch/bash-completion">https://packages.debian.org/stretch/bash-completion</a></li>
 </ol>
 
     <div id="gitment-container"></div>
