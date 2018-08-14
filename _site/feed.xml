@@ -5,12 +5,12 @@
     <description>This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://llnx.me/</link>
     <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 14 Aug 2018 11:15:32 +0700</pubDate>
-    <lastBuildDate>Tue, 14 Aug 2018 11:15:32 +0700</lastBuildDate>
+    <pubDate>Tue, 14 Aug 2018 11:19:08 +0700</pubDate>
+    <lastBuildDate>Tue, 14 Aug 2018 11:19:08 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
-        <title>Learning logs from 6Aug to 12Aug</title>
+        <title>Learning logs from in Aug</title>
         <description>&lt;ol&gt;
   &lt;li&gt;Export large tables in MySQL&lt;/li&gt;
   &lt;li&gt;Bash completion on debian 9&lt;/li&gt;
@@ -55,8 +55,8 @@ fi
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 06 Aug 2018 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/today-i-learned/2018/08/06/Learning-logs-from-6Aug-to-12Aug.html</link>
-        <guid isPermaLink="true">https://llnx.me/today-i-learned/2018/08/06/Learning-logs-from-6Aug-to-12Aug.html</guid>
+        <link>https://llnx.me/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</link>
+        <guid isPermaLink="true">https://llnx.me/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</guid>
         
         
         <category>today-i-learned</category>

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Learning logs from 6Aug to 12Aug
+title: Learning logs from in Aug
 category: today-i-learned 
 description: today I learned TIL, devops practice, weekly personal logs
 ---
