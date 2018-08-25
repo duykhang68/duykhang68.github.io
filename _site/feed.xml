@@ -3,11 +3,112 @@
   <channel>
     <title>Hieu's blog</title>
     <description>This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 15 Aug 2018 14:20:13 +0700</pubDate>
-    <lastBuildDate>Wed, 15 Aug 2018 14:20:13 +0700</lastBuildDate>
+    <link>https://llnx.me/</link>
+    <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 25 Aug 2018 16:20:12 +0700</pubDate>
+    <lastBuildDate>Sat, 25 Aug 2018 16:20:12 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
+    
+      <item>
+        <title>Solving blaming game</title>
+        <description>&lt;p&gt;&lt;strong&gt;Context&lt;/strong&gt;: stuck with problems, cannot find root cause, dunno and cannot understand and reproduce problem. Maybe feeling very tired for a long day, already taken 5 hours without any good executions. Maybe you don’t want to take responsibility for that.&lt;/p&gt;
+
+&lt;p&gt;Introducing &lt;strong&gt;blaming&lt;/strong&gt;: the fine art of making others responsible for all the difficult things that happen to you.&lt;/p&gt;
+
+&lt;p&gt;Nowadays, there are many many contexts &amp;amp; examples for blaming. I only want to wide the scope of this mindset, into SRE/Devops/Sysadmin fields. &lt;strong&gt;Why we blaming each others&lt;/strong&gt;, right or wrong? How can we fix/improve our mindset? &lt;strong&gt;How can we do better?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://imgs.xkcd.com/comics/blame_2x.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;h2 id=&quot;1-real-life-example&quot;&gt;1. Real life example&lt;/h2&gt;
+
+&lt;p&gt;Working on infras of someone else, working on services that not be built by ourself&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;many legacy/unknown components&lt;/li&gt;
+  &lt;li&gt;bad naming &amp;amp; coding conventions&lt;/li&gt;
+  &lt;li&gt;lack of resource inventory, lack of useful documents.&lt;/li&gt;
+  &lt;li&gt;found bad lines of code from developers, but must solve that shitty issue.&lt;/li&gt;
+  &lt;li&gt;found unacceptable implementations, like opened all ports, all protocols to 0.0.0.0/0 &lt;strong&gt;(WTF)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We start blaming others because they are bad, very bad&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Who did it?&lt;/li&gt;
+  &lt;li&gt;Who’s the interviewer of that f*cker guy?&lt;/li&gt;
+  &lt;li&gt;Hey man, you mad, go fuck yourself&lt;/li&gt;
+  &lt;li&gt;Kick this man out please, I don’t want him in my team&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-reasons&quot;&gt;2. Reasons&lt;/h2&gt;
+
+&lt;h3 id=&quot;a-badness&quot;&gt;a. Badness&lt;/h3&gt;
+
+&lt;p&gt;We have a deep need for a sense of identity, and one way we do this is through social comparison, contrasting ourselves against others. 
+If we can place ourselves higher in the pecking order of society then we can feel more important and have a greater sense of control.&lt;/p&gt;
+
+&lt;p&gt;We seek a higher status than others. And blame is one of the tools we use to this end. If the other person is bad, then it seems &lt;strong&gt;we must be relatively good&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/xzMs8O1KQh17i/giphy.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;b-defending&quot;&gt;b. Defending&lt;/h3&gt;
+
+&lt;p&gt;Maybe we’re &lt;strong&gt;scared&lt;/strong&gt; that we’re going to fall, because if our boss found this issue, we will be fire, or cannot have a higher salary. If we are not at fault, we &lt;strong&gt;blame to defend&lt;/strong&gt;. If we are at fault, then we &lt;strong&gt;blame to deflect&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/3o6vXSO55Ib7Tm4NLW/giphy.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;c-attacking&quot;&gt;c. Attacking&lt;/h3&gt;
+
+&lt;p&gt;Sometimes we know the reasons of issues are most from our side, but also come from their side.
+We want to blame others less because we are moving attention away from ourselves and more because we &lt;strong&gt;specifically want to attack others&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;A common reason to attack others is that we have some grudge against them, believing them to be bad or unworthy in some way and hence deserving punishment. Perhaps they have blamed us unfairly in past. Maybe they have hurt one of our friends. In any case, the opportunity to blame is used as a convenient method of subtle attack.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/xT39D97sOyaJ8CJlD2/giphy.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-how-can-we-do-better&quot;&gt;3. How can we do better?&lt;/h2&gt;
+
+&lt;p&gt;The keys aka solutions are &lt;strong&gt;NO BLAMING GAME&lt;/strong&gt; + &lt;strong&gt;JUST FIX THAT SHIT&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;You are good&lt;/strong&gt;, very good enough to know the bad (after taken 10 hours for finding rootcause)
+Why don’t you sit down and plan to solve issues?
+Calm down, breath, take a deep breath, let’s standup and take a coffee/tea cup, then relax your mind.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;I recommended that you should &lt;strong&gt;switch&lt;/strong&gt; your mindset from blaming others to &lt;strong&gt;thinking that you have a change to make things better&lt;/strong&gt;. You are here to do that, you have a change to show off your experiences (devops god, hero of all things)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Figure out the problem&lt;/strong&gt;, &lt;strong&gt;plan a hotfix&lt;/strong&gt;, write-up &amp;amp; share &lt;strong&gt;step-by-step&lt;/strong&gt;, guide the fucker to understand and &lt;strong&gt;how to find root cause&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Even the f*cker is developer or other junior devops/sysdmin. They are bad, lack of knowledge.
+Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validating, auditing, &lt;strong&gt;not pointing the figure elsewhere.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Disclamer and question&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If you cannot solve issues, it means you don’t have enough permission and knowledge to blame. RIGHT?&lt;/li&gt;
+  &lt;li&gt;Blaming or not blaming, at the end, issues still right there. Blaming is not solving problems.&lt;/li&gt;
+  &lt;li&gt;Why dont we sit down then try to fix that shit?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/l4q8gzOgUQIy7Ml44/giphy.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://changingminds.org/explanations/behaviors/blame/why_blame_others.htm&quot;&gt;http://changingminds.org/explanations/behaviors/blame/why_blame_others.htm&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.harleytherapy.co.uk/counselling/why-we-put-the-blame-on-others.htm&quot;&gt;https://www.harleytherapy.co.uk/counselling/why-we-put-the-blame-on-others.htm&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Sat, 25 Aug 2018 00:00:00 +0700</pubDate>
+        <link>https://llnx.me/mindset/2018/08/25/Solving-blaming-game.html</link>
+        <guid isPermaLink="true">https://llnx.me/mindset/2018/08/25/Solving-blaming-game.html</guid>
+        
+        
+        <category>mindset</category>
+        
+      </item>
     
       <item>
         <title>Signal of linux</title>
@@ -65,8 +166,8 @@
 
 </description>
         <pubDate>Wed, 15 Aug 2018 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2018/08/15/Signal-of-linux.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2018/08/15/Signal-of-linux.html</guid>
+        <link>https://llnx.me/technical/2018/08/15/Signal-of-linux.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2018/08/15/Signal-of-linux.html</guid>
         
         
         <category>technical</category>
@@ -119,8 +220,8 @@ fi
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 06 Aug 2018 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</link>
-        <guid isPermaLink="true">http://localhost:4000/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</guid>
+        <link>https://llnx.me/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</link>
+        <guid isPermaLink="true">https://llnx.me/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</guid>
         
         
         <category>today-i-learned</category>
@@ -160,8 +261,8 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 &lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html&quot;&gt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 24 Jul 2018 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2018/07/24/RDS-as-a-fckin-service.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2018/07/24/RDS-as-a-fckin-service.html</guid>
+        <link>https://llnx.me/technical/2018/07/24/RDS-as-a-fckin-service.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2018/07/24/RDS-as-a-fckin-service.html</guid>
         
         
         <category>technical</category>
@@ -247,8 +348,8 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 &lt;/ol&gt;
 </description>
         <pubDate>Wed, 18 Jul 2018 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2018/07/18/Mindset-for-building-HA-system.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2018/07/18/Mindset-for-building-HA-system.html</guid>
+        <link>https://llnx.me/technical/2018/07/18/Mindset-for-building-HA-system.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2018/07/18/Mindset-for-building-HA-system.html</guid>
         
         
         <category>technical</category>
@@ -409,8 +510,8 @@ root@webapp-unstable:~# mount -fav
 &lt;p&gt;&lt;a href=&quot;http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html&quot;&gt;http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 Dec 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/12/14/Increase-EBS-volume.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/12/14/Increase-EBS-volume.html</guid>
+        <link>https://llnx.me/technical/2017/12/14/Increase-EBS-volume.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/12/14/Increase-EBS-volume.html</guid>
         
         
         <category>technical</category>
@@ -597,8 +698,8 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
 &lt;h3 id=&quot;5-cpu-organization-and-operation&quot;&gt;5. CPU organization and operation&lt;/h3&gt;
 </description>
         <pubDate>Sun, 16 Jul 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/07/16/Understanding-top-command.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/07/16/Understanding-top-command.html</guid>
+        <link>https://llnx.me/technical/2017/07/16/Understanding-top-command.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/07/16/Understanding-top-command.html</guid>
         
         
         <category>technical</category>
@@ -715,8 +816,8 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 25 Jun 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</guid>
+        <link>https://llnx.me/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</guid>
         
         
         <category>technical</category>
@@ -863,8 +964,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 04 Jun 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/06/04/The-MySQL-Binary-log.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/04/The-MySQL-Binary-log.html</guid>
+        <link>https://llnx.me/technical/2017/06/04/The-MySQL-Binary-log.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/06/04/The-MySQL-Binary-log.html</guid>
         
         
         <category>technical</category>
@@ -936,40 +1037,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 21 May 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</link>
-        <guid isPermaLink="true">http://localhost:4000/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</guid>
-        
-        
-        <category>mindset</category>
-        
-      </item>
-    
-      <item>
-        <title>Who are we seeking to become?</title>
-        <description>&lt;blockquote&gt;
-  &lt;p&gt;behavior will become part of you&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;We get what we invest in. The time we spend comes back, with interest.&lt;/p&gt;
-
-&lt;p&gt;If you practice five minutes of new, difficult banjo music &lt;code class=&quot;highlighter-rouge&quot;&gt;every day&lt;/code&gt;, you’ll become a &lt;code class=&quot;highlighter-rouge&quot;&gt;better&lt;/code&gt; banjo player. If you spend a little bit more time each day &lt;code class=&quot;highlighter-rouge&quot;&gt;whining&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;feeling ashamed&lt;/code&gt;, that behavior will become part of you. The words you type, the people you hang with, the media you consume&lt;/p&gt;
-
-&lt;p&gt;The difference between who you are now and who you were five years ago is largely due to how you’ve spent your time along the way.&lt;/p&gt;
-
-&lt;p&gt;The habits we groove become who we are, one minute at a time.&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;A small thing, repeated, is not a small thing.&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;!--description--&gt;
-
-&lt;p&gt;And the same thing is true for brands, organizations and movements.&lt;/p&gt;
-
-&lt;p&gt;From &lt;a href=&quot;http://sethgodin.typepad.com/seths_blog/2017/04/who-are-we-seeking-to-become.html&quot;&gt;sethgodin&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 07 May 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/mindset/2017/05/07/Who-are-we-seeking-to-become.html</link>
-        <guid isPermaLink="true">http://localhost:4000/mindset/2017/05/07/Who-are-we-seeking-to-become.html</guid>
+        <link>https://llnx.me/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</link>
+        <guid isPermaLink="true">https://llnx.me/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</guid>
         
         
         <category>mindset</category>

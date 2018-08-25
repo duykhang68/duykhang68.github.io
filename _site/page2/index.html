@@ -11,14 +11,14 @@
     <!-- todo: include this into main.css -->
 
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://localhost:4000/page2/">
-    <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="http://localhost:4000 /feed.xml ">
+    <link rel="canonical" href="https://llnx.me/page2/">
+    <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="https://llnx.me /feed.xml ">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script async src="http://localhost:4000/assets/dist/fetch.min.js"></script>
-    <script src="http://localhost:4000/assets/dist/github-calendar.min.js"></script>
-    <link rel="stylesheet" href="http://localhost:4000/assets/dist/github-calendar.css" />
-    <script src="http://localhost:4000/assets/dist/pace.min.js"></script>
-    <link href="http://localhost:4000/assets/dist/pace.css" rel="stylesheet" />
+    <script async src="https://llnx.me/assets/dist/fetch.min.js"></script>
+    <script src="https://llnx.me/assets/dist/github-calendar.min.js"></script>
+    <link rel="stylesheet" href="https://llnx.me/assets/dist/github-calendar.css" />
+    <script src="https://llnx.me/assets/dist/pace.min.js"></script>
+    <link href="https://llnx.me/assets/dist/pace.css" rel="stylesheet" />
     <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
     <script>
     (function(f, a, t, h, o, m){
@@ -78,6 +78,37 @@
   <div class="post-list">
 
     
+    
+        <article class="post_card post">
+          <header class="post_header">
+            <h1 class="post_title"><a href="/technical/2017/12/14/Increase-EBS-volume.html">Increase EBS volume of AWS on linux</a></h2>
+            <time class="post_date">14 December 2017, Thursday</time>
+            <a class="post_date"> - 4 min read</a>
+          </header>
+    
+          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2017/12/14/Increase-EBS-volume.html';" style="cursor: pointer;">
+            <p>
+              <h2 id="problem">Problem</h2>
+
+<ul>
+  <li>A disk volume 32GB <code class="highlighter-rouge">/dev/xvdf1</code> is mounted into <code class="highlighter-rouge">/var/lib/mysql</code></li>
+  <li>This volume is out of space, need to be extend size to 64GB</li>
+  <li>Extended to 64GB on aws console, but from ec2 point of view, it’s just 32GB</li>
+</ul>
+
+<p><strong><code class="highlighter-rouge">Rootcause</code></strong>: didn’t merge partition after extending and resize fs</p>
+
+<p><img src="/assets/img/ebs-aws.png" alt="" /></p>
+
+ 
+            </p> 
+          </div>
+    
+          <footer class="post_meta">
+          </footer>
+          <hr/>
+        </article>
+        
     
         <article class="post_card post">
           <header class="post_header">
@@ -198,40 +229,6 @@
         </article>
         
     
-        <article class="post_card post">
-          <header class="post_header">
-            <h1 class="post_title"><a href="/mindset/2017/05/07/Who-are-we-seeking-to-become.html">Who are we seeking to become?</a></h2>
-            <time class="post_date">07 May 2017, Sunday</time>
-            <a class="post_date"> - 1 min read</a>
-          </header>
-    
-          <div class="post_excerpt" title="Read full article" onclick="location.href='/mindset/2017/05/07/Who-are-we-seeking-to-become.html';" style="cursor: pointer;">
-            <p>
-              <blockquote>
-  <p>behavior will become part of you</p>
-</blockquote>
-
-<p>We get what we invest in. The time we spend comes back, with interest.</p>
-
-<p>If you practice five minutes of new, difficult banjo music <code class="highlighter-rouge">every day</code>, you’ll become a <code class="highlighter-rouge">better</code> banjo player. If you spend a little bit more time each day <code class="highlighter-rouge">whining</code> or <code class="highlighter-rouge">feeling ashamed</code>, that behavior will become part of you. The words you type, the people you hang with, the media you consume</p>
-
-<p>The difference between who you are now and who you were five years ago is largely due to how you’ve spent your time along the way.</p>
-
-<p>The habits we groove become who we are, one minute at a time.</p>
-<blockquote>
-  <p><strong>A small thing, repeated, is not a small thing.</strong></p>
-</blockquote>
-
- 
-            </p> 
-          </div>
-    
-          <footer class="post_meta">
-          </footer>
-          <hr/>
-        </article>
-        
-    
         
         <div class="pagination">
           
@@ -249,8 +246,8 @@
 
   </div>
 </div>
-<script src="http://localhost:4000/assets/dist/jquery-1.11.1.js"></script>
-<script src="http://localhost:4000/assets/dist/jquery.jscroll.js"></script>
+<script src="https://llnx.me/assets/dist/jquery-1.11.1.js"></script>
+<script src="https://llnx.me/assets/dist/jquery.jscroll.js"></script>
 
 <script type="text/javascript">
 // content selector is used to extract the additional items

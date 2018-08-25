@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Solving blaming game</title>
+    <meta name="description" content="Context: stuck with problems, cannot find root cause, dunno and cannot understand and reproduce problem. Maybe feeling very tired for a long day, already tak...">
+
+    <!-- todo: include this into main.css -->
+
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="https://llnx.me/mindset/2018/08/25/Solving-blaming-game.html">
+    <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="https://llnx.me /feed.xml ">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script async src="https://llnx.me/assets/dist/fetch.min.js"></script>
+    <script src="https://llnx.me/assets/dist/github-calendar.min.js"></script>
+    <link rel="stylesheet" href="https://llnx.me/assets/dist/github-calendar.css" />
+    <script src="https://llnx.me/assets/dist/pace.min.js"></script>
+    <link href="https://llnx.me/assets/dist/pace.css" rel="stylesheet" />
+    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
+    <script>
+    (function(f, a, t, h, o, m){
+	a[h]=a[h]||function(){
+		(a[h].q=a[h].q||[]).push(arguments)
+	};
+	o=f.createElement('script'),
+	m=f.getElementsByTagName('script')[0];
+	o.async=1; o.src=t; o.id='fathom-script';
+	m.parentNode.insertBefore(o,m)
+    })(document, window, 'https://analytics.llnx.me/tracker.js', 'fathom');
+    fathom('trackPageview');
+    </script>
+    <!-- / Fathom -->
+</head>
+
+  <body>
+    <div class="page-content">
+      <div class="container">
+        <div class="three columns">
+          <header class="site-header">
+
+  <h1 class="logo"><a href="https://llnx.me/archive">Blog</a></h2>
+
+  <div class="nav">
+    
+    <label for="menu-toggle" class="menu-icon">
+        <!--div data-icon="ei-navicon"></div-->
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+    </label>
+    <input type="checkbox" id="menu-toggle">
+
+    <div class="site-nav">
+      <nav>
+        <ul class="page-link">
+          <li><a href="/">Home</a></li>
+          <li><a href="/archive">Posts</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/friends">Friends</a></li>
+          <li><a href="/hireme" style="color: #C25;font-size: 15px">Hire me ❯❯</a></span></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</header>
+
+        </div>
+
+        <div class="nine columns" style="z-index:100;">
+          <div class="wrapper">
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="article_header">
+    <h1 class="special_title" itemprop="name headline">Solving blaming game</h1>
+    <time class="post_date">25 August 2018, Saturday</time>
+    <a class="post_date"> - 4 min read</a>
+    <div class="issues" style="float: right">
+      <a class="github-button" href="https://github.com/hieuhtr/Blog/issues" data-show-count="true" aria-label="Issue hieuhtr/Blog on GitHub">Explore</a>
+    </div>
+  </header>
+
+  <div class="article-content" itemprop="articleBody">
+    <p><strong>Context</strong>: stuck with problems, cannot find root cause, dunno and cannot understand and reproduce problem. Maybe feeling very tired for a long day, already taken 5 hours without any good executions. Maybe you don’t want to take responsibility for that.</p>
+
+<p>Introducing <strong>blaming</strong>: the fine art of making others responsible for all the difficult things that happen to you.</p>
+
+<p>Nowadays, there are many many contexts &amp; examples for blaming. I only want to wide the scope of this mindset, into SRE/Devops/Sysadmin fields. <strong>Why we blaming each others</strong>, right or wrong? How can we fix/improve our mindset? <strong>How can we do better?</strong></p>
+
+<p><img src="https://imgs.xkcd.com/comics/blame_2x.png" alt="" /></p>
+
+<!--description-->
+
+<h2 id="1-real-life-example">1. Real life example</h2>
+
+<p>Working on infras of someone else, working on services that not be built by ourself</p>
+<ul>
+  <li>many legacy/unknown components</li>
+  <li>bad naming &amp; coding conventions</li>
+  <li>lack of resource inventory, lack of useful documents.</li>
+  <li>found bad lines of code from developers, but must solve that shitty issue.</li>
+  <li>found unacceptable implementations, like opened all ports, all protocols to 0.0.0.0/0 <strong>(WTF)</strong></li>
+</ul>
+
+<p>We start blaming others because they are bad, very bad</p>
+<ul>
+  <li>Who did it?</li>
+  <li>Who’s the interviewer of that f*cker guy?</li>
+  <li>Hey man, you mad, go fuck yourself</li>
+  <li>Kick this man out please, I don’t want him in my team</li>
+</ul>
+
+<h2 id="2-reasons">2. Reasons</h2>
+
+<h3 id="a-badness">a. Badness</h3>
+
+<p>We have a deep need for a sense of identity, and one way we do this is through social comparison, contrasting ourselves against others. 
+If we can place ourselves higher in the pecking order of society then we can feel more important and have a greater sense of control.</p>
+
+<p>We seek a higher status than others. And blame is one of the tools we use to this end. If the other person is bad, then it seems <strong>we must be relatively good</strong>.</p>
+
+<p><img src="https://media.giphy.com/media/xzMs8O1KQh17i/giphy.gif" alt="" /></p>
+
+<h3 id="b-defending">b. Defending</h3>
+
+<p>Maybe we’re <strong>scared</strong> that we’re going to fall, because if our boss found this issue, we will be fire, or cannot have a higher salary. If we are not at fault, we <strong>blame to defend</strong>. If we are at fault, then we <strong>blame to deflect</strong>.</p>
+
+<p><img src="https://media.giphy.com/media/3o6vXSO55Ib7Tm4NLW/giphy.gif" alt="" /></p>
+
+<h3 id="c-attacking">c. Attacking</h3>
+
+<p>Sometimes we know the reasons of issues are most from our side, but also come from their side.
+We want to blame others less because we are moving attention away from ourselves and more because we <strong>specifically want to attack others</strong>.</p>
+
+<p>A common reason to attack others is that we have some grudge against them, believing them to be bad or unworthy in some way and hence deserving punishment. Perhaps they have blamed us unfairly in past. Maybe they have hurt one of our friends. In any case, the opportunity to blame is used as a convenient method of subtle attack.</p>
+
+<p><img src="https://media.giphy.com/media/xT39D97sOyaJ8CJlD2/giphy.gif" alt="" /></p>
+
+<h2 id="3-how-can-we-do-better">3. How can we do better?</h2>
+
+<p>The keys aka solutions are <strong>NO BLAMING GAME</strong> + <strong>JUST FIX THAT SHIT</strong></p>
+
+<p><strong>You are good</strong>, very good enough to know the bad (after taken 10 hours for finding rootcause)
+Why don’t you sit down and plan to solve issues?
+Calm down, breath, take a deep breath, let’s standup and take a coffee/tea cup, then relax your mind.</p>
+
+<hr />
+<p>I recommended that you should <strong>switch</strong> your mindset from blaming others to <strong>thinking that you have a change to make things better</strong>. You are here to do that, you have a change to show off your experiences (devops god, hero of all things)</p>
+
+<p><strong>Figure out the problem</strong>, <strong>plan a hotfix</strong>, write-up &amp; share <strong>step-by-step</strong>, guide the fucker to understand and <strong>how to find root cause</strong>.</p>
+
+<p>Even the f*cker is developer or other junior devops/sysdmin. They are bad, lack of knowledge.
+Your job is inspecting, finding, <strong>solving</strong>, validating, auditing, <strong>not pointing the figure elsewhere.</strong></p>
+
+<hr />
+
+<p><strong>Disclamer and question</strong>:</p>
+
+<ul>
+  <li>If you cannot solve issues, it means you don’t have enough permission and knowledge to blame. RIGHT?</li>
+  <li>Blaming or not blaming, at the end, issues still right there. Blaming is not solving problems.</li>
+  <li>Why dont we sit down then try to fix that shit?</li>
+</ul>
+
+<p><img src="https://media.giphy.com/media/l4q8gzOgUQIy7Ml44/giphy.gif" alt="" /></p>
+
+<h2 id="reference">Reference</h2>
+
+<ol>
+  <li><a href="http://changingminds.org/explanations/behaviors/blame/why_blame_others.htm">http://changingminds.org/explanations/behaviors/blame/why_blame_others.htm</a></li>
+  <li><a href="https://www.harleytherapy.co.uk/counselling/why-we-put-the-blame-on-others.htm">https://www.harleytherapy.co.uk/counselling/why-we-put-the-blame-on-others.htm</a></li>
+</ol>
+
+    <div id="gitment-container"></div>
+  </div>
+
+  <footer class="article-footer">
+
+  <hr/>
+
+  <section class="author">
+  <div class="authorimage box" style="background: url(/assets/img/avatar.jpg)"></div>
+  <div class="authorinfo box">
+    <p class="bio" style="color: #222">
+      I'm an engineer who likes learning, discussing, and solving problems. These days, I'm focusing on DevOps because I'd love to help ensure that services stay up and running, while continuing to ship software to customers rapidly. I also have a passion for building robust infrastructure at world scale. 
+    </p>
+    <a class="github-button" href="https://github.com/hieuhtr" data-size="large" data-show-count="true" aria-label="Follow @hieuhtr on GitHub">Follow @hieuhtr</a>
+  </div>
+  <hr style="border-top: 0px"></<hr>
+  <div class="calendar"></div>
+</section>
+<script>
+  GitHubCalendar(".calendar", "hieuhtr");
+</script>
+
+  </footer>
+
+</article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
