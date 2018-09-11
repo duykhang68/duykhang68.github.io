@@ -81,6 +81,37 @@
     
         <article class="post_card post">
           <header class="post_header">
+            <h1 class="post_title"><a href="/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html">What is FLUSH TABLES WITH READ LOCK in MySQL?</a></h2>
+            <time class="post_date">08 March 2017, Wednesday</time>
+            <a class="post_date"> - 2 min read</a>
+          </header>
+    
+          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html';" style="cursor: pointer;">
+            <p>
+              <p><strong>Command:</strong></p>
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">FLUSH</span> <span class="n">TABLES</span> <span class="k">WITH</span> <span class="k">READ</span> <span class="k">LOCK</span><span class="p">;</span>
+</code></pre>
+</div>
+<p><strong>What exactly does command do?</strong></p>
+
+<ol>
+  <li>Set the global read lock - after this step, <code class="highlighter-rouge">insert/update/delete/replace/alter statements</code> cannot run</li>
+  <li>Close open tables - this step will block until all statements started previously have stopped</li>
+  <li>Set a flag to block commits</li>
+</ol>
+
+ 
+            </p> 
+          </div>
+    
+          <footer class="post_meta">
+          </footer>
+          <hr/>
+        </article>
+        
+    
+        <article class="post_card post">
+          <header class="post_header">
             <h1 class="post_title"><a href="/mindset/2017/02/20/What-the-Fuck-Gilfoyle-Does.html">What the Fuck Gilfoyle Does?</a></h2>
             <time class="post_date">20 February 2017, Monday</time>
             <a class="post_date"> - 2 min read</a>

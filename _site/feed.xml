@@ -5,9 +5,157 @@
     <description>This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://llnx.me/</link>
     <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 25 Aug 2018 16:20:12 +0700</pubDate>
-    <lastBuildDate>Sat, 25 Aug 2018 16:20:12 +0700</lastBuildDate>
+    <pubDate>Wed, 12 Sep 2018 00:00:01 +0700</pubDate>
+    <lastBuildDate>Wed, 12 Sep 2018 00:00:01 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
+    
+      <item>
+        <title>Android shell</title>
+        <description>&lt;p&gt;&lt;strong&gt;Goal&lt;/strong&gt;: init and config my old android phone to super tiny linux machine with interactive shell.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Device: xiaomi Mi4W LTE, android 6.0.1 MMB29M
+Specs: Quad-core max 2.5GHz, 3.00 GB memory, 16GB disk
+Kernel: 3.4.0-gf4b741d-00690-gc8911e
+Arch: armv7l
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/android-shell.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;h2 id=&quot;1-root-device&quot;&gt;1. Root device&lt;/h2&gt;
+
+&lt;p&gt;Install &lt;strong&gt;adb&lt;/strong&gt; and &lt;strong&gt;fastboot&lt;/strong&gt; tools on mac&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;❯❯ brew cask install android-platform-tools
+
+❯❯ adb --version
+Android Debug Bridge version 1.0.40
+Version 4797878
+Installed as /usr/local/bin/adb
+
+❯❯ fastboot --version
+fastboot version 28.0.0-4797878
+Installed as /usr/local/bin/fastboot
+
+# Connect android to mac via usb 
+# Verify device
+
+❯❯ adb devices -l
+List of devices attached
+1f703708  device usb:336592896X product:cancro_wc_lte model:MI_4W device:cancro transport_id:13
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Download then install &lt;strong&gt;twrp&lt;/strong&gt; &amp;amp; &lt;strong&gt;supersu&lt;/strong&gt; on &lt;strong&gt;fastboot&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;❯❯ wget internet.com/SR5-SuperSU-v2.82-SR5-20171001224502.zip ./
+❯❯ wget internet.com/twrp-3.1.0-0-cancro.img ./
+
+❯❯ adb push ./SR5-SuperSU-v2.82-SR5-20171001224502.zip /storage/self/primary/
+SR5-SuperSU-v2.82-SR5-20171001224502.zip: 1 file pushed. 5.8 MB/s (6882992 bytes in 1.127s)
+
+❯❯ adb reboot bootloader
+
+❯❯ fastboot devices
+1f703708	fastboot
+
+❯❯ fastboot flash recovery ./twrp-3.1.0-0-cancro.img
+Sending 'recovery' (13682 KB)                      OKAY [  0.464s]
+Writing 'recovery'                                 OKAY [  0.305s]
+Finished. Total time: 0.772s
+
+❯❯ fastboot boot ./twrp-3.1.0-0-cancro.img
+Downloading 'boot.img'                             OKAY [  0.432s]
+booting                                            OKAY [  0.119s]
+Finished. Total time: 0.560s
+
+# Install SR5-SuperSU-v2.82-SR5-20171001224502.zip from TWRP
+# Then reboot android
+# Verify root on device
+
+❯❯ adb shell
+shell@cancro:/ $ su
+root@cancro:/ #
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;2-super-user-as-root&quot;&gt;2. Super user as root&lt;/h2&gt;
+
+&lt;p&gt;Expand utilities with &lt;strong&gt;busybox&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Download &amp;amp; install busybox
+
+❯❯ wget https://busybox.net/downloads/binaries/1.28.1-defconfig-multiarch/busybox-armv7l
+❯❯ adb push busybox-armv7l /data/local/tmp
+busybox-armv7l: 1 file pushed. 3.8 MB/s (1079156 bytes in 0.270s)
+
+❯❯ adb shell
+shell@cancro:/ $ su
+root@cancro:/ # mkdir /data/busybox
+root@cancro:/ # move /data/local/tmp/busybox-armv7l /data/busybox
+root@cancro:/ # cd /data/busybox
+root@cancro:/data/busybox # ls -l
+-rwxrwxrwx shell    shell     1079156 2018-02-15 20:47 busybox-armv7l
+root@cancro:/data/busybox # ./busybox-armv7l --install ./
+
+# Use ls of busybox 
+# instead of current ls on android
+
+root@cancro:/ # which ls
+/system/bin/ls
+
+root@cancro:/ # export PATH=/data/busybox:$PATH
+root@cancro:/ # which ls
+/data/busybox/ls
+root@cancro:/ # which vi
+/data/busybox/vi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Config environment variables&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Choose one: (for security mount /system back to RO when finished)
+# Mount system RW: mount -o rw,remount /system
+# Mount system RO: mount -o ro,remount /system
+
+root@cancro:/ # mount -o rw,remount /system
+root@cancro:/ # vi /system/etc/mkshrc
+...
+export PATH=/data/busybox:$PATH
+...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;when facing with su command like this, we need reconfigure su&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Issue with su command
+
+shell@cancro:/ $ su
+su: must be suid to work properly
+
+# Resolve
+
+root@cancro:/ # cp /su/bin/su /data/busybox/su
+root@cancro:/ # ls -lh /su/bin/su
+-rwxr-xr-x    1 0        0          73.6K Sep 11 13:49 /su/bin/su
+root@cancro:/ # ls -lh /data/busybox/su
+-rwx------    1 0        0          73.6K Sep 11 15:58 /data/busybox/su
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.wikitechy.com/technology/how-to-root-and-install-twrp-recovery-on-xiaomi-mi4/&quot;&gt;TWRP fastboot&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://android.stackexchange.com/questions/53389/can-i-update-the-adb-shells-environment-variables&quot;&gt;ADB shell environment&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://android.stackexchange.com/questions/110927/how-to-mount-system-rewritable-or-read-only-rw-ro&quot;&gt;Mount /system RR&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://busybox.net/FAQ.html&quot;&gt;Busybox FAQ&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Tue, 11 Sep 2018 00:00:00 +0700</pubDate>
+        <link>https://llnx.me/technical/2018/09/11/Android-shell.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2018/09/11/Android-shell.html</guid>
+        
+        
+        <category>technical</category>
+        
+      </item>
     
       <item>
         <title>Solving blaming game</title>
@@ -969,79 +1117,6 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
         
         
         <category>technical</category>
-        
-      </item>
-    
-      <item>
-        <title>Ways to get more important things done</title>
-        <description>&lt;p&gt;&lt;strong&gt;Let’s define productivity&lt;/strong&gt;. Productivity is a measure of efficiency of a person completing a task. We often assume that productivity means getting more things done each day. Wrong. Productivity is getting important things done consistently. And no matter what you are working on, there are only a &lt;code class=&quot;highlighter-rouge&quot;&gt;few things&lt;/code&gt; that are &lt;code class=&quot;highlighter-rouge&quot;&gt;truly important&lt;/code&gt;. Being productive is about maintaining a steady, average speed on a few things, not maximum speed on everything.&lt;/p&gt;
-
-&lt;h3 id=&quot;warren-buffetts-2-list-strategy-for-focused-attention&quot;&gt;Warren Buffett’s “2 List” Strategy for Focused Attention&lt;/h3&gt;
-&lt;p&gt;Buffett uses a simple 3-step productivity strategy to help his employees determine their priorities and actions. You may find this method useful for making decisions and getting yourself to commit to doing one thing right away&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Step 1:&lt;/strong&gt; Write down your top &lt;code class=&quot;highlighter-rouge&quot;&gt;25 career goals&lt;/code&gt;. Or you could also complete this exercise with goals for a shorter timeline. For example, write down the top 25 things you want to &lt;code class=&quot;highlighter-rouge&quot;&gt;accomplish this week&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Step 2:&lt;/strong&gt; Review this list and circle top &lt;strong&gt;5 goals&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Step 3:&lt;/strong&gt; Start working on top 5 goals right away. Everything in 20 things that you didn’t circle just became your avoid-At-All-Cost list.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;No matter what, these things get no attention from you until you’ve succeeded with your top 5&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;!--description--&gt;
-
-&lt;h3 id=&quot;ivy-lees-simple-method-for-achieving-peak-productivity&quot;&gt;Ivy Lee’s simple method for achieving peak productivity:&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;At the end of each work day, write down the six most important things you need to accomplish tomorrow. Do not write down more than six tasks.&lt;/li&gt;
-  &lt;li&gt;Prioritize those six items in order of their true importance.&lt;/li&gt;
-  &lt;li&gt;When you arrive tomorrow, concentrate only on the first task. Work until the first task is finished before moving on to the second task.&lt;/li&gt;
-  &lt;li&gt;Approach the rest of your list in the same fashion. At the end of the day, move any unfinished items to a new list of six tasks for the following day.&lt;/li&gt;
-  &lt;li&gt;Repeat this process every working day.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;the-eisenhower-box-how-to-be-more-productive&quot;&gt;The Eisenhower Box: How to be More Productive&lt;/h3&gt;
-&lt;p&gt;Using the decision matrix for taking action and organizing your tasks.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Urgent and important (tasks you will do immediately).&lt;/li&gt;
-  &lt;li&gt;Important, but not urgent (tasks you will schedule to do later).&lt;/li&gt;
-  &lt;li&gt;Urgent, but not important (tasks you will delegate to someone else).&lt;/li&gt;
-  &lt;li&gt;Neither urgent nor important (tasks that you will eliminate).&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/eisenhower-box.jpg&quot; alt=&quot;Eisenhower Box&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h3 id=&quot;something-more&quot;&gt;Something more&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Technically, we are capable of doing 2 things at the same time.&lt;/li&gt;
-  &lt;li&gt;What’s imposible? is concerntrating on two tasks at once. During any single instant, you are concertrating on one or the other.&lt;/li&gt;
-  &lt;li&gt;Most people don’t have trouble with focusing. They have trouble with deciding.&lt;/li&gt;
-  &lt;li&gt;Most healthy humans have a brain that is capable of focusing if we get the distractions out of the way.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Have you ever had a task that you absolutely had to get done? What happened? You got it done because the deadline made the decision for you. Maybe you procrastinated beforehand, but once things became urgent and you were forced to make a decision, you took action.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;It doesn’t matter how long your goal will take, just get started.&lt;/li&gt;
-  &lt;li&gt;Turning the temperature down or moving to a cooler place is an easy way to focus your mind and body.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;reference&quot;&gt;Reference:&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;http://jamesclear.com/ivy-lee&quot;&gt;http://jamesclear.com/ivy-lee&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://jamesclear.com/focus&quot;&gt;http://jamesclear.com/focus&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://jamesclear.com/eisenhower-box&quot;&gt;http://jamesclear.com/eisenhower-box&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Sun, 21 May 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</link>
-        <guid isPermaLink="true">https://llnx.me/mindset/2017/05/21/Show-me-a-way-to-get-more-important-things-done.html</guid>
-        
-        
-        <category>mindset</category>
         
       </item>
     
