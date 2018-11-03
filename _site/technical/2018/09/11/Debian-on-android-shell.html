@@ -15,11 +15,6 @@
     <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="https://llnx.me /feed.xml ">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script async src="https://llnx.me/assets/dist/fetch.min.js"></script>
-    <script src="https://llnx.me/assets/dist/github-calendar.min.js"></script>
-    <link rel="stylesheet" href="https://llnx.me/assets/dist/github-calendar.css" />
-    <script src="https://llnx.me/assets/dist/pace.min.js"></script>
-    <link href="https://llnx.me/assets/dist/pace.css" rel="stylesheet" />
-    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
     <script>
     (function(f, a, t, h, o, m){
 	a[h]=a[h]||function(){
@@ -32,7 +27,6 @@
     })(document, window, 'https://analytics.llnx.me/tracker.js', 'fathom');
     fathom('trackPageview');
     </script>
-    <!-- / Fathom -->
 </head>
 
   <body>
@@ -78,11 +72,7 @@
 
   <header class="article_header">
     <h1 class="special_title" itemprop="name headline">Debian on android shell</h1>
-    <time class="post_date">11 September 2018, Tuesday</time>
-    <a class="post_date"> - 6 min read</a>
-    <div class="issues" style="float: right">
-      <a class="github-button" href="https://github.com/hieuhtr/Blog/issues" data-show-count="true" aria-label="Issue hieuhtr/Blog on GitHub">Explore</a>
-    </div>
+    <time class="post_date">11 September 2018, Tuesday - 6 min read</time>
   </header>
 
   <div class="article-content" itemprop="articleBody">
@@ -240,7 +230,7 @@ root@cancro:/ # ls -lh /data/busybox/su
 <div class="highlighter-rouge"><pre class="highlight"><code>debian❯❯ apt install -y debootstrap debian-archive-keyring debian-ports-archive-keyring
 debian❯❯ mkdir debian-armhf
 debian❯❯ cd debian-armhf/
-debian❯❯ dd if=/dev/zero of=debian.img seek=749999999 bs=1 count=1
+debian❯❯ dd if=/dev/zero of=debian.img bs=1MiB count=2000
 debian❯❯ mke2fs -F debian.img
 debian❯❯ mkdir debian
 debian❯❯ mount -o loop debian.img debian
@@ -248,6 +238,8 @@ debian❯❯ debootstrap --arch armhf --foreign --verbose stretch debian http://
 debian❯❯ umount debian
 </code></pre>
 </div>
+
+<p><img src="/assets/img/debootstrap.png" alt="large-img" title="Extract debian filesystem via Debootstrap" /></p>
 
 <p>rsync file debian.img from debian system to mac system, then push this img to android</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>mac❯❯ adb push debian.img /sdcard/
@@ -338,16 +330,12 @@ All packages are up to date.
   <div class="authorimage box" style="background: url(/assets/img/avatar.jpg)"></div>
   <div class="authorinfo box">
     <p class="bio" style="color: #222">
-      I'm an engineer who likes learning, discussing, and solving problems. These days, I'm focusing on DevOps because I'd love to help ensure that services stay up and running, while continuing to ship software to customers rapidly. I also have a passion for building robust infrastructure at world scale. 
+      I'm an engineer who likes learning, discussing, and solving problems. These days, I'm focusing on DevOps because I'd love to help ensure that services stay up and running, while continuing to ship software to customers rapidly. I also have a passion for building robust infrastructure at world scale.
     </p>
     <a class="github-button" href="https://github.com/hieuhtr" data-size="large" data-show-count="true" aria-label="Follow @hieuhtr on GitHub">Follow @hieuhtr</a>
   </div>
-  <hr style="border-top: 0px"></<hr>
-  <div class="calendar"></div>
 </section>
-<script>
-  GitHubCalendar(".calendar", "hieuhtr");
-</script>
+
 
   </footer>
 

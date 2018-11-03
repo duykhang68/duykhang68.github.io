@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hieu's blog</title>
-    <description>This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
+    <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://llnx.me/</link>
     <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 29 Oct 2018 23:03:55 +0700</pubDate>
-    <lastBuildDate>Mon, 29 Oct 2018 23:03:55 +0700</lastBuildDate>
+    <pubDate>Sat, 03 Nov 2018 11:52:04 +0700</pubDate>
+    <lastBuildDate>Sat, 03 Nov 2018 11:52:04 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
@@ -165,7 +165,7 @@ root@cancro:/ # ls -lh /data/busybox/su
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;debian❯❯ apt install -y debootstrap debian-archive-keyring debian-ports-archive-keyring
 debian❯❯ mkdir debian-armhf
 debian❯❯ cd debian-armhf/
-debian❯❯ dd if=/dev/zero of=debian.img seek=749999999 bs=1 count=1
+debian❯❯ dd if=/dev/zero of=debian.img bs=1MiB count=2000
 debian❯❯ mke2fs -F debian.img
 debian❯❯ mkdir debian
 debian❯❯ mount -o loop debian.img debian
@@ -173,6 +173,8 @@ debian❯❯ debootstrap --arch armhf --foreign --verbose stretch debian http://
 debian❯❯ umount debian
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/debootstrap.png&quot; alt=&quot;large-img&quot; title=&quot;Extract debian filesystem via Debootstrap&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;rsync file debian.img from debian system to mac system, then push this img to android&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mac❯❯ adb push debian.img /sdcard/

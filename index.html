@@ -11,8 +11,7 @@ title: Hieu's blog
         <article class="post_card post">
           <header class="post_header">
             <h1 class="post_title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h2>
-            <time class="post_date">{{ post.date | date: "%d %B %Y, %A" }}</time>
-            <a class="post_date"> - {{ post.content | number_of_words | divided_by:180 | plus:1 }} min read</a>
+            <time class="post_date">{{ post.date | date: "%d %B %Y, %A" }} - {{ post.content | number_of_words | divided_by:180 | plus:1 }} min read</time>
           </header>
     
           <div class="post_excerpt" title="Read full article" onclick="location.href='{{ post.url | prepend: site.baseurl }}';" style="cursor: pointer;">

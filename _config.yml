@@ -8,10 +8,9 @@
 # Site settings
 title: Hieu's blog
 email: huynhtrunghieu.cs@gmail.com
-description: This is a blog about Linux, Database, Infrastructure, some mathematics, and mindset.
+description: My blog about Linux, Database, Infrastructure, some mathematics, and mindset.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://llnx.me" # the base hostname & protocol for your site
-twitter_username:  
 github_username: hieuhtr 
 
 plugins: 

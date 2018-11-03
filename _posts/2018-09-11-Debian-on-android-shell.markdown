@@ -158,13 +158,15 @@ Install debootstrap then bootstrapping debian stretch image for armv7l arch
 debian❯❯ apt install -y debootstrap debian-archive-keyring debian-ports-archive-keyring
 debian❯❯ mkdir debian-armhf
 debian❯❯ cd debian-armhf/
-debian❯❯ dd if=/dev/zero of=debian.img seek=749999999 bs=1 count=1
+debian❯❯ dd if=/dev/zero of=debian.img bs=1MiB count=2000
 debian❯❯ mke2fs -F debian.img
 debian❯❯ mkdir debian
 debian❯❯ mount -o loop debian.img debian
 debian❯❯ debootstrap --arch armhf --foreign --verbose stretch debian http://ftp.us.debian.org/debian
 debian❯❯ umount debian
 ```
+
+![large-img](/assets/img/debootstrap.png "Extract debian filesystem via Debootstrap")
 
 rsync file debian.img from debian system to mac system, then push this img to android
 ```
