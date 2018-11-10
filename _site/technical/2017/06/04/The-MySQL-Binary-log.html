@@ -11,10 +11,10 @@
     <!-- todo: include this into main.css -->
 
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="https://llnx.me/technical/2017/06/04/The-MySQL-Binary-log.html">
-    <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="https://llnx.me /feed.xml ">
+    <link rel="canonical" href="http://localhost:4000/technical/2017/06/04/The-MySQL-Binary-log.html">
+    <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="http://localhost:4000 /feed.xml ">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script async src="https://llnx.me/assets/dist/fetch.min.js"></script>
+    <script async src="http://localhost:4000/assets/dist/fetch.min.js"></script>
     <script>
     (function(f, a, t, h, o, m){
 	a[h]=a[h]||function(){
@@ -78,7 +78,7 @@
   <div class="article-content" itemprop="articleBody">
     <p><strong>The binary log</strong> contains <code class="highlighter-rouge">events</code> that describe <code class="highlighter-rouge">database changes</code> such as table creation operations or changes to table data. It also contains events for statements that <strong>potentially could have made changes</strong> (for example, a DELETE which matched no rows), unless row-based logging is used. The binary log also contains information about <code class="highlighter-rouge">how long each statement</code> took that <strong>updated data</strong>.</p>
 
-<p><img src="/assets/img/master-binlog.png" alt="Binlog" /></p>
+<p><img src="/assets/img/master-binlog.webp" alt="Binlog" /></p>
 
 <!--description-->
 
@@ -221,7 +221,7 @@ With <code class="highlighter-rouge">statement-based</code> replication, there m
   <hr/>
 
   <section class="author">
-  <div class="authorimage box" style="background: url(/assets/img/avatar.jpg)"></div>
+  <div class="authorimage box" style="background: url(/assets/img/avatar.webp)"></div>
   <div class="authorinfo box">
     <p class="bio" style="color: #222">
       I'm an engineer who likes learning, discussing, and solving problems. These days, I'm focusing on DevOps because I'd love to help ensure that services stay up and running, while continuing to ship software to customers rapidly. I also have a passion for building robust infrastructure at world scale.

@@ -11,7 +11,7 @@ Introducing **blaming**: the fine art of making others responsible for all the d
 
 Nowadays, there are many many contexts & examples for blaming. I only want to wide the scope of this mindset, into SRE/Devops/Sysadmin fields. **Why we blaming each others**, right or wrong? How can we fix/improve our mindset? **How can we do better?**
 
-![](https://imgs.xkcd.com/comics/blame_2x.png)
+![](https://imgs.xkcd.com/comics/blame_2x.jpg)
 
 <!--description-->
 

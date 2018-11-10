@@ -23,14 +23,14 @@ description: Rebooting the computer is irksome, and in some cases, where uptime 
 
 Most important: kpatch ensures that hot patches are applied atomically and safely by `stopping all running processes` while the hot patch is applied, and by ensuring that none of the stopped processes is running inside the functions that are to be patched
 
-![With live patching in place, calls to patched kernel functions invoke their replacement counterparts](/assets/img/kpatch-how-it-works.png)
+![With live patching in place, calls to patched kernel functions invoke their replacement counterparts](/assets/img/kpatch-how-it-works.webp)
 
 Read more at: [https://www.youtube.com/watch?v=juyQ5TsJRTA](https://www.youtube.com/watch?v=juyQ5TsJRTA)
 
 ### How about kGraft, how it work?
 - **kGraft**, on the other hand, handles each thread one by one, as they make system calls (without forcing them to freeze first) until all of the threads are running the patched code. At this point, the patch is fully installed and the old code is replaced. This process takes longer to complete the patch, but it does it without any downtime
 
-!["World views" or "universes", maintained by kGraft in a read-copy-update fashion](/assets/img/kGraft-how-it-works.png)
+!["World views" or "universes", maintained by kGraft in a read-copy-update fashion](/assets/img/kGraft-how-it-works.webp)
 
 ### Reference: 
 1. [https://en.wikipedia.org/wiki/Kpatch](https://en.wikipedia.org/wiki/Kpatch)

@@ -4,7 +4,7 @@ title:  Ways to get more important things done
 category: mindset
 description: Being productive is about maintaining a steady, average speed on a few things, not maximum speed on everything.
 image:
- path: /assets/img/one-goal.jpg
+ path: /assets/img/one-goal.webp
 ---
 
 **Let's define productivity**. Productivity is a measure of efficiency of a person completing a task. We often assume that productivity means getting more things done each day. Wrong. Productivity is getting important things done consistently. And no matter what you are working on, there are only a `few things` that are `truly important`. Being productive is about maintaining a steady, average speed on a few things, not maximum speed on everything.
@@ -38,7 +38,7 @@ Using the decision matrix for taking action and organizing your tasks.
 3. Urgent, but not important (tasks you will delegate to someone else).
 4. Neither urgent nor important (tasks that you will eliminate).
 
-![Eisenhower Box](/assets/img/eisenhower-box.jpg)
+![Eisenhower Box](/assets/img/eisenhower-box.webp)
 
 ---
 ### Something more

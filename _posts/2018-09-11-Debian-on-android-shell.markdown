@@ -17,7 +17,7 @@ Kernel: 3.4.0-gf4b741d-00690-gc8911e
 Arch: armv7l
 ```
 
-![](/assets/img/android-shell.png)
+![](/assets/img/android-shell.webp)
 
 <!--description-->
 
@@ -166,7 +166,7 @@ debian❯❯ debootstrap --arch armhf --foreign --verbose stretch debian http://
 debian❯❯ umount debian
 ```
 
-![large-img](/assets/img/debootstrap.png "Extract debian filesystem via Debootstrap")
+![large-img](/assets/img/debootstrap.webp "Extract debian filesystem via Debootstrap")
 
 rsync file debian.img from debian system to mac system, then push this img to android
 ```

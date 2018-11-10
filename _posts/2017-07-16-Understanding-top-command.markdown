@@ -29,7 +29,7 @@ But it's too fucking long 💢 and want to see the whole picture? 🌟 Sure, I h
 
 ## Understanding top command
 
-![large-img](/assets/img/top-command.png "Top command explaination")
+![large-img](/assets/img/top-command.webp "Top command explaination")
 
 ### 1. Date and uptime
 Current time is **13:41**, and system has been running for over **5 weeks**, from last boot on **May 17**
@@ -110,7 +110,7 @@ Tasks: 283 total,   1 running, 282 sleeping,   0 stopped,   0 zombie
 ```
 From the time a process is born to when it is terminated, the process proceeds through various states. Those states can include **Runnable**, **Running**, **Sleeping** (in memory and on disk), and **Zombie** states - from [Redhat](https://access.redhat.com/sites/default/files/attachments/processstates_20120831.pdf)
 
-![](/assets/img/process-state.png "Process state life cycle")
+![](/assets/img/process-state.webp "Process state life cycle")
 
 #### 4.1 Runable state
 When a process is in a Runnable state, it means it has all the resources it needs to run, except that the CPU

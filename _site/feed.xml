@@ -3,10 +3,10 @@
   <channel>
     <title>Hieu's blog</title>
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
-    <link>https://llnx.me/</link>
-    <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 03 Nov 2018 11:52:04 +0700</pubDate>
-    <lastBuildDate>Sat, 03 Nov 2018 11:52:04 +0700</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 10 Nov 2018 11:23:00 +0700</pubDate>
+    <lastBuildDate>Sat, 10 Nov 2018 11:23:00 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
@@ -25,7 +25,7 @@ Arch: armv7l
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/android-shell.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/android-shell.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;!--description--&gt;
 
@@ -174,7 +174,7 @@ debian❯❯ umount debian
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/debootstrap.png&quot; alt=&quot;large-img&quot; title=&quot;Extract debian filesystem via Debootstrap&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/debootstrap.webp&quot; alt=&quot;large-img&quot; title=&quot;Extract debian filesystem via Debootstrap&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;rsync file debian.img from debian system to mac system, then push this img to android&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mac❯❯ adb push debian.img /sdcard/
@@ -255,8 +255,8 @@ All packages are up to date.
 &lt;/ol&gt;
 </description>
         <pubDate>Tue, 11 Sep 2018 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2018/09/11/Debian-on-android-shell.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2018/09/11/Debian-on-android-shell.html</guid>
+        <link>http://localhost:4000/technical/2018/09/11/Debian-on-android-shell.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2018/09/11/Debian-on-android-shell.html</guid>
         
         
         <category>technical</category>
@@ -271,7 +271,7 @@ All packages are up to date.
 
 &lt;p&gt;Nowadays, there are many many contexts &amp;amp; examples for blaming. I only want to wide the scope of this mindset, into SRE/Devops/Sysadmin fields. &lt;strong&gt;Why we blaming each others&lt;/strong&gt;, right or wrong? How can we fix/improve our mindset? &lt;strong&gt;How can we do better?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://imgs.xkcd.com/comics/blame_2x.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://imgs.xkcd.com/comics/blame_2x.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;!--description--&gt;
 
@@ -356,8 +356,8 @@ Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validatin
 &lt;/ol&gt;
 </description>
         <pubDate>Sat, 25 Aug 2018 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/mindset/2018/08/25/Solving-blaming-game.html</link>
-        <guid isPermaLink="true">https://llnx.me/mindset/2018/08/25/Solving-blaming-game.html</guid>
+        <link>http://localhost:4000/mindset/2018/08/25/Solving-blaming-game.html</link>
+        <guid isPermaLink="true">http://localhost:4000/mindset/2018/08/25/Solving-blaming-game.html</guid>
         
         
         <category>mindset</category>
@@ -420,8 +420,8 @@ Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validatin
 
 </description>
         <pubDate>Wed, 15 Aug 2018 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2018/08/15/Signal-of-linux.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2018/08/15/Signal-of-linux.html</guid>
+        <link>http://localhost:4000/technical/2018/08/15/Signal-of-linux.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2018/08/15/Signal-of-linux.html</guid>
         
         
         <category>technical</category>
@@ -474,8 +474,8 @@ fi
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 06 Aug 2018 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</link>
-        <guid isPermaLink="true">https://llnx.me/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</guid>
+        <link>http://localhost:4000/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</link>
+        <guid isPermaLink="true">http://localhost:4000/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</guid>
         
         
         <category>today-i-learned</category>
@@ -494,7 +494,7 @@ Depending on the DB instance class and the amount of storage, it can take up to 
   &lt;li&gt;db-fuck-as-a-service&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/rds.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/rds.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;!--description--&gt;
 
@@ -515,8 +515,8 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 &lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html&quot;&gt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 24 Jul 2018 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2018/07/24/RDS-as-a-fckin-service.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2018/07/24/RDS-as-a-fckin-service.html</guid>
+        <link>http://localhost:4000/technical/2018/07/24/RDS-as-a-fckin-service.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2018/07/24/RDS-as-a-fckin-service.html</guid>
         
         
         <category>technical</category>
@@ -535,7 +535,7 @@ Depending on the DB instance class and the amount of storage, it can take up to 
   &lt;li&gt;Infrastructure as code&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/port-k8s.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/port-k8s.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;!--description--&gt;
 
@@ -602,8 +602,8 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 &lt;/ol&gt;
 </description>
         <pubDate>Wed, 18 Jul 2018 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2018/07/18/Mindset-for-building-HA-system.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2018/07/18/Mindset-for-building-HA-system.html</guid>
+        <link>http://localhost:4000/technical/2018/07/18/Mindset-for-building-HA-system.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2018/07/18/Mindset-for-building-HA-system.html</guid>
         
         
         <category>technical</category>
@@ -622,7 +622,7 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 
 &lt;p&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Rootcause&lt;/code&gt;&lt;/strong&gt;: didn’t merge partition after extending and resize fs&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/ebs-aws.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/ebs-aws.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;!--description--&gt;
 
@@ -764,8 +764,8 @@ root@webapp-unstable:~# mount -fav
 &lt;p&gt;&lt;a href=&quot;http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html&quot;&gt;http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 Dec 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/12/14/Increase-EBS-volume.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/12/14/Increase-EBS-volume.html</guid>
+        <link>http://localhost:4000/technical/2017/12/14/Increase-EBS-volume.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/12/14/Increase-EBS-volume.html</guid>
         
         
         <category>technical</category>
@@ -798,7 +798,7 @@ root@webapp-unstable:~# mount -fav
 
 &lt;h2 id=&quot;understanding-top-command&quot;&gt;Understanding top command&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/top-command.png&quot; alt=&quot;large-img&quot; title=&quot;Top command explaination&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/top-command.webp&quot; alt=&quot;large-img&quot; title=&quot;Top command explaination&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;1-date-and-uptime&quot;&gt;1. Date and uptime&lt;/h3&gt;
 &lt;p&gt;Current time is &lt;strong&gt;13:41&lt;/strong&gt;, and system has been running for over &lt;strong&gt;5 weeks&lt;/strong&gt;, from last boot on &lt;strong&gt;May 17&lt;/strong&gt;&lt;/p&gt;
@@ -885,7 +885,7 @@ Tasks: 125 total,   1 running, 124 sleeping,   0 stopped,   0 zombie
 &lt;/div&gt;
 &lt;p&gt;From the time a process is born to when it is terminated, the process proceeds through various states. Those states can include &lt;strong&gt;Runnable&lt;/strong&gt;, &lt;strong&gt;Running&lt;/strong&gt;, &lt;strong&gt;Sleeping&lt;/strong&gt; (in memory and on disk), and &lt;strong&gt;Zombie&lt;/strong&gt; states - from &lt;a href=&quot;https://access.redhat.com/sites/default/files/attachments/processstates_20120831.pdf&quot;&gt;Redhat&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/process-state.png&quot; alt=&quot;&quot; title=&quot;Process state life cycle&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/process-state.webp&quot; alt=&quot;&quot; title=&quot;Process state life cycle&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;41-runable-state&quot;&gt;4.1 Runable state&lt;/h4&gt;
 &lt;p&gt;When a process is in a Runnable state, it means it has all the resources it needs to run, except that the CPU
@@ -952,8 +952,8 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
 &lt;h3 id=&quot;5-cpu-organization-and-operation&quot;&gt;5. CPU organization and operation&lt;/h3&gt;
 </description>
         <pubDate>Sun, 16 Jul 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/07/16/Understanding-top-command.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/07/16/Understanding-top-command.html</guid>
+        <link>http://localhost:4000/technical/2017/07/16/Understanding-top-command.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/07/16/Understanding-top-command.html</guid>
         
         
         <category>technical</category>
@@ -973,7 +973,7 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
   &lt;p&gt;TL;DR: Remove Betternet out of chrome&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/betternet-adware-links.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/betternet-adware-links.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;!--description--&gt;
 
@@ -984,13 +984,13 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
 
 &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; I saw chrome has some unknown logs from &lt;code class=&quot;highlighter-rouge&quot;&gt;insertion.js:189&lt;/code&gt;, comes from extension with ID = &lt;code class=&quot;highlighter-rouge&quot;&gt;gjknjjomckknofjidppipffbpoekiipm&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/betternet-adware-logs.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/betternet-adware-logs.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Goto &lt;a href=&quot;chrome://extensions/&quot;&gt;chrome://extensions/&lt;/a&gt; and find &lt;code class=&quot;highlighter-rouge&quot;&gt;gjknjjomckknofjidppipffbpoekiipm&lt;/code&gt;, it’s &lt;strong&gt;betternet&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 5.&lt;/strong&gt; Figure out more, google search with term “betternet extension adware”, here is best write-up about this &lt;a href=&quot;https://restoreprivacy.com/betternet-review/&quot;&gt;https://restoreprivacy.com/betternet-review/&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/betternet-adware.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/betternet-adware.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 6.&lt;/strong&gt; Expand source of &lt;a href=&quot;http://eltrack.pro&quot;&gt;http://eltrack.pro&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -1070,8 +1070,8 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 25 Jun 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</guid>
+        <link>http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</guid>
         
         
         <category>technical</category>
@@ -1082,7 +1082,7 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
         <title>The MySQL binary log</title>
         <description>&lt;p&gt;&lt;strong&gt;The binary log&lt;/strong&gt; contains &lt;code class=&quot;highlighter-rouge&quot;&gt;events&lt;/code&gt; that describe &lt;code class=&quot;highlighter-rouge&quot;&gt;database changes&lt;/code&gt; such as table creation operations or changes to table data. It also contains events for statements that &lt;strong&gt;potentially could have made changes&lt;/strong&gt; (for example, a DELETE which matched no rows), unless row-based logging is used. The binary log also contains information about &lt;code class=&quot;highlighter-rouge&quot;&gt;how long each statement&lt;/code&gt; took that &lt;strong&gt;updated data&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/master-binlog.png&quot; alt=&quot;Binlog&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/master-binlog.webp&quot; alt=&quot;Binlog&quot; /&gt;&lt;/p&gt;
 
 &lt;!--description--&gt;
 
@@ -1218,8 +1218,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 04 Jun 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/06/04/The-MySQL-Binary-log.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/06/04/The-MySQL-Binary-log.html</guid>
+        <link>http://localhost:4000/technical/2017/06/04/The-MySQL-Binary-log.html</link>
+        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/04/The-MySQL-Binary-log.html</guid>
         
         
         <category>technical</category>

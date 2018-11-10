@@ -796,7 +796,7 @@ code {
   margin: 0 .2rem;
   font-size: 90%;
   white-space: nowrap;
-  background-image: url(/assets/img/snippet_bg.png);
+  background-image: url(/assets/img/snippet_bg.webp);
   border: 1px dashed #E1E1E1;
   line-height: 1.5; }
 
@@ -1126,7 +1126,7 @@ input#menu-toggle {
   vertical-align: bottom; }
 
 body.custom-background {
-  background-image: url("/images/background.png");
+  background-image: url("/images/background.webp");
   background-repeat: repeat;
   background-position: top left;
   background-attachment: scroll; }

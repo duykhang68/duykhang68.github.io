@@ -13,7 +13,7 @@ description: fault tolerance, SPOF, Failover, Infrastructure as code
 - Heartbeat monitoring on all running components
 - Infrastructure as code
 
-![](/assets/img/port-k8s.jpg)
+![](/assets/img/port-k8s.webp)
 
 <!--description-->
 

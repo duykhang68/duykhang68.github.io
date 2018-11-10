@@ -13,7 +13,7 @@ description: Increase AWS EBS volume
 
 **`Rootcause`**: didn't merge partition after extending and resize fs
 
-![](/assets/img/ebs-aws.png)
+![](/assets/img/ebs-aws.webp)
 
 <!--description-->
 

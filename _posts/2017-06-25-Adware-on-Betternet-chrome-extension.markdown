@@ -12,7 +12,7 @@ Sometime when clicking to any urls on internet, chrome redirects to ads sites li
 
 > TL;DR: Remove Betternet out of chrome
 
-![](/assets/img/betternet-adware-links.png)
+![](/assets/img/betternet-adware-links.webp)
 
 <!--description-->
 
@@ -23,13 +23,13 @@ Sometime when clicking to any urls on internet, chrome redirects to ads sites li
 
 **Step 3.** I saw chrome has some unknown logs from `insertion.js:189`, comes from extension with ID = `gjknjjomckknofjidppipffbpoekiipm`
 
-![](/assets/img/betternet-adware-logs.png)
+![](/assets/img/betternet-adware-logs.webp)
 
 **Step 4.** Goto [chrome://extensions/](chrome://extensions/) and find `gjknjjomckknofjidppipffbpoekiipm`, it's **betternet**
 
 **Step 5.** Figure out more, google search with term "betternet extension adware", here is best write-up about this [https://restoreprivacy.com/betternet-review/](https://restoreprivacy.com/betternet-review/)
 
-![](/assets/img/betternet-adware.png)
+![](/assets/img/betternet-adware.webp)
 
 **Step 6.** Expand source of [http://eltrack.pro](http://eltrack.pro)
 - My browser is redirected/injected to a fucking FB campaign, **Pixel ID** = `1666009176948198`

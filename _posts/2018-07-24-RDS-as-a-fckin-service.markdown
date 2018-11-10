@@ -13,7 +13,7 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 - RDS stuck in this fucking step nearly 2 hours and couting
 - db-fuck-as-a-service
 
-![](/assets/img/rds.png)
+![](/assets/img/rds.webp)
 
 <!--description-->
 
