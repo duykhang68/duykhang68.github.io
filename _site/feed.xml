@@ -3,10 +3,10 @@
   <channel>
     <title>Hieu's blog</title>
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 10 Nov 2018 11:23:00 +0700</pubDate>
-    <lastBuildDate>Sat, 10 Nov 2018 11:23:00 +0700</lastBuildDate>
+    <link>https://llnx.me/</link>
+    <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 10 Nov 2018 12:56:16 +0700</pubDate>
+    <lastBuildDate>Sat, 10 Nov 2018 12:56:16 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
@@ -255,8 +255,8 @@ All packages are up to date.
 &lt;/ol&gt;
 </description>
         <pubDate>Tue, 11 Sep 2018 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2018/09/11/Debian-on-android-shell.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2018/09/11/Debian-on-android-shell.html</guid>
+        <link>https://llnx.me/technical/2018/09/11/Debian-on-android-shell.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2018/09/11/Debian-on-android-shell.html</guid>
         
         
         <category>technical</category>
@@ -271,7 +271,7 @@ All packages are up to date.
 
 &lt;p&gt;Nowadays, there are many many contexts &amp;amp; examples for blaming. I only want to wide the scope of this mindset, into SRE/Devops/Sysadmin fields. &lt;strong&gt;Why we blaming each others&lt;/strong&gt;, right or wrong? How can we fix/improve our mindset? &lt;strong&gt;How can we do better?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://imgs.xkcd.com/comics/blame_2x.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://imgs.xkcd.com/comics/blame_2x.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;!--description--&gt;
 
@@ -356,8 +356,8 @@ Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validatin
 &lt;/ol&gt;
 </description>
         <pubDate>Sat, 25 Aug 2018 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/mindset/2018/08/25/Solving-blaming-game.html</link>
-        <guid isPermaLink="true">http://localhost:4000/mindset/2018/08/25/Solving-blaming-game.html</guid>
+        <link>https://llnx.me/mindset/2018/08/25/Solving-blaming-game.html</link>
+        <guid isPermaLink="true">https://llnx.me/mindset/2018/08/25/Solving-blaming-game.html</guid>
         
         
         <category>mindset</category>
@@ -420,8 +420,8 @@ Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validatin
 
 </description>
         <pubDate>Wed, 15 Aug 2018 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2018/08/15/Signal-of-linux.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2018/08/15/Signal-of-linux.html</guid>
+        <link>https://llnx.me/technical/2018/08/15/Signal-of-linux.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2018/08/15/Signal-of-linux.html</guid>
         
         
         <category>technical</category>
@@ -474,8 +474,8 @@ fi
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 06 Aug 2018 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</link>
-        <guid isPermaLink="true">http://localhost:4000/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</guid>
+        <link>https://llnx.me/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</link>
+        <guid isPermaLink="true">https://llnx.me/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</guid>
         
         
         <category>today-i-learned</category>
@@ -515,8 +515,8 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 &lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html&quot;&gt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 24 Jul 2018 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2018/07/24/RDS-as-a-fckin-service.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2018/07/24/RDS-as-a-fckin-service.html</guid>
+        <link>https://llnx.me/technical/2018/07/24/RDS-as-a-fckin-service.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2018/07/24/RDS-as-a-fckin-service.html</guid>
         
         
         <category>technical</category>
@@ -602,8 +602,8 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 &lt;/ol&gt;
 </description>
         <pubDate>Wed, 18 Jul 2018 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2018/07/18/Mindset-for-building-HA-system.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2018/07/18/Mindset-for-building-HA-system.html</guid>
+        <link>https://llnx.me/technical/2018/07/18/Mindset-for-building-HA-system.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2018/07/18/Mindset-for-building-HA-system.html</guid>
         
         
         <category>technical</category>
@@ -764,8 +764,8 @@ root@webapp-unstable:~# mount -fav
 &lt;p&gt;&lt;a href=&quot;http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html&quot;&gt;http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 Dec 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/12/14/Increase-EBS-volume.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/12/14/Increase-EBS-volume.html</guid>
+        <link>https://llnx.me/technical/2017/12/14/Increase-EBS-volume.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/12/14/Increase-EBS-volume.html</guid>
         
         
         <category>technical</category>
@@ -952,8 +952,8 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
 &lt;h3 id=&quot;5-cpu-organization-and-operation&quot;&gt;5. CPU organization and operation&lt;/h3&gt;
 </description>
         <pubDate>Sun, 16 Jul 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/07/16/Understanding-top-command.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/07/16/Understanding-top-command.html</guid>
+        <link>https://llnx.me/technical/2017/07/16/Understanding-top-command.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/07/16/Understanding-top-command.html</guid>
         
         
         <category>technical</category>
@@ -1070,8 +1070,8 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 25 Jun 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</guid>
+        <link>https://llnx.me/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</guid>
         
         
         <category>technical</category>
@@ -1218,8 +1218,8 @@ With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 04 Jun 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/06/04/The-MySQL-Binary-log.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/04/The-MySQL-Binary-log.html</guid>
+        <link>https://llnx.me/technical/2017/06/04/The-MySQL-Binary-log.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/06/04/The-MySQL-Binary-log.html</guid>
         
         
         <category>technical</category>
