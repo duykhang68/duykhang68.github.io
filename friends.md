@@ -7,6 +7,7 @@ permalink: /friends/
 #### Here are a couple of sites I would recommend you to check out.
 
 - [Blog anh Quăng xluffy - https://xluffy.github.io](https://xluffy.github.io/)
+- [Anh Thính xe ôm - https://5kbps.io/](https://5kbps.io/)
 - [The Whole Snack Blog - https://thefullsnack.com](https://thefullsnack.com)
 - [HQC's Blog - https://hqc.io/essays](https://hqc.io/essays)
 - [HuyDX's Blog - https://huydx.com](https://huydx.com)
