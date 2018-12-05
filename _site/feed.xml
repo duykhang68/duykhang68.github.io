@@ -5,8 +5,8 @@
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://llnx.me/</link>
     <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 05 Dec 2018 23:10:47 +0700</pubDate>
-    <lastBuildDate>Wed, 05 Dec 2018 23:10:47 +0700</lastBuildDate>
+    <pubDate>Wed, 05 Dec 2018 23:20:48 +0700</pubDate>
+    <lastBuildDate>Wed, 05 Dec 2018 23:20:48 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
@@ -19,6 +19,12 @@
 &lt;/ul&gt;
 
 &lt;p&gt;Find out more about CVE-2018-19788 from the &lt;a href=&quot;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19788&quot;&gt;MITRE CVE&lt;/a&gt; dictionary and &lt;a href=&quot;http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2018-19788&quot;&gt;NIST NVD&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/CVE-2018-19788.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;h3 id=&quot;demo&quot;&gt;Demo&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@ahihi:~# useradd -u 4000000000 wtf
 root@ahihi:~# su - wtf
@@ -42,7 +48,6 @@ Dec 05 15:38:39 ahihi systemd[1]: Stopped OpenBSD Secure Shell server.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;!--description--&gt;
 </description>
         <pubDate>Wed, 05 Dec 2018 00:00:00 +0700</pubDate>
         <link>https://llnx.me/security/2018/12/05/Critial-vulnerability-on-policykit-of-systemd.html</link>
