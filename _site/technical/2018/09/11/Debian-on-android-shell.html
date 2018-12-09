@@ -73,7 +73,7 @@
 
   <header class="article_header">
     <h1 class="special_title" itemprop="name headline">Debian on android shell</h1>
-    <time class="post_date">11 September 2018, Tuesday - 6 min read</time>
+    <time class="post_date">11 September 2018, Tuesday - 7 min read</time>
   </header>
 
   <div class="article-content" itemprop="articleBody">
@@ -109,7 +109,7 @@ I decided to use <code class="highlighter-rouge">debian stretch</code> with <cod
 <h2 id="b-hacking--practicing-zone">B. Hacking / Practicing zone</h2>
 
 <h3 id="1-install-adb-and-fastboot-tools-on-mac">1. Install adb and fastboot tools on mac</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>mac❯❯ brew cask install android-platform-tools
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>mac❯❯ brew cask install android-platform-tools
 
 mac❯❯ adb --version
 Android Debug Bridge version 1.0.40
@@ -120,8 +120,8 @@ mac❯❯ fastboot --version
 fastboot version 28.0.0-4797878
 Installed as /usr/local/bin/fastboot
 
-# Connect android to mac via usb 
-# Verify device
+<span class="c"># Connect android to mac via usb </span>
+<span class="c"># Verify device</span>
 
 mac❯❯ adb devices -l
 List of devices attached
@@ -130,10 +130,10 @@ List of devices attached
 </div>
 
 <h3 id="2-download-then-install-twrp--supersu-on-fastboot">2. Download then install twrp &amp; supersu on fastboot</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>mac❯❯ wget internet.com/SR5-SuperSU-v2.82-SR5-20171001224502.zip ./
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>mac❯❯ wget internet.com/SR5-SuperSU-v2.82-SR5-20171001224502.zip ./
 mac❯❯ wget internet.com/twrp-3.1.0-0-cancro.img ./
 mac❯❯ adb push ./SR5-SuperSU-v2.82-SR5-20171001224502.zip /storage/self/primary/
-SR5-SuperSU-v2.82-SR5-20171001224502.zip: 1 file pushed. 5.8 MB/s (6882992 bytes in 1.127s)
+SR5-SuperSU-v2.82-SR5-20171001224502.zip: 1 file pushed. 5.8 MB/s <span class="o">(</span>6882992 bytes <span class="k">in </span>1.127s<span class="o">)</span>
 
 mac❯❯ adb reboot bootloader
 
@@ -141,86 +141,86 @@ mac❯❯ fastboot devices
 1f703708	fastboot
 
 mac❯❯ fastboot flash recovery ./twrp-3.1.0-0-cancro.img
-Sending 'recovery' (13682 KB)                      OKAY [  0.464s]
-Writing 'recovery'                                 OKAY [  0.305s]
-Finished. Total time: 0.772s
+Sending <span class="s1">'recovery'</span> <span class="o">(</span>13682 KB<span class="o">)</span>                      OKAY <span class="o">[</span>  0.464s]
+Writing <span class="s1">'recovery'</span>                                 OKAY <span class="o">[</span>  0.305s]
+Finished. Total <span class="nb">time</span>: 0.772s
 
 mac❯❯ fastboot boot ./twrp-3.1.0-0-cancro.img
-Downloading 'boot.img'                             OKAY [  0.432s]
-booting                                            OKAY [  0.119s]
-Finished. Total time: 0.560s
+Downloading <span class="s1">'boot.img'</span>                             OKAY <span class="o">[</span>  0.432s]
+booting                                            OKAY <span class="o">[</span>  0.119s]
+Finished. Total <span class="nb">time</span>: 0.560s
 
-# After booted into TWRP
-# Install SR5-SuperSU-v2.82-SR5-20171001224502.zip from TWRP
-# Do it on touch screen, or via twrp commandline
+<span class="c"># After booted into TWRP</span>
+<span class="c"># Install SR5-SuperSU-v2.82-SR5-20171001224502.zip from TWRP</span>
+<span class="c"># Do it on touch screen, or via twrp commandline</span>
 
 mac❯❯ adb shell 
 android❯❯ twrp install /storage/self/primary/SR5-SuperSU-v2.82-SR5-20171001224502.zip
 android❯❯ twrp wipe cache
 android❯❯ reboot
 
-# Verify root on device
+<span class="c"># Verify root on device</span>
 
 mac❯❯ adb shell
-shell@cancro:/ $ su -
-root@cancro:/ # whoami
+shell@cancro:/ <span class="nv">$ </span>su -
+root@cancro:/ <span class="c"># whoami</span>
 root
 </code></pre>
 </div>
 
 <h3 id="3-expand-utilities-with-busybox">3. Expand utilities with busybox</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>mac❯❯ wget https://busybox.net/downloads/binaries/1.28.1-defconfig-multiarch/busybox-armv7l
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>mac❯❯ wget https://busybox.net/downloads/binaries/1.28.1-defconfig-multiarch/busybox-armv7l
 mac❯❯ adb push busybox-armv7l /data/local/tmp
-busybox-armv7l: 1 file pushed. 3.8 MB/s (1079156 bytes in 0.270s)
+busybox-armv7l: 1 file pushed. 3.8 MB/s <span class="o">(</span>1079156 bytes <span class="k">in </span>0.270s<span class="o">)</span>
 
 mac❯❯ adb shell
-shell@cancro:/ $ su -
-root@cancro:/ # mkdir /data/busybox
-root@cancro:/ # move /data/local/tmp/busybox-armv7l /data/busybox
-root@cancro:/ # cd /data/busybox
-root@cancro:/data/busybox # ls -l
+shell@cancro:/ <span class="nv">$ </span>su -
+root@cancro:/ <span class="c"># mkdir /data/busybox</span>
+root@cancro:/ <span class="c"># move /data/local/tmp/busybox-armv7l /data/busybox</span>
+root@cancro:/ <span class="c"># cd /data/busybox</span>
+root@cancro:/data/busybox <span class="c"># ls -l</span>
 -rwxrwxrwx shell    shell     1079156 2018-02-15 20:47 busybox-armv7l
-root@cancro:/data/busybox # ./busybox-armv7l --install ./
+root@cancro:/data/busybox <span class="c"># ./busybox-armv7l --install ./</span>
 
-# Use ls of busybox 
-# instead of current ls on android
+<span class="c"># Use ls of busybox </span>
+<span class="c"># instead of current ls on android</span>
 
-root@cancro:/ # which ls
+root@cancro:/ <span class="c"># which ls</span>
 /system/bin/ls
 
-root@cancro:/ # export PATH=/data/busybox:$PATH
-root@cancro:/ # which ls
+root@cancro:/ <span class="c"># export PATH=/data/busybox:$PATH</span>
+root@cancro:/ <span class="c"># which ls</span>
 /data/busybox/ls
-root@cancro:/ # which vi
+root@cancro:/ <span class="c"># which vi</span>
 /data/busybox/vi
 </code></pre>
 </div>
 
 <h3 id="4-config--fix-env-variables-and-configuations">4. Config / fix env variables and configuations</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code># Choose one: (for security mount /system back to RO when finished)
-# Mount system RW: mount -o rw,remount /system
-# Mount system RO: mount -o ro,remount /system
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Choose one: (for security mount /system back to RO when finished)</span>
+<span class="c"># Mount system RW: mount -o rw,remount /system</span>
+<span class="c"># Mount system RO: mount -o ro,remount /system</span>
 
-root@cancro:/ # mount -o rw,remount /system
-root@cancro:/ # vi /system/etc/mkshrc
+root@cancro:/ <span class="c"># mount -o rw,remount /system</span>
+root@cancro:/ <span class="c"># vi /system/etc/mkshrc</span>
 ...
-export PATH=/data/busybox:$PATH
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/data/busybox:<span class="nv">$PATH</span>
 ...
 </code></pre>
 </div>
 
 <p>when facing with su command like this, we need reconfigure su</p>
-<div class="highlighter-rouge"><pre class="highlight"><code># Issue with su command
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Issue with su command</span>
 
-shell@cancro:/ $ su
+shell@cancro:/ <span class="nv">$ </span>su
 su: must be suid to work properly
 
-# Resolve
+<span class="c"># Resolve</span>
 
-root@cancro:/ # cp /su/bin/su /data/busybox/su
-root@cancro:/ # ls -lh /su/bin/su
+root@cancro:/ <span class="c"># cp /su/bin/su /data/busybox/su</span>
+root@cancro:/ <span class="c"># ls -lh /su/bin/su</span>
 -rwxr-xr-x    1 0        0          73.6K Sep 11 13:49 /su/bin/su
-root@cancro:/ # ls -lh /data/busybox/su
+root@cancro:/ <span class="c"># ls -lh /data/busybox/su</span>
 -rwx------    1 0        0          73.6K Sep 11 15:58 /data/busybox/su
 </code></pre>
 </div>
@@ -228,10 +228,10 @@ root@cancro:/ # ls -lh /data/busybox/su
 <h3 id="5-extract-debianimg-from-available-debian-system-not-bsd-os-like-mac">5. Extract debian.img from available debian system (not BSD os like Mac)</h3>
 
 <p>Install debootstrap then bootstrapping debian stretch image for armv7l arch</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>debian❯❯ apt install -y debootstrap debian-archive-keyring debian-ports-archive-keyring
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>debian❯❯ apt install -y debootstrap debian-archive-keyring debian-ports-archive-keyring
 debian❯❯ mkdir debian-armhf
-debian❯❯ cd debian-armhf/
-debian❯❯ dd if=/dev/zero of=debian.img bs=1MiB count=2000
+debian❯❯ <span class="nb">cd </span>debian-armhf/
+debian❯❯ dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>debian.img <span class="nv">bs</span><span class="o">=</span>1MiB <span class="nv">count</span><span class="o">=</span>2000
 debian❯❯ mke2fs -F debian.img
 debian❯❯ mkdir debian
 debian❯❯ mount -o loop debian.img debian
@@ -243,64 +243,64 @@ debian❯❯ umount debian
 <p><img src="/assets/img/debootstrap.webp" alt="large-img" title="Extract debian filesystem via Debootstrap" /></p>
 
 <p>rsync file debian.img from debian system to mac system, then push this img to android</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>mac❯❯ adb push debian.img /sdcard/
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>mac❯❯ adb push debian.img /sdcard/
 </code></pre>
 </div>
 
 <h3 id="6-debootstrapping-debian-into-android-os">6. Debootstrapping debian into android os</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>mac❯❯ adb shell
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>mac❯❯ adb shell
 
-shell@cancro:/ $ su -
-root@cancro:/ # mkdir /sdcard/debian-stretch9
-root@cancro:/ # losetup /dev/block/loop99 /sdcard/debian.img
-root@cancro:/ # mount /dev/block/loop99 /sdcard/debian-stretch9
-root@cancro:/ # chroot /sdcard/debian-stretch9 /bin/bash
+shell@cancro:/ <span class="nv">$ </span>su -
+root@cancro:/ <span class="c"># mkdir /sdcard/debian-stretch9</span>
+root@cancro:/ <span class="c"># losetup /dev/block/loop99 /sdcard/debian.img</span>
+root@cancro:/ <span class="c"># mount /dev/block/loop99 /sdcard/debian-stretch9</span>
+root@cancro:/ <span class="c"># chroot /sdcard/debian-stretch9 /bin/bash</span>
 
-export PATH=/usr/bin:/usr/sbin:/bin:$PATH
-export TERM=linux
-export HOME=/root
-export USER=root
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/usr/bin:/usr/sbin:/bin:<span class="nv">$PATH</span>
+<span class="nb">export </span><span class="nv">TERM</span><span class="o">=</span>linux
+<span class="nb">export </span><span class="nv">HOME</span><span class="o">=</span>/root
+<span class="nb">export </span><span class="nv">USER</span><span class="o">=</span>root
 /debootstrap/debootstrap --second-stage
 
-echo "nameserver 8.8.8.8" &gt;&gt; /etc/resolv.conf
-echo "127.0.0.1 localhost" &gt; /etc/hosts
-exit
+<span class="nb">echo</span> <span class="s2">"nameserver 8.8.8.8"</span> &gt;&gt; /etc/resolv.conf
+<span class="nb">echo</span> <span class="s2">"127.0.0.1 localhost"</span> &gt; /etc/hosts
+<span class="nb">exit
 
-mac❯❯ adb shell
-shell@cancro:/ $ su -
-root@cancro:/ # chroot /sdcard/debian-stretch9 /bin/su - root
-root@localhost:~# whoami #should be root
-root@localhost:~# cat /etc/debian_version #9.5
+</span>mac❯❯ adb shell
+shell@cancro:/ <span class="nv">$ </span>su -
+root@cancro:/ <span class="c"># chroot /sdcard/debian-stretch9 /bin/su - root</span>
+<span class="gp">root@localhost:~# </span>whoami <span class="c">#should be root</span>
+<span class="gp">root@localhost:~# </span>cat /etc/debian_version <span class="c">#9.5</span>
 </code></pre>
 </div>
 
 <h3 id="7-complete-debian-os-with-apt-and-networking">7. Complete debian os with apt and networking</h3>
 <p>From the first time, I cannot use <code class="highlighter-rouge">ping</code> or <code class="highlighter-rouge">apt</code>, because Android uses a special Kernel patch that’s activated with <code class="highlighter-rouge">CONFIG_ANDROID_PARANOID_NETWORK</code>. 
 For adding specific groups, this patch allows network access to system users that belong to certain special groups with hardcoded IDs.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>mac❯❯ adb shell
-shell@cancro:/ $ su -
-root@cancro:/ # chroot /sdcard/debian-stretch9/ /bin/su - root
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>mac❯❯ adb shell
+shell@cancro:/ <span class="nv">$ </span>su -
+root@cancro:/ <span class="c"># chroot /sdcard/debian-stretch9/ /bin/su - root</span>
 
-root@localhost:~# groupadd -g 3001 aid_bt
-root@localhost:~# groupadd -g 3002 aid_bt_net
-root@localhost:~# groupadd -g 3003 aid_inet
-root@localhost:~# groupadd -g 3004 aid_net_raw
-root@localhost:~# groupadd -g 3005 aid_admin
-root@localhost:~# usermod -a -G aid_bt,aid_bt_net,aid_inet,aid_net_raw,aid_admin root
-exit - relogin
+<span class="gp">root@localhost:~# </span>groupadd -g 3001 aid_bt
+<span class="gp">root@localhost:~# </span>groupadd -g 3002 aid_bt_net
+<span class="gp">root@localhost:~# </span>groupadd -g 3003 aid_inet
+<span class="gp">root@localhost:~# </span>groupadd -g 3004 aid_net_raw
+<span class="gp">root@localhost:~# </span>groupadd -g 3005 aid_admin
+<span class="gp">root@localhost:~# </span>usermod -a -G aid_bt,aid_bt_net,aid_inet,aid_net_raw,aid_admin root
+<span class="nb">exit</span> - relogin
 
-root@localhost:~# grep -E "_apt" /etc/passwd
+<span class="gp">root@localhost:~# </span>grep -E <span class="s2">"_apt"</span> /etc/passwd
 _apt:x:104:65534::/nonexistent:/bin/false
 
-root@localhost:~# usermod -g 3003 _apt
-root@localhost:~# grep -E "_apt" /etc/passwd
+<span class="gp">root@localhost:~# </span>usermod -g 3003 _apt
+<span class="gp">root@localhost:~# </span>grep -E <span class="s2">"_apt"</span> /etc/passwd
 _apt:x:104:3003::/nonexistent:/bin/false
 
-root@localhost:~# apt update
+<span class="gp">root@localhost:~# </span>apt update
 Ign:1 http://ftp.de.debian.org/pub/debian stable InRelease
-Get:2 http://ftp.de.debian.org/pub/debian stable Release [118 kB]
+Get:2 http://ftp.de.debian.org/pub/debian stable Release <span class="o">[</span>118 kB]
 ...
-Fetched 12.7 MB in 36s (351 kB/s)
+Fetched 12.7 MB <span class="k">in </span>36s <span class="o">(</span>351 kB/s<span class="o">)</span>
 Reading package lists... Done
 Building dependency tree... Done
 All packages are up to date.

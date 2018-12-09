@@ -5,8 +5,8 @@
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://llnx.me/</link>
     <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 05 Dec 2018 23:20:48 +0700</pubDate>
-    <lastBuildDate>Wed, 05 Dec 2018 23:20:48 +0700</lastBuildDate>
+    <pubDate>Sun, 09 Dec 2018 22:33:28 +0700</pubDate>
+    <lastBuildDate>Sun, 09 Dec 2018 22:33:28 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
@@ -26,22 +26,22 @@
 
 &lt;h3 id=&quot;demo&quot;&gt;Demo&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@ahihi:~# useradd -u 4000000000 wtf
-root@ahihi:~# su - wtf
-No directory, logging in with HOME=/
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@ahihi:~# &lt;/span&gt;useradd -u 4000000000 wtf
+&lt;span class=&quot;gp&quot;&gt;root@ahihi:~# &lt;/span&gt;su - wtf
+No directory, logging &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;with &lt;span class=&quot;nv&quot;&gt;HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/
 
-$ whoami
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;whoami
 wtf
-$ id
-uid=4000000000(wtf) gid=1002(wtf) groups=1002(wtf)
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;id
+&lt;span class=&quot;nv&quot;&gt;uid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;4000000000&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;wtf&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;gid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1002&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;wtf&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;groups&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1002&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;wtf&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 
-$ systemctl stop sshd.service
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;systemctl stop sshd.service
 
-(process:22860): GLib-GObject-WARNING **: value &quot;-294967296&quot; of type 'gint' is invalid or out of range for property 'uid' of type 'gint'
-**
-ERROR:pkttyagent.c:175:main: assertion failed: (polkit_unix_process_get_uid (POLKIT_UNIX_PROCESS (subject)) &amp;gt;= 0)
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;process:22860&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: GLib-GObject-WARNING &lt;span class=&quot;k&quot;&gt;**&lt;/span&gt;: value &lt;span class=&quot;s2&quot;&gt;&quot;-294967296&quot;&lt;/span&gt; of &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'gint'&lt;/span&gt; is invalid or out of range &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;property &lt;span class=&quot;s1&quot;&gt;'uid'&lt;/span&gt; of &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'gint'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;**&lt;/span&gt;
+ERROR:pkttyagent.c:175:main: assertion failed: &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;polkit_unix_process_get_uid &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;POLKIT_UNIX_PROCESS &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;subject&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &amp;gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 
-root@ahihi:~# systemctl status sshd.service
+&lt;span class=&quot;gp&quot;&gt;root@ahihi:~# &lt;/span&gt;systemctl status sshd.service
 ...
 Dec 05 15:38:39 ahihi systemd[1]: Stopping OpenBSD Secure Shell server...
 Dec 05 15:38:39 ahihi systemd[1]: Stopped OpenBSD Secure Shell server.
@@ -92,7 +92,7 @@ I decided to use &lt;code class=&quot;highlighter-rouge&quot;&gt;debian stretch&
 &lt;h2 id=&quot;b-hacking--practicing-zone&quot;&gt;B. Hacking / Practicing zone&lt;/h2&gt;
 
 &lt;h3 id=&quot;1-install-adb-and-fastboot-tools-on-mac&quot;&gt;1. Install adb and fastboot tools on mac&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mac❯❯ brew cask install android-platform-tools
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mac❯❯ brew cask install android-platform-tools
 
 mac❯❯ adb --version
 Android Debug Bridge version 1.0.40
@@ -103,8 +103,8 @@ mac❯❯ fastboot --version
 fastboot version 28.0.0-4797878
 Installed as /usr/local/bin/fastboot
 
-# Connect android to mac via usb 
-# Verify device
+&lt;span class=&quot;c&quot;&gt;# Connect android to mac via usb &lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Verify device&lt;/span&gt;
 
 mac❯❯ adb devices -l
 List of devices attached
@@ -113,10 +113,10 @@ List of devices attached
 &lt;/div&gt;
 
 &lt;h3 id=&quot;2-download-then-install-twrp--supersu-on-fastboot&quot;&gt;2. Download then install twrp &amp;amp; supersu on fastboot&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mac❯❯ wget internet.com/SR5-SuperSU-v2.82-SR5-20171001224502.zip ./
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mac❯❯ wget internet.com/SR5-SuperSU-v2.82-SR5-20171001224502.zip ./
 mac❯❯ wget internet.com/twrp-3.1.0-0-cancro.img ./
 mac❯❯ adb push ./SR5-SuperSU-v2.82-SR5-20171001224502.zip /storage/self/primary/
-SR5-SuperSU-v2.82-SR5-20171001224502.zip: 1 file pushed. 5.8 MB/s (6882992 bytes in 1.127s)
+SR5-SuperSU-v2.82-SR5-20171001224502.zip: 1 file pushed. 5.8 MB/s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;6882992 bytes &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;1.127s&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 
 mac❯❯ adb reboot bootloader
 
@@ -124,86 +124,86 @@ mac❯❯ fastboot devices
 1f703708	fastboot
 
 mac❯❯ fastboot flash recovery ./twrp-3.1.0-0-cancro.img
-Sending 'recovery' (13682 KB)                      OKAY [  0.464s]
-Writing 'recovery'                                 OKAY [  0.305s]
-Finished. Total time: 0.772s
+Sending &lt;span class=&quot;s1&quot;&gt;'recovery'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;13682 KB&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                      OKAY &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  0.464s]
+Writing &lt;span class=&quot;s1&quot;&gt;'recovery'&lt;/span&gt;                                 OKAY &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  0.305s]
+Finished. Total &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;: 0.772s
 
 mac❯❯ fastboot boot ./twrp-3.1.0-0-cancro.img
-Downloading 'boot.img'                             OKAY [  0.432s]
-booting                                            OKAY [  0.119s]
-Finished. Total time: 0.560s
+Downloading &lt;span class=&quot;s1&quot;&gt;'boot.img'&lt;/span&gt;                             OKAY &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  0.432s]
+booting                                            OKAY &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  0.119s]
+Finished. Total &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;: 0.560s
 
-# After booted into TWRP
-# Install SR5-SuperSU-v2.82-SR5-20171001224502.zip from TWRP
-# Do it on touch screen, or via twrp commandline
+&lt;span class=&quot;c&quot;&gt;# After booted into TWRP&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Install SR5-SuperSU-v2.82-SR5-20171001224502.zip from TWRP&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Do it on touch screen, or via twrp commandline&lt;/span&gt;
 
 mac❯❯ adb shell 
 android❯❯ twrp install /storage/self/primary/SR5-SuperSU-v2.82-SR5-20171001224502.zip
 android❯❯ twrp wipe cache
 android❯❯ reboot
 
-# Verify root on device
+&lt;span class=&quot;c&quot;&gt;# Verify root on device&lt;/span&gt;
 
 mac❯❯ adb shell
-shell@cancro:/ $ su -
-root@cancro:/ # whoami
+shell@cancro:/ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;su -
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# whoami&lt;/span&gt;
 root
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;3-expand-utilities-with-busybox&quot;&gt;3. Expand utilities with busybox&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mac❯❯ wget https://busybox.net/downloads/binaries/1.28.1-defconfig-multiarch/busybox-armv7l
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mac❯❯ wget https://busybox.net/downloads/binaries/1.28.1-defconfig-multiarch/busybox-armv7l
 mac❯❯ adb push busybox-armv7l /data/local/tmp
-busybox-armv7l: 1 file pushed. 3.8 MB/s (1079156 bytes in 0.270s)
+busybox-armv7l: 1 file pushed. 3.8 MB/s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1079156 bytes &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;0.270s&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 
 mac❯❯ adb shell
-shell@cancro:/ $ su -
-root@cancro:/ # mkdir /data/busybox
-root@cancro:/ # move /data/local/tmp/busybox-armv7l /data/busybox
-root@cancro:/ # cd /data/busybox
-root@cancro:/data/busybox # ls -l
+shell@cancro:/ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;su -
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# mkdir /data/busybox&lt;/span&gt;
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# move /data/local/tmp/busybox-armv7l /data/busybox&lt;/span&gt;
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# cd /data/busybox&lt;/span&gt;
+root@cancro:/data/busybox &lt;span class=&quot;c&quot;&gt;# ls -l&lt;/span&gt;
 -rwxrwxrwx shell    shell     1079156 2018-02-15 20:47 busybox-armv7l
-root@cancro:/data/busybox # ./busybox-armv7l --install ./
+root@cancro:/data/busybox &lt;span class=&quot;c&quot;&gt;# ./busybox-armv7l --install ./&lt;/span&gt;
 
-# Use ls of busybox 
-# instead of current ls on android
+&lt;span class=&quot;c&quot;&gt;# Use ls of busybox &lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# instead of current ls on android&lt;/span&gt;
 
-root@cancro:/ # which ls
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# which ls&lt;/span&gt;
 /system/bin/ls
 
-root@cancro:/ # export PATH=/data/busybox:$PATH
-root@cancro:/ # which ls
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# export PATH=/data/busybox:$PATH&lt;/span&gt;
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# which ls&lt;/span&gt;
 /data/busybox/ls
-root@cancro:/ # which vi
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# which vi&lt;/span&gt;
 /data/busybox/vi
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;4-config--fix-env-variables-and-configuations&quot;&gt;4. Config / fix env variables and configuations&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Choose one: (for security mount /system back to RO when finished)
-# Mount system RW: mount -o rw,remount /system
-# Mount system RO: mount -o ro,remount /system
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Choose one: (for security mount /system back to RO when finished)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Mount system RW: mount -o rw,remount /system&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Mount system RO: mount -o ro,remount /system&lt;/span&gt;
 
-root@cancro:/ # mount -o rw,remount /system
-root@cancro:/ # vi /system/etc/mkshrc
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# mount -o rw,remount /system&lt;/span&gt;
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# vi /system/etc/mkshrc&lt;/span&gt;
 ...
-export PATH=/data/busybox:$PATH
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/data/busybox:&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;
 ...
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;when facing with su command like this, we need reconfigure su&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Issue with su command
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Issue with su command&lt;/span&gt;
 
-shell@cancro:/ $ su
+shell@cancro:/ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;su
 su: must be suid to work properly
 
-# Resolve
+&lt;span class=&quot;c&quot;&gt;# Resolve&lt;/span&gt;
 
-root@cancro:/ # cp /su/bin/su /data/busybox/su
-root@cancro:/ # ls -lh /su/bin/su
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# cp /su/bin/su /data/busybox/su&lt;/span&gt;
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# ls -lh /su/bin/su&lt;/span&gt;
 -rwxr-xr-x    1 0        0          73.6K Sep 11 13:49 /su/bin/su
-root@cancro:/ # ls -lh /data/busybox/su
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# ls -lh /data/busybox/su&lt;/span&gt;
 -rwx------    1 0        0          73.6K Sep 11 15:58 /data/busybox/su
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -211,10 +211,10 @@ root@cancro:/ # ls -lh /data/busybox/su
 &lt;h3 id=&quot;5-extract-debianimg-from-available-debian-system-not-bsd-os-like-mac&quot;&gt;5. Extract debian.img from available debian system (not BSD os like Mac)&lt;/h3&gt;
 
 &lt;p&gt;Install debootstrap then bootstrapping debian stretch image for armv7l arch&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;debian❯❯ apt install -y debootstrap debian-archive-keyring debian-ports-archive-keyring
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;debian❯❯ apt install -y debootstrap debian-archive-keyring debian-ports-archive-keyring
 debian❯❯ mkdir debian-armhf
-debian❯❯ cd debian-armhf/
-debian❯❯ dd if=/dev/zero of=debian.img bs=1MiB count=2000
+debian❯❯ &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;debian-armhf/
+debian❯❯ dd &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/dev/zero &lt;span class=&quot;nv&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;debian.img &lt;span class=&quot;nv&quot;&gt;bs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1MiB &lt;span class=&quot;nv&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2000
 debian❯❯ mke2fs -F debian.img
 debian❯❯ mkdir debian
 debian❯❯ mount -o loop debian.img debian
@@ -226,64 +226,64 @@ debian❯❯ umount debian
 &lt;p&gt;&lt;img src=&quot;/assets/img/debootstrap.webp&quot; alt=&quot;large-img&quot; title=&quot;Extract debian filesystem via Debootstrap&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;rsync file debian.img from debian system to mac system, then push this img to android&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mac❯❯ adb push debian.img /sdcard/
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mac❯❯ adb push debian.img /sdcard/
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;6-debootstrapping-debian-into-android-os&quot;&gt;6. Debootstrapping debian into android os&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mac❯❯ adb shell
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mac❯❯ adb shell
 
-shell@cancro:/ $ su -
-root@cancro:/ # mkdir /sdcard/debian-stretch9
-root@cancro:/ # losetup /dev/block/loop99 /sdcard/debian.img
-root@cancro:/ # mount /dev/block/loop99 /sdcard/debian-stretch9
-root@cancro:/ # chroot /sdcard/debian-stretch9 /bin/bash
+shell@cancro:/ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;su -
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# mkdir /sdcard/debian-stretch9&lt;/span&gt;
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# losetup /dev/block/loop99 /sdcard/debian.img&lt;/span&gt;
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# mount /dev/block/loop99 /sdcard/debian-stretch9&lt;/span&gt;
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# chroot /sdcard/debian-stretch9 /bin/bash&lt;/span&gt;
 
-export PATH=/usr/bin:/usr/sbin:/bin:$PATH
-export TERM=linux
-export HOME=/root
-export USER=root
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin:/usr/sbin:/bin:&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TERM&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;linux
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/root
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;root
 /debootstrap/debootstrap --second-stage
 
-echo &quot;nameserver 8.8.8.8&quot; &amp;gt;&amp;gt; /etc/resolv.conf
-echo &quot;127.0.0.1 localhost&quot; &amp;gt; /etc/hosts
-exit
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;nameserver 8.8.8.8&quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/resolv.conf
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;127.0.0.1 localhost&quot;&lt;/span&gt; &amp;gt; /etc/hosts
+&lt;span class=&quot;nb&quot;&gt;exit
 
-mac❯❯ adb shell
-shell@cancro:/ $ su -
-root@cancro:/ # chroot /sdcard/debian-stretch9 /bin/su - root
-root@localhost:~# whoami #should be root
-root@localhost:~# cat /etc/debian_version #9.5
+&lt;/span&gt;mac❯❯ adb shell
+shell@cancro:/ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;su -
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# chroot /sdcard/debian-stretch9 /bin/su - root&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;root@localhost:~# &lt;/span&gt;whoami &lt;span class=&quot;c&quot;&gt;#should be root&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;root@localhost:~# &lt;/span&gt;cat /etc/debian_version &lt;span class=&quot;c&quot;&gt;#9.5&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;7-complete-debian-os-with-apt-and-networking&quot;&gt;7. Complete debian os with apt and networking&lt;/h3&gt;
 &lt;p&gt;From the first time, I cannot use &lt;code class=&quot;highlighter-rouge&quot;&gt;ping&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;apt&lt;/code&gt;, because Android uses a special Kernel patch that’s activated with &lt;code class=&quot;highlighter-rouge&quot;&gt;CONFIG_ANDROID_PARANOID_NETWORK&lt;/code&gt;. 
 For adding specific groups, this patch allows network access to system users that belong to certain special groups with hardcoded IDs.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mac❯❯ adb shell
-shell@cancro:/ $ su -
-root@cancro:/ # chroot /sdcard/debian-stretch9/ /bin/su - root
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mac❯❯ adb shell
+shell@cancro:/ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;su -
+root@cancro:/ &lt;span class=&quot;c&quot;&gt;# chroot /sdcard/debian-stretch9/ /bin/su - root&lt;/span&gt;
 
-root@localhost:~# groupadd -g 3001 aid_bt
-root@localhost:~# groupadd -g 3002 aid_bt_net
-root@localhost:~# groupadd -g 3003 aid_inet
-root@localhost:~# groupadd -g 3004 aid_net_raw
-root@localhost:~# groupadd -g 3005 aid_admin
-root@localhost:~# usermod -a -G aid_bt,aid_bt_net,aid_inet,aid_net_raw,aid_admin root
-exit - relogin
+&lt;span class=&quot;gp&quot;&gt;root@localhost:~# &lt;/span&gt;groupadd -g 3001 aid_bt
+&lt;span class=&quot;gp&quot;&gt;root@localhost:~# &lt;/span&gt;groupadd -g 3002 aid_bt_net
+&lt;span class=&quot;gp&quot;&gt;root@localhost:~# &lt;/span&gt;groupadd -g 3003 aid_inet
+&lt;span class=&quot;gp&quot;&gt;root@localhost:~# &lt;/span&gt;groupadd -g 3004 aid_net_raw
+&lt;span class=&quot;gp&quot;&gt;root@localhost:~# &lt;/span&gt;groupadd -g 3005 aid_admin
+&lt;span class=&quot;gp&quot;&gt;root@localhost:~# &lt;/span&gt;usermod -a -G aid_bt,aid_bt_net,aid_inet,aid_net_raw,aid_admin root
+&lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt; - relogin
 
-root@localhost:~# grep -E &quot;_apt&quot; /etc/passwd
+&lt;span class=&quot;gp&quot;&gt;root@localhost:~# &lt;/span&gt;grep -E &lt;span class=&quot;s2&quot;&gt;&quot;_apt&quot;&lt;/span&gt; /etc/passwd
 _apt:x:104:65534::/nonexistent:/bin/false
 
-root@localhost:~# usermod -g 3003 _apt
-root@localhost:~# grep -E &quot;_apt&quot; /etc/passwd
+&lt;span class=&quot;gp&quot;&gt;root@localhost:~# &lt;/span&gt;usermod -g 3003 _apt
+&lt;span class=&quot;gp&quot;&gt;root@localhost:~# &lt;/span&gt;grep -E &lt;span class=&quot;s2&quot;&gt;&quot;_apt&quot;&lt;/span&gt; /etc/passwd
 _apt:x:104:3003::/nonexistent:/bin/false
 
-root@localhost:~# apt update
+&lt;span class=&quot;gp&quot;&gt;root@localhost:~# &lt;/span&gt;apt update
 Ign:1 http://ftp.de.debian.org/pub/debian stable InRelease
-Get:2 http://ftp.de.debian.org/pub/debian stable Release [118 kB]
+Get:2 http://ftp.de.debian.org/pub/debian stable Release &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;118 kB]
 ...
-Fetched 12.7 MB in 36s (351 kB/s)
+Fetched 12.7 MB &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;36s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;351 kB/s&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 Reading package lists... Done
 Building dependency tree... Done
 All packages are up to date.
@@ -682,14 +682,14 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 &lt;h3 id=&quot;step1-collect-information&quot;&gt;Step1: Collect information&lt;/h3&gt;
 
 &lt;p&gt;Check disk ID&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@webapp-unstable:~# blkid
-/dev/xvda1: LABEL=&quot;cloudimg-rootfs&quot; UUID=&quot;4573eb39-57f3-439b-9a73-8aef508afd3f&quot; TYPE=&quot;ext4&quot; PARTUUID=&quot;965243d6-01&quot;
-/dev/xvdf1: UUID=&quot;d56d3b3e-4385-48a7-ba95-6d3884d5dca8&quot; TYPE=&quot;ext4&quot; PARTUUID=&quot;cc52698e-01&quot;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;blkid
+/dev/xvda1: &lt;span class=&quot;nv&quot;&gt;LABEL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cloudimg-rootfs&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;UUID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4573eb39-57f3-439b-9a73-8aef508afd3f&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;TYPE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ext4&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;PARTUUID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;965243d6-01&quot;&lt;/span&gt;
+/dev/xvdf1: &lt;span class=&quot;nv&quot;&gt;UUID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;d56d3b3e-4385-48a7-ba95-6d3884d5dca8&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;TYPE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ext4&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;PARTUUID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cc52698e-01&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Check size disk and mount point of &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/xvdf1&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@webapp-unstable:~# lsblk
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 xvda    202:0    0  16G  0 disk
 └─xvda1 202:1    0  16G  0 part /
@@ -701,12 +701,12 @@ xvdf    202:80   0  64G  0 disk
 &lt;h3 id=&quot;step-2-unmount-this-volume-out-of-system&quot;&gt;Step 2: Unmount this volume out of system&lt;/h3&gt;
 
 &lt;p&gt;Unmount&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@webapp-unstable:~# umount /dev/xvdf1
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;umount /dev/xvdf1
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Check after unmount&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@webapp-unstable:~# lsblk
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 xvda    202:0    0  16G  0 disk
 └─xvda1 202:1    0  16G  0 part /
@@ -720,53 +720,53 @@ xvdf    202:80   0  64G  0 disk
 &lt;p&gt;Why? Because old partition is using 32GB only, should delete and re-create new one. After that, the new one will use all of space 64GB&lt;/p&gt;
 
 &lt;p&gt;Using &lt;code class=&quot;highlighter-rouge&quot;&gt;fdisk&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;parted/gparted&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@webapp-unstable:~# fdisk /dev/xvdf
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;fdisk /dev/xvdf
 
-Welcome to fdisk (util-linux 2.27.1).
-Changes will remain in memory only, until you decide to write them.
+Welcome to fdisk &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;util-linux 2.27.1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.
+Changes will remain &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;memory only, &lt;span class=&quot;k&quot;&gt;until &lt;/span&gt;you decide to write them.
 Be careful before using the write command.
 
 
-Command (m for help): p
+Command &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;m &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: p
 Disk /dev/xvdf: 64 GiB, 68719476736 bytes, 134217728 sectors
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disklabel type: dos
+Units: sectors of 1 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; 512 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 512 bytes
+Sector size &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;logical/physical&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: 512 bytes / 512 bytes
+I/O size &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;minimum/optimal&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: 512 bytes / 512 bytes
+Disklabel &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;: dos
 Disk identifier: 0xcc52698e
 
 Device     Boot Start      End  Sectors Size Id Type
 /dev/xvdf1       2048 67108863 67106816  32G 83 Linux
 
-Command (m for help): d
+Command &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;m &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: d
 Selected partition 1
 Partition 1 has been deleted.
 
-Command (m for help): n
-Partition type
-   p   primary (0 primary, 0 extended, 4 free)
-   e   extended (container for logical partitions)
-Select (default p): p
-Partition number (1-4, default 1):
-First sector (2048-134217727, default 2048):
-Last sector, +sectors or +size{K,M,G,T,P} (2048-134217727, default 134217727):
+Command &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;m &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: n
+Partition &lt;span class=&quot;nb&quot;&gt;type
+   &lt;/span&gt;p   primary &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0 primary, 0 extended, 4 free&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+   e   extended &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;container &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;logical partitions&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Select &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default p&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: p
+Partition number &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1-4, default 1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:
+First sector &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2048-134217727, default 2048&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:
+Last sector, +sectors or +size&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;K,M,G,T,P&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2048-134217727, default 134217727&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:
 
-Created a new partition 1 of type 'Linux' and of size 64 GiB.
+Created a new partition 1 of &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Linux'&lt;/span&gt; and of size 64 GiB.
 
-Command (m for help): p
+Command &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;m &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: p
 Disk /dev/xvdf: 64 GiB, 68719476736 bytes, 134217728 sectors
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disklabel type: dos
+Units: sectors of 1 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; 512 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 512 bytes
+Sector size &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;logical/physical&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: 512 bytes / 512 bytes
+I/O size &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;minimum/optimal&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: 512 bytes / 512 bytes
+Disklabel &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;: dos
 Disk identifier: 0xcc52698e
 
 Device     Boot Start       End   Sectors Size Id Type
 /dev/xvdf1       2048 134217727 134215680  64G 83 Linux
 
-Command (m for help): w
+Command &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;m &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: w
 The partition table has been altered.
-Calling ioctl() to re-read partition table.
+Calling ioctl&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; to re-read partition table.
 Syncing disks.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -774,22 +774,22 @@ Syncing disks.
 &lt;h3 id=&quot;step-4-resize-file-system-of-this-volume&quot;&gt;Step 4: Resize file system of this volume&lt;/h3&gt;
 
 &lt;p&gt;Using &lt;code class=&quot;highlighter-rouge&quot;&gt;resize2fs&lt;/code&gt; because this volume is &lt;code class=&quot;highlighter-rouge&quot;&gt;ext4&lt;/code&gt; format&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@webapp-unstable:~# resize2fs /dev/xvdf1
-resize2fs 1.42.13 (17-May-2015)
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;resize2fs /dev/xvdf1
+resize2fs 1.42.13 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;17-May-2015&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 Filesystem at /dev/xvdf1 is mounted on /var/lib/mysql; on-line resizing required
-old_desc_blocks = 2, new_desc_blocks = 4
-The filesystem on /dev/xvdf1 is now 16776960 (4k) blocks long.
+old_desc_blocks &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2, new_desc_blocks &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 4
+The filesystem on /dev/xvdf1 is now 16776960 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;4k&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; blocks long.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Check after resizing&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@webapp-unstable:~# lsblk
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 xvda    202:0    0  16G  0 disk
 └─xvda1 202:1    0  16G  0 part /
 xvdf    202:80   0  64G  0 disk
 └─xvdf1 202:81   0  64G  0 part /var/lib/mysql
-root@webapp-unstable:~# df -h
+&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;df -h
 Filesystem      Size  Used Avail Use% Mounted on
 udev            2.0G     0  2.0G   0% /dev
 tmpfs           396M   41M  355M  11% /run
@@ -800,7 +800,7 @@ tmpfs           2.0G     0  2.0G   0% /sys/fs/cgroup
 tmpfs           396M     0  396M   0% /run/user/1000
 /dev/xvdf1       63G   30G   31G  50% /var/lib/mysql
 
-root@webapp-unstable:~# mount -fav
+&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;mount -fav
 /                        : ignored
 /var/lib/mysql           : already mounted
 &lt;/code&gt;&lt;/pre&gt;

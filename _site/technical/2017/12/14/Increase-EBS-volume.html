@@ -73,7 +73,7 @@
 
   <header class="article_header">
     <h1 class="special_title" itemprop="name headline">Increase EBS volume of AWS on linux</h1>
-    <time class="post_date">14 December 2017, Thursday - 4 min read</time>
+    <time class="post_date">14 December 2017, Thursday - 5 min read</time>
   </header>
 
   <div class="article-content" itemprop="articleBody">
@@ -98,14 +98,14 @@
 <h3 id="step1-collect-information">Step1: Collect information</h3>
 
 <p>Check disk ID</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>root@webapp-unstable:~# blkid
-/dev/xvda1: LABEL="cloudimg-rootfs" UUID="4573eb39-57f3-439b-9a73-8aef508afd3f" TYPE="ext4" PARTUUID="965243d6-01"
-/dev/xvdf1: UUID="d56d3b3e-4385-48a7-ba95-6d3884d5dca8" TYPE="ext4" PARTUUID="cc52698e-01"
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">root@webapp-unstable:~# </span>blkid
+/dev/xvda1: <span class="nv">LABEL</span><span class="o">=</span><span class="s2">"cloudimg-rootfs"</span> <span class="nv">UUID</span><span class="o">=</span><span class="s2">"4573eb39-57f3-439b-9a73-8aef508afd3f"</span> <span class="nv">TYPE</span><span class="o">=</span><span class="s2">"ext4"</span> <span class="nv">PARTUUID</span><span class="o">=</span><span class="s2">"965243d6-01"</span>
+/dev/xvdf1: <span class="nv">UUID</span><span class="o">=</span><span class="s2">"d56d3b3e-4385-48a7-ba95-6d3884d5dca8"</span> <span class="nv">TYPE</span><span class="o">=</span><span class="s2">"ext4"</span> <span class="nv">PARTUUID</span><span class="o">=</span><span class="s2">"cc52698e-01"</span>
 </code></pre>
 </div>
 
 <p>Check size disk and mount point of <code class="highlighter-rouge">/dev/xvdf1</code></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>root@webapp-unstable:~# lsblk
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">root@webapp-unstable:~# </span>lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 xvda    202:0    0  16G  0 disk
 └─xvda1 202:1    0  16G  0 part /
@@ -117,12 +117,12 @@ xvdf    202:80   0  64G  0 disk
 <h3 id="step-2-unmount-this-volume-out-of-system">Step 2: Unmount this volume out of system</h3>
 
 <p>Unmount</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>root@webapp-unstable:~# umount /dev/xvdf1
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">root@webapp-unstable:~# </span>umount /dev/xvdf1
 </code></pre>
 </div>
 
 <p>Check after unmount</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>root@webapp-unstable:~# lsblk
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">root@webapp-unstable:~# </span>lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 xvda    202:0    0  16G  0 disk
 └─xvda1 202:1    0  16G  0 part /
@@ -136,53 +136,53 @@ xvdf    202:80   0  64G  0 disk
 <p>Why? Because old partition is using 32GB only, should delete and re-create new one. After that, the new one will use all of space 64GB</p>
 
 <p>Using <code class="highlighter-rouge">fdisk</code> or <code class="highlighter-rouge">parted/gparted</code></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>root@webapp-unstable:~# fdisk /dev/xvdf
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">root@webapp-unstable:~# </span>fdisk /dev/xvdf
 
-Welcome to fdisk (util-linux 2.27.1).
-Changes will remain in memory only, until you decide to write them.
+Welcome to fdisk <span class="o">(</span>util-linux 2.27.1<span class="o">)</span>.
+Changes will remain <span class="k">in </span>memory only, <span class="k">until </span>you decide to write them.
 Be careful before using the write command.
 
 
-Command (m for help): p
+Command <span class="o">(</span>m <span class="k">for </span><span class="nb">help</span><span class="o">)</span>: p
 Disk /dev/xvdf: 64 GiB, 68719476736 bytes, 134217728 sectors
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disklabel type: dos
+Units: sectors of 1 <span class="k">*</span> 512 <span class="o">=</span> 512 bytes
+Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: 512 bytes / 512 bytes
+I/O size <span class="o">(</span>minimum/optimal<span class="o">)</span>: 512 bytes / 512 bytes
+Disklabel <span class="nb">type</span>: dos
 Disk identifier: 0xcc52698e
 
 Device     Boot Start      End  Sectors Size Id Type
 /dev/xvdf1       2048 67108863 67106816  32G 83 Linux
 
-Command (m for help): d
+Command <span class="o">(</span>m <span class="k">for </span><span class="nb">help</span><span class="o">)</span>: d
 Selected partition 1
 Partition 1 has been deleted.
 
-Command (m for help): n
-Partition type
-   p   primary (0 primary, 0 extended, 4 free)
-   e   extended (container for logical partitions)
-Select (default p): p
-Partition number (1-4, default 1):
-First sector (2048-134217727, default 2048):
-Last sector, +sectors or +size{K,M,G,T,P} (2048-134217727, default 134217727):
+Command <span class="o">(</span>m <span class="k">for </span><span class="nb">help</span><span class="o">)</span>: n
+Partition <span class="nb">type
+   </span>p   primary <span class="o">(</span>0 primary, 0 extended, 4 free<span class="o">)</span>
+   e   extended <span class="o">(</span>container <span class="k">for </span>logical partitions<span class="o">)</span>
+Select <span class="o">(</span>default p<span class="o">)</span>: p
+Partition number <span class="o">(</span>1-4, default 1<span class="o">)</span>:
+First sector <span class="o">(</span>2048-134217727, default 2048<span class="o">)</span>:
+Last sector, +sectors or +size<span class="o">{</span>K,M,G,T,P<span class="o">}</span> <span class="o">(</span>2048-134217727, default 134217727<span class="o">)</span>:
 
-Created a new partition 1 of type 'Linux' and of size 64 GiB.
+Created a new partition 1 of <span class="nb">type</span> <span class="s1">'Linux'</span> and of size 64 GiB.
 
-Command (m for help): p
+Command <span class="o">(</span>m <span class="k">for </span><span class="nb">help</span><span class="o">)</span>: p
 Disk /dev/xvdf: 64 GiB, 68719476736 bytes, 134217728 sectors
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disklabel type: dos
+Units: sectors of 1 <span class="k">*</span> 512 <span class="o">=</span> 512 bytes
+Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: 512 bytes / 512 bytes
+I/O size <span class="o">(</span>minimum/optimal<span class="o">)</span>: 512 bytes / 512 bytes
+Disklabel <span class="nb">type</span>: dos
 Disk identifier: 0xcc52698e
 
 Device     Boot Start       End   Sectors Size Id Type
 /dev/xvdf1       2048 134217727 134215680  64G 83 Linux
 
-Command (m for help): w
+Command <span class="o">(</span>m <span class="k">for </span><span class="nb">help</span><span class="o">)</span>: w
 The partition table has been altered.
-Calling ioctl() to re-read partition table.
+Calling ioctl<span class="o">()</span> to re-read partition table.
 Syncing disks.
 </code></pre>
 </div>
@@ -190,22 +190,22 @@ Syncing disks.
 <h3 id="step-4-resize-file-system-of-this-volume">Step 4: Resize file system of this volume</h3>
 
 <p>Using <code class="highlighter-rouge">resize2fs</code> because this volume is <code class="highlighter-rouge">ext4</code> format</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>root@webapp-unstable:~# resize2fs /dev/xvdf1
-resize2fs 1.42.13 (17-May-2015)
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">root@webapp-unstable:~# </span>resize2fs /dev/xvdf1
+resize2fs 1.42.13 <span class="o">(</span>17-May-2015<span class="o">)</span>
 Filesystem at /dev/xvdf1 is mounted on /var/lib/mysql; on-line resizing required
-old_desc_blocks = 2, new_desc_blocks = 4
-The filesystem on /dev/xvdf1 is now 16776960 (4k) blocks long.
+old_desc_blocks <span class="o">=</span> 2, new_desc_blocks <span class="o">=</span> 4
+The filesystem on /dev/xvdf1 is now 16776960 <span class="o">(</span>4k<span class="o">)</span> blocks long.
 </code></pre>
 </div>
 
 <p>Check after resizing</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>root@webapp-unstable:~# lsblk
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">root@webapp-unstable:~# </span>lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 xvda    202:0    0  16G  0 disk
 └─xvda1 202:1    0  16G  0 part /
 xvdf    202:80   0  64G  0 disk
 └─xvdf1 202:81   0  64G  0 part /var/lib/mysql
-root@webapp-unstable:~# df -h
+<span class="gp">root@webapp-unstable:~# </span>df -h
 Filesystem      Size  Used Avail Use% Mounted on
 udev            2.0G     0  2.0G   0% /dev
 tmpfs           396M   41M  355M  11% /run
@@ -216,7 +216,7 @@ tmpfs           2.0G     0  2.0G   0% /sys/fs/cgroup
 tmpfs           396M     0  396M   0% /run/user/1000
 /dev/xvdf1       63G   30G   31G  50% /var/lib/mysql
 
-root@webapp-unstable:~# mount -fav
+<span class="gp">root@webapp-unstable:~# </span>mount -fav
 /                        : ignored
 /var/lib/mysql           : already mounted
 </code></pre>

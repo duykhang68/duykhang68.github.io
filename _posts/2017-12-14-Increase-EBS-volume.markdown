@@ -24,14 +24,14 @@ Resize file system to larger size of this volume
 ### Step1: Collect information
 
 Check disk ID
-```
+```shell
 root@webapp-unstable:~# blkid
 /dev/xvda1: LABEL="cloudimg-rootfs" UUID="4573eb39-57f3-439b-9a73-8aef508afd3f" TYPE="ext4" PARTUUID="965243d6-01"
 /dev/xvdf1: UUID="d56d3b3e-4385-48a7-ba95-6d3884d5dca8" TYPE="ext4" PARTUUID="cc52698e-01"
 ```
 
 Check size disk and mount point of `/dev/xvdf1`
-```
+```shell
 root@webapp-unstable:~# lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 xvda    202:0    0  16G  0 disk
@@ -43,12 +43,12 @@ xvdf    202:80   0  64G  0 disk
 ### Step 2: Unmount this volume out of system 
 
 Unmount
-```
+```shell
 root@webapp-unstable:~# umount /dev/xvdf1
 ```
 
 Check after unmount
-```
+```shell
 root@webapp-unstable:~# lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 xvda    202:0    0  16G  0 disk
@@ -62,7 +62,7 @@ xvdf    202:80   0  64G  0 disk
 Why? Because old partition is using 32GB only, should delete and re-create new one. After that, the new one will use all of space 64GB
 
 Using `fdisk` or `parted/gparted`
-```
+```shell
 root@webapp-unstable:~# fdisk /dev/xvdf
 
 Welcome to fdisk (util-linux 2.27.1).
@@ -116,7 +116,7 @@ Syncing disks.
 ### Step 4: Resize file system of this volume
 
 Using `resize2fs` because this volume is `ext4` format
-```
+```shell
 root@webapp-unstable:~# resize2fs /dev/xvdf1
 resize2fs 1.42.13 (17-May-2015)
 Filesystem at /dev/xvdf1 is mounted on /var/lib/mysql; on-line resizing required
@@ -125,7 +125,7 @@ The filesystem on /dev/xvdf1 is now 16776960 (4k) blocks long.
 ```
 
 Check after resizing
-```
+```shell
 root@webapp-unstable:~# lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 xvda    202:0    0  16G  0 disk

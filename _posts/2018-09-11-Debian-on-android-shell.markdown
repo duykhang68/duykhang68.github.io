@@ -35,7 +35,7 @@ I decided to use `debian stretch` with `debootrap` for extract custom image and 
 ## B. Hacking / Practicing zone
 
 ### 1. Install adb and fastboot tools on mac
-```
+```shell
 mac❯❯ brew cask install android-platform-tools
 
 mac❯❯ adb --version
@@ -56,7 +56,7 @@ List of devices attached
 ```
 
 ### 2. Download then install twrp & supersu on fastboot
-```
+```shell
 mac❯❯ wget internet.com/SR5-SuperSU-v2.82-SR5-20171001224502.zip ./
 mac❯❯ wget internet.com/twrp-3.1.0-0-cancro.img ./
 mac❯❯ adb push ./SR5-SuperSU-v2.82-SR5-20171001224502.zip /storage/self/primary/
@@ -95,7 +95,7 @@ root
 ```
 
 ### 3. Expand utilities with busybox
-```
+```shell
 mac❯❯ wget https://busybox.net/downloads/binaries/1.28.1-defconfig-multiarch/busybox-armv7l
 mac❯❯ adb push busybox-armv7l /data/local/tmp
 busybox-armv7l: 1 file pushed. 3.8 MB/s (1079156 bytes in 0.270s)
@@ -123,7 +123,7 @@ root@cancro:/ # which vi
 ```
 
 ### 4. Config / fix env variables and configuations
-```
+```shell
 # Choose one: (for security mount /system back to RO when finished)
 # Mount system RW: mount -o rw,remount /system
 # Mount system RO: mount -o ro,remount /system
@@ -136,7 +136,7 @@ export PATH=/data/busybox:$PATH
 ```
 
 when facing with su command like this, we need reconfigure su
-```
+```shell
 # Issue with su command
 
 shell@cancro:/ $ su
@@ -154,7 +154,7 @@ root@cancro:/ # ls -lh /data/busybox/su
 ### 5. Extract debian.img from available debian system (not BSD os like Mac)
 
 Install debootstrap then bootstrapping debian stretch image for armv7l arch
-```
+```shell
 debian❯❯ apt install -y debootstrap debian-archive-keyring debian-ports-archive-keyring
 debian❯❯ mkdir debian-armhf
 debian❯❯ cd debian-armhf/
@@ -169,12 +169,12 @@ debian❯❯ umount debian
 ![large-img](/assets/img/debootstrap.webp "Extract debian filesystem via Debootstrap")
 
 rsync file debian.img from debian system to mac system, then push this img to android
-```
+```shell
 mac❯❯ adb push debian.img /sdcard/
 ```
 
 ### 6. Debootstrapping debian into android os
-```
+```shell
 mac❯❯ adb shell
 
 shell@cancro:/ $ su -
@@ -203,7 +203,7 @@ root@localhost:~# cat /etc/debian_version #9.5
 ### 7. Complete debian os with apt and networking
 From the first time, I cannot use `ping` or `apt`, because Android uses a special Kernel patch that's activated with `CONFIG_ANDROID_PARANOID_NETWORK`. 
 For adding specific groups, this patch allows network access to system users that belong to certain special groups with hardcoded IDs.
-```
+```shell
 mac❯❯ adb shell
 shell@cancro:/ $ su -
 root@cancro:/ # chroot /sdcard/debian-stretch9/ /bin/su - root
