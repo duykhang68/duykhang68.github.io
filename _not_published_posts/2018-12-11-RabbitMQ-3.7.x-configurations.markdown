@@ -1,0 +1,29 @@
+---
+layout: post
+title: RabbitMQ 3.7.x configurations
+category: technical
+description: RABBITMQ_CONFIG_FILE with classic conf format and cuttlefish sysctl
+---
+
+Prior to RabbitMQ 3.7.0, RabbitMQ config file was named `rabbitmq.config` and used an Erlang term configuration format. That **format is still supported for backwards compatibility**. Those running **3.7.0 or later** are recommended to consider the new `sysctl` format (Cuttlefish).
+```
+- RabbitMQ >= 3.7.0: using both rabbitmq.config, rabbitmq.conf, or even rabbitmq.ahihi / config.txt
+- RabbitMQ < 3.7.0 like v3.6.15: using only one file /etc/rabbitmq/rabbitmq.config
+```
+**Context**:
+- **RabbitMQ 3.7.x** cannot start/restart service with no data in `/etc/rabbitmq.config`
+- But it's still working with no data in `/etc/rabbitmq.conf`
+- Missing configuration files on **RabbitMQ 3.7.x** does not leads to lose auth anymore, like [RabbitMQ 3.6.x permanent issue](https://stackoverflow.com/questions/36204971/rabbitmq-adding-user-permanently)
+
+![](/assets/img/rabbitmq3.7.x.webp)
+
+<!--description-->
+
+## A. Knowledge base
+
+Prior to 3.7.0 like **RabbitMQ 3.6.15**:
+- We must have default configuration file at `/etc/rabbitmq/rabbitmq.config`
+- It's not a blank file, it's a config file with default value from the first initiation. IF we follow exactly these steps on RabbitMQ 3.6.x official document, we will have this file, same as [example file](https://github.com/rabbitmq/rabbitmq-server/blob/master/docs/rabbitmq.config.example)
+- With some kind of installations or human mistake, this `rabbitmq.config` was deleted during working time of RabbitMQ, it will lead to impermanent auth configuration by `rabbitmqctl` (that already executed long time ago), root cause of this case is very simple, missing config file --> broken `rabbitmq_mqtt` and other configs -> so that when we create users by `rabbitmqctl`, they're only on this working session. That's why they lost when restart rabbit service (new session), link to [RabbitMQ 3.6.x permanent issue](https://stackoverflow.com/questions/36204971/rabbitmq-adding-user-permanently)
+- `rabbitmq.config` is using **classic config format**, it's a pure [Erlang term files for configuration](http://erlang.org/doc/man/config.html)
+- Due some 
