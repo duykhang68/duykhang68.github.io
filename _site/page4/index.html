@@ -76,6 +76,54 @@
     
         <article class="post_card post">
           <header class="post_header">
+            <h1 class="post_title"><a href="/technical/2017/04/09/How-DNS-works.html">How DNS works</a></h2>
+            <time class="post_date">09 April 2017, Sunday - 3 min read</time>
+          </header>
+    
+          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2017/04/09/How-DNS-works.html';" style="cursor: pointer;">
+            <p>
+              <blockquote>
+  <p>Without DNS, we would only be able to visit any website directly via IP address, no human-readable anymore</p>
+</blockquote>
+
+<h3 id="dns-basic-concept-and-information">DNS: Basic concept and information</h3>
+
+<ul>
+  <li>DNS stands for Domain Name System</li>
+  <li>Its purpose is to resolve and translate human-readable website name to IPv4 or IPv6 address</li>
+  <li>It’s basically a large Database which resides on various servers around the world, that contains the names and IP address of various host/domains.</li>
+  <li>Without DNS, we would only be able to visit any website directly via IP address, no human-readable anymore</li>
+  <li>DNS works on both the TCP and UDP Protocols, <strong>port 53</strong></li>
+</ul>
+
+<h3 id="how-does-dns-work">How does DNS work?</h3>
+
+<p>Whenever you visit a domain such as <a href="https://github.com">github.com</a>, the browser’s journey begins »&gt;</p>
+
+<p><strong>Step 1</strong>: Request information</p>
+<ul>
+  <li>TODO: Type <code class="highlighter-rouge">github.com</code> to address bar of Chrome, it’s a new request for browser</li>
+</ul>
+
+<p><strong>Step 2</strong>: DNS cache on Chrome</p>
+<ul>
+  <li>TODO: DNS query on chrome’s cache, see <code class="highlighter-rouge">chrome://net-internals/#dns</code></li>
+  <li>True: Return IP address of this domain for making a request</li>
+  <li>False: Didn’t know it before –&gt; call OS (step3)</li>
+</ul>
+
+ 
+            </p> 
+          </div>
+    
+          <footer class="post_meta">
+          </footer>
+          <hr/>
+        </article>
+        
+    
+        <article class="post_card post">
+          <header class="post_header">
             <h1 class="post_title"><a href="/mindset/2017/03/12/habit-time-management.html">Habit and Time management</a></h2>
             <time class="post_date">12 March 2017, Sunday - 2 min read</time>
           </header>
@@ -201,44 +249,6 @@ Get involved to perfect your craft and be part of something big - from <a href="
 
 <p>Just want to ask how would you read / learn / evaluate an open source project to see whether it is suitable to apply to your current system? 
 Like what steps you guys taking, etc?</p>
-
- 
-            </p> 
-          </div>
-    
-          <footer class="post_meta">
-          </footer>
-          <hr/>
-        </article>
-        
-    
-        <article class="post_card post">
-          <header class="post_header">
-            <h1 class="post_title"><a href="/technical/2017/01/15/how-homebrew-works.html">How Homebrew works?</a></h2>
-            <time class="post_date">15 January 2017, Sunday - 6 min read</time>
-          </header>
-    
-          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2017/01/15/how-homebrew-works.html';" style="cursor: pointer;">
-            <p>
-              <p>Homebrew — The missing package manager for macOS. Here is the Official site: <a href="https://brew.sh">https://brew.sh</a></p>
-
-<h4 id="what-is-homebrew">What is Homebrew?</h4>
-
-<p>Homebrew is a package manager for OS X. It allows a user to easily install software from the larger body of UNIX and open source software on the Mac. 
-If you know linux, you can compare the <strong>brew</strong> command with the <strong>apt-get</strong> command (on Debian)</p>
-
-<ul>
-  <li><strong>Official site:</strong> <a href="https://brew.sh">https://brew.sh</a></li>
-  <li><strong>Homebrew on Github:</strong> <a href="https://github.com/Homebrew/brew">https://github.com/Homebrew/brew</a></li>
-</ul>
-
-<h4 id="how-to-install">How to install?</h4>
-
-<p>Open terminal or iterm2 on your Mac and paste this line at a Terminal prompt.</p>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code> /usr/bin/ruby -e <span class="s2">"</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">"</span>
-</code></pre>
-</div>
 
  
             </p> 
