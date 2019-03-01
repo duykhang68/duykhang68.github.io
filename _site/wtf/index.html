@@ -76,7 +76,10 @@
     <h1 class="post-title">WTF</h1>
   </header>
   <div class="article-content">
-     <h3 id="1-mountfuck">1. Mountfuck</h3>
+     <p>Keyword: <a href="#1-mountfuck">Mountfuck</a>,
+         <a href="#2-jenkinsfuck">Jenkinsfuck</a></p>
+
+<h3 id="1-mountfuck">1. Mountfuck</h3>
 
 <p><img src="/assets/img/wrong-mount-in-es.webp" alt="img" title="Entire fucking dir in fuckin /var/lib/elasticsearch" /></p>
 
@@ -111,6 +114,50 @@ UUID="c46cf311-d31b-41ce-bce5-5d8ad0a6b109" /var/lib/elasticsearch ext4 defaults
 /dev/nvme1n1p1 /var/lib/elasticsearch ext4 defaults,nofail  0 2
 </code></pre>
 </div>
+
+<h3 id="2-jenkinsfuck">2. Jenkinsfuck</h3>
+
+<p><img src="/assets/img/jenkins-oops.webp" alt="img" title="EatWhatYouKill" /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>Mar 01, 2019 11:19:14 AM org.eclipse.jetty.server.handler.ContextHandler$Context log
+WARNING: Error while serving https://ci.tools.xxxxxx.io/job/live-xxxxxx/27/logText/progressiveHtml
+java.lang.reflect.InvocationTargetException
+    at org.kohsuke.stapler.Function$MethodFunction.invoke(Function.java:347)
+    ...
+    ...
+    at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+    at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+    ...
+    ...
+Caused by: java.lang.NegativeArraySizeException
+    at hudson.console.ConsoleNote.readFrom(ConsoleNote.java:241)
+    at hudson.console.ConsoleAnnotationOutputStream.eol(ConsoleAnnotationOutputStream.java:109)
+    at hudson.console.LineTransformationOutputStream.eol(LineTransformationOutputStream.java:60)
+</code></pre>
+</div>
+
+<p><strong>Root cause:</strong></p>
+
+<p>Details of log: <a href="/assets/raw/jenkins-NegativeArraySizeException-error.log">jenkins-NegativeArraySizeException-error.log</a></p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NegativeArraySizeException</span>
+<span class="kd">extends</span> <span class="n">RuntimeException</span>
+</code></pre>
+</div>
+
+<p>Thrown if an application tries to create an array with negative size.</p>
+
+<p>Output of this running job is: too big and spawn too fast <strong><code class="highlighter-rouge">rarely</code></strong> that reach <code class="highlighter-rouge">NegativeArraySize</code> during entire log workflow from</p>
+<ul>
+  <li>ConsoleNote &gt; ConsoleAnnotationOutputStream &gt; FileLogStorage &gt; ProxyOutputStream</li>
+  <li>to doProgressText and until doProgressiveHtml</li>
+</ul>
+
+<p><strong>Solution:</strong> EatWhatYouKill</p>
+
+<p>Don’t panic, just wait, let them come then let them go. Wait until this fucking job DONE. Then issuse will….gone</p>
 
   </div>
 </article>
