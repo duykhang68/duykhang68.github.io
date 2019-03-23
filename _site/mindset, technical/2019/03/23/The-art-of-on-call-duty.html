@@ -111,20 +111,16 @@
 
 <p>=&gt; <strong>Improve our mindset</strong> for making alerting/monitoring/logging system better during live issues, driving improvements at every part of entire our system</p>
 
-<ul>
-  <li>
-    <p>Standard flow for on-call duty life cycle:</p>
+<h3 id="standard-flow-for-on-call-duty-life-cycle">Standard flow for on-call duty life cycle</h3>
 
-    <ol>
-      <li><strong>Build</strong>: init monitoring &amp; logging system that help us detect live failures before most customers notice a problem, set up a reliable alerting system (pagerduty) to make sure we can receive alerts immediately</li>
-      <li><strong>Prepare</strong>: rotating SRE team member by shift to make sure we always have at least one guy to take care production anytime, also covered with always ready machine/LTE/phone</li>
-      <li><strong>Triage</strong>: acknowledge (ack) on alerts whenever you can, determine the urgency of the problem</li>
-      <li><strong>Fix</strong>: take whatever actions are necessary in order to resolve the issue immediately and get production back to normal, including implement hotfix or even rollback to the last working version.</li>
-      <li><strong>Report</strong>: after fixing incident, need to file ticket/report for logging which issues, what we did for solving, file a JIRA ticket to keep a track and push more and more details into this, writing a postmortem (incident postmortem is an excellent framework for learning from incidents and turning problems into progress)</li>
-      <li><strong>Follow-up &amp; Improvement</strong>: fixed issues &amp; logged into specific tickets do not mean we’re done with that, not yet. We must <strong>take action to follow-up after incident</strong>, how to <strong>prevent these issues in the future</strong>, improve sense of alerting, how can we backup/restore/rollback, how to make alarm more <strong>precise, responsive, and sensitive</strong>. At every step of follow-up/improvement, must write them down to central documentation.</li>
-    </ol>
-  </li>
-</ul>
+<ol>
+  <li><strong>Build</strong>: init monitoring &amp; logging system that help us detect live failures before most customers notice a problem, set up a reliable alerting system (pagerduty) to make sure we can receive alerts immediately</li>
+  <li><strong>Prepare</strong>: rotating SRE team member by shift to make sure we always have at least one guy to take care production anytime, also covered with always ready machine/LTE/phone</li>
+  <li><strong>Triage</strong>: acknowledge (ack) on alerts whenever you can, determine the urgency of the problem</li>
+  <li><strong>Fix</strong>: take whatever actions are necessary in order to resolve the issue immediately and get production back to normal, including implement hotfix or even rollback to the last working version.</li>
+  <li><strong>Report</strong>: after fixing incident, need to file ticket/report for logging which issues, what we did for solving, file a JIRA ticket to keep a track and push more and more details into this, writing a postmortem (incident postmortem is an excellent framework for learning from incidents and turning problems into progress)</li>
+  <li><strong>Follow-up &amp; Improvement</strong>: fixed issues &amp; logged into specific tickets do not mean we’re done with that, not yet. We must <strong>take action to follow-up after incident</strong>, how to <strong>prevent these issues in the future</strong>, improve sense of alerting, how can we backup/restore/rollback, how to make alarm more <strong>precise, responsive, and sensitive</strong>. At every step of follow-up/improvement, must write them down to central documentation.</li>
+</ol>
 
 <h2 id="root-cause">ROOT CAUSE</h2>
 
