@@ -79,7 +79,7 @@
   </header>
 
   <div class="article-content" itemprop="articleBody">
-    <h3 id="definition">Definition:</h3>
+    <h2 id="definition">Definition:</h2>
 
 <ul>
   <li>System calls: communication chanel between user space program and kernel</li>
@@ -92,7 +92,7 @@
 
 <!--description-->
 
-<h3 id="some-useful-signals">Some useful signals</h3>
+<h2 id="some-useful-signals">Some useful signals</h2>
 
 <ul>
   <li><code class="highlighter-rouge">SIGINT</code>: is the program interrupt signal. When user presses <code class="highlighter-rouge">CTRL+C</code>, the terminal emulator sends this signal to the foreground process, it will terminate process, but it can be caught or ignored, it a graceful shutdown</li>
@@ -113,7 +113,7 @@
 
 <p>When a process is in a limbo state it is reasonable to send the process the <code class="highlighter-rouge">SIGKILL</code> signal, which can be invoked by running the kill command with the -9 flag. Unlike <code class="highlighter-rouge">SIGTERM</code> the <code class="highlighter-rouge">SIGKILL</code> signal cannot be captured by the process and thus it cannot be ignored. The <code class="highlighter-rouge">SIGKILL</code> signal is handled outside of the process completely, and is used to stop the process immediately. The problem with using <code class="highlighter-rouge">SIGKILL</code> is that it does not allow an application to close its open files or database connections cleanly and over time could cause other issues; therefor it is generally better to reserve the <code class="highlighter-rouge">SIGKILL</code> signal as a last resort.</p>
 
-<h3 id="reference--read-more">Reference &amp; Read more</h3>
+<h2 id="reference--read-more">Reference &amp; Read more</h2>
 <ol>
   <li>http://bencane.com/2014/04/01/understanding-the-kill-command-and-how-to-terminate-processes-in-linux/</li>
   <li>https://en.wikipedia.org/wiki/Unix_signal</li>

@@ -15,7 +15,7 @@ This is a post for reminding these learned points, thinkings, ideas, mindsets ab
 
 <!--description-->
 
-#### There are only 2 basic types of action:
+## There are only 2 basic types of action:
 * One: you can totally control this.
 * Two: you be forced to do regardless of you hate or refuse to do, don't care, let them come then let them go.
 

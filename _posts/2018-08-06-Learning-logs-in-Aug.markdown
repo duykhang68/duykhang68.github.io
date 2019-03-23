@@ -10,7 +10,7 @@ description: today I learned TIL, devops practice, weekly personal logs
 
 <!--description-->
 
-### 1. Export large tables in MySQL
+## 1. Export large tables in MySQL
 
 - Large tables
 - Progress
@@ -22,7 +22,7 @@ mysqldump -udevops -pxxxxxx -hhost.xxxx \
            dbname table1 table2 table3 | pv | gzip -9 > 3tables.sql.gz
 ```
 
-### 2. Bash completion on debian 9
+## 2. Bash completion on debian 9
 
 - Autocomplete / hint when pressing tab
 - Apply for all user/profile

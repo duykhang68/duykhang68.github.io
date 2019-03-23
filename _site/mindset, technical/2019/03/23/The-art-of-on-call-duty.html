@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>The art of on-call duty</title>
+    <meta name="description" content="Being on-call means working/fixing live issues under high pressure and almost during midnight and/or weekend.  Taking strong responsibility for what we work,...">
+
+    <!-- todo: include this into main.css -->
+
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="https://llnx.me/mindset,%20technical/2019/03/23/The-art-of-on-call-duty.html">
+    <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="https://llnx.me /feed.xml ">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script async src="https://llnx.me/assets/dist/fetch.min.js"></script>
+    <script>
+    (function(f, a, t, h, o, m){
+	a[h]=a[h]||function(){
+		(a[h].q=a[h].q||[]).push(arguments)
+	};
+	o=f.createElement('script'),
+	m=f.getElementsByTagName('script')[0];
+	o.async=1; o.src=t; o.id='fathom-script';
+	m.parentNode.insertBefore(o,m)
+    })(document, window, 'https://analytics.llnx.me/tracker.js', 'fathom');
+    fathom('trackPageview');
+    </script>
+    <script src="//instant.page/1.1.0" type="module" integrity="sha384-EwBObn5QAxP8f09iemwAJljc+sU+eUXeL9vSBw1eNmVarwhKk2F9vBEpaN9rsrtp"></script>
+</head>
+
+  <body>
+    <div class="page-content">
+      <div class="container">
+        <div class="three columns">
+          <header class="site-header">
+
+  <h1 class="logo"><a href="https://llnx.me/archive">Blog</a></h2>
+
+  <div class="nav">
+    
+    <label for="menu-toggle" class="menu-icon">
+        <!--div data-icon="ei-navicon"></div-->
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+    </label>
+    <input type="checkbox" id="menu-toggle">
+
+    <div class="site-nav">
+      <nav>
+        <ul class="page-link">
+          <li><a href="/">Home</a></li>
+          <li><a href="/archive">Posts</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/photography">Photo</a></li>
+          <li><a href="/friends">Friends</a></li>
+          <li><a href="/hireme" style="color: #C25;font-size: 15px">Hire me ❯❯</a></span></li>
+          <li><a href="/wtf" style="color: #FFD700;font-size: 15px">WTF❯❯</a></span></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</header>
+
+        </div>
+
+        <div class="nine columns" style="z-index:100;">
+          <div class="wrapper">
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="article_header">
+    <h1 class="special_title" itemprop="name headline">The art of on-call duty</h1>
+    <time class="post_date">23 March 2019, Saturday - 4 min read</time>
+  </header>
+
+  <div class="article-content" itemprop="articleBody">
+    <p>Being on-call means working/fixing live issues under high pressure and almost during midnight and/or weekend.</p>
+<ul>
+  <li><strong>Taking strong responsibility</strong> for what we work, for what we did, for what we build</li>
+  <li>Uptime is an important metric, also critical to the success of our production.</li>
+  <li>If our product is down, <strong>we acutely feel our customer’s pain</strong></li>
+  <li>Being on-call duty means we can <strong>learn a lot from it</strong>, for both technical knowledge &amp; growing mindset.</li>
+  <li>Must get high paid for each on-call duty shift, because of stressful.</li>
+</ul>
+
+<iframe src="https://giphy.com/embed/NTur7XlVDUdqM" width="660" height="360" frameborder="0" class="giphy-embed" allowfullscreen=""></iframe>
+<!--description-->
+
+<h2 id="the-art-of-on-call-duty">THE ART OF ON-CALL DUTY</h2>
+
+<p>Important points:</p>
+<ul>
+  <li>Keep production services reliable and available</li>
+  <li>Must have one of many dedicated teams of SREs that always take responsibility for the performance and reliability, also must have a <strong>strong background</strong> of system/infra/network and software development (because maybe need to inspect each line of code)</li>
+  <li><strong>When you know you might get woken up in the middle of the night if there is a problem, you become more careful building infra, implementing components and testing.</strong></li>
+  <li>Troubleshooting the system forces you to get a good understanding of <strong>how it all works</strong></li>
+  <li>Being on-call means we always facing with these internal issues like:
+    <ul>
+      <li>troubleshooting tools aren’t as good as they should be</li>
+      <li>false alarms, unreliable alarms</li>
+      <li>logs without useful information</li>
+      <li>have no way to backup/restore</li>
+    </ul>
+  </li>
+</ul>
+
+<p>=&gt; <strong>Improve our mindset</strong> for making alerting/monitoring/logging system better during live issues, driving improvements</p>
+
+<ul>
+  <li>
+    <p>Standard flow for on-call duty life cycle:</p>
+
+    <ol>
+      <li><strong>Build</strong>: init monitoring &amp; logging system that help us detect live failures before most customers notice a problem, set up a reliable alerting system (pagerduty) to make sure we can receive alerts immediately</li>
+      <li><strong>Prepare</strong>: rotating SRE team member by shift to make sure we always have one person at least to take care production anytime, also covered with always ready machine/LTE/phone</li>
+      <li><strong>Triage</strong>: acknowledge (ack) on alerts whenever you can, determine the urgency of the problem</li>
+      <li><strong>Fix</strong>: take whatever actions are necessary in order to resolve the issue immediately and get production back to normal, including implement hotfix or even rollback to the last version.</li>
+      <li><strong>Report</strong>: after fixing incident, need to file ticket/report for logging which issues, what we did for solving, file a JIRA ticket to keep a track and push more and more details into this, writing a postmortem (incident postmortem is an excellent framework for learning from incidents and turning problems into progress)</li>
+      <li><strong>Follow-up &amp; Improvement</strong>: fixed issues &amp; logged into specific tickets do not mean we’re done with that, not yet. We must <strong>take action to follow-up after incident</strong>, how to <strong>prevent these issues in the future</strong>, improve sense of alerting, how can we backup/restore/rollback, how to make alarm more <strong>precise, responsive, and sensitive</strong>. At every step of follow-up/improvement, must write them down to central documentation.</li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="root-cause">ROOT CAUSE</h2>
+
+<ul>
+  <li>If we only fix the symptoms (what we see on the surface), the problem will almost certainly return, and need fixing over, and over again</li>
+  <li>So the Root cause means:
+    <ul>
+      <li>What has caused the incident?</li>
+      <li>What’s the reason the system failed the way it did?</li>
+      <li>What’s initiating cause that led to an outage or degradation in performance</li>
+      <li>If we know and identify the root cause, action can be taken to fix issues permanently</li>
+    </ul>
+  </li>
+  <li>In a technical way, root cause live issues can be covered into 3 groups
+    <ul>
+      <li><strong>Changes in the last deployment</strong>: changes in codebase, changes in configurations, but not be tested carefully or not aware of hidden failures</li>
+      <li><strong>Exist at scale</strong>: during high traffic, during unexpected traffic, bottle-neck or facing limitations of some important components</li>
+      <li><strong>3rd party issue</strong>: hardware failure, provider/ISP failure, network down, 3rd API issues,…</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="reference">REFERENCE</h2>
+<ol>
+  <li>https://henrikwarne.com/2018/12/03/developer-on-call/</li>
+  <li>https://www.intercom.com/blog/rapid-response-how-we-developed-an-on-call-team-at-intercom/</li>
+  <li>https://response.pagerduty.com/oncall/being_oncall/</li>
+  <li>https://landing.google.com/sre/sre-book/chapters/being-on-call/</li>
+  <li>https://www.atlassian.com/blog/statuspage/incident-postmortem-writing-tips</li>
+</ol>
+
+    <div id="gitment-container"></div>
+  </div>
+
+  <footer class="article-footer">
+
+  <hr/>
+
+  <section class="author">
+  <div class="authorimage box" style="background: url(/assets/img/avatar.webp)"></div>
+  <div class="authorinfo box">
+    <p class="bio" style="color: #222">
+      I'm an engineer who likes learning, discussing, and solving problems. These days, I'm focusing on DevOps because I'd love to help ensure that services stay up and running, while continuing to ship software to customers rapidly. I also have a passion for building robust infrastructure at world scale.
+    </p>
+    <a class="github-button" href="https://github.com/hieuhtr" data-size="large" data-show-count="true" aria-label="Follow @hieuhtr on GitHub">Follow @hieuhtr</a>
+  </div>
+</section>
+
+
+  </footer>
+
+</article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

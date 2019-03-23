@@ -5,7 +5,7 @@ category: technical
 description: About system calls, SIGINT, SIGTERM, SIGKILL
 ---
 
-### Definition:
+## Definition:
 
 - System calls: communication chanel between user space program and kernel
 - Signals: a different channel, used for inter-process communication
@@ -16,7 +16,7 @@ description: About system calls, SIGINT, SIGTERM, SIGKILL
 
 <!--description-->
 
-### Some useful signals
+## Some useful signals
 
 - `SIGINT`: is the program interrupt signal. When user presses `CTRL+C`, the terminal emulator sends this signal to the foreground process, it will terminate process, but it can be caught or ignored, it a graceful shutdown
 - `SIGTERM`: is the termination signal. It used to cause process termination, this signal can be blocked, handled and ignored. It is the normal way to ask a process to terminate. The `kill` command generates SIGTERM by default
@@ -30,7 +30,7 @@ For example, when a process does not die by using `Ctrl+C` (SIGINT), we should u
 
 When a process is in a limbo state it is reasonable to send the process the `SIGKILL` signal, which can be invoked by running the kill command with the -9 flag. Unlike `SIGTERM` the `SIGKILL` signal cannot be captured by the process and thus it cannot be ignored. The `SIGKILL` signal is handled outside of the process completely, and is used to stop the process immediately. The problem with using `SIGKILL` is that it does not allow an application to close its open files or database connections cleanly and over time could cause other issues; therefor it is generally better to reserve the `SIGKILL` signal as a last resort.
 
-### Reference & Read more
+## Reference & Read more
 1. http://bencane.com/2014/04/01/understanding-the-kill-command-and-how-to-terminate-processes-in-linux/
 2. https://en.wikipedia.org/wiki/Unix_signal
 3. http://unix.stackexchange.com/questions/149741/why-is-sigint-not-propagated-to-child-process-when-sent-to-its-parent-process

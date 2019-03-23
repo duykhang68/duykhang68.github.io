@@ -17,7 +17,7 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 
 <!--description-->
 
-### I guest aka initiation step-by-step 
+## I guest aka initiation step-by-step 
 
 - Somehow the init RDB button will trigger a form with all specs, then send sms directly to a fucking devops guy of AWS ;)))
 - Then that guy will goto AWS console, init new EC2 manually by his hand, use `rds-fucking-root.pem` keypairs

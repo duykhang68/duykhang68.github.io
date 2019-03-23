@@ -5,9 +5,97 @@
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://llnx.me/</link>
     <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 01 Mar 2019 23:45:40 +0700</pubDate>
-    <lastBuildDate>Fri, 01 Mar 2019 23:45:40 +0700</lastBuildDate>
+    <pubDate>Sat, 23 Mar 2019 10:09:08 +0700</pubDate>
+    <lastBuildDate>Sat, 23 Mar 2019 10:09:08 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
+    
+      <item>
+        <title>The art of on-call duty</title>
+        <description>&lt;p&gt;Being on-call means working/fixing live issues under high pressure and almost during midnight and/or weekend.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Taking strong responsibility&lt;/strong&gt; for what we work, for what we did, for what we build&lt;/li&gt;
+  &lt;li&gt;Uptime is an important metric, also critical to the success of our production.&lt;/li&gt;
+  &lt;li&gt;If our product is down, &lt;strong&gt;we acutely feel our customer’s pain&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Being on-call duty means we can &lt;strong&gt;learn a lot from it&lt;/strong&gt;, for both technical knowledge &amp;amp; growing mindset.&lt;/li&gt;
+  &lt;li&gt;Must get high paid for each on-call duty shift, because of stressful.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;iframe src=&quot;https://giphy.com/embed/NTur7XlVDUdqM&quot; width=&quot;660&quot; height=&quot;360&quot; frameborder=&quot;0&quot; class=&quot;giphy-embed&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;!--description--&gt;
+
+&lt;h2 id=&quot;the-art-of-on-call-duty&quot;&gt;THE ART OF ON-CALL DUTY&lt;/h2&gt;
+
+&lt;p&gt;Important points:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Keep production services reliable and available&lt;/li&gt;
+  &lt;li&gt;Must have one of many dedicated teams of SREs that always take responsibility for the performance and reliability, also must have a &lt;strong&gt;strong background&lt;/strong&gt; of system/infra/network and software development (because maybe need to inspect each line of code)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;When you know you might get woken up in the middle of the night if there is a problem, you become more careful building infra, implementing components and testing.&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Troubleshooting the system forces you to get a good understanding of &lt;strong&gt;how it all works&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Being on-call means we always facing with these internal issues like:
+    &lt;ul&gt;
+      &lt;li&gt;troubleshooting tools aren’t as good as they should be&lt;/li&gt;
+      &lt;li&gt;false alarms, unreliable alarms&lt;/li&gt;
+      &lt;li&gt;logs without useful information&lt;/li&gt;
+      &lt;li&gt;have no way to backup/restore&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;=&amp;gt; &lt;strong&gt;Improve our mindset&lt;/strong&gt; for making alerting/monitoring/logging system better during live issues, driving improvements&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Standard flow for on-call duty life cycle:&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;&lt;strong&gt;Build&lt;/strong&gt;: init monitoring &amp;amp; logging system that help us detect live failures before most customers notice a problem, set up a reliable alerting system (pagerduty) to make sure we can receive alerts immediately&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Prepare&lt;/strong&gt;: rotating SRE team member by shift to make sure we always have one person at least to take care production anytime, also covered with always ready machine/LTE/phone&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Triage&lt;/strong&gt;: acknowledge (ack) on alerts whenever you can, determine the urgency of the problem&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Fix&lt;/strong&gt;: take whatever actions are necessary in order to resolve the issue immediately and get production back to normal, including implement hotfix or even rollback to the last version.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Report&lt;/strong&gt;: after fixing incident, need to file ticket/report for logging which issues, what we did for solving, file a JIRA ticket to keep a track and push more and more details into this, writing a postmortem (incident postmortem is an excellent framework for learning from incidents and turning problems into progress)&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Follow-up &amp;amp; Improvement&lt;/strong&gt;: fixed issues &amp;amp; logged into specific tickets do not mean we’re done with that, not yet. We must &lt;strong&gt;take action to follow-up after incident&lt;/strong&gt;, how to &lt;strong&gt;prevent these issues in the future&lt;/strong&gt;, improve sense of alerting, how can we backup/restore/rollback, how to make alarm more &lt;strong&gt;precise, responsive, and sensitive&lt;/strong&gt;. At every step of follow-up/improvement, must write them down to central documentation.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;root-cause&quot;&gt;ROOT CAUSE&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If we only fix the symptoms (what we see on the surface), the problem will almost certainly return, and need fixing over, and over again&lt;/li&gt;
+  &lt;li&gt;So the Root cause means:
+    &lt;ul&gt;
+      &lt;li&gt;What has caused the incident?&lt;/li&gt;
+      &lt;li&gt;What’s the reason the system failed the way it did?&lt;/li&gt;
+      &lt;li&gt;What’s initiating cause that led to an outage or degradation in performance&lt;/li&gt;
+      &lt;li&gt;If we know and identify the root cause, action can be taken to fix issues permanently&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;In a technical way, root cause live issues can be covered into 3 groups
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Changes in the last deployment&lt;/strong&gt;: changes in codebase, changes in configurations, but not be tested carefully or not aware of hidden failures&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Exist at scale&lt;/strong&gt;: during high traffic, during unexpected traffic, bottle-neck or facing limitations of some important components&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;3rd party issue&lt;/strong&gt;: hardware failure, provider/ISP failure, network down, 3rd API issues,…&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;REFERENCE&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;https://henrikwarne.com/2018/12/03/developer-on-call/&lt;/li&gt;
+  &lt;li&gt;https://www.intercom.com/blog/rapid-response-how-we-developed-an-on-call-team-at-intercom/&lt;/li&gt;
+  &lt;li&gt;https://response.pagerduty.com/oncall/being_oncall/&lt;/li&gt;
+  &lt;li&gt;https://landing.google.com/sre/sre-book/chapters/being-on-call/&lt;/li&gt;
+  &lt;li&gt;https://www.atlassian.com/blog/statuspage/incident-postmortem-writing-tips&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Sat, 23 Mar 2019 00:00:00 +0700</pubDate>
+        <link>https://llnx.me/mindset,%20technical/2019/03/23/The-art-of-on-call-duty.html</link>
+        <guid isPermaLink="true">https://llnx.me/mindset,%20technical/2019/03/23/The-art-of-on-call-duty.html</guid>
+        
+        
+        <category>mindset, technical</category>
+        
+      </item>
     
       <item>
         <title>Some meaningful thoughts for entire 2018</title>
@@ -23,7 +111,7 @@
 
 &lt;!--description--&gt;
 
-&lt;h4 id=&quot;there-are-only-2-basic-types-of-action&quot;&gt;There are only 2 basic types of action:&lt;/h4&gt;
+&lt;h2 id=&quot;there-are-only-2-basic-types-of-action&quot;&gt;There are only 2 basic types of action:&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;One: you can totally control this.&lt;/li&gt;
   &lt;li&gt;Two: you be forced to do regardless of you hate or refuse to do, don’t care, let them come then let them go.&lt;/li&gt;
@@ -64,7 +152,7 @@
 
 &lt;!--description--&gt;
 
-&lt;h3 id=&quot;demo&quot;&gt;Demo&lt;/h3&gt;
+&lt;h2 id=&quot;demo&quot;&gt;DEMO&lt;/h2&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@ahihi:~# &lt;/span&gt;useradd -u 4000000000 wtf
 &lt;span class=&quot;gp&quot;&gt;root@ahihi:~# &lt;/span&gt;su - wtf
@@ -455,7 +543,7 @@ Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validatin
     
       <item>
         <title>Signal of linux</title>
-        <description>&lt;h3 id=&quot;definition&quot;&gt;Definition:&lt;/h3&gt;
+        <description>&lt;h2 id=&quot;definition&quot;&gt;Definition:&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;System calls: communication chanel between user space program and kernel&lt;/li&gt;
@@ -468,7 +556,7 @@ Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validatin
 
 &lt;!--description--&gt;
 
-&lt;h3 id=&quot;some-useful-signals&quot;&gt;Some useful signals&lt;/h3&gt;
+&lt;h2 id=&quot;some-useful-signals&quot;&gt;Some useful signals&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SIGINT&lt;/code&gt;: is the program interrupt signal. When user presses &lt;code class=&quot;highlighter-rouge&quot;&gt;CTRL+C&lt;/code&gt;, the terminal emulator sends this signal to the foreground process, it will terminate process, but it can be caught or ignored, it a graceful shutdown&lt;/li&gt;
@@ -489,7 +577,7 @@ Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validatin
 
 &lt;p&gt;When a process is in a limbo state it is reasonable to send the process the &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGKILL&lt;/code&gt; signal, which can be invoked by running the kill command with the -9 flag. Unlike &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGTERM&lt;/code&gt; the &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGKILL&lt;/code&gt; signal cannot be captured by the process and thus it cannot be ignored. The &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGKILL&lt;/code&gt; signal is handled outside of the process completely, and is used to stop the process immediately. The problem with using &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGKILL&lt;/code&gt; is that it does not allow an application to close its open files or database connections cleanly and over time could cause other issues; therefor it is generally better to reserve the &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGKILL&lt;/code&gt; signal as a last resort.&lt;/p&gt;
 
-&lt;h3 id=&quot;reference--read-more&quot;&gt;Reference &amp;amp; Read more&lt;/h3&gt;
+&lt;h2 id=&quot;reference--read-more&quot;&gt;Reference &amp;amp; Read more&lt;/h2&gt;
 &lt;ol&gt;
   &lt;li&gt;http://bencane.com/2014/04/01/understanding-the-kill-command-and-how-to-terminate-processes-in-linux/&lt;/li&gt;
   &lt;li&gt;https://en.wikipedia.org/wiki/Unix_signal&lt;/li&gt;
@@ -526,7 +614,7 @@ Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validatin
 
 &lt;!--description--&gt;
 
-&lt;h3 id=&quot;1-export-large-tables-in-mysql&quot;&gt;1. Export large tables in MySQL&lt;/h3&gt;
+&lt;h2 id=&quot;1-export-large-tables-in-mysql&quot;&gt;1. Export large tables in MySQL&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Large tables&lt;/li&gt;
@@ -540,7 +628,7 @@ mysqldump -udevops -pxxxxxx -hhost.xxxx \
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;2-bash-completion-on-debian-9&quot;&gt;2. Bash completion on debian 9&lt;/h3&gt;
+&lt;h2 id=&quot;2-bash-completion-on-debian-9&quot;&gt;2. Bash completion on debian 9&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Autocomplete / hint when pressing tab&lt;/li&gt;
@@ -587,7 +675,7 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 
 &lt;!--description--&gt;
 
-&lt;h3 id=&quot;i-guest-aka-initiation-step-by-step&quot;&gt;I guest aka initiation step-by-step&lt;/h3&gt;
+&lt;h2 id=&quot;i-guest-aka-initiation-step-by-step&quot;&gt;I guest aka initiation step-by-step&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Somehow the init RDB button will trigger a form with all specs, then send sms directly to a fucking devops guy of AWS ;)))&lt;/li&gt;
@@ -628,7 +716,7 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 
 &lt;!--description--&gt;
 
-&lt;h3 id=&quot;fault-tolerance&quot;&gt;Fault tolerance&lt;/h3&gt;
+&lt;h2 id=&quot;fault-tolerance&quot;&gt;Fault tolerance&lt;/h2&gt;
 &lt;p&gt;It is the property that enables a system to &lt;strong&gt;continue operating&lt;/strong&gt; properly in the event of the &lt;strong&gt;failure&lt;/strong&gt; of (or one or more faults within) some of its &lt;strong&gt;components&lt;/strong&gt;. If its operating quality decreases at all, the decrease is proportional to the severity of the failure, as compared to a naively designed system in which even a small failure can cause total breakdown. Fault tolerance is particularly sought after in high-availability or life-critical systems.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -637,7 +725,7 @@ Depending on the DB instance class and the amount of storage, it can take up to 
   &lt;li&gt;Micro-services, seperated databases for some big components&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;single-point-of-failure&quot;&gt;Single point of failure&lt;/h3&gt;
+&lt;h2 id=&quot;single-point-of-failure&quot;&gt;Single point of failure&lt;/h2&gt;
 &lt;p&gt;A single point of failure (SPOF) is a &lt;strong&gt;part of a system&lt;/strong&gt; that, &lt;strong&gt;if it fails&lt;/strong&gt;, will &lt;strong&gt;stop the entire system&lt;/strong&gt; from working. SPOFs are undesirable in any system with a goal of high availability or reliability, be it a business practice, software application, or other industrial system.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -647,7 +735,7 @@ Depending on the DB instance class and the amount of storage, it can take up to 
   &lt;li&gt;Redis sentinel&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;defense-in-depth&quot;&gt;Defense in depth&lt;/h3&gt;
+&lt;h2 id=&quot;defense-in-depth&quot;&gt;Defense in depth&lt;/h2&gt;
 &lt;p&gt;Defense in depth (also known as Castle Approach) is an information assurance (IA) concept in which &lt;strong&gt;multiple layers of security controls&lt;/strong&gt; (defense) are placed throughout an information technology (IT) system. Its intent is to provide redundancy in the event a security control fails or a vulnerability is exploited that can cover aspects of personnel, procedural, technical and physical for the duration of the system’s life cycle.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -657,7 +745,7 @@ Depending on the DB instance class and the amount of storage, it can take up to 
   &lt;li&gt;Snort / Ossec&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;failover&quot;&gt;Failover&lt;/h3&gt;
+&lt;h2 id=&quot;failover&quot;&gt;Failover&lt;/h2&gt;
 &lt;p&gt;A method of protecting computer systems from failure, in which &lt;strong&gt;standby equipment automatically takes over when the main system fails&lt;/strong&gt;. In computing, failover is switching to a redundant or standby computer server, system, hardware component or network upon the failure or abnormal termination of the previously active application, server, system, hardware component, or network. Failover and switchover are essentially the same operation, except that failover is automatic and usually operates without warning, while &lt;strong&gt;switchover requires human intervention&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -665,7 +753,7 @@ Depending on the DB instance class and the amount of storage, it can take up to 
   &lt;li&gt;Auto promote on MySQL replication&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;heartbeat&quot;&gt;Heartbeat&lt;/h3&gt;
+&lt;h2 id=&quot;heartbeat&quot;&gt;Heartbeat&lt;/h2&gt;
 &lt;p&gt;In computer science, a heartbeat is a &lt;strong&gt;periodic signal&lt;/strong&gt; generated by hardware or software to &lt;strong&gt;indicate normal operation or to synchronize&lt;/strong&gt; other parts of a computer system. Usually a heartbeat is &lt;strong&gt;sent between machines&lt;/strong&gt; at a regular interval in the order of seconds. If the endpoint does &lt;strong&gt;not receive a heartbeat&lt;/strong&gt; for a time —usually a few heartbeat intervals—, the machine that should have sent the heartbeat is &lt;strong&gt;assumed to have failed&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -673,7 +761,7 @@ Depending on the DB instance class and the amount of storage, it can take up to 
   &lt;li&gt;Percona pt-heartbeat&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;infrastructure-as-code&quot;&gt;Infrastructure as code&lt;/h3&gt;
+&lt;h2 id=&quot;infrastructure-as-code&quot;&gt;Infrastructure as code&lt;/h2&gt;
 &lt;p&gt;All configuration is defined in executable configuration definition files, such as shell scripts, Ansible playbooks, Chef recipes, or Puppet manifests …&lt;/p&gt;
 
 &lt;ul&gt;
@@ -855,194 +943,6 @@ tmpfs           396M     0  396M   0% /run/user/1000
         <pubDate>Thu, 14 Dec 2017 00:00:00 +0700</pubDate>
         <link>https://llnx.me/technical/2017/12/14/Increase-EBS-volume.html</link>
         <guid isPermaLink="true">https://llnx.me/technical/2017/12/14/Increase-EBS-volume.html</guid>
-        
-        
-        <category>technical</category>
-        
-      </item>
-    
-      <item>
-        <title>Understanding top command</title>
-        <description>&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;#understanding-top-command&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;top&lt;/code&gt;&lt;/a&gt;&lt;/strong&gt; is a monitoring program which is used frequently for tracking process’s resource usage and its activity in &lt;strong&gt;real-time&lt;/strong&gt;, show current tasks being serviced by the kernel, help &lt;strong&gt;discovering&lt;/strong&gt; and &lt;strong&gt;diagnosing&lt;/strong&gt; overload or capacity of system by seeing &lt;strong&gt;CPU &amp;amp; Mem usage&lt;/strong&gt;. It’s available under many Unix/Linux operating systems.&lt;/p&gt;
-
-&lt;p&gt;Keyword: &lt;a href=&quot;/technical/2017/07/16/Understanding-top-command.html#understanding-top-command&quot;&gt;top&lt;/a&gt;, 
-         &lt;a href=&quot;/technical/2017/07/16/Understanding-top-command.html#1-date-and-uptime&quot;&gt;uptime&lt;/a&gt;, 
-         &lt;a href=&quot;/technical/2017/07/16/Understanding-top-command.html#2-number-of-logged-users&quot;&gt;users&lt;/a&gt;, 
-         &lt;a href=&quot;/technical/2017/07/16/Understanding-top-command.html#3-load-average&quot;&gt;load average&lt;/a&gt;,
-         &lt;a href=&quot;/technical/2017/07/16/Understanding-top-command.html#4-processthread-state&quot;&gt;process/thread state&lt;/a&gt;,
-         &lt;a href=&quot;/technical/2017/07/16/Understanding-top-command.html#5-cpu-organization-and-operation&quot;&gt;CPU operation&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/top-command-optimized.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;!--description--&gt;
-
-&lt;h2 id=&quot;description-from-man-page&quot;&gt;Description from man page:&lt;/h2&gt;
-&lt;p&gt;The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of processes or threads currently being managed by the Linux kernel. The types of system summary information shown and the types order and size of information displayed for processes are all user configurable and that configuration can be  made persistent across restarts.&lt;/p&gt;
-
-&lt;p&gt;The program provides a limited interactive interface for process manipulation as well as a much more extensive interface for personal configuration - encompassing every aspect of its operation. And while top is referred to throughout this document, you are free to name the program anything you wish. That new name, possibly an alias, will then be reflected on top’s display and used when reading and writing a configuration file. …&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;❯❯ Need more?&lt;/strong&gt; See &lt;a href=&quot;http://man7.org/linux/man-pages/man1/top.1.html&quot;&gt;http://man7.org/linux/man-pages/man1/top.1.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;But it’s too fucking long 💢 and want to see the whole picture? 🌟 Sure, I have a picture below&lt;/p&gt;
-
-&lt;h2 id=&quot;understanding-top-command&quot;&gt;Understanding top command&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/top-command.webp&quot; alt=&quot;large-img&quot; title=&quot;Top command explaination&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;1-date-and-uptime&quot;&gt;1. Date and uptime&lt;/h3&gt;
-&lt;p&gt;Current time is &lt;strong&gt;13:41&lt;/strong&gt;, and system has been running for over &lt;strong&gt;5 weeks&lt;/strong&gt;, from last boot on &lt;strong&gt;May 17&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;top - 13:41:31 up 38 days, 21:04,  3 users,  load average: 0.01, 0.09, 0.13
-❯❯ date
-Sun Jun 25 13:41:31 UTC 2017
-❯❯ uptime
-13:41:31 up 38 days, 21:04,  3 users,  load average: 0.01, 0.09, 0.13
-❯❯ uptime -p
-up 5 weeks, 3 days, 21 hours, 6 minutes
-❯❯ uptime -s
-2017-05-17 16:37:26
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;2-number-of-logged-users&quot;&gt;2. Number of logged users&lt;/h3&gt;
-&lt;p&gt;I have 3 logged users and what they are doing:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;one is running ssh to other&lt;/li&gt;
-  &lt;li&gt;one is on bash shell&lt;/li&gt;
-  &lt;li&gt;and … me with &lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt; command&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;3 users
-❯❯ w
- 13:41:31 up 38 days, 21:04,  3 users,  load average: 0.00, 0.01, 0.05
-USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
-ubuntu   pts/0    x.205.x.xxx      13:09    1:34   0.07s  0.03s ssh abc.xyz
-ubuntu   pts/3    x.64.xx.xxx      05:11    8:36m  0.05s  0.01s -bash
-ubuntu   pts/6    x.161.x.xxx      13:47    3.00s  0.04s  0.00s w
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;3-load-average&quot;&gt;3. Load average&lt;/h3&gt;
-&lt;p&gt;The &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;load average&lt;/code&gt;&lt;/strong&gt; is a number corresponding to the average number of &lt;strong&gt;runnable processes&lt;/strong&gt; on the system. The load average is often listed as three sets of numbers, which represent the load average for the past 1, 5, and 15 minutes. - from &lt;a href=&quot;https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Introduction_To_System_Administration/s2-bandwidth-rhlspec-cpu.html&quot;&gt;RedHat&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;On Linux systems, these numbers include &lt;strong&gt;processes wanting to run on CPU&lt;/strong&gt;, as well as processes blocked in uninterruptible I/O (usually disk I/O). This gives a high level idea of &lt;strong&gt;resource load&lt;/strong&gt; (or demand). The three numbers give us some idea of &lt;strong&gt;how load is changing over time&lt;/strong&gt;. For example, if you’ve been asked to check a problem server, and the 1 minute value is much lower than the 15 minute value, then you might have logged in too late and missed the issue - from &lt;a href=&quot;https://medium.com/netflix-techblog/linux-performance-analysis-in-60-000-milliseconds-accc10403c55&quot;&gt;Netfilx Techblog&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Runable processes&lt;/code&gt;&lt;/strong&gt; means: running and blocked processes (usually by I/O). That’s really important because it means that you can have &lt;code class=&quot;highlighter-rouge&quot;&gt;0% CPU usage&lt;/code&gt; and still have &lt;code class=&quot;highlighter-rouge&quot;&gt;high load&lt;/code&gt;. The processes blocked on I/O show up in the “&lt;strong&gt;D&lt;/strong&gt;” state in &lt;code class=&quot;highlighter-rouge&quot;&gt;ps&lt;/code&gt;, header “STAT” or “S”&lt;/p&gt;
-
-&lt;p&gt;Lower numbers are better than higher numbers. If the third number is &lt;strong&gt;too high&lt;/strong&gt; (15 minutes ago), I think we got a problem about the performance to deal with. But what’s the &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Threshold&lt;/code&gt;&lt;/strong&gt;, what’s too high. We need a reasonable and &lt;strong&gt;acceptable value&lt;/strong&gt; for comparison.&lt;/p&gt;
-
-&lt;h4 id=&quot;31-single-logical-cpu&quot;&gt;3.1 Single logical CPU&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;In general&lt;/strong&gt;, with &lt;code class=&quot;highlighter-rouge&quot;&gt;one logical CPU&lt;/code&gt; - 1 vCPU, &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Threshold = 0.7&lt;/code&gt;&lt;/strong&gt; is a best practice, many sysadmins will draw a line at 0.70.&lt;/p&gt;
-
-&lt;p&gt;For example in case of 1 vCPU:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;load average: 1.25, 0.60, 4.20
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;over the last 1 minute: System was overloaded by &lt;code class=&quot;highlighter-rouge&quot;&gt;25% on average&lt;/code&gt;. 0.25 processes were waiting for the CPU&lt;/li&gt;
-  &lt;li&gt;over the last 5 minutes: CPU &lt;code class=&quot;highlighter-rouge&quot;&gt;idled for 40%&lt;/code&gt; of the time. &lt;strong&gt;It’s acceptable&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;over the last 15 minutes: System was &lt;code class=&quot;highlighter-rouge&quot;&gt;overloaded by 320%&lt;/code&gt; on average. 3.20 processes were waiting for the CPU.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;32--multi-logical-cpus&quot;&gt;3.2  Multi-logical CPUs&lt;/h4&gt;
-&lt;p&gt;With 4 logical CPUs system? It’s still healthy with a load of 2.80 - 3.00. On multi-logical CPUs system, the load is relative to the number of vCPUs available.&lt;/p&gt;
-
-&lt;p&gt;The “100% utilization” mark is 1.00 on a single-logical CPU system, 2.00, on a dual vCPUs, 4.00 on a quad-vCPUs, etc.&lt;/p&gt;
-
-&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;top&lt;/code&gt; command, press &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt; for each vCPU is displayed seperately, also to know number of vCPU.
-I have 4 vCPUs in this case, using EC2 AWS C4 type, low load average&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;top - 09:10:00 up 32 days, 6 min,  2 users,  load average: 0.01, 0.04, 0.05
-Tasks: 125 total,   1 running, 124 sleeping,   0 stopped,   0 zombie
-%Cpu0  :  0.7 us,  0.0 sy,  0.0 ni, 99.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-%Cpu1  :  0.0 us,  0.3 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-%Cpu2  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-%Cpu3  :  5.0 us,  0.3 sy,  0.0 ni, 94.6 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Something more:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;💢 &lt;strong&gt;Confusing&lt;/strong&gt; about vCPUs/cores/threads - See &lt;a href=&quot;https://github.com/hieuhtr/Blog/issues/55&quot;&gt;CPU Architecture fundamental&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;🌟 For &lt;strong&gt;deep understanding&lt;/strong&gt; about load average - See &lt;a href=&quot;http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages&quot;&gt;this post&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;🌟 For another example - See &lt;a href=&quot;https://en.wikipedia.org/wiki/Load_%28computing%29#Unix-style_load_calculation&quot;&gt;wiki&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;🌟 Case: High load average but low CPU ultilization - See &lt;a href=&quot;https://www.pitt-pladdy.com/blog/_20150829-125708_0100_Linux_performance_metric_myths_Load_Average_IO_Wait_/&quot;&gt;this post&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;4-processthread-state&quot;&gt;4. Process/Thread state&lt;/h3&gt;
-&lt;p&gt;Let’s focus on &lt;strong&gt;Area1&lt;/strong&gt; in that &lt;a href=&quot;/technical/2017/07/16/Understanding-top-command.html#understanding-top-command&quot;&gt;overview picture&lt;/a&gt; above. In that top area, &lt;code class=&quot;highlighter-rouge&quot;&gt;top&lt;/code&gt; shows the total number of processes and how many of them are running. But it says &lt;strong&gt;Tasks&lt;/strong&gt; not &lt;strong&gt;Processes&lt;/strong&gt;. Because another name for a process is a task. The Linux kernel internally refers to processes as tasks.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Tasks: 283 total,   1 running, 282 sleeping,   0 stopped,   0 zombie
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;From the time a process is born to when it is terminated, the process proceeds through various states. Those states can include &lt;strong&gt;Runnable&lt;/strong&gt;, &lt;strong&gt;Running&lt;/strong&gt;, &lt;strong&gt;Sleeping&lt;/strong&gt; (in memory and on disk), and &lt;strong&gt;Zombie&lt;/strong&gt; states - from &lt;a href=&quot;https://access.redhat.com/sites/default/files/attachments/processstates_20120831.pdf&quot;&gt;Redhat&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/process-state.webp&quot; alt=&quot;&quot; title=&quot;Process state life cycle&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;41-runable-state&quot;&gt;4.1 Runable state&lt;/h4&gt;
-&lt;p&gt;When a process is in a Runnable state, it means it has all the resources it needs to run, except that the CPU
-is not available.&lt;/p&gt;
-
-&lt;p&gt;For example: A process is dealing with I/O, so it does not immediately need the CPU,  when the process finishes the I/O operation, a signal is generated to the CPU and the scheduler keeps that process in the run queue (the list of ready-to-run processes maintained by the kernel) - &lt;strong&gt;Runable&lt;/strong&gt;. When the CPU is available, this process will enter into &lt;strong&gt;Running&lt;/strong&gt; state&lt;/p&gt;
-
-&lt;h4 id=&quot;42-running-state&quot;&gt;4.2 Running state&lt;/h4&gt;
-&lt;p&gt;The process that is executing and using the CPU at a particular moment is called a &lt;strong&gt;Running&lt;/strong&gt; process.&lt;/p&gt;
-
-&lt;p&gt;A CPU can execute either in kernel mode (sy) or in user mode (us). When a user initiates a process, the process starts working in user mode. That user mode process does not have access to kernel data structures or algorithms. Each CPU type provides special instructions to switch from user mode to kernel mode - they’re &lt;strong&gt;system calls&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;System calls&lt;/strong&gt;: communication chanel between user space program and kernel&lt;/p&gt;
-
-&lt;h4 id=&quot;43-sleeping-state&quot;&gt;4.3 Sleeping state&lt;/h4&gt;
-&lt;p&gt;A process enters a &lt;strong&gt;Sleeping&lt;/strong&gt; state when it needs resources that are not currently available. At that point, it either goes voluntarily into Sleep state or the kernel puts it into Sleep state. Going into Sleep state means the process immediately gives up its access to the CPU.&lt;/p&gt;
-
-&lt;p&gt;When the resource the process is waiting on becomes available, a signal is sent to the CPU. The next time the scheduler gets a chance to schedule this sleeping process, the scheduler will put the process either in Running or Runnable state&lt;/p&gt;
-
-&lt;h4 id=&quot;44-terminatedstopped-state&quot;&gt;4.4 Terminated/Stopped state&lt;/h4&gt;
-&lt;p&gt;Processes can end when they call the exit system themselves or receive signals to end. We use &lt;code class=&quot;highlighter-rouge&quot;&gt;kill -9 &amp;lt;PID&amp;gt;&lt;/code&gt; to kill a process.&lt;/p&gt;
-
-&lt;p&gt;See more at &lt;a href=&quot;https://github.com/hieuhtr/Blog/blob/master/2017/Signal-of-Linux.md&quot;&gt;Signals&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;45-zombie-state&quot;&gt;4.5 Zombie state&lt;/h4&gt;
-&lt;p&gt;When a process dies on Linux, it isn’t all removed from memory immediately — its process descriptor stays in memory (the process descriptor only takes a tiny amount of memory). The process’s status becomes &lt;code class=&quot;highlighter-rouge&quot;&gt;EXIT_ZOMBIE&lt;/code&gt; and the process’s parent is notified that its child process has died with the &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGCHLD&lt;/code&gt; signal. The parent process is then supposed to execute the &lt;code class=&quot;highlighter-rouge&quot;&gt;wait()&lt;/code&gt; system call to read the dead process’s exit status and other information. This allows the parent process to get information from the dead process. After &lt;code class=&quot;highlighter-rouge&quot;&gt;wait()&lt;/code&gt; is called, the zombie process is completely removed from memory.&lt;/p&gt;
-
-&lt;p&gt;This normally happens very quickly, so you won’t see zombie processes accumulating on your system. However, if a parent process isn’t programmed properly and never calls wait(), its zombie children will stick around in memory until they’re cleaned up. - from &lt;a href=&quot;https://www.howtogeek.com/119815/htg-explains-what-is-a-zombie-process-on-linux/&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Zombies that exist for more than a short period of time typically indicate a bug in the parent program, or just an uncommon decision to not reap children (see example). If the parent program is no longer running, zombie processes typically indicate a bug in the operating system. - from &lt;a href=&quot;https://en.wikipedia.org/wiki/Zombie_process&quot;&gt;Wiki&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Here are the different values that the s, stat and state output specifiers (header “STAT” or “S”) will display to describe the state of a process:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;D:    uninterruptible sleep (usually IO)&lt;/li&gt;
-  &lt;li&gt;R:    running or runnable (on run queue)&lt;/li&gt;
-  &lt;li&gt;S:    interruptible sleep (waiting for an event to complete)&lt;/li&gt;
-  &lt;li&gt;T:    stopped by job control signal&lt;/li&gt;
-  &lt;li&gt;t:    stopped by debugger during the tracing&lt;/li&gt;
-  &lt;li&gt;W:    paging (not valid since the 2.6.xx kernel)&lt;/li&gt;
-  &lt;li&gt;X:    dead (should never be seen)&lt;/li&gt;
-  &lt;li&gt;Z:    defunct (“zombie”) process, terminated but not reaped by its parent&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;See state of all processes by using &lt;code class=&quot;highlighter-rouge&quot;&gt;ps -el&lt;/code&gt; command.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;❯❯ ps -el
-F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
-4 S     0     1     0  0  80   0 - 29910 -      ?        00:00:04 systemd
-1 S     0     2     0  0  80   0 -     0 -      ?        00:00:00 kthreadd
-1 S     0     4     2  0  60 -20 -     0 -      ?        00:00:00 kworker/0:0H
-...
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Something more:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Understanding Linux Process States- See &lt;a href=&quot;https://access.redhat.com/sites/default/files/attachments/processstates_20120831.pdf&quot;&gt;document from RedHat&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Signals- See &lt;a href=&quot;https://github.com/hieuhtr/Blog/blob/master/2017/Signal-of-Linux.md&quot;&gt;Signals of Linux&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Zombie process - See &lt;a href=&quot;https://en.wikipedia.org/wiki/Zombie_process&quot;&gt;Wiki&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;5-cpu-organization-and-operation&quot;&gt;5. CPU organization and operation&lt;/h3&gt;
-</description>
-        <pubDate>Sun, 16 Jul 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/07/16/Understanding-top-command.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/07/16/Understanding-top-command.html</guid>
         
         
         <category>technical</category>
