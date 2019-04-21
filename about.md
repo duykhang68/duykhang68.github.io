@@ -6,7 +6,7 @@ permalink: /about/
 
 {% include author.html %}
 
-[llnx.me](https://llnx.me) is my blog about Linux, Database, Infrastructure, some mathematics, and mindset. I decided to start this blog in order to share my passion with people like me and to improve my knowledge.
+[blog.tracelog.in](https://blog.tracelog.in) is my blog about Linux, Database, Infrastructure, some mathematics, and mindset. I decided to start this blog in order to share my passion with people like me and to improve my knowledge.
 
 I hope you’ll enjoy it.
 

@@ -10,7 +10,7 @@ title: Hieu's blog
 email: huynhtrunghieu.cs@gmail.com
 description: My blog about Linux, Database, Infrastructure, some mathematics, and mindset.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://llnx.me" # the base hostname & protocol for your site
+url: "https://blog.tracelog.in" # the base hostname & protocol for your site
 github_username: hieuhtr 
 
 plugins: 

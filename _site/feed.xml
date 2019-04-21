@@ -3,10 +3,10 @@
   <channel>
     <title>Hieu's blog</title>
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
-    <link>https://llnx.me/</link>
-    <atom:link href="https://llnx.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 23 Mar 2019 10:45:51 +0700</pubDate>
-    <lastBuildDate>Sat, 23 Mar 2019 10:45:51 +0700</lastBuildDate>
+    <link>https://blog.tracelog.in/</link>
+    <atom:link href="https://blog.tracelog.in/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 21 Apr 2019 08:14:18 +0700</pubDate>
+    <lastBuildDate>Sun, 21 Apr 2019 08:14:18 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
@@ -43,7 +43,7 @@
 
 &lt;p&gt;=&amp;gt; &lt;strong&gt;Improve our mindset&lt;/strong&gt; for making alerting/monitoring/logging system better during live issues, driving improvements at every part of entire our system&lt;/p&gt;
 
-&lt;h3 id=&quot;standard-flow-for-on-call-duty-life-cycle&quot;&gt;Standard flow for on-call duty life cycle&lt;/h3&gt;
+&lt;h2 id=&quot;standard-flow-for-on-call-duty-life-cycle&quot;&gt;Standard flow for on-call duty life cycle&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;strong&gt;Build&lt;/strong&gt;: init monitoring &amp;amp; logging system that help us detect live failures before most customers notice a problem, set up a reliable alerting system (pagerduty) to make sure we can receive alerts immediately&lt;/li&gt;
@@ -85,8 +85,8 @@
 &lt;/ol&gt;
 </description>
         <pubDate>Sat, 23 Mar 2019 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/mindset,%20technical/2019/03/23/The-art-of-on-call-duty.html</link>
-        <guid isPermaLink="true">https://llnx.me/mindset,%20technical/2019/03/23/The-art-of-on-call-duty.html</guid>
+        <link>https://blog.tracelog.in/mindset,%20technical/2019/03/23/The-art-of-on-call-duty.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/mindset,%20technical/2019/03/23/The-art-of-on-call-duty.html</guid>
         
         
         <category>mindset, technical</category>
@@ -125,8 +125,8 @@
 &lt;p&gt;&lt;strong&gt;It’s all about trade-offs and makes the right decisions.&lt;/strong&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 08 Jan 2019 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/mindset/2019/01/08/Some-meaningful-thoughts-for-entire-2018.html</link>
-        <guid isPermaLink="true">https://llnx.me/mindset/2019/01/08/Some-meaningful-thoughts-for-entire-2018.html</guid>
+        <link>https://blog.tracelog.in/mindset/2019/01/08/Some-meaningful-thoughts-for-entire-2018.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/mindset/2019/01/08/Some-meaningful-thoughts-for-entire-2018.html</guid>
         
         
         <category>mindset</category>
@@ -174,8 +174,8 @@ Dec 05 15:38:39 ahihi systemd[1]: Stopped OpenBSD Secure Shell server.
 
 </description>
         <pubDate>Wed, 05 Dec 2018 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/security/2018/12/05/Critial-vulnerability-on-policykit-of-systemd.html</link>
-        <guid isPermaLink="true">https://llnx.me/security/2018/12/05/Critial-vulnerability-on-policykit-of-systemd.html</guid>
+        <link>https://blog.tracelog.in/security/2018/12/05/Critial-vulnerability-on-policykit-of-systemd.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/security/2018/12/05/Critial-vulnerability-on-policykit-of-systemd.html</guid>
         
         
         <category>security</category>
@@ -428,8 +428,8 @@ All packages are up to date.
 &lt;/ol&gt;
 </description>
         <pubDate>Tue, 11 Sep 2018 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2018/09/11/Debian-on-android-shell.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2018/09/11/Debian-on-android-shell.html</guid>
+        <link>https://blog.tracelog.in/technical/2018/09/11/Debian-on-android-shell.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/technical/2018/09/11/Debian-on-android-shell.html</guid>
         
         
         <category>technical</category>
@@ -529,8 +529,8 @@ Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validatin
 &lt;/ol&gt;
 </description>
         <pubDate>Sat, 25 Aug 2018 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/mindset/2018/08/25/Solving-blaming-game.html</link>
-        <guid isPermaLink="true">https://llnx.me/mindset/2018/08/25/Solving-blaming-game.html</guid>
+        <link>https://blog.tracelog.in/mindset/2018/08/25/Solving-blaming-game.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/mindset/2018/08/25/Solving-blaming-game.html</guid>
         
         
         <category>mindset</category>
@@ -593,8 +593,8 @@ Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validatin
 
 </description>
         <pubDate>Wed, 15 Aug 2018 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2018/08/15/Signal-of-linux.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2018/08/15/Signal-of-linux.html</guid>
+        <link>https://blog.tracelog.in/technical/2018/08/15/Signal-of-linux.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/technical/2018/08/15/Signal-of-linux.html</guid>
         
         
         <category>technical</category>
@@ -647,8 +647,8 @@ fi
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 06 Aug 2018 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</link>
-        <guid isPermaLink="true">https://llnx.me/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</guid>
+        <link>https://blog.tracelog.in/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</guid>
         
         
         <category>today-i-learned</category>
@@ -688,8 +688,8 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 &lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html&quot;&gt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 24 Jul 2018 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2018/07/24/RDS-as-a-fckin-service.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2018/07/24/RDS-as-a-fckin-service.html</guid>
+        <link>https://blog.tracelog.in/technical/2018/07/24/RDS-as-a-fckin-service.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/technical/2018/07/24/RDS-as-a-fckin-service.html</guid>
         
         
         <category>technical</category>
@@ -775,8 +775,8 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 &lt;/ol&gt;
 </description>
         <pubDate>Wed, 18 Jul 2018 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2018/07/18/Mindset-for-building-HA-system.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2018/07/18/Mindset-for-building-HA-system.html</guid>
+        <link>https://blog.tracelog.in/technical/2018/07/18/Mindset-for-building-HA-system.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/technical/2018/07/18/Mindset-for-building-HA-system.html</guid>
         
         
         <category>technical</category>
@@ -937,8 +937,8 @@ tmpfs           396M     0  396M   0% /run/user/1000
 &lt;p&gt;&lt;a href=&quot;http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html&quot;&gt;http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 Dec 2017 00:00:00 +0700</pubDate>
-        <link>https://llnx.me/technical/2017/12/14/Increase-EBS-volume.html</link>
-        <guid isPermaLink="true">https://llnx.me/technical/2017/12/14/Increase-EBS-volume.html</guid>
+        <link>https://blog.tracelog.in/technical/2017/12/14/Increase-EBS-volume.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/technical/2017/12/14/Increase-EBS-volume.html</guid>
         
         
         <category>technical</category>

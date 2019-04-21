@@ -1,6 +1,6 @@
 # About
 
-I'm an engineer who likes learning, discussing, and solving problems. These days, I'm focusing on DevOps because I'd love to help ensure that services stay up and running, while continuing to ship software to customers rapidly. I also have a passion for building robust infrastructure at world scale. [llnx.me](https://llnx.me) is my blog about Linux, Database, Infrastructure, some mathematics, and mindset. I decided to start this blog in order to share my passion with people like me and to improve my knowledge.
+I'm an engineer who likes learning, discussing, and solving problems. These days, I'm focusing on DevOps because I'd love to help ensure that services stay up and running, while continuing to ship software to customers rapidly. I also have a passion for building robust infrastructure at world scale. [blog.tracelog.in](https://blog.tracelog.in) is my blog about Linux, Database, Infrastructure, some mathematics, and mindset. I decided to start this blog in order to share my passion with people like me and to improve my knowledge.
 
 I hope you’ll enjoy it.
 
