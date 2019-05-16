@@ -5,8 +5,8 @@
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://blog.tracelog.in/</link>
     <atom:link href="https://blog.tracelog.in/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 11 May 2019 10:27:30 +0700</pubDate>
-    <lastBuildDate>Sat, 11 May 2019 10:27:30 +0700</lastBuildDate>
+    <pubDate>Thu, 16 May 2019 11:44:34 +0700</pubDate>
+    <lastBuildDate>Thu, 16 May 2019 11:44:34 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
@@ -85,11 +85,11 @@
 &lt;/ol&gt;
 </description>
         <pubDate>Sat, 23 Mar 2019 00:00:00 +0700</pubDate>
-        <link>https://blog.tracelog.in/mindset,%20technical/2019/03/23/The-art-of-on-call-duty.html</link>
-        <guid isPermaLink="true">https://blog.tracelog.in/mindset,%20technical/2019/03/23/The-art-of-on-call-duty.html</guid>
+        <link>https://blog.tracelog.in/mindset/2019/03/23/The-art-of-on-call-duty.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/mindset/2019/03/23/The-art-of-on-call-duty.html</guid>
         
         
-        <category>mindset, technical</category>
+        <category>mindset</category>
         
       </item>
     
@@ -647,11 +647,11 @@ fi
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 06 Aug 2018 00:00:00 +0700</pubDate>
-        <link>https://blog.tracelog.in/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</link>
-        <guid isPermaLink="true">https://blog.tracelog.in/today-i-learned/2018/08/06/Learning-logs-in-Aug.html</guid>
+        <link>https://blog.tracelog.in/technical/2018/08/06/Learning-logs-in-Aug.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/technical/2018/08/06/Learning-logs-in-Aug.html</guid>
         
         
-        <category>today-i-learned</category>
+        <category>technical</category>
         
       </item>
     

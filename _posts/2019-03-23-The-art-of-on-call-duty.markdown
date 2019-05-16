@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The art of on-call duty
-category: mindset, technical
+category: mindset
 description: responsibility for angthing we did, how to solve and improve after incidents
 ---
 

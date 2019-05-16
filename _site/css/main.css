@@ -791,14 +791,17 @@ li {
 /* Code
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 code {
-  color: #C25;
+  /* color: #C25; */
+  color: #222222;
   padding: .2rem .5rem;
   margin: 0 .2rem;
   font-size: 90%;
   white-space: nowrap;
-  background-image: url(/assets/img/snippet_bg.webp);
-  border: 1px dashed #E1E1E1;
-  line-height: 1.5; }
+  line-height: 1.5;
+  /* background-image: url(/assets/img/snippet_bg.webp); */
+  /* border: 1px dashed #E1E1E1; */
+  background-color: #ebf1f5;
+  border: 1px solid #bbccdd; }
 
 pre > code {
   display: block;

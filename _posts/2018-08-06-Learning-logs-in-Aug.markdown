@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Learning logs in Aug
-category: today-i-learned
+category: technical
 description: today I learned TIL, devops practice, weekly personal logs
 ---
 
