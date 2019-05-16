@@ -801,12 +801,16 @@ code {
   /* background-image: url(/assets/img/snippet_bg.webp); */
   /* border: 1px dashed #E1E1E1; */
   background-color: #ebf1f5;
-  border: 1px solid #bbccdd; }
+  border-width: 0;
+  border-radius: 0;
+  font-family: monospace; }
 
 pre > code {
   display: block;
   overflow: auto;
-  white-space: pre; }
+  white-space: pre;
+  font-family: monospace;
+  border: 1px solid #bbccdd; }
 
 /* Tables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
