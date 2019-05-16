@@ -1,7 +1,7 @@
 body { margin: 0;
        padding: 0;
-       background-color: #fff font-size: 12px;
-       font-family: 'Source Sans Pro', sans-serif;
+       background-color: #fff font-size: 11px;
+       font-family: 'Lato', sans-serif;
        -webkit-font-smoothing: subpixel-antialiased;
 }
 * { box-sizing: border-box;
@@ -17,28 +17,28 @@ h1 { font-weight: 300;
      color:#e47911;
      padding: 0 10px 10px;
      border-radius:2px;
-    font-family: 'Merriweather', serif;
+    font-family: 'Lato', serif;
 }
 h2 { color: #e47911;
      width: 150px;
      font-size: 18px;
      padding-left: 20px;
      font-weight:400;
-     font-family: 'Merriweather', serif;
+     font-family: 'Lato', serif;
 }
 h2:first-letter { font-size: 150%; }
 h3 { font-size: 18px;
      font-weight: bold;
      margin-bottom: 0;
      line-height: 28px;
-     font-family: 'Merriweather', serif;
+     font-family: 'Lato', serif;
 }
 h4 { font-weight: 300;
      margin: 5px 0 0;
      font-size: 15px;
      padding: 0 13px 10px;
      border-radius:2px;
-    font-family: 'Merriweather', serif;
+    font-family: 'Lato', serif;
 }
 h2, h3 { margin-top: 5px }
 a { color: #e47911;
@@ -74,14 +74,14 @@ a:hover {
                 padding: 0 10px;
 }
 .subsection { margin: 10px 0 5px }
-.desc { font-size: 16px; font-family: 'Source Sans Pro', sans-serif; color:#444;}
+.desc { font-size: 16px; font-family: 'Lato', sans-serif; color:#444;}
 .contact-info { font-size: 16px;
                 text-align: right;
 }
 .light { color: #aaa;letter-spacing:1px;
          font-size: 14px;
          line-height:28px;
-         font-family: 'Source Sans Pro', sans-serif;
+         font-family: 'Lato', sans-serif;
          text-transform:uppercase;
 }
 ul{
