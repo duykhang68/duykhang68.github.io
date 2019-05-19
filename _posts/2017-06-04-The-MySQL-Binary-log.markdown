@@ -13,6 +13,10 @@ image:
 
 <!--description-->
 
+**Table of Contents**
+* TOC
+{:toc}
+
 ## The binary log has two important purposes:
 1. For replication, the binary log on a master replication server provides a record of the data changes to be sent to slave servers.
    The master server sends the events contained in its binary log to its slaves, 

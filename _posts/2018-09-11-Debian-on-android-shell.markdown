@@ -21,6 +21,10 @@ Arch: armv7l
 
 <!--description-->
 
+**Table of Contents**
+* TOC
+{:toc}
+
 ## A. Knowledge base
 
 For accessing default android shell, we need `adb` tools. For booting operation with custom image, we use `fastboot` or `adb reboot recovery`.

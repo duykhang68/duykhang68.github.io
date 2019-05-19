@@ -15,6 +15,10 @@ Nowadays, there are many many contexts & examples for blaming. I only want to wi
 
 <!--description-->
 
+**Table of Contents**
+* TOC
+{:toc}
+
 ## 1. Real life example
 
 Working on infras of someone else, working on services that not be built by ourself

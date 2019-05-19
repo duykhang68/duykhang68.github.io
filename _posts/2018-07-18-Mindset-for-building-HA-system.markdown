@@ -17,6 +17,10 @@ description: fault tolerance, SPOF, Failover, Infrastructure as code
 
 <!--description-->
 
+**Table of Contents**
+* TOC
+{:toc}
+
 ## Fault tolerance
 It is the property that enables a system to **continue operating** properly in the event of the **failure** of (or one or more faults within) some of its **components**. If its operating quality decreases at all, the decrease is proportional to the severity of the failure, as compared to a naively designed system in which even a small failure can cause total breakdown. Fault tolerance is particularly sought after in high-availability or life-critical systems. 
 

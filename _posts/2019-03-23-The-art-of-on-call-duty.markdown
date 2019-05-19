@@ -15,6 +15,11 @@ Being on-call means working/fixing live issues under high pressure and almost du
 <iframe src="https://giphy.com/embed/NTur7XlVDUdqM" width="660" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 <!--description-->
 
+**Table of Contents**
+* TOC
+{:toc}
+
+
 ## THE ART OF ON-CALL DUTY
 
 Important points:
@@ -30,7 +35,7 @@ Important points:
 
 => **Improve our mindset** for making alerting/monitoring/logging system better during live issues, driving improvements at every part of entire our system
 
-## Standard flow for on-call duty life cycle
+## STANDARD FLOW FOR ON-CALL DUTY LIFE CYCLE
 
 0. **Build**: init monitoring & logging system that help us detect live failures before most customers notice a problem, set up a reliable alerting system (pagerduty) to make sure we can receive alerts immediately 
 1. **Prepare**: rotating SRE team member by shift to make sure we always have at least one guy to take care production anytime, also covered with always ready machine/LTE/phone

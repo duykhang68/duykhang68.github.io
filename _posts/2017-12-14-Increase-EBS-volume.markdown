@@ -17,6 +17,10 @@ description: Increase AWS EBS volume
 
 <!--description-->
 
+**Table of Contents**
+* TOC
+{:toc}
+
 ## Solution
 
 Resize file system to larger size of this volume

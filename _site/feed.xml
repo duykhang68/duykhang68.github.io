@@ -5,8 +5,8 @@
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://blog.tracelog.in/</link>
     <atom:link href="https://blog.tracelog.in/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 16 May 2019 18:11:25 +0700</pubDate>
-    <lastBuildDate>Thu, 16 May 2019 18:11:25 +0700</lastBuildDate>
+    <pubDate>Sun, 19 May 2019 20:49:13 +0700</pubDate>
+    <lastBuildDate>Sun, 19 May 2019 20:49:13 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
@@ -22,6 +22,14 @@
 
 &lt;iframe src=&quot;https://giphy.com/embed/NTur7XlVDUdqM&quot; width=&quot;660&quot; height=&quot;360&quot; frameborder=&quot;0&quot; class=&quot;giphy-embed&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 &lt;!--description--&gt;
+
+&lt;p&gt;&lt;strong&gt;Table of Contents&lt;/strong&gt;&lt;/p&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-art-of-on-call-duty&quot; id=&quot;markdown-toc-the-art-of-on-call-duty&quot;&gt;THE ART OF ON-CALL DUTY&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#standard-flow-for-on-call-duty-life-cycle&quot; id=&quot;markdown-toc-standard-flow-for-on-call-duty-life-cycle&quot;&gt;STANDARD FLOW FOR ON-CALL DUTY LIFE CYCLE&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#root-cause&quot; id=&quot;markdown-toc-root-cause&quot;&gt;ROOT CAUSE&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reference&quot; id=&quot;markdown-toc-reference&quot;&gt;REFERENCE&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;the-art-of-on-call-duty&quot;&gt;THE ART OF ON-CALL DUTY&lt;/h2&gt;
 
@@ -43,7 +51,7 @@
 
 &lt;p&gt;=&amp;gt; &lt;strong&gt;Improve our mindset&lt;/strong&gt; for making alerting/monitoring/logging system better during live issues, driving improvements at every part of entire our system&lt;/p&gt;
 
-&lt;h2 id=&quot;standard-flow-for-on-call-duty-life-cycle&quot;&gt;Standard flow for on-call duty life cycle&lt;/h2&gt;
+&lt;h2 id=&quot;standard-flow-for-on-call-duty-life-cycle&quot;&gt;STANDARD FLOW FOR ON-CALL DUTY LIFE CYCLE&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;strong&gt;Build&lt;/strong&gt;: init monitoring &amp;amp; logging system that help us detect live failures before most customers notice a problem, set up a reliable alerting system (pagerduty) to make sure we can receive alerts immediately&lt;/li&gt;
@@ -201,6 +209,23 @@ Arch: armv7l
 &lt;p&gt;&lt;img src=&quot;/assets/img/android-shell.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;!--description--&gt;
+
+&lt;p&gt;&lt;strong&gt;Table of Contents&lt;/strong&gt;&lt;/p&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#a-knowledge-base&quot; id=&quot;markdown-toc-a-knowledge-base&quot;&gt;A. Knowledge base&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#b-hacking--practicing-zone&quot; id=&quot;markdown-toc-b-hacking--practicing-zone&quot;&gt;B. Hacking / Practicing zone&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1-install-adb-and-fastboot-tools-on-mac&quot; id=&quot;markdown-toc-1-install-adb-and-fastboot-tools-on-mac&quot;&gt;1. Install adb and fastboot tools on mac&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2-download-then-install-twrp--supersu-on-fastboot&quot; id=&quot;markdown-toc-2-download-then-install-twrp--supersu-on-fastboot&quot;&gt;2. Download then install twrp &amp;amp; supersu on fastboot&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#3-expand-utilities-with-busybox&quot; id=&quot;markdown-toc-3-expand-utilities-with-busybox&quot;&gt;3. Expand utilities with busybox&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#4-config--fix-env-variables-and-configuations&quot; id=&quot;markdown-toc-4-config--fix-env-variables-and-configuations&quot;&gt;4. Config / fix env variables and configuations&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#5-extract-debianimg-from-available-debian-system-not-bsd-os-like-mac&quot; id=&quot;markdown-toc-5-extract-debianimg-from-available-debian-system-not-bsd-os-like-mac&quot;&gt;5. Extract debian.img from available debian system (not BSD os like Mac)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#6-debootstrapping-debian-into-android-os&quot; id=&quot;markdown-toc-6-debootstrapping-debian-into-android-os&quot;&gt;6. Debootstrapping debian into android os&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#7-complete-debian-os-with-apt-and-networking&quot; id=&quot;markdown-toc-7-complete-debian-os-with-apt-and-networking&quot;&gt;7. Complete debian os with apt and networking&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#8-performance-benchmarking&quot; id=&quot;markdown-toc-8-performance-benchmarking&quot;&gt;8. Performance benchmarking&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#c-reference&quot; id=&quot;markdown-toc-c-reference&quot;&gt;C. Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;a-knowledge-base&quot;&gt;A. Knowledge base&lt;/h2&gt;
 
@@ -448,6 +473,19 @@ All packages are up to date.
 
 &lt;!--description--&gt;
 
+&lt;p&gt;&lt;strong&gt;Table of Contents&lt;/strong&gt;&lt;/p&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#1-real-life-example&quot; id=&quot;markdown-toc-1-real-life-example&quot;&gt;1. Real life example&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#2-reasons&quot; id=&quot;markdown-toc-2-reasons&quot;&gt;2. Reasons&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#a-badness&quot; id=&quot;markdown-toc-a-badness&quot;&gt;a. Badness&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#b-defending&quot; id=&quot;markdown-toc-b-defending&quot;&gt;b. Defending&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#c-attacking&quot; id=&quot;markdown-toc-c-attacking&quot;&gt;c. Attacking&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#3-how-can-we-do-better&quot; id=&quot;markdown-toc-3-how-can-we-do-better&quot;&gt;3. How can we do better?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reference&quot; id=&quot;markdown-toc-reference&quot;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&quot;1-real-life-example&quot;&gt;1. Real life example&lt;/h2&gt;
 
 &lt;p&gt;Working on infras of someone else, working on services that not be built by ourself&lt;/p&gt;
@@ -610,6 +648,13 @@ Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validatin
 
 &lt;!--description--&gt;
 
+&lt;p&gt;&lt;strong&gt;Table of Contents&lt;/strong&gt;&lt;/p&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#1-export-large-tables-in-mysql&quot; id=&quot;markdown-toc-1-export-large-tables-in-mysql&quot;&gt;1. Export large tables in MySQL&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#2-bash-completion-on-debian-9&quot; id=&quot;markdown-toc-2-bash-completion-on-debian-9&quot;&gt;2. Bash completion on debian 9&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#references&quot; id=&quot;markdown-toc-references&quot;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&quot;1-export-large-tables-in-mysql&quot;&gt;1. Export large tables in MySQL&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -712,6 +757,17 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 
 &lt;!--description--&gt;
 
+&lt;p&gt;&lt;strong&gt;Table of Contents&lt;/strong&gt;&lt;/p&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#fault-tolerance&quot; id=&quot;markdown-toc-fault-tolerance&quot;&gt;Fault tolerance&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#single-point-of-failure&quot; id=&quot;markdown-toc-single-point-of-failure&quot;&gt;Single point of failure&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#defense-in-depth&quot; id=&quot;markdown-toc-defense-in-depth&quot;&gt;Defense in depth&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#failover&quot; id=&quot;markdown-toc-failover&quot;&gt;Failover&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#heartbeat&quot; id=&quot;markdown-toc-heartbeat&quot;&gt;Heartbeat&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#infrastructure-as-code&quot; id=&quot;markdown-toc-infrastructure-as-code&quot;&gt;Infrastructure as code&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reference&quot; id=&quot;markdown-toc-reference&quot;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&quot;fault-tolerance&quot;&gt;Fault tolerance&lt;/h2&gt;
 &lt;p&gt;It is the property that enables a system to &lt;strong&gt;continue operating&lt;/strong&gt; properly in the event of the &lt;strong&gt;failure&lt;/strong&gt; of (or one or more faults within) some of its &lt;strong&gt;components&lt;/strong&gt;. If its operating quality decreases at all, the decrease is proportional to the severity of the failure, as compared to a naively designed system in which even a small failure can cause total breakdown. Fault tolerance is particularly sought after in high-availability or life-critical systems.&lt;/p&gt;
 
@@ -798,6 +854,19 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 &lt;p&gt;&lt;img src=&quot;/assets/img/ebs-aws.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;!--description--&gt;
+
+&lt;p&gt;&lt;strong&gt;Table of Contents&lt;/strong&gt;&lt;/p&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#problem&quot; id=&quot;markdown-toc-problem&quot;&gt;Problem&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#solution&quot; id=&quot;markdown-toc-solution&quot;&gt;Solution&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#step1-collect-information&quot; id=&quot;markdown-toc-step1-collect-information&quot;&gt;Step1: Collect information&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#step-2-unmount-this-volume-out-of-system&quot; id=&quot;markdown-toc-step-2-unmount-this-volume-out-of-system&quot;&gt;Step 2: Unmount this volume out of system&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#step-3-delete-and-recreate-new-partition&quot; id=&quot;markdown-toc-step-3-delete-and-recreate-new-partition&quot;&gt;Step 3: Delete and recreate new partition&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#step-4-resize-file-system-of-this-volume&quot; id=&quot;markdown-toc-step-4-resize-file-system-of-this-volume&quot;&gt;Step 4: Resize file system of this volume&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reference&quot; id=&quot;markdown-toc-reference&quot;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
 
