@@ -76,14 +76,25 @@
     <h1 class="post-title">WTF</h1>
   </header>
   <div class="article-content">
-     <p>Keyword: <a href="#1-mountfuck">Mountfuck</a>,
-         <a href="#2-jenkinsfuck">Jenkinsfuck</a></p>
+     <p><strong>Table of Contents</strong></p>
+<ul id="markdown-toc">
+  <li><a href="#1-mountfuck" id="markdown-toc-1-mountfuck">1. Mountfuck</a>    <ul>
+      <li><a href="#root-cause" id="markdown-toc-root-cause">Root cause</a></li>
+      <li><a href="#solution" id="markdown-toc-solution">Solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-jenkinsfuck" id="markdown-toc-2-jenkinsfuck">2. Jenkinsfuck</a>    <ul>
+      <li><a href="#root-cause-1" id="markdown-toc-root-cause-1">Root cause</a></li>
+      <li><a href="#solution-1" id="markdown-toc-solution-1">Solution</a></li>
+    </ul>
+  </li>
+</ul>
 
-<h3 id="1-mountfuck">1. Mountfuck</h3>
+<h2 id="1-mountfuck">1. Mountfuck</h2>
 
 <p><img src="/assets/img/wrong-mount-in-es.webp" alt="img" title="Entire fucking dir in fuckin /var/lib/elasticsearch" /></p>
 
-<p><strong>Root cause:</strong></p>
+<h3 id="root-cause">Root cause</h3>
 
 <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html</a></p>
 
@@ -102,8 +113,9 @@ It means if we have 2 NVMe disks on one EC2 vm, so we cannot know which device n
 </code></pre>
 </div>
 
-<p><strong>Solution:</strong>
-We must config fstab (permanent mount) based on UUID / label like this</p>
+<h3 id="solution">Solution</h3>
+
+<p>We must config fstab (permanent mount) based on UUID / label like this</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>LABEL=cloudimg-rootfs  /   ext4  defaults,discard  0 0
 UUID="c46cf311-d31b-41ce-bce5-5d8ad0a6b109" /var/lib/elasticsearch ext4 defaults,nofail  0 2
 </code></pre>
@@ -115,7 +127,7 @@ UUID="c46cf311-d31b-41ce-bce5-5d8ad0a6b109" /var/lib/elasticsearch ext4 defaults
 </code></pre>
 </div>
 
-<h3 id="2-jenkinsfuck">2. Jenkinsfuck</h3>
+<h2 id="2-jenkinsfuck">2. Jenkinsfuck</h2>
 
 <p><img src="/assets/img/jenkins-oops.webp" alt="img" title="EatWhatYouKill" /></p>
 <div class="highlighter-rouge"><pre class="highlight"><code>Mar 01, 2019 11:19:14 AM org.eclipse.jetty.server.handler.ContextHandler$Context log
@@ -139,7 +151,7 @@ Caused by: java.lang.NegativeArraySizeException
 </code></pre>
 </div>
 
-<p><strong>Root cause:</strong></p>
+<h3 id="root-cause-1">Root cause</h3>
 
 <p>Details of log: <a href="/assets/raw/jenkins-NegativeArraySizeException-error.log">jenkins-NegativeArraySizeException-error.log</a></p>
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NegativeArraySizeException</span>
@@ -155,7 +167,9 @@ Caused by: java.lang.NegativeArraySizeException
   <li>to doProgressText and until doProgressiveHtml</li>
 </ul>
 
-<p><strong>Solution:</strong> EatWhatYouKill</p>
+<h3 id="solution-1">Solution</h3>
+
+<p>EatWhatYouKill</p>
 
 <p>Don’t panic, just wait, let them come then let them go. Wait until this fucking job DONE. Then issuse will….gone</p>
 

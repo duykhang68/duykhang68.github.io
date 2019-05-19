@@ -4,14 +4,15 @@ title: WTF
 permalink: /wtf/
 ---
 
-Keyword: [Mountfuck](#1-mountfuck),
-         [Jenkinsfuck](#2-jenkinsfuck) 
+**Table of Contents**
+* TOC
+{:toc}
 
-### 1. Mountfuck
+## 1. Mountfuck
 
 ![img](/assets/img/wrong-mount-in-es.webp "Entire fucking dir in fuckin /var/lib/elasticsearch")
 
-**Root cause:** 
+### Root cause
 
 [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html)
 
@@ -30,7 +31,8 @@ It means if we have 2 NVMe disks on one EC2 vm, so we cannot know which device n
 /dev/nvme0n1p1
 ```
 
-**Solution:**
+### Solution
+
 We must config fstab (permanent mount) based on UUID / label like this
 ```
 LABEL=cloudimg-rootfs  /   ext4  defaults,discard  0 0
@@ -43,7 +45,7 @@ LABEL=cloudimg-rootfs	/	 ext4	defaults,discard	0 0
 /dev/nvme1n1p1 /var/lib/elasticsearch ext4 defaults,nofail  0 2
 ```
 
-### 2. Jenkinsfuck
+## 2. Jenkinsfuck
 
 ![img](/assets/img/jenkins-oops.webp "EatWhatYouKill")
 ```
@@ -67,7 +69,7 @@ Caused by: java.lang.NegativeArraySizeException
     at hudson.console.LineTransformationOutputStream.eol(LineTransformationOutputStream.java:60)
 ```
 
-**Root cause:**
+### Root cause
 
 Details of log: [jenkins-NegativeArraySizeException-error.log](/assets/raw/jenkins-NegativeArraySizeException-error.log) 
 ```java
@@ -81,6 +83,8 @@ Output of this running job is: too big and spawn too fast **`rarely`** that reac
 - ConsoleNote > ConsoleAnnotationOutputStream > FileLogStorage > ProxyOutputStream
 - to doProgressText and until doProgressiveHtml
 
-**Solution:** EatWhatYouKill 
+### Solution
+
+EatWhatYouKill 
 
 Don't panic, just wait, let them come then let them go. Wait until this fucking job DONE. Then issuse will....gone
