@@ -19,7 +19,7 @@ Nowadays, there are many many contexts & examples for blaming. I only want to wi
 * TOC
 {:toc}
 
-## 1. Real life example
+## REAL LIFE EXAMPLE
 
 Working on infras of someone else, working on services that not be built by ourself
 - many legacy/unknown components
@@ -34,33 +34,27 @@ We start blaming others because they are bad, very bad
 - Hey man, you mad, go fuck yourself
 - Kick this man out please, I don't want him in my team
 
-## 2. Reasons
+## REASONS
 
-### a. Badness
+#### 1. Badness
 
 We have a deep need for a sense of identity, and one way we do this is through social comparison, contrasting ourselves against others. 
 If we can place ourselves higher in the pecking order of society then we can feel more important and have a greater sense of control.
 
 We seek a higher status than others. And blame is one of the tools we use to this end. If the other person is bad, then it seems **we must be relatively good**.
 
-![](https://media.giphy.com/media/xzMs8O1KQh17i/giphy.gif)
-
-### b. Defending
+#### 2. Defending
 
 Maybe we're **scared** that we're going to fall, because if our boss found this issue, we will be fire, or cannot have a higher salary. If we are not at fault, we **blame to defend**. If we are at fault, then we **blame to deflect**.
 
-![](https://media.giphy.com/media/3o6vXSO55Ib7Tm4NLW/giphy.gif)
-
-### c. Attacking 
+#### 3. Attacking 
 
 Sometimes we know the reasons of issues are most from our side, but also come from their side.
 We want to blame others less because we are moving attention away from ourselves and more because we **specifically want to attack others**.
 
 A common reason to attack others is that we have some grudge against them, believing them to be bad or unworthy in some way and hence deserving punishment. Perhaps they have blamed us unfairly in past. Maybe they have hurt one of our friends. In any case, the opportunity to blame is used as a convenient method of subtle attack.
 
-![](https://media.giphy.com/media/xT39D97sOyaJ8CJlD2/giphy.gif)
-
-## 3. How can we do better?
+## HOW CAN WE DO BETTER?
 
 The keys aka solutions are **NO BLAMING GAME** + **JUST FIX THAT SHIT**
 
@@ -85,9 +79,9 @@ Your job is inspecting, finding, **solving**, validating, auditing, **not pointi
 - Blaming or not blaming, at the end, issues still right there. Blaming is not solving problems.
 - Why dont we sit down then try to fix that shit?
 
-![](https://media.giphy.com/media/l4q8gzOgUQIy7Ml44/giphy.gif)
+<center><img src="https://media.giphy.com/media/l4q8gzOgUQIy7Ml44/giphy.gif"></center>
 
-## Reference
+## REFERENCE
 
 1. [http://changingminds.org/explanations/behaviors/blame/why_blame_others.htm](http://changingminds.org/explanations/behaviors/blame/why_blame_others.htm)
 2. [https://www.harleytherapy.co.uk/counselling/why-we-put-the-blame-on-others.htm](https://www.harleytherapy.co.uk/counselling/why-we-put-the-blame-on-others.htm)

@@ -24,6 +24,11 @@ I want to note and share about **the first one**. So you can control actions, th
 * Focus on working scoped things during 8hrs working day, only for increasing quality of your company products, **ignore non-sense things** (including fuckers and dirty ones, **who the fuck cares**) 
 * Do one thing, get it done first (minimum viable), take a rest then get back to work on improvement, check every case, every reason. **DROP OTHERS**
 * Don't fucking any care about trash, shitty, fuckers, stupid, nonsense, not related to you. **IGNORE.IGNORE.IGNORE.** is the key. 
-* I repeat: Time is a fixed and the most important resource, if taking care too much about non-sense things, will have no time for really right and important things in your life.
+
+```
+Time is a fixed and the most important resource,
+if taking care too much about non-sense things, 
+will have no time for really right and important things in your life.
+```
 
 **It's all about trade-offs and makes the right decisions.**

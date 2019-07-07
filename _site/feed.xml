@@ -5,8 +5,8 @@
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://blog.tracelog.in/</link>
     <atom:link href="https://blog.tracelog.in/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 May 2019 20:57:19 +0700</pubDate>
-    <lastBuildDate>Sun, 19 May 2019 20:57:19 +0700</lastBuildDate>
+    <pubDate>Sun, 07 Jul 2019 23:14:07 +0700</pubDate>
+    <lastBuildDate>Sun, 07 Jul 2019 23:14:07 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
@@ -127,8 +127,13 @@
   &lt;li&gt;Focus on working scoped things during 8hrs working day, only for increasing quality of your company products, &lt;strong&gt;ignore non-sense things&lt;/strong&gt; (including fuckers and dirty ones, &lt;strong&gt;who the fuck cares&lt;/strong&gt;)&lt;/li&gt;
   &lt;li&gt;Do one thing, get it done first (minimum viable), take a rest then get back to work on improvement, check every case, every reason. &lt;strong&gt;DROP OTHERS&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;Don’t fucking any care about trash, shitty, fuckers, stupid, nonsense, not related to you. &lt;strong&gt;IGNORE.IGNORE.IGNORE.&lt;/strong&gt; is the key.&lt;/li&gt;
-  &lt;li&gt;I repeat: Time is a fixed and the most important resource, if taking care too much about non-sense things, will have no time for really right and important things in your life.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Time is a fixed and the most important resource,
+if taking care too much about non-sense things, 
+will have no time for really right and important things in your life.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;It’s all about trade-offs and makes the right decisions.&lt;/strong&gt;&lt;/p&gt;
 </description>
@@ -475,18 +480,18 @@ All packages are up to date.
 
 &lt;p&gt;&lt;strong&gt;Table of Contents&lt;/strong&gt;&lt;/p&gt;
 &lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#1-real-life-example&quot; id=&quot;markdown-toc-1-real-life-example&quot;&gt;1. Real life example&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#2-reasons&quot; id=&quot;markdown-toc-2-reasons&quot;&gt;2. Reasons&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#a-badness&quot; id=&quot;markdown-toc-a-badness&quot;&gt;a. Badness&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#b-defending&quot; id=&quot;markdown-toc-b-defending&quot;&gt;b. Defending&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#c-attacking&quot; id=&quot;markdown-toc-c-attacking&quot;&gt;c. Attacking&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#real-life-example&quot; id=&quot;markdown-toc-real-life-example&quot;&gt;REAL LIFE EXAMPLE&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reasons&quot; id=&quot;markdown-toc-reasons&quot;&gt;REASONS&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1-badness&quot; id=&quot;markdown-toc-1-badness&quot;&gt;1. Badness&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2-defending&quot; id=&quot;markdown-toc-2-defending&quot;&gt;2. Defending&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#3-attacking&quot; id=&quot;markdown-toc-3-attacking&quot;&gt;3. Attacking&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#3-how-can-we-do-better&quot; id=&quot;markdown-toc-3-how-can-we-do-better&quot;&gt;3. How can we do better?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#reference&quot; id=&quot;markdown-toc-reference&quot;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#how-can-we-do-better&quot; id=&quot;markdown-toc-how-can-we-do-better&quot;&gt;HOW CAN WE DO BETTER?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reference&quot; id=&quot;markdown-toc-reference&quot;&gt;REFERENCE&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;1-real-life-example&quot;&gt;1. Real life example&lt;/h2&gt;
+&lt;h2 id=&quot;real-life-example&quot;&gt;REAL LIFE EXAMPLE&lt;/h2&gt;
 
 &lt;p&gt;Working on infras of someone else, working on services that not be built by ourself&lt;/p&gt;
 &lt;ul&gt;
@@ -505,33 +510,27 @@ All packages are up to date.
   &lt;li&gt;Kick this man out please, I don’t want him in my team&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;2-reasons&quot;&gt;2. Reasons&lt;/h2&gt;
+&lt;h2 id=&quot;reasons&quot;&gt;REASONS&lt;/h2&gt;
 
-&lt;h3 id=&quot;a-badness&quot;&gt;a. Badness&lt;/h3&gt;
+&lt;h4 id=&quot;1-badness&quot;&gt;1. Badness&lt;/h4&gt;
 
 &lt;p&gt;We have a deep need for a sense of identity, and one way we do this is through social comparison, contrasting ourselves against others. 
 If we can place ourselves higher in the pecking order of society then we can feel more important and have a greater sense of control.&lt;/p&gt;
 
 &lt;p&gt;We seek a higher status than others. And blame is one of the tools we use to this end. If the other person is bad, then it seems &lt;strong&gt;we must be relatively good&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/xzMs8O1KQh17i/giphy.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;b-defending&quot;&gt;b. Defending&lt;/h3&gt;
+&lt;h4 id=&quot;2-defending&quot;&gt;2. Defending&lt;/h4&gt;
 
 &lt;p&gt;Maybe we’re &lt;strong&gt;scared&lt;/strong&gt; that we’re going to fall, because if our boss found this issue, we will be fire, or cannot have a higher salary. If we are not at fault, we &lt;strong&gt;blame to defend&lt;/strong&gt;. If we are at fault, then we &lt;strong&gt;blame to deflect&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/3o6vXSO55Ib7Tm4NLW/giphy.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;c-attacking&quot;&gt;c. Attacking&lt;/h3&gt;
+&lt;h4 id=&quot;3-attacking&quot;&gt;3. Attacking&lt;/h4&gt;
 
 &lt;p&gt;Sometimes we know the reasons of issues are most from our side, but also come from their side.
 We want to blame others less because we are moving attention away from ourselves and more because we &lt;strong&gt;specifically want to attack others&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;A common reason to attack others is that we have some grudge against them, believing them to be bad or unworthy in some way and hence deserving punishment. Perhaps they have blamed us unfairly in past. Maybe they have hurt one of our friends. In any case, the opportunity to blame is used as a convenient method of subtle attack.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/xT39D97sOyaJ8CJlD2/giphy.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;3-how-can-we-do-better&quot;&gt;3. How can we do better?&lt;/h2&gt;
+&lt;h2 id=&quot;how-can-we-do-better&quot;&gt;HOW CAN WE DO BETTER?&lt;/h2&gt;
 
 &lt;p&gt;The keys aka solutions are &lt;strong&gt;NO BLAMING GAME&lt;/strong&gt; + &lt;strong&gt;JUST FIX THAT SHIT&lt;/strong&gt;&lt;/p&gt;
 
@@ -557,9 +556,9 @@ Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validatin
   &lt;li&gt;Why dont we sit down then try to fix that shit?&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/l4q8gzOgUQIy7Ml44/giphy.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;https://media.giphy.com/media/l4q8gzOgUQIy7Ml44/giphy.gif&quot; /&gt;&lt;/center&gt;
 
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;h2 id=&quot;reference&quot;&gt;REFERENCE&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;http://changingminds.org/explanations/behaviors/blame/why_blame_others.htm&quot;&gt;http://changingminds.org/explanations/behaviors/blame/why_blame_others.htm&lt;/a&gt;&lt;/li&gt;
