@@ -807,13 +807,13 @@ code {
   background-color: #ebf1f5;
   border-width: 0;
   border-radius: 0;
-  font-family: monospace; }
+  font-family: Consolas, monospace; }
 
 pre > code {
   display: block;
   overflow: auto;
   white-space: pre;
-  font-family: monospace;
+  font-family: Consolas, monospace;
   border: 1px solid #bbccdd; }
 
 /* Tables
