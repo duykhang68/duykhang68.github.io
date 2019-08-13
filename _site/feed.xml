@@ -5,9 +5,161 @@
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://blog.tracelog.in/</link>
     <atom:link href="https://blog.tracelog.in/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 19 Jul 2019 15:29:08 +0700</pubDate>
-    <lastBuildDate>Fri, 19 Jul 2019 15:29:08 +0700</lastBuildDate>
+    <pubDate>Wed, 14 Aug 2019 00:03:16 +0700</pubDate>
+    <lastBuildDate>Wed, 14 Aug 2019 00:03:16 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
+    
+      <item>
+        <title>Idempotence when extending secgroup rules with aws_security_group_rule in Terraform</title>
+        <description>&lt;p&gt;Terraform acts so weird when mixing up between &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group_rule&lt;/code&gt; in extending AWS security group rules.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Context:&lt;/strong&gt; that leads to not idempotent for each apply (without changing anything in IaC)&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Create one security group using &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group&lt;/code&gt; with some predefined inlines&lt;/li&gt;
+  &lt;li&gt;Extending more rules (rows) in that secgroup by using &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group_rule&lt;/code&gt; to add more discrete rules&lt;/li&gt;
+  &lt;li&gt;At each time executing &lt;code class=&quot;highlighter-rouge&quot;&gt;terraform plan/apply&lt;/code&gt;, terraform re-creates rules lead to fcked up idempotent of result.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sample code at:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;DO NOT USE - &lt;a href=&quot;/assets/raw/aws-secgroup-not-idempotence.tf&quot;&gt;aws-secgroup-not-idempotence.tf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;BEST PRACTICE - &lt;a href=&quot;/assets/raw/aws-secgroup-best-practice-idempotence.tf&quot;&gt;aws-secgroup-best-practice-idempotence.tf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!--description--&gt;
+
+&lt;p&gt;&lt;strong&gt;Table of Contents&lt;/strong&gt;&lt;/p&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#a-knowledge-base&quot; id=&quot;markdown-toc-a-knowledge-base&quot;&gt;A. Knowledge base&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#b-best-practices&quot; id=&quot;markdown-toc-b-best-practices&quot;&gt;B. Best practices&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#confident-clear--well-configured&quot; id=&quot;markdown-toc-confident-clear--well-configured&quot;&gt;Confident, clear &amp;amp; well configured:&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#extendable-plugable-anywhere-later&quot; id=&quot;markdown-toc-extendable-plugable-anywhere-later&quot;&gt;Extendable, plugable anywhere later:&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#c-issue-links--references&quot; id=&quot;markdown-toc-c-issue-links--references&quot;&gt;C. Issue links &amp;amp; References&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;a-knowledge-base&quot;&gt;A. Knowledge base&lt;/h2&gt;
+
+&lt;p&gt;For defining AWS secgroup in terraform, we have 2 main ways:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;inline&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group&lt;/code&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Predefined all rules using inline
+resource &quot;aws_security_group&quot; &quot;default&quot; {
+name        = &quot;default&quot;
+vpc_id      = &quot;xxxxx&quot;
+
+ingress {
+  from_port   = 22
+  to_port     = 22
+  protocol    = &quot;tcp&quot;
+  description = &quot;Predefined Whitelist &quot;
+  cidr_blocks = &quot;${var.whitelist_ips}&quot;
+}
+
+egress {
+  from_port   = 0
+  to_port     = 0
+  protocol    = &quot;-1&quot;
+  cidr_blocks = [&quot;0.0.0.0/0&quot;]
+}
+}
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;or &lt;code class=&quot;highlighter-rouge&quot;&gt;discrete&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group_rule&lt;/code&gt;.
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Discrete rules
+resource &quot;aws_security_group_rule&quot; &quot;extending_default&quot; {
+type              = &quot;ingress&quot;
+from_port         = 22
+to_port           = 22
+protocol          = &quot;tcp&quot;
+cidr_blocks       = [&quot;1.1.1.1/32&quot;]
+security_group_id = &quot;${aws_security_group.default.id}&quot;
+description       = &quot;VPN&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If we streamline one method when configuring, everything is fine:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;One method using &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group&lt;/code&gt; and all rules are defined as &lt;code class=&quot;highlighter-rouge&quot;&gt;inline&lt;/code&gt; ==&amp;gt;  &lt;strong&gt;PERFECT&lt;/strong&gt; but hard to extended whenever you wanna fetch that security group ID from another place.&lt;/li&gt;
+  &lt;li&gt;One method using &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group&lt;/code&gt; without any inline, and use each &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group_rule&lt;/code&gt; for defining rules ==&amp;gt; &lt;strong&gt;PERFECT&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If we mixed up by predefined inline in &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group&lt;/code&gt; then continue extending by discrete more rules in &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group_rule&lt;/code&gt; ==&amp;gt; &lt;strong&gt;FCKED UP&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;NOTE on Security Groups and Security Group Rules:&lt;/strong&gt; Terraform currently provides both a standalone Security Group Rule resource (a single &lt;code class=&quot;highlighter-rouge&quot;&gt;ingress&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;egress&lt;/code&gt; rule), and a Security Group resource with &lt;code class=&quot;highlighter-rouge&quot;&gt;ingress&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;egress&lt;/code&gt; rules &lt;strong&gt;defined in-line&lt;/strong&gt;. At this time you &lt;strong&gt;cannot use&lt;/strong&gt; a Security Group with in-line rules in conjunction with any Security Group Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Source:&lt;/strong&gt; &lt;a href=&quot;https://www.terraform.io/docs/providers/aws/r/security_group.html&quot;&gt;terraform&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;b-best-practices&quot;&gt;B. Best practices&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;confident-clear--well-configured&quot;&gt;Confident, clear &amp;amp; well configured:&lt;/h3&gt;
+
+    &lt;p&gt;If we’re confident to say that our secgroup is well defined from the first place in mind, init one time, then use in many place and &lt;strong&gt;no need to changes/extend anymore&lt;/strong&gt; in the future, so go head with configuring entire segroup &amp;amp; rule in &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group&lt;/code&gt; by inline&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;extendable-plugable-anywhere-later&quot;&gt;Extendable, plugable anywhere later:&lt;/h3&gt;
+
+    &lt;p&gt;If we’re working on one secgroup which is not well-defined in the first time, need extended and plug in/out rules in another place, go head with configuring core skeletion of secgroup using &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group&lt;/code&gt; without any rules, then plug in rule by rule with &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group_rule&lt;/code&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Create secgroup skeleton without any inline
+resource &quot;aws_security_group&quot; &quot;default_http&quot; {
+  name        = &quot;default-http&quot;
+  vpc_id      = &quot;xxxxx&quot;
+}
+
+# Then define rules for this above secgroup
+resource &quot;aws_security_group_rule&quot; &quot;default_http_ingress&quot; {
+  type             = &quot;ingress&quot;
+  from_port        = 80
+  to_port          = 80
+  protocol         = &quot;tcp&quot;
+  description      = &quot;Worldwide&quot;
+  cidr_blocks      = [&quot;0.0.0.0/0&quot;]
+  security_group_id = aws_security_group.default_http.id
+}
+
+resource &quot;aws_security_group_rule&quot; &quot;default_https_ingress&quot; {
+  type             = &quot;ingress&quot;
+  from_port        = 443
+  to_port          = 443
+  protocol         = &quot;tcp&quot;
+  description      = &quot;Worldwide&quot;
+  cidr_blocks      = [&quot;0.0.0.0/0&quot;]
+  security_group_id = aws_security_group.default_http.id
+}
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;c-issue-links--references&quot;&gt;C. Issue links &amp;amp; References&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://cavaliercoder.com/blog/inline-vs-discrete-security-groups-in-terraform.html&quot;&gt;http://cavaliercoder.com/blog/inline-vs-discrete-security-groups-in-terraform.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/hashicorp/terraform/issues/11011&quot;&gt;https://github.com/hashicorp/terraform/issues/11011&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/terraform-providers/terraform-provider-aws/issues/742&quot;&gt;https://github.com/terraform-providers/terraform-provider-aws/issues/742&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/hashicorp/terraform/issues/14124&quot;&gt;https://github.com/hashicorp/terraform/issues/14124&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Tue, 13 Aug 2019 00:00:00 +0700</pubDate>
+        <link>https://blog.tracelog.in/mindset/2019/08/13/Idempotence-when-extending-secgroup-rules-with-aws_security_group_rule-in-terraform.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/mindset/2019/08/13/Idempotence-when-extending-secgroup-rules-with-aws_security_group_rule-in-terraform.html</guid>
+        
+        
+        <category>mindset</category>
+        
+      </item>
     
       <item>
         <title>The art of on-call duty</title>
@@ -832,181 +984,6 @@ Depending on the DB instance class and the amount of storage, it can take up to 
         <pubDate>Wed, 18 Jul 2018 00:00:00 +0700</pubDate>
         <link>https://blog.tracelog.in/technical/2018/07/18/Mindset-for-building-HA-system.html</link>
         <guid isPermaLink="true">https://blog.tracelog.in/technical/2018/07/18/Mindset-for-building-HA-system.html</guid>
-        
-        
-        <category>technical</category>
-        
-      </item>
-    
-      <item>
-        <title>Increase EBS volume of AWS on linux</title>
-        <description>&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;A disk volume 32GB &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/xvdf1&lt;/code&gt; is mounted into &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/lib/mysql&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;This volume is out of space, need to be extend size to 64GB&lt;/li&gt;
-  &lt;li&gt;Extended to 64GB on aws console, but from ec2 point of view, it’s just 32GB&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Rootcause&lt;/code&gt;&lt;/strong&gt;: didn’t merge partition after extending and resize fs&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/ebs-aws.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;!--description--&gt;
-
-&lt;p&gt;&lt;strong&gt;Table of Contents&lt;/strong&gt;&lt;/p&gt;
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#problem&quot; id=&quot;markdown-toc-problem&quot;&gt;Problem&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#solution&quot; id=&quot;markdown-toc-solution&quot;&gt;Solution&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#step1-collect-information&quot; id=&quot;markdown-toc-step1-collect-information&quot;&gt;Step1: Collect information&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#step-2-unmount-this-volume-out-of-system&quot; id=&quot;markdown-toc-step-2-unmount-this-volume-out-of-system&quot;&gt;Step 2: Unmount this volume out of system&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#step-3-delete-and-recreate-new-partition&quot; id=&quot;markdown-toc-step-3-delete-and-recreate-new-partition&quot;&gt;Step 3: Delete and recreate new partition&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#step-4-resize-file-system-of-this-volume&quot; id=&quot;markdown-toc-step-4-resize-file-system-of-this-volume&quot;&gt;Step 4: Resize file system of this volume&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#reference&quot; id=&quot;markdown-toc-reference&quot;&gt;Reference&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
-
-&lt;p&gt;Resize file system to larger size of this volume&lt;/p&gt;
-
-&lt;h3 id=&quot;step1-collect-information&quot;&gt;Step1: Collect information&lt;/h3&gt;
-
-&lt;p&gt;Check disk ID&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;blkid
-/dev/xvda1: &lt;span class=&quot;nv&quot;&gt;LABEL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cloudimg-rootfs&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;UUID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4573eb39-57f3-439b-9a73-8aef508afd3f&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;TYPE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ext4&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;PARTUUID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;965243d6-01&quot;&lt;/span&gt;
-/dev/xvdf1: &lt;span class=&quot;nv&quot;&gt;UUID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;d56d3b3e-4385-48a7-ba95-6d3884d5dca8&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;TYPE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ext4&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;PARTUUID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cc52698e-01&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Check size disk and mount point of &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/xvdf1&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;lsblk
-NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-xvda    202:0    0  16G  0 disk
-└─xvda1 202:1    0  16G  0 part /
-xvdf    202:80   0  64G  0 disk
-└─xvdf1 202:81   0  32G  0 part /var/lib/mysql
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;step-2-unmount-this-volume-out-of-system&quot;&gt;Step 2: Unmount this volume out of system&lt;/h3&gt;
-
-&lt;p&gt;Unmount&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;umount /dev/xvdf1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Check after unmount&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;lsblk
-NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-xvda    202:0    0  16G  0 disk
-└─xvda1 202:1    0  16G  0 part /
-xvdf    202:80   0  64G  0 disk
-└─xvdf1 202:81   0  32G  0 part
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;step-3-delete-and-recreate-new-partition&quot;&gt;Step 3: Delete and recreate new partition&lt;/h3&gt;
-
-&lt;p&gt;Why? Because old partition is using 32GB only, should delete and re-create new one. After that, the new one will use all of space 64GB&lt;/p&gt;
-
-&lt;p&gt;Using &lt;code class=&quot;highlighter-rouge&quot;&gt;fdisk&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;parted/gparted&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;fdisk /dev/xvdf
-
-Welcome to fdisk &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;util-linux 2.27.1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.
-Changes will remain &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;memory only, &lt;span class=&quot;k&quot;&gt;until &lt;/span&gt;you decide to write them.
-Be careful before using the write command.
-
-
-Command &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;m &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: p
-Disk /dev/xvdf: 64 GiB, 68719476736 bytes, 134217728 sectors
-Units: sectors of 1 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; 512 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 512 bytes
-Sector size &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;logical/physical&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: 512 bytes / 512 bytes
-I/O size &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;minimum/optimal&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: 512 bytes / 512 bytes
-Disklabel &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;: dos
-Disk identifier: 0xcc52698e
-
-Device     Boot Start      End  Sectors Size Id Type
-/dev/xvdf1       2048 67108863 67106816  32G 83 Linux
-
-Command &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;m &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: d
-Selected partition 1
-Partition 1 has been deleted.
-
-Command &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;m &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: n
-Partition &lt;span class=&quot;nb&quot;&gt;type
-   &lt;/span&gt;p   primary &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0 primary, 0 extended, 4 free&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-   e   extended &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;container &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;logical partitions&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-Select &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default p&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: p
-Partition number &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1-4, default 1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:
-First sector &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2048-134217727, default 2048&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:
-Last sector, +sectors or +size&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;K,M,G,T,P&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2048-134217727, default 134217727&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:
-
-Created a new partition 1 of &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Linux'&lt;/span&gt; and of size 64 GiB.
-
-Command &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;m &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: p
-Disk /dev/xvdf: 64 GiB, 68719476736 bytes, 134217728 sectors
-Units: sectors of 1 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; 512 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 512 bytes
-Sector size &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;logical/physical&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: 512 bytes / 512 bytes
-I/O size &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;minimum/optimal&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: 512 bytes / 512 bytes
-Disklabel &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;: dos
-Disk identifier: 0xcc52698e
-
-Device     Boot Start       End   Sectors Size Id Type
-/dev/xvdf1       2048 134217727 134215680  64G 83 Linux
-
-Command &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;m &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: w
-The partition table has been altered.
-Calling ioctl&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; to re-read partition table.
-Syncing disks.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;step-4-resize-file-system-of-this-volume&quot;&gt;Step 4: Resize file system of this volume&lt;/h3&gt;
-
-&lt;p&gt;Using &lt;code class=&quot;highlighter-rouge&quot;&gt;resize2fs&lt;/code&gt; because this volume is &lt;code class=&quot;highlighter-rouge&quot;&gt;ext4&lt;/code&gt; format&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;resize2fs /dev/xvdf1
-resize2fs 1.42.13 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;17-May-2015&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-Filesystem at /dev/xvdf1 is mounted on /var/lib/mysql; on-line resizing required
-old_desc_blocks &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2, new_desc_blocks &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 4
-The filesystem on /dev/xvdf1 is now 16776960 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;4k&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; blocks long.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Check after resizing&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;lsblk
-NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-xvda    202:0    0  16G  0 disk
-└─xvda1 202:1    0  16G  0 part /
-xvdf    202:80   0  64G  0 disk
-└─xvdf1 202:81   0  64G  0 part /var/lib/mysql
-&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;df -h
-Filesystem      Size  Used Avail Use% Mounted on
-udev            2.0G     0  2.0G   0% /dev
-tmpfs           396M   41M  355M  11% /run
-/dev/xvda1       16G  6.9G  8.6G  45% /
-tmpfs           2.0G     0  2.0G   0% /dev/shm
-tmpfs           5.0M     0  5.0M   0% /run/lock
-tmpfs           2.0G     0  2.0G   0% /sys/fs/cgroup
-tmpfs           396M     0  396M   0% /run/user/1000
-/dev/xvdf1       63G   30G   31G  50% /var/lib/mysql
-
-&lt;span class=&quot;gp&quot;&gt;root@webapp-unstable:~# &lt;/span&gt;mount -fav
-/                        : ignored
-/var/lib/mysql           : already mounted
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;DONE.&lt;/p&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html&quot;&gt;http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 14 Dec 2017 00:00:00 +0700</pubDate>
-        <link>https://blog.tracelog.in/technical/2017/12/14/Increase-EBS-volume.html</link>
-        <guid isPermaLink="true">https://blog.tracelog.in/technical/2017/12/14/Increase-EBS-volume.html</guid>
         
         
         <category>technical</category>
