@@ -100,8 +100,8 @@
 <ul id="markdown-toc">
   <li><a href="#a-knowledge-base" id="markdown-toc-a-knowledge-base">A. Knowledge base</a></li>
   <li><a href="#b-best-practices" id="markdown-toc-b-best-practices">B. Best practices</a>    <ul>
-      <li><a href="#confident-clear--well-configured" id="markdown-toc-confident-clear--well-configured">Confident, clear &amp; well configured:</a></li>
-      <li><a href="#extendable-plugable-anywhere-later" id="markdown-toc-extendable-plugable-anywhere-later">Extendable, plugable anywhere later:</a></li>
+      <li><a href="#confident-clear--well-configured" id="markdown-toc-confident-clear--well-configured">Confident, clear &amp; well configured</a></li>
+      <li><a href="#extendable-plugable-anywhere-later" id="markdown-toc-extendable-plugable-anywhere-later">Extendable, plugable anywhere later</a></li>
     </ul>
   </li>
   <li><a href="#c-issue-links--references" id="markdown-toc-c-issue-links--references">C. Issue links &amp; References</a></li>
@@ -111,40 +111,44 @@
 
 <p>For defining AWS secgroup in terraform, we have 2 main ways:</p>
 <ul>
-  <li><code class="highlighter-rouge">inline</code> with <code class="highlighter-rouge">aws_security_group</code>
+  <li>
+    <p><code class="highlighter-rouge">inline</code> with <code class="highlighter-rouge">aws_security_group</code></p>
+
     <div class="highlighter-rouge"><pre class="highlight"><code># Predefined all rules using inline
 resource "aws_security_group" "default" {
-name        = "default"
-vpc_id      = "xxxxx"
+  name        = "default"
+  vpc_id      = "xxxxx"
 
-ingress {
-  from_port   = 22
-  to_port     = 22
-  protocol    = "tcp"
-  description = "Predefined Whitelist "
-  cidr_blocks = "${var.whitelist_ips}"
-}
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    description = "Predefined Whitelist "
+    cidr_blocks = "${var.whitelist_ips}"
+  }
 
-egress {
-  from_port   = 0
-  to_port     = 0
-  protocol    = "-1"
-  cidr_blocks = ["0.0.0.0/0"]
-}
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
 </code></pre>
     </div>
   </li>
-  <li>or <code class="highlighter-rouge">discrete</code> with <code class="highlighter-rouge">aws_security_group_rule</code>.
+  <li>
+    <p>or <code class="highlighter-rouge">discrete</code> with <code class="highlighter-rouge">aws_security_group_rule</code>.</p>
+
     <div class="highlighter-rouge"><pre class="highlight"><code># Discrete rules
 resource "aws_security_group_rule" "extending_default" {
-type              = "ingress"
-from_port         = 22
-to_port           = 22
-protocol          = "tcp"
-cidr_blocks       = ["1.1.1.1/32"]
-security_group_id = "${aws_security_group.default.id}"
-description       = "VPN"
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  cidr_blocks       = ["1.1.1.1/32"]
+  security_group_id = "${aws_security_group.default.id}"
+  description       = "VPN"
 }
 </code></pre>
     </div>
@@ -170,12 +174,12 @@ description       = "VPN"
 
 <ul>
   <li>
-    <h3 id="confident-clear--well-configured">Confident, clear &amp; well configured:</h3>
+    <h3 id="confident-clear--well-configured">Confident, clear &amp; well configured</h3>
 
     <p>If we’re confident to say that our secgroup is well defined from the first place in mind, init one time, then use in many place and <strong>no need to changes/extend anymore</strong> in the future, so go head with configuring entire segroup &amp; rule in <code class="highlighter-rouge">aws_security_group</code> by inline</p>
   </li>
   <li>
-    <h3 id="extendable-plugable-anywhere-later">Extendable, plugable anywhere later:</h3>
+    <h3 id="extendable-plugable-anywhere-later">Extendable, plugable anywhere later</h3>
 
     <p>If we’re working on one secgroup which is not well-defined in the first time, need extended and plug in/out rules in another place, go head with configuring core skeletion of secgroup using <code class="highlighter-rouge">aws_security_group</code> without any rules, then plug in rule by rule with <code class="highlighter-rouge">aws_security_group_rule</code></p>
 

@@ -5,8 +5,8 @@
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://blog.tracelog.in/</link>
     <atom:link href="https://blog.tracelog.in/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 14 Aug 2019 00:03:16 +0700</pubDate>
-    <lastBuildDate>Wed, 14 Aug 2019 00:03:16 +0700</lastBuildDate>
+    <pubDate>Wed, 14 Aug 2019 00:07:59 +0700</pubDate>
+    <lastBuildDate>Wed, 14 Aug 2019 00:07:59 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
@@ -32,8 +32,8 @@
 &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#a-knowledge-base&quot; id=&quot;markdown-toc-a-knowledge-base&quot;&gt;A. Knowledge base&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#b-best-practices&quot; id=&quot;markdown-toc-b-best-practices&quot;&gt;B. Best practices&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#confident-clear--well-configured&quot; id=&quot;markdown-toc-confident-clear--well-configured&quot;&gt;Confident, clear &amp;amp; well configured:&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#extendable-plugable-anywhere-later&quot; id=&quot;markdown-toc-extendable-plugable-anywhere-later&quot;&gt;Extendable, plugable anywhere later:&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#confident-clear--well-configured&quot; id=&quot;markdown-toc-confident-clear--well-configured&quot;&gt;Confident, clear &amp;amp; well configured&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#extendable-plugable-anywhere-later&quot; id=&quot;markdown-toc-extendable-plugable-anywhere-later&quot;&gt;Extendable, plugable anywhere later&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#c-issue-links--references&quot; id=&quot;markdown-toc-c-issue-links--references&quot;&gt;C. Issue links &amp;amp; References&lt;/a&gt;&lt;/li&gt;
@@ -43,40 +43,44 @@
 
 &lt;p&gt;For defining AWS secgroup in terraform, we have 2 main ways:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;inline&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group&lt;/code&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;inline&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group&lt;/code&gt;&lt;/p&gt;
+
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Predefined all rules using inline
 resource &quot;aws_security_group&quot; &quot;default&quot; {
-name        = &quot;default&quot;
-vpc_id      = &quot;xxxxx&quot;
+  name        = &quot;default&quot;
+  vpc_id      = &quot;xxxxx&quot;
 
-ingress {
-  from_port   = 22
-  to_port     = 22
-  protocol    = &quot;tcp&quot;
-  description = &quot;Predefined Whitelist &quot;
-  cidr_blocks = &quot;${var.whitelist_ips}&quot;
-}
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = &quot;tcp&quot;
+    description = &quot;Predefined Whitelist &quot;
+    cidr_blocks = &quot;${var.whitelist_ips}&quot;
+  }
 
-egress {
-  from_port   = 0
-  to_port     = 0
-  protocol    = &quot;-1&quot;
-  cidr_blocks = [&quot;0.0.0.0/0&quot;]
-}
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = &quot;-1&quot;
+    cidr_blocks = [&quot;0.0.0.0/0&quot;]
+  }
 }
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
   &lt;/li&gt;
-  &lt;li&gt;or &lt;code class=&quot;highlighter-rouge&quot;&gt;discrete&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group_rule&lt;/code&gt;.
+  &lt;li&gt;
+    &lt;p&gt;or &lt;code class=&quot;highlighter-rouge&quot;&gt;discrete&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group_rule&lt;/code&gt;.&lt;/p&gt;
+
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Discrete rules
 resource &quot;aws_security_group_rule&quot; &quot;extending_default&quot; {
-type              = &quot;ingress&quot;
-from_port         = 22
-to_port           = 22
-protocol          = &quot;tcp&quot;
-cidr_blocks       = [&quot;1.1.1.1/32&quot;]
-security_group_id = &quot;${aws_security_group.default.id}&quot;
-description       = &quot;VPN&quot;
+  type              = &quot;ingress&quot;
+  from_port         = 22
+  to_port           = 22
+  protocol          = &quot;tcp&quot;
+  cidr_blocks       = [&quot;1.1.1.1/32&quot;]
+  security_group_id = &quot;${aws_security_group.default.id}&quot;
+  description       = &quot;VPN&quot;
 }
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
@@ -102,12 +106,12 @@ description       = &quot;VPN&quot;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;h3 id=&quot;confident-clear--well-configured&quot;&gt;Confident, clear &amp;amp; well configured:&lt;/h3&gt;
+    &lt;h3 id=&quot;confident-clear--well-configured&quot;&gt;Confident, clear &amp;amp; well configured&lt;/h3&gt;
 
     &lt;p&gt;If we’re confident to say that our secgroup is well defined from the first place in mind, init one time, then use in many place and &lt;strong&gt;no need to changes/extend anymore&lt;/strong&gt; in the future, so go head with configuring entire segroup &amp;amp; rule in &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group&lt;/code&gt; by inline&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;h3 id=&quot;extendable-plugable-anywhere-later&quot;&gt;Extendable, plugable anywhere later:&lt;/h3&gt;
+    &lt;h3 id=&quot;extendable-plugable-anywhere-later&quot;&gt;Extendable, plugable anywhere later&lt;/h3&gt;
 
     &lt;p&gt;If we’re working on one secgroup which is not well-defined in the first time, need extended and plug in/out rules in another place, go head with configuring core skeletion of secgroup using &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group&lt;/code&gt; without any rules, then plug in rule by rule with &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group_rule&lt;/code&gt;&lt;/p&gt;
 

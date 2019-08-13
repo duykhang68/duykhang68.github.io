@@ -26,42 +26,44 @@ Sample code at:
 
 For defining AWS secgroup in terraform, we have 2 main ways: 
 * `inline` with `aws_security_group`
-```
-# Predefined all rules using inline
-resource "aws_security_group" "default" {
-  name        = "default"
-  vpc_id      = "xxxxx"
 
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    description = "Predefined Whitelist "
-    cidr_blocks = "${var.whitelist_ips}"
-  }
+  ```
+  # Predefined all rules using inline
+  resource "aws_security_group" "default" {
+    name        = "default"
+    vpc_id      = "xxxxx"
 
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    ingress {
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
+      description = "Predefined Whitelist "
+      cidr_blocks = "${var.whitelist_ips}"
+    }
+
+    egress {
+      from_port   = 0
+      to_port     = 0
+      protocol    = "-1"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
   }
-}
-```
+  ```
 
 * or `discrete` with `aws_security_group_rule`. 
-```
-# Discrete rules
-resource "aws_security_group_rule" "extending_default" {
-  type              = "ingress"
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  cidr_blocks       = ["1.1.1.1/32"]
-  security_group_id = "${aws_security_group.default.id}"
-  description       = "VPN"
-}
-```
+
+  ```
+  # Discrete rules
+  resource "aws_security_group_rule" "extending_default" {
+    type              = "ingress"
+    from_port         = 22
+    to_port           = 22
+    protocol          = "tcp"
+    cidr_blocks       = ["1.1.1.1/32"]
+    security_group_id = "${aws_security_group.default.id}"
+    description       = "VPN"
+  }
+  ```
 
 If we streamline one method when configuring, everything is fine:
 * One method using `aws_security_group` and all rules are defined as `inline` ==>  **PERFECT** but hard to extended whenever you wanna fetch that security group ID from another place.
@@ -78,11 +80,11 @@ If we mixed up by predefined inline in `aws_security_group` then continue extend
 
 ## B. Best practices
 
-* ### Confident, clear & well configured:
+* ### Confident, clear & well configured
 
   If we're confident to say that our secgroup is well defined from the first place in mind, init one time, then use in many place and **no need to changes/extend anymore** in the future, so go head with configuring entire segroup & rule in `aws_security_group` by inline
 
-* ### Extendable, plugable anywhere later:
+* ### Extendable, plugable anywhere later
 
   If we're working on one secgroup which is not well-defined in the first time, need extended and plug in/out rules in another place, go head with configuring core skeletion of secgroup using `aws_security_group` without any rules, then plug in rule by rule with `aws_security_group_rule`
 
