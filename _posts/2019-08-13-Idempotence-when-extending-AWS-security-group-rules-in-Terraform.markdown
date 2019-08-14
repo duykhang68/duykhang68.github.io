@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Idempotence when extending secgroup rules with aws_security_group_rule in Terraform
-category: mindset
-description: responsibility for angthing we did, how to solve and improve after incidents
+title: Idempotence when extending AWS security group rules in Terraform
+category: technical
+description: best practice for using aws_security_group and aws_security_group_rule in terraform
 ---
 
 Terraform acts so weird when mixing up between `aws_security_group` and `aws_security_group_rule` in extending AWS security group rules.

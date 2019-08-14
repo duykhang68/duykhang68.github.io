@@ -5,12 +5,12 @@
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://blog.tracelog.in/</link>
     <atom:link href="https://blog.tracelog.in/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 14 Aug 2019 00:07:59 +0700</pubDate>
-    <lastBuildDate>Wed, 14 Aug 2019 00:07:59 +0700</lastBuildDate>
+    <pubDate>Wed, 14 Aug 2019 09:39:42 +0700</pubDate>
+    <lastBuildDate>Wed, 14 Aug 2019 09:39:42 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
-        <title>Idempotence when extending secgroup rules with aws_security_group_rule in Terraform</title>
+        <title>Idempotence when extending AWS security group rules in Terraform</title>
         <description>&lt;p&gt;Terraform acts so weird when mixing up between &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_security_group_rule&lt;/code&gt; in extending AWS security group rules.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Context:&lt;/strong&gt; that leads to not idempotent for each apply (without changing anything in IaC)&lt;/p&gt;
@@ -157,11 +157,11 @@ resource &quot;aws_security_group_rule&quot; &quot;default_https_ingress&quot; {
 
 </description>
         <pubDate>Tue, 13 Aug 2019 00:00:00 +0700</pubDate>
-        <link>https://blog.tracelog.in/mindset/2019/08/13/Idempotence-when-extending-secgroup-rules-with-aws_security_group_rule-in-terraform.html</link>
-        <guid isPermaLink="true">https://blog.tracelog.in/mindset/2019/08/13/Idempotence-when-extending-secgroup-rules-with-aws_security_group_rule-in-terraform.html</guid>
+        <link>https://blog.tracelog.in/technical/2019/08/13/Idempotence-when-extending-AWS-security-group-rules-in-Terraform.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/technical/2019/08/13/Idempotence-when-extending-AWS-security-group-rules-in-Terraform.html</guid>
         
         
-        <category>mindset</category>
+        <category>technical</category>
         
       </item>
     
