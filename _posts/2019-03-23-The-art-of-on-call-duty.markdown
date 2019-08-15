@@ -12,7 +12,7 @@ Being on-call means working/fixing live issues under high pressure and almost du
 * Being on-call duty means we can **learn a lot from it**, for both technical knowledge & growing mindset. 
 * Must get high paid for each on-call duty shift, because of stressful.
 
-<iframe src="https://giphy.com/embed/NTur7XlVDUdqM" width="660" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<iframe src="https://giphy.com/embed/NTur7XlVDUdqM" width="768" height="419" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 <!--description-->
 
 **Table of Contents**

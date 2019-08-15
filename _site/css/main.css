@@ -405,7 +405,8 @@ th {
   padding: 10px 10px;
   box-sizing: border-box;
   /* for test only */
-  border: 1px dashed #eeeeee; }
+  border: 1px dashed #eeeeee;
+  border-left: 2px solid #e47911; }
 
 .column,
 .columns {
@@ -439,7 +440,7 @@ th {
     width: 13.3333333333%; }
 
   .three.columns {
-    width: 22%; }
+    width: 10%; }
 
   .four.columns {
     width: 30.6666666667%; }
@@ -457,7 +458,7 @@ th {
     width: 65.3333333333%; }
 
   .nine.columns {
-    width: 74.0%;
+    width: 86.0%;
     box-sizing: border-box;
     border-right: 1px dashed #eeeeee;
     padding-right: inherit; }
@@ -951,6 +952,10 @@ body {
   animation: blinking_underscore_frame 1.5s infinite ease; }
 
 .logo {
+  background-image: url("favicon.ico");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   margin-bottom: 12.5px;
   font-weight: 600;
   background-color: #F7F7F7; }

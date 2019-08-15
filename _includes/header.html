@@ -1,7 +1,5 @@
 <header class="site-header">
 
-  <h1 class="logo"><a href="https://blog.tracelog.in/archive">Blog</a></h2>
-
   <div class="nav">
     
     <label for="menu-toggle" class="menu-icon">
@@ -14,16 +12,16 @@
     </label>
     <input type="checkbox" id="menu-toggle">
 
-    <div class="site-nav">
+    <div class="top-bar fixed">
       <nav>
         <ul class="page-link">
           <li><a href="{{ "/" | prepend: site.baseurl }}">Home</a></li>
           <li><a href="{{ "/archive" | prepend: site.baseurl }}">Posts</a></li>
+          <li><a href="{{ "/wtf" | prepend: site.baseurl }}">WTF</a></li>
           <li><a href="{{ "/about" | prepend: site.baseurl }}">About</a></li>
           <li><a href="{{ "/photography" | prepend: site.baseurl }}">Photo</a></li>
           <li><a href="{{ "/friends" | prepend: site.baseurl }}">Friends</a></li>
-          <li><a href="{{ "/hireme" | prepend: site.baseurl }}" style="color: #C25;font-size: 15px">Hire me ❯❯</a></span></li>
-          <li><a href="{{ "/wtf" | prepend: site.baseurl }}" style="color: #FFD700;font-size: 15px">WTF❯❯</a></span></li>
+          <li><a href="{{ "/hireme" | prepend: site.baseurl }}" style="color: white;font-size: 15px;padding: 2px;background-color: #C25;">Hire me</a></span></li>
         </ul>
       </nav>
     </div>

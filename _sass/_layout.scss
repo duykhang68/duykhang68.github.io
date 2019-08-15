@@ -52,6 +52,10 @@ body {
 }
 
 .logo {
+  background-image: url("favicon.ico");
+	    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
   margin-bottom:12.5px;
   font-weight:$font-weight-bold;
   background-color: #F7F7F7;
