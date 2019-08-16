@@ -5,8 +5,8 @@
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://blog.tracelog.in/</link>
     <atom:link href="https://blog.tracelog.in/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 16 Aug 2019 22:01:03 +0700</pubDate>
-    <lastBuildDate>Fri, 16 Aug 2019 22:01:03 +0700</lastBuildDate>
+    <pubDate>Fri, 16 Aug 2019 22:04:10 +0700</pubDate>
+    <lastBuildDate>Fri, 16 Aug 2019 22:04:10 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
@@ -37,7 +37,6 @@
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#c-issue-links--references&quot; id=&quot;markdown-toc-c-issue-links--references&quot;&gt;C. Issue links &amp;amp; References&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#d-feedbacks--comments&quot; id=&quot;markdown-toc-d-feedbacks--comments&quot;&gt;D. Feedbacks &amp;amp; Comments&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;a-knowledge-base&quot;&gt;A. Knowledge base&lt;/h2&gt;
@@ -155,9 +154,6 @@ resource &quot;aws_security_group_rule&quot; &quot;default_https_ingress&quot; {
   &lt;li&gt;&lt;a href=&quot;https://github.com/terraform-providers/terraform-provider-aws/issues/742&quot;&gt;https://github.com/terraform-providers/terraform-provider-aws/issues/742&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/hashicorp/terraform/issues/14124&quot;&gt;https://github.com/hashicorp/terraform/issues/14124&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h2 id=&quot;d-feedbacks--comments&quot;&gt;D. Feedbacks &amp;amp; Comments&lt;/h2&gt;
-
 </description>
         <pubDate>Tue, 13 Aug 2019 00:00:00 +0700</pubDate>
         <link>https://blog.tracelog.in/technical/2019/08/13/Idempotence-when-extending-AWS-security-group-rules-in-Terraform.html</link>
