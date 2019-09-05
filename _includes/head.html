@@ -13,7 +13,7 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ " /feed.xml " | prepend: site.baseurl | prepend: site.url }}">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script async src="{{ site.url }}/assets/dist/fetch.min.js"></script>
-    <script>
+    <!-- <script>
     (function(f, a, t, h, o, m){
 	a[h]=a[h]||function(){
 		(a[h].q=a[h].q||[]).push(arguments)
@@ -24,6 +24,23 @@
 	m.parentNode.insertBefore(o,m)
     })(document, window, 'https://analytics.tracelog.in/tracker.js', 'fathom');
     fathom('trackPageview');
+    </script> -->
+
+    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
+    <script>
+    (function(f, a, t, h, o, m){
+        a[h]=a[h]||function(){
+            (a[h].q=a[h].q||[]).push(arguments)
+        };
+        o=f.createElement('script'),
+        m=f.getElementsByTagName('script')[0];
+        o.async=1; o.src=t; o.id='fathom-script';
+        m.parentNode.insertBefore(o,m)
+    })(document, window, 'https://analytics.tracelog.in/tracker.js', 'fathom');
+    fathom('set', 'siteId', 'WLEYN');
+    fathom('trackPageview');
     </script>
+    <!-- / Fathom -->
+
     <script src="//instant.page/1.1.0" type="module" integrity="sha384-EwBObn5QAxP8f09iemwAJljc+sU+eUXeL9vSBw1eNmVarwhKk2F9vBEpaN9rsrtp"></script>
 </head>
