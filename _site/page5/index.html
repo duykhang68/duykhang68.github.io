@@ -70,11 +70,11 @@
         <ul class="page-link">
           <li><a href="/">Home</a></li>
           <li><a href="/archive">Posts</a></li>
-          <li><a href="/wtf">WTF</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/photography">Photo</a></li>
           <li><a href="/friends">Friends</a></li>
           <li><a href="/hireme" style="color: white;font-size: 15px;padding: 2px;background-color: #C25;">Hire me</a></span></li>
+          <li><a href="/WhatTheFuck">WhatTheFuck</a></li>
         </ul>
       </nav>
     </div>
@@ -90,6 +90,127 @@
   <div class="post-list">
 
     
+    
+        <article class="post_card post">
+          <header class="post_header">
+            <h1 class="post_title"><a href="/technical/2017/04/09/How-DNS-works.html">How DNS works</a></h2>
+            <time class="post_date">Published on Sunday 09 April 2017 - 3 min read</time>
+          </header>
+    
+          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2017/04/09/How-DNS-works.html';" style="cursor: pointer;">
+            <p>
+              <blockquote>
+  <p>Without DNS, we would only be able to visit any website directly via IP address, no human-readable anymore</p>
+</blockquote>
+
+<h3 id="dns-basic-concept-and-information">DNS: Basic concept and information</h3>
+
+<ul>
+  <li>DNS stands for Domain Name System</li>
+  <li>Its purpose is to resolve and translate human-readable website name to IPv4 or IPv6 address</li>
+  <li>It’s basically a large Database which resides on various servers around the world, that contains the names and IP address of various host/domains.</li>
+  <li>Without DNS, we would only be able to visit any website directly via IP address, no human-readable anymore</li>
+  <li>DNS works on both the TCP and UDP Protocols, <strong>port 53</strong></li>
+</ul>
+
+<h3 id="how-does-dns-work">How does DNS work?</h3>
+
+<p>Whenever you visit a domain such as <a href="https://github.com">github.com</a>, the browser’s journey begins »&gt;</p>
+
+<p><strong>Step 1</strong>: Request information</p>
+<ul>
+  <li>TODO: Type <code class="highlighter-rouge">github.com</code> to address bar of Chrome, it’s a new request for browser</li>
+</ul>
+
+<p><strong>Step 2</strong>: DNS cache on Chrome</p>
+<ul>
+  <li>TODO: DNS query on chrome’s cache, see <code class="highlighter-rouge">chrome://net-internals/#dns</code></li>
+  <li>True: Return IP address of this domain for making a request</li>
+  <li>False: Didn’t know it before –&gt; call OS (step3)</li>
+</ul>
+
+ 
+            </p> 
+          </div>
+    
+          <footer class="post_meta">
+          </footer>
+          <hr/>
+        </article>
+        
+    
+        <article class="post_card post">
+          <header class="post_header">
+            <h1 class="post_title"><a href="/mindset/2017/03/12/habit-time-management.html">Habit and Time management</a></h2>
+            <time class="post_date">Published on Sunday 12 March 2017 - 2 min read</time>
+          </header>
+    
+          <div class="post_excerpt" title="Read full article" onclick="location.href='/mindset/2017/03/12/habit-time-management.html';" style="cursor: pointer;">
+            <p>
+              <blockquote>
+  <p>Habit: something that you do often and regularly, sometimes without knowing that you are doing it</p>
+</blockquote>
+
+<h3 id="habit">Habit</h3>
+<p>It takes 21 days to form a new habit</p>
+
+<ul>
+  <li>Do it For Yourself</li>
+  <li>Know the Benefits</li>
+  <li>Know the Pain</li>
+  <li>Start Simple</li>
+  <li>Make it Daily</li>
+  <li>Stay Consistent</li>
+</ul>
+
+<h3 id="time-management">Time management</h3>
+<p><strong>Most important thing</strong>: Work more when you’re in the zone. Relax when you’re not.</p>
+
+<ul>
+  <li>It’s normal to have days where you just can’t work,  and days where you’ll work 12 hours straight.</li>
+  <li>Stop multi-tasking. It merely kills your focus.</li>
+  <li>We’re always more focused and productive with limited time.</li>
+</ul>
+
+ 
+            </p> 
+          </div>
+    
+          <footer class="post_meta">
+          </footer>
+          <hr/>
+        </article>
+        
+    
+        <article class="post_card post">
+          <header class="post_header">
+            <h1 class="post_title"><a href="/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html">What is FLUSH TABLES WITH READ LOCK in MySQL?</a></h2>
+            <time class="post_date">Published on Wednesday 08 March 2017 - 2 min read</time>
+          </header>
+    
+          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html';" style="cursor: pointer;">
+            <p>
+              <p><strong>Command:</strong></p>
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">FLUSH</span> <span class="n">TABLES</span> <span class="k">WITH</span> <span class="k">READ</span> <span class="k">LOCK</span><span class="p">;</span>
+</code></pre>
+</div>
+<p><strong>What exactly does command do?</strong></p>
+
+<ol>
+  <li>Set the global read lock - after this step, <code class="highlighter-rouge">insert/update/delete/replace/alter statements</code> cannot run</li>
+  <li>Close open tables - this step will block until all statements started previously have stopped</li>
+  <li>Set a flag to block commits</li>
+</ol>
+
+ 
+            </p> 
+          </div>
+    
+          <footer class="post_meta">
+          </footer>
+          <hr/>
+        </article>
+        
     
         <article class="post_card post">
           <header class="post_header">
@@ -156,81 +277,6 @@ Like what steps you guys taking, etc?</p>
         </article>
         
     
-        <article class="post_card post">
-          <header class="post_header">
-            <h1 class="post_title"><a href="/technical/2017/01/15/how-homebrew-works.html">How Homebrew works?</a></h2>
-            <time class="post_date">Published on Sunday 15 January 2017 - 6 min read</time>
-          </header>
-    
-          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2017/01/15/how-homebrew-works.html';" style="cursor: pointer;">
-            <p>
-              <p>Homebrew — The missing package manager for macOS. Here is the Official site: <a href="https://brew.sh">https://brew.sh</a></p>
-
-<h4 id="what-is-homebrew">What is Homebrew?</h4>
-
-<p>Homebrew is a package manager for OS X. It allows a user to easily install software from the larger body of UNIX and open source software on the Mac. 
-If you know linux, you can compare the <strong>brew</strong> command with the <strong>apt-get</strong> command (on Debian)</p>
-
-<ul>
-  <li><strong>Official site:</strong> <a href="https://brew.sh">https://brew.sh</a></li>
-  <li><strong>Homebrew on Github:</strong> <a href="https://github.com/Homebrew/brew">https://github.com/Homebrew/brew</a></li>
-</ul>
-
-<h4 id="how-to-install">How to install?</h4>
-
-<p>Open terminal or iterm2 on your Mac and paste this line at a Terminal prompt.</p>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code> /usr/bin/ruby -e <span class="s2">"</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">"</span>
-</code></pre>
-</div>
-
- 
-            </p> 
-          </div>
-    
-          <footer class="post_meta">
-          </footer>
-          <hr/>
-        </article>
-        
-    
-        <article class="post_card post">
-          <header class="post_header">
-            <h1 class="post_title"><a href="/mindset/2017/01/08/Note-cho-nam-2016.html">Note cho năm 2016</a></h2>
-            <time class="post_date">Published on Sunday 08 January 2017 - 3 min read</time>
-          </header>
-    
-          <div class="post_excerpt" title="Read full article" onclick="location.href='/mindset/2017/01/08/Note-cho-nam-2016.html';" style="cursor: pointer;">
-            <p>
-              <blockquote>
-  <p>Năm 2016 là đánh dấu rất nhiều biến chuyển cả về lối sống, suy nghĩ và cách hành động.
-Tổng kết 1 số thứ trong năm 2016, để sau này có cái mà nhìn lại:</p>
-</blockquote>
-
-<h4 id="làm-được-học-được">Làm được, học được:</h4>
-
-<ul>
-  <li>
-    <p>Tự lên plan, tự suy nghĩ strategy của crawler, tự vẽ tự build được scalable architecture cho luận văn, bản thân cảm thấy rất tâm huyết cho công trình 1 năm. Thanks thím Linh đã đồng hành nửa năm đầu, thanks thím Cát đã đồng hành nửa năm sau, thanks chuỗi cf TCH vì là cái nơi để team đặt góc chiến lược ở đó</p>
-  </li>
-  <li>Có việc làm, có nơi để trải nghiệm, học tập những kiến thức nền tảng và những công nghệ mới, có nơi để cống hiến sức trẻ, nhiệt huyết (ở Codebox - SalesHood).</li>
-  <li>Become more fearless từ anh Ân</li>
-  <li>Học được “Always know why you do what you do” từ anh Trí (nhưng chưa áp dụng triệt để, còn tệ quá)</li>
-  <li>Học được nhiều thứ về cách optimize resource từ anh Bình, học được cách suy nghĩ về tư duy build product, tự cover mọi thứ, học được cách suy nghĩ là feature nào cũng có thể làm được của anh Quân (ở 3forcom)</li>
-  <li>Đọc nhiều bài viết chất lượng từ quora, medium, kipalog. Unlike, unfollow những thứ nhảm nhí vớ vẩn trên social như facebook.</li>
-  <li>Tham gia nhiều cộng đồng như grokking vietnam, vietnamrb, …  quen được, trò chuyện được với mấy anh (huydx, huytd, anhduy, xluffy, rebyn, checkraiser, …. ) Nhờ mấy anh này mà mới biết trình độ mình siêu tệ, cần improve rất nhiều. Được khai sáng là nên đào sâu về giải thuật, về kiến trúc hệ thống, về operating system,… hơn là chỉ quan tâm về framework, công nghệ ở bề mặt.</li>
-</ul>
-
- 
-            </p> 
-          </div>
-    
-          <footer class="post_meta">
-          </footer>
-          <hr/>
-        </article>
-        
-    
         
         <div class="pagination">
           
@@ -240,7 +286,7 @@ Tổng kết 1 số thứ trong năm 2016, để sau này có cái mà nhìn l�
           
       
           
-            <span class='next'>Next &raquo;</span>
+            <a class='next' href="/page6/">Next &raquo;</a>
           
         </div>
         

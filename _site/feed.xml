@@ -5,9 +5,179 @@
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://blog.tracelog.in/</link>
     <atom:link href="https://blog.tracelog.in/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 05 Sep 2019 23:53:33 +0700</pubDate>
-    <lastBuildDate>Thu, 05 Sep 2019 23:53:33 +0700</lastBuildDate>
+    <pubDate>Wed, 18 Sep 2019 22:23:39 +0700</pubDate>
+    <lastBuildDate>Wed, 18 Sep 2019 22:23:39 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
+    
+      <item>
+        <title>Wildcardfuck</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/assets/img/asterisk-de.jpg&quot; alt=&quot;img&quot; title=&quot;Wildcardfuck&quot; /&gt;&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;h2 id=&quot;root-cause&quot;&gt;Root cause&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;There is no fucking rootcause in these cases.&lt;/li&gt;
+  &lt;li&gt;It’s lack of knowledge of the guy who did these configurations.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;You’re assuming that you do it right and you know it clearly&lt;/strong&gt;, &lt;strong&gt;but you never check&lt;/strong&gt; or &lt;strong&gt;learn and understand&lt;/strong&gt; it in the right way.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;knowledge-base&quot;&gt;Knowledge base&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Character &lt;strong&gt;*&lt;/strong&gt;  is &lt;strong&gt;Asterisk&lt;/strong&gt;. A wildcard DNS record is a record in a DNS zone that will match requests for non-existent domain names. A wildcard DNS record is specified by using a &lt;strong&gt;*&lt;/strong&gt; as the leftmost label (part) of a domain name, e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;*.example.com&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Wildcards in the DNS are &lt;strong&gt;much more limited&lt;/strong&gt; than other wildcard characters used in other computer systems. &lt;strong&gt;Asterisks at other places in the domain will not work as a wildcard&lt;/strong&gt;, so neither &lt;code class=&quot;highlighter-rouge&quot;&gt;*abc.example.com&lt;/code&gt; nor &lt;code class=&quot;highlighter-rouge&quot;&gt;abc.*.example.com&lt;/code&gt; work as wildcard DNS records&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;using-an-asterisk--in-aws-route53-hosted-zones-and-records&quot;&gt;Using an Asterisk (*) in AWS Route53 Hosted Zones and Records&lt;/h3&gt;
+
+    &lt;p&gt;You can create hosted zones and records that include &lt;strong&gt;*&lt;/strong&gt; in the name.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;1. Hosted Zones&lt;/strong&gt;&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;You can’t include an &lt;strong&gt;*&lt;/strong&gt; in the leftmost label in a domain name. For example, &lt;code class=&quot;highlighter-rouge&quot;&gt;*.example.com&lt;/code&gt; is not allowed.&lt;/li&gt;
+      &lt;li&gt;If you include &lt;strong&gt;*&lt;/strong&gt; in other positions, DNS treats it as an &lt;strong&gt;*&lt;/strong&gt; character (&lt;code class=&quot;highlighter-rouge&quot;&gt;ASCII 42&lt;/code&gt;), not as a wildcard.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;strong&gt;2. Records&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;DNS treats the &lt;strong&gt;*&lt;/strong&gt; character either as a wildcard or as the &lt;strong&gt;*&lt;/strong&gt; character (&lt;code class=&quot;highlighter-rouge&quot;&gt;ASCII 42&lt;/code&gt;), depending on where it appears in the name. Note the following restrictions on using &lt;strong&gt;*&lt;/strong&gt; as a wildcard in the name of a record:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;The &lt;strong&gt;*&lt;/strong&gt; must replace the leftmost label in a domain name, for example, &lt;code class=&quot;highlighter-rouge&quot;&gt;*.example.com&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;*.acme.example.com&lt;/code&gt;. If you include &lt;strong&gt;*&lt;/strong&gt; in any other position, such as &lt;code class=&quot;highlighter-rouge&quot;&gt;prod.*.example.com&lt;/code&gt;, DNS treats it as an &lt;strong&gt;*&lt;/strong&gt; character (&lt;code class=&quot;highlighter-rouge&quot;&gt;ASCII 42&lt;/code&gt;), not as a wildcard.&lt;/li&gt;
+      &lt;li&gt;The &lt;strong&gt;*&lt;/strong&gt; must replace the entire label. For example, you can’t specify &lt;code class=&quot;highlighter-rouge&quot;&gt;*prod.example.com&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;prod*.example.com&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Specific domain names take precedence. For example, if you create records for &lt;code class=&quot;highlighter-rouge&quot;&gt;*.example.com&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;acme.example.com&lt;/code&gt;, Route 53 always responds to DNS queries for &lt;code class=&quot;highlighter-rouge&quot;&gt;acme.example.com&lt;/code&gt; with the values in the &lt;code class=&quot;highlighter-rouge&quot;&gt;acme.example.com&lt;/code&gt; record.&lt;/li&gt;
+      &lt;li&gt;The &lt;strong&gt;*&lt;/strong&gt; applies to DNS queries for the subdomain level that includes the asterisk, and all the subdomains of that subdomain. For example, if you create a record named &lt;code class=&quot;highlighter-rouge&quot;&gt;*.example.com&lt;/code&gt;, Route 53 uses the values in that record to respond to DNS queries for &lt;code class=&quot;highlighter-rouge&quot;&gt;zenith.example.com&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;acme.zenith.example.com&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;pinnacle.acme.zenith.example.com&lt;/code&gt; (if there are no records that have those names).&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Wildcard_DNS_record&quot;&gt;https://en.wikipedia.org/wiki/Wildcard_DNS_record&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc4592#page-6&quot;&gt;https://tools.ietf.org/html/rfc4592#page-6&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html#domain-name-format-asterisk&quot;&gt;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html#domain-name-format-asterisk&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Wed, 18 Sep 2019 00:00:00 +0700</pubDate>
+        <link>https://blog.tracelog.in/whatthefuck/2019/09/18/Wildcardfuck.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/whatthefuck/2019/09/18/Wildcardfuck.html</guid>
+        
+        
+        <category>whatthefuck</category>
+        
+      </item>
+    
+      <item>
+        <title>Mountfuck</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/assets/img/wrong-mount-in-es.webp&quot; alt=&quot;img&quot; title=&quot;Entire fucking dir in fuckin /var/lib/elasticsearch&quot; /&gt;&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;h2 id=&quot;root-cause&quot;&gt;Root cause&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html&quot;&gt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;EBS uses single-root I/O virtualization (SR-IOV) to provide volume attachments on Nitro-based instances using the NVMe specification. 
+These devices rely on standard NVMe drivers on the operating system. 
+These drivers typically discover attached devices by scanning the PCI bus during instance boot, and create device nodes based on the order in which the devices respond, not on how the devices are specified in the block device mapping. 
+In Linux, NVMe device names follow the pattern /dev/nvme&amp;lt;x&amp;gt;n&amp;lt;y&amp;gt;, where &amp;lt;x&amp;gt; is the enumeration order, and, for EBS, &amp;lt;y&amp;gt; is 1. 
+Occasionally, devices can respond to discovery in a different order in subsequent instance starts, which causes the device name to change.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;So, if we use NVMe disk for some new types of AWS EC2, please note that the device name is nearly randomize after each reboot.
+It means if we have 2 NVMe disks on one EC2 vm, so we cannot know which device name delegate to which real disk.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/dev/nvme1n1p1
+/dev/nvme0n1p1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;We must config fstab (permanent mount) based on UUID / label like this&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;LABEL=cloudimg-rootfs  /   ext4  defaults,discard  0 0
+UUID=&quot;c46cf311-d31b-41ce-bce5-5d8ad0a6b109&quot; /var/lib/elasticsearch ext4 defaults,nofail  0 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;DON’T config based on device name like this fuck&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;LABEL=cloudimg-rootfs	/	 ext4	defaults,discard	0 0
+/dev/nvme1n1p1 /var/lib/elasticsearch ext4 defaults,nofail  0 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 18 Sep 2019 00:00:00 +0700</pubDate>
+        <link>https://blog.tracelog.in/whatthefuck/2019/09/18/Mountfuck.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/whatthefuck/2019/09/18/Mountfuck.html</guid>
+        
+        
+        <category>whatthefuck</category>
+        
+      </item>
+    
+      <item>
+        <title>Jenkinsfuck</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/assets/img/jenkins-oops.webp&quot; alt=&quot;img&quot; title=&quot;EatWhatYouKill&quot; /&gt;&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Mar 01, 2019 11:19:14 AM org.eclipse.jetty.server.handler.ContextHandler$Context log
+WARNING: Error while serving https://ci.tools.xxxxxx.io/job/live-xxxxxx/27/logText/progressiveHtml
+java.lang.reflect.InvocationTargetException
+    at org.kohsuke.stapler.Function$MethodFunction.invoke(Function.java:347)
+    ...
+    ...
+    at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+    at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+    ...
+    ...
+Caused by: java.lang.NegativeArraySizeException
+    at hudson.console.ConsoleNote.readFrom(ConsoleNote.java:241)
+    at hudson.console.ConsoleAnnotationOutputStream.eol(ConsoleAnnotationOutputStream.java:109)
+    at hudson.console.LineTransformationOutputStream.eol(LineTransformationOutputStream.java:60)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;root-cause&quot;&gt;Root cause&lt;/h2&gt;
+
+&lt;p&gt;Details of log: &lt;a href=&quot;/assets/raw/jenkins-NegativeArraySizeException-error.log&quot;&gt;jenkins-NegativeArraySizeException-error.log&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NegativeArraySizeException&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RuntimeException&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Thrown if an application tries to create an array with negative size.&lt;/p&gt;
+
+&lt;p&gt;Output of this running job is: too big and spawn too fast &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rarely&lt;/code&gt;&lt;/strong&gt; that reach &lt;code class=&quot;highlighter-rouge&quot;&gt;NegativeArraySize&lt;/code&gt; during entire log workflow from&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;ConsoleNote &amp;gt; ConsoleAnnotationOutputStream &amp;gt; FileLogStorage &amp;gt; ProxyOutputStream&lt;/li&gt;
+  &lt;li&gt;to doProgressText and until doProgressiveHtml&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;EatWhatYouKill&lt;/p&gt;
+
+&lt;p&gt;Don’t panic, just wait, let them come then let them go. Wait until this fucking job DONE. Then issuse will….gone&lt;/p&gt;
+</description>
+        <pubDate>Wed, 18 Sep 2019 00:00:00 +0700</pubDate>
+        <link>https://blog.tracelog.in/whatthefuck/2019/09/18/Jenkinsfuck.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/whatthefuck/2019/09/18/Jenkinsfuck.html</guid>
+        
+        
+        <category>whatthefuck</category>
+        
+      </item>
     
       <item>
         <title>Idempotence when extending AWS security group rules in Terraform</title>
@@ -787,206 +957,6 @@ Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validatin
         <pubDate>Wed, 15 Aug 2018 00:00:00 +0700</pubDate>
         <link>https://blog.tracelog.in/technical/2018/08/15/Signal-of-linux.html</link>
         <guid isPermaLink="true">https://blog.tracelog.in/technical/2018/08/15/Signal-of-linux.html</guid>
-        
-        
-        <category>technical</category>
-        
-      </item>
-    
-      <item>
-        <title>Learning logs in Aug</title>
-        <description>&lt;ol&gt;
-  &lt;li&gt;Export large tables in MySQL&lt;/li&gt;
-  &lt;li&gt;Bash completion on debian 9&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;!--description--&gt;
-
-&lt;p&gt;&lt;strong&gt;Table of Contents&lt;/strong&gt;&lt;/p&gt;
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#1-export-large-tables-in-mysql&quot; id=&quot;markdown-toc-1-export-large-tables-in-mysql&quot;&gt;1. Export large tables in MySQL&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#2-bash-completion-on-debian-9&quot; id=&quot;markdown-toc-2-bash-completion-on-debian-9&quot;&gt;2. Bash completion on debian 9&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#references&quot; id=&quot;markdown-toc-references&quot;&gt;References&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;1-export-large-tables-in-mysql&quot;&gt;1. Export large tables in MySQL&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Large tables&lt;/li&gt;
-  &lt;li&gt;Progress&lt;/li&gt;
-  &lt;li&gt;Compression&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tmux new -s exporting
-mysqldump -udevops -pxxxxxx -hhost.xxxx \
-           dbname table1 table2 table3 | pv | gzip -9 &amp;gt; 3tables.sql.gz
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;2-bash-completion-on-debian-9&quot;&gt;2. Bash completion on debian 9&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Autocomplete / hint when pressing tab&lt;/li&gt;
-  &lt;li&gt;Apply for all user/profile&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install bash-completion
-
-# In file /etc/profile
-if [ -f /etc/bash_completion ]; then
- . /etc/bash_completion
-fi
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/a/21091197/5402121&quot;&gt;https://stackoverflow.com/a/21091197/5402121&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://packages.debian.org/stretch/bash-completion&quot;&gt;https://packages.debian.org/stretch/bash-completion&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Mon, 06 Aug 2018 00:00:00 +0700</pubDate>
-        <link>https://blog.tracelog.in/technical/2018/08/06/Learning-logs-in-Aug.html</link>
-        <guid isPermaLink="true">https://blog.tracelog.in/technical/2018/08/06/Learning-logs-in-Aug.html</guid>
-        
-        
-        <category>technical</category>
-        
-      </item>
-    
-      <item>
-        <title>RDS as-a-fckin-service</title>
-        <description>&lt;p&gt;&lt;strong&gt;AWS RDS document&lt;/strong&gt;: 
-Depending on the DB instance class and the amount of storage, it can take up to 20 minutes before the new instance is available.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Reality&lt;/strong&gt;:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;RDB instance status: creating&lt;/li&gt;
-  &lt;li&gt;RDS stuck in this fucking step nearly 2 hours and couting&lt;/li&gt;
-  &lt;li&gt;db-fuck-as-a-service&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/rds.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;!--description--&gt;
-
-&lt;h2 id=&quot;i-guest-aka-initiation-step-by-step&quot;&gt;I guest aka initiation step-by-step&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Somehow the init RDB button will trigger a form with all specs, then send sms directly to a fucking devops guy of AWS ;)))&lt;/li&gt;
-  &lt;li&gt;Then that guy will goto AWS console, init new EC2 manually by his hand, use &lt;code class=&quot;highlighter-rouge&quot;&gt;rds-fucking-root.pem&lt;/code&gt; keypairs&lt;/li&gt;
-  &lt;li&gt;YEAH, then then then pick &lt;code class=&quot;highlighter-rouge&quot;&gt;ansible-playbook&lt;/code&gt; from somewhere in the internet then run this fuck&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;AND NOW: we have super-HA-scalable-db-as-a-service behind RDS term&lt;/p&gt;
-
-&lt;p&gt;Fact (trustme): nslookup of RDS domain, it will result EC2 domains&lt;/p&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html&quot;&gt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Tue, 24 Jul 2018 00:00:00 +0700</pubDate>
-        <link>https://blog.tracelog.in/technical/2018/07/24/RDS-as-a-fckin-service.html</link>
-        <guid isPermaLink="true">https://blog.tracelog.in/technical/2018/07/24/RDS-as-a-fckin-service.html</guid>
-        
-        
-        <category>technical</category>
-        
-      </item>
-    
-      <item>
-        <title>Mindset for building HA and scalable system</title>
-        <description>&lt;p&gt;&lt;strong&gt;System or infrastructure must have&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Fault tolerance&lt;/li&gt;
-  &lt;li&gt;No single point of failure&lt;/li&gt;
-  &lt;li&gt;More than one or two security layers&lt;/li&gt;
-  &lt;li&gt;Auto-failover without requiring human intervention&lt;/li&gt;
-  &lt;li&gt;Heartbeat monitoring on all running components&lt;/li&gt;
-  &lt;li&gt;Infrastructure as code&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/port-k8s.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;!--description--&gt;
-
-&lt;p&gt;&lt;strong&gt;Table of Contents&lt;/strong&gt;&lt;/p&gt;
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#fault-tolerance&quot; id=&quot;markdown-toc-fault-tolerance&quot;&gt;Fault tolerance&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#single-point-of-failure&quot; id=&quot;markdown-toc-single-point-of-failure&quot;&gt;Single point of failure&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#defense-in-depth&quot; id=&quot;markdown-toc-defense-in-depth&quot;&gt;Defense in depth&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#failover&quot; id=&quot;markdown-toc-failover&quot;&gt;Failover&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#heartbeat&quot; id=&quot;markdown-toc-heartbeat&quot;&gt;Heartbeat&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#infrastructure-as-code&quot; id=&quot;markdown-toc-infrastructure-as-code&quot;&gt;Infrastructure as code&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#reference&quot; id=&quot;markdown-toc-reference&quot;&gt;Reference&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;fault-tolerance&quot;&gt;Fault tolerance&lt;/h2&gt;
-&lt;p&gt;It is the property that enables a system to &lt;strong&gt;continue operating&lt;/strong&gt; properly in the event of the &lt;strong&gt;failure&lt;/strong&gt; of (or one or more faults within) some of its &lt;strong&gt;components&lt;/strong&gt;. If its operating quality decreases at all, the decrease is proportional to the severity of the failure, as compared to a naively designed system in which even a small failure can cause total breakdown. Fault tolerance is particularly sought after in high-availability or life-critical systems.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Distributed read/write to MySQL replication cluster&lt;/li&gt;
-  &lt;li&gt;CDN system like Cloudfront/Cloudflare&lt;/li&gt;
-  &lt;li&gt;Micro-services, seperated databases for some big components&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;single-point-of-failure&quot;&gt;Single point of failure&lt;/h2&gt;
-&lt;p&gt;A single point of failure (SPOF) is a &lt;strong&gt;part of a system&lt;/strong&gt; that, &lt;strong&gt;if it fails&lt;/strong&gt;, will &lt;strong&gt;stop the entire system&lt;/strong&gt; from working. SPOFs are undesirable in any system with a goal of high availability or reliability, be it a business practice, software application, or other industrial system.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;MySQL multi-master - galera cluster&lt;/li&gt;
-  &lt;li&gt;AWS RDS multi-AZ feature&lt;/li&gt;
-  &lt;li&gt;Elasticsearch master nodes&lt;/li&gt;
-  &lt;li&gt;Redis sentinel&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;defense-in-depth&quot;&gt;Defense in depth&lt;/h2&gt;
-&lt;p&gt;Defense in depth (also known as Castle Approach) is an information assurance (IA) concept in which &lt;strong&gt;multiple layers of security controls&lt;/strong&gt; (defense) are placed throughout an information technology (IT) system. Its intent is to provide redundancy in the event a security control fails or a vulnerability is exploited that can cover aspects of personnel, procedural, technical and physical for the duration of the system’s life cycle.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Cloudflare Anti DDOS layer&lt;/li&gt;
-  &lt;li&gt;IPtable / AWS secgroup&lt;/li&gt;
-  &lt;li&gt;VPN&lt;/li&gt;
-  &lt;li&gt;Snort / Ossec&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;failover&quot;&gt;Failover&lt;/h2&gt;
-&lt;p&gt;A method of protecting computer systems from failure, in which &lt;strong&gt;standby equipment automatically takes over when the main system fails&lt;/strong&gt;. In computing, failover is switching to a redundant or standby computer server, system, hardware component or network upon the failure or abnormal termination of the previously active application, server, system, hardware component, or network. Failover and switchover are essentially the same operation, except that failover is automatic and usually operates without warning, while &lt;strong&gt;switchover requires human intervention&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;HAproxy / AWS ALB &amp;amp; ELB&lt;/li&gt;
-  &lt;li&gt;Auto promote on MySQL replication&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;heartbeat&quot;&gt;Heartbeat&lt;/h2&gt;
-&lt;p&gt;In computer science, a heartbeat is a &lt;strong&gt;periodic signal&lt;/strong&gt; generated by hardware or software to &lt;strong&gt;indicate normal operation or to synchronize&lt;/strong&gt; other parts of a computer system. Usually a heartbeat is &lt;strong&gt;sent between machines&lt;/strong&gt; at a regular interval in the order of seconds. If the endpoint does &lt;strong&gt;not receive a heartbeat&lt;/strong&gt; for a time —usually a few heartbeat intervals—, the machine that should have sent the heartbeat is &lt;strong&gt;assumed to have failed&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Uptime tools (Monit, Newrelic synthetics, AWS LB healh-check)&lt;/li&gt;
-  &lt;li&gt;Percona pt-heartbeat&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;infrastructure-as-code&quot;&gt;Infrastructure as code&lt;/h2&gt;
-&lt;p&gt;All configuration is defined in executable configuration definition files, such as shell scripts, Ansible playbooks, Chef recipes, or Puppet manifests …&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Infra &amp;amp; network layer: Terraform, Cloudformation&lt;/li&gt;
-  &lt;li&gt;Application layer: Ansible playbook, Puppet, Chef, Salt stack&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Fault_tolerance&quot;&gt;https://en.wikipedia.org/wiki/Fault_tolerance&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Single_point_of_failure&quot;&gt;https://en.wikipedia.org/wiki/Single_point_of_failure&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Defense_in_depth_(computing)&quot;&gt;https://en.wikipedia.org/wiki/Defense_in_depth_(computing)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Failover&quot;&gt;https://en.wikipedia.org/wiki/Failover&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Infrastructure_as_Code&quot;&gt;https://en.wikipedia.org/wiki/Infrastructure_as_Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Wed, 18 Jul 2018 00:00:00 +0700</pubDate>
-        <link>https://blog.tracelog.in/technical/2018/07/18/Mindset-for-building-HA-system.html</link>
-        <guid isPermaLink="true">https://blog.tracelog.in/technical/2018/07/18/Mindset-for-building-HA-system.html</guid>
         
         
         <category>technical</category>

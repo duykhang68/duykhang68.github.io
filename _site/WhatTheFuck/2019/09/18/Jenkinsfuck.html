@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>WTF</title>
-    <meta name="description" content="My blog about Linux, Database, Infrastructure, some mathematics, and mindset.">
+    <title>Jenkinsfuck</title>
+    <meta name="description" content="">
 
     <!-- todo: include this into main.css -->
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="https://blog.tracelog.in/wtf/">
+    <link rel="canonical" href="https://blog.tracelog.in/whatthefuck/2019/09/18/Jenkinsfuck.html">
     <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="https://blog.tracelog.in /feed.xml ">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script async src="https://blog.tracelog.in/assets/dist/fetch.min.js"></script>
@@ -70,11 +70,11 @@
         <ul class="page-link">
           <li><a href="/">Home</a></li>
           <li><a href="/archive">Posts</a></li>
-          <li><a href="/wtf">WTF</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/photography">Photo</a></li>
           <li><a href="/friends">Friends</a></li>
           <li><a href="/hireme" style="color: white;font-size: 15px;padding: 2px;background-color: #C25;">Hire me</a></span></li>
+          <li><a href="/WhatTheFuck">WhatTheFuck</a></li>
         </ul>
       </nav>
     </div>
@@ -86,65 +86,18 @@
 
         <div class="nine columns" style="z-index:100;">
           <div class="wrapper">
-            <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">WTF</h1>
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="article_header">
+    <h1 class="special_title" itemprop="name headline">Jenkinsfuck</h1>
+    <time class="post_date">Published on Wednesday 18 September 2019 - 1 min read</time>
   </header>
-  <div class="article-content">
-     <p><strong>Table of Contents</strong></p>
-<ul id="markdown-toc">
-  <li><a href="#1-mountfuck" id="markdown-toc-1-mountfuck">1. Mountfuck</a>    <ul>
-      <li><a href="#root-cause" id="markdown-toc-root-cause">Root cause</a></li>
-      <li><a href="#solution" id="markdown-toc-solution">Solution</a></li>
-    </ul>
-  </li>
-  <li><a href="#2-jenkinsfuck" id="markdown-toc-2-jenkinsfuck">2. Jenkinsfuck</a>    <ul>
-      <li><a href="#root-cause-1" id="markdown-toc-root-cause-1">Root cause</a></li>
-      <li><a href="#solution-1" id="markdown-toc-solution-1">Solution</a></li>
-    </ul>
-  </li>
-</ul>
 
-<h2 id="1-mountfuck">1. Mountfuck</h2>
+  <div class="article-content" itemprop="articleBody">
+    <p><img src="/assets/img/jenkins-oops.webp" alt="img" title="EatWhatYouKill" /></p>
 
-<p><img src="/assets/img/wrong-mount-in-es.webp" alt="img" title="Entire fucking dir in fuckin /var/lib/elasticsearch" /></p>
+<!--description-->
 
-<h3 id="root-cause">Root cause</h3>
-
-<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html</a></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>EBS uses single-root I/O virtualization (SR-IOV) to provide volume attachments on Nitro-based instances using the NVMe specification. 
-These devices rely on standard NVMe drivers on the operating system. 
-These drivers typically discover attached devices by scanning the PCI bus during instance boot, and create device nodes based on the order in which the devices respond, not on how the devices are specified in the block device mapping. 
-In Linux, NVMe device names follow the pattern /dev/nvme&lt;x&gt;n&lt;y&gt;, where &lt;x&gt; is the enumeration order, and, for EBS, &lt;y&gt; is 1. 
-Occasionally, devices can respond to discovery in a different order in subsequent instance starts, which causes the device name to change.
-</code></pre>
-</div>
-
-<p>So, if we use NVMe disk for some new types of AWS EC2, please note that the device name is nearly randomize after each reboot.
-It means if we have 2 NVMe disks on one EC2 vm, so we cannot know which device name delegate to which real disk.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>/dev/nvme1n1p1
-/dev/nvme0n1p1
-</code></pre>
-</div>
-
-<h3 id="solution">Solution</h3>
-
-<p>We must config fstab (permanent mount) based on UUID / label like this</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>LABEL=cloudimg-rootfs  /   ext4  defaults,discard  0 0
-UUID="c46cf311-d31b-41ce-bce5-5d8ad0a6b109" /var/lib/elasticsearch ext4 defaults,nofail  0 2
-</code></pre>
-</div>
-
-<p>DON’T config based on device name like this fuck</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>LABEL=cloudimg-rootfs	/	 ext4	defaults,discard	0 0
-/dev/nvme1n1p1 /var/lib/elasticsearch ext4 defaults,nofail  0 2
-</code></pre>
-</div>
-
-<h2 id="2-jenkinsfuck">2. Jenkinsfuck</h2>
-
-<p><img src="/assets/img/jenkins-oops.webp" alt="img" title="EatWhatYouKill" /></p>
 <div class="highlighter-rouge"><pre class="highlight"><code>Mar 01, 2019 11:19:14 AM org.eclipse.jetty.server.handler.ContextHandler$Context log
 WARNING: Error while serving https://ci.tools.xxxxxx.io/job/live-xxxxxx/27/logText/progressiveHtml
 java.lang.reflect.InvocationTargetException
@@ -166,7 +119,7 @@ Caused by: java.lang.NegativeArraySizeException
 </code></pre>
 </div>
 
-<h3 id="root-cause-1">Root cause</h3>
+<h2 id="root-cause">Root cause</h2>
 
 <p>Details of log: <a href="/assets/raw/jenkins-NegativeArraySizeException-error.log">jenkins-NegativeArraySizeException-error.log</a></p>
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NegativeArraySizeException</span>
@@ -182,14 +135,36 @@ Caused by: java.lang.NegativeArraySizeException
   <li>to doProgressText and until doProgressiveHtml</li>
 </ul>
 
-<h3 id="solution-1">Solution</h3>
+<h2 id="solution">Solution</h2>
 
 <p>EatWhatYouKill</p>
 
 <p>Don’t panic, just wait, let them come then let them go. Wait until this fucking job DONE. Then issuse will….gone</p>
 
+    <div id="gitment-container"></div>
+    <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="iVXMIkzG" data-limit="10" data-color="E47911" data-dislikes="1" data-colorful="1"></script>
   </div>
+
+  <footer class="article-footer">
+
+  <hr/>
+
+  <section class="author">
+  <div class="authorimage box" style="background: url(/assets/img/avatar.webp)"></div>
+  <div class="authorinfo box">
+    <p class="bio" style="color: #222">
+      I'm an engineer who likes learning, discussing, and solving problems. These days, I'm focusing on DevOps because I'd love to help ensure that services stay up and running, while continuing to ship software to customers rapidly. I also have a passion for building robust infrastructure at world scale.
+    </p>
+    <a class="github-button" href="https://github.com/hieuhtr" data-size="large" data-show-count="true" aria-label="Follow @hieuhtr on GitHub">Follow @hieuhtr</a>
+  </div>
+</section>
+
+
+  </footer>
+
 </article>
+
+
           </div>
         </div>
       </div>

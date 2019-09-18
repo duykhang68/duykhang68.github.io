@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>What is FLUSH TABLES WITH READ LOCK in MySQL?</title>
-    <meta name="description" content="Command:mysql&gt; FLUSH TABLES WITH READ LOCK;What exactly does command do?  Set the global read lock - after this step, insert/update/delete/replace/alter s...">
+    <title>What The Fuck</title>
+    <meta name="description" content="My blog about Linux, Database, Infrastructure, some mathematics, and mindset.">
 
     <!-- todo: include this into main.css -->
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="https://blog.tracelog.in/technical/2017/03/08/MySQL-FLUSH-TABLES-WITH-READ-LOCK.html">
+    <link rel="canonical" href="https://blog.tracelog.in/WhatTheFuck/">
     <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="https://blog.tracelog.in /feed.xml ">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script async src="https://blog.tracelog.in/assets/dist/fetch.min.js"></script>
@@ -86,73 +86,40 @@
 
         <div class="nine columns" style="z-index:100;">
           <div class="wrapper">
-            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <div>
 
-  <header class="article_header">
-    <h1 class="special_title" itemprop="name headline">What is FLUSH TABLES WITH READ LOCK in MySQL?</h1>
-    <time class="post_date">Published on Wednesday 08 March 2017 - 2 min read</time>
-  </header>
+  <h1>What The Fuck</h1>
 
-  <div class="article-content" itemprop="articleBody">
-    <p><strong>Command:</strong></p>
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">FLUSH</span> <span class="n">TABLES</span> <span class="k">WITH</span> <span class="k">READ</span> <span class="k">LOCK</span><span class="p">;</span>
-</code></pre>
-</div>
-<p><strong>What exactly does command do?</strong></p>
+  <section class="archive_list">
 
-<ol>
-  <li>Set the global read lock - after this step, <code class="highlighter-rouge">insert/update/delete/replace/alter statements</code> cannot run</li>
-  <li>Close open tables - this step will block until all statements started previously have stopped</li>
-  <li>Set a flag to block commits</li>
-</ol>
+    <div class="category-name">
+      <h2> </h2>
+    </div>
 
-<!--description-->
+    
+      <div class="post_title">
+        <a href="/whatthefuck/2019/09/18/Wildcardfuck.html">Wildcardfuck</a>
+        <span class="date">18 Sep, 2019</span>
+        <span class="date"> - 3 min read</span>
+      </div>
+    
+      <div class="post_title">
+        <a href="/whatthefuck/2019/09/18/Mountfuck.html">Mountfuck</a>
+        <span class="date">18 Sep, 2019</span>
+        <span class="date"> - 2 min read</span>
+      </div>
+    
+      <div class="post_title">
+        <a href="/whatthefuck/2019/09/18/Jenkinsfuck.html">Jenkinsfuck</a>
+        <span class="date">18 Sep, 2019</span>
+        <span class="date"> - 1 min read</span>
+      </div>
+    
 
-<p><strong>It means:</strong></p>
+  </section>
 
-<ul>
-  <li>Closes all open tables</li>
-  <li>Locks all tables for all databases with a global read lock</li>
-  <li>MySQL is in READ only mode, cannot WRITE anything, except one case (see below)</li>
-  <li><code class="highlighter-rouge">insert/update/delete/replace/alter</code> statements cannot run</li>
-</ul>
-
-<p><strong>Note:</strong></p>
-
-<ul>
-  <li><code class="highlighter-rouge">FLUSH TABLES WITH READ LOCK</code> does <strong>not prevent</strong> the server from <strong>inserting rows into the log tables</strong></li>
-</ul>
-
-<p><strong>How to unlock and keep MySQL back to normal?</strong></p>
-<ul>
-  <li>Use <code class="highlighter-rouge">UNLOCK TABLES</code> to release the lock</li>
-</ul>
-
-<h4 id="important">Important:</h4>
-<ul>
-  <li>The session that holds the lock can read the table (but not write it)</li>
-  <li>It prevents other sessions from modifying tables during periods</li>
-  <li>If you don’t keep this session open to keep Locking
-    <ul>
-      <li>Other sessions can write into tables</li>
-      <li>If you run <code class="highlighter-rouge">FLUSH TABLES WITH READ LOCK</code> for preparing <code class="highlighter-rouge">mysqldump</code>, you must keep this session, and run <code class="highlighter-rouge">mysqldump</code> in <strong>another session</strong>.</li>
-      <li>Because If you don’t keep, the <code class="highlighter-rouge">binlog</code> and the <code class="highlighter-rouge">position</code> of <code class="highlighter-rouge">binlog</code> may be changed during this session</li>
-    </ul>
-  </li>
-</ul>
-
-<p><strong>Need discussion?</strong>
-Go https://github.com/hieuhtr/Blog/issues/8</p>
-
-    <div id="gitment-container"></div>
-    <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="iVXMIkzG" data-limit="10" data-color="E47911" data-dislikes="1" data-colorful="1"></script>
-  </div>
-
-  <footer class="article-footer">
-
-  <hr/>
-
-  <section class="author">
+  <footer class="article-footer" mar>
+    <section class="author">
   <div class="authorimage box" style="background: url(/assets/img/avatar.webp)"></div>
   <div class="authorinfo box">
     <p class="bio" style="color: #222">
@@ -162,11 +129,8 @@ Go https://github.com/hieuhtr/Blog/issues/8</p>
   </div>
 </section>
 
-
   </footer>
-
-</article>
-
+</div>
 
           </div>
         </div>

@@ -1,0 +1,30 @@
+---
+layout: default
+title: What The Fuck
+permalink: /WhatTheFuck/
+---
+
+<div>
+
+  <h1>What The Fuck</h1>
+
+  <section class="archive_list">
+
+    <div class="category-name">
+      <h2> </h2>
+    </div>
+
+    {% for post in site.categories.whatthefuck %}
+      <div class="post_title">
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
+        <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
+        <span class="date"> - {{ post.content | number_of_words | divided_by:180 | plus:1 }} min read</span>
+      </div>
+    {% endfor %}
+
+  </section>
+
+  <footer class="article-footer" mar>
+    {% include author.html %}
+  </footer>
+</div>
