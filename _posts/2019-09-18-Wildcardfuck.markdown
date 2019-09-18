@@ -9,6 +9,9 @@ description: Asterisks at other places in the domain will not work as a wildcard
 
 <!--description-->
 
+![img](/assets/img/asterisk-ch.jpg "Wildcardfuck")
+![img](/assets/img/asterisk-at.jpg "Wildcardfuck")
+
 ## Root cause
 
 - There is no fucking rootcause in these cases. 
