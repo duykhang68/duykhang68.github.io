@@ -93,6 +93,26 @@
     
         <article class="post_card post">
           <header class="post_header">
+            <h1 class="post_title"><a href="/whatthefuck/2019/01/23/Mountfuck.html">Mountfuck</a></h2>
+            <time class="post_date">Published on Wednesday 23 January 2019 - 2 min read</time>
+          </header>
+    
+          <div class="post_excerpt" title="Read full article" onclick="location.href='/whatthefuck/2019/01/23/Mountfuck.html';" style="cursor: pointer;">
+            <p>
+              <p><img src="/assets/img/wrong-mount-in-es.webp" alt="img" title="Entire fucking dir in fuckin /var/lib/elasticsearch" /></p>
+
+ 
+            </p> 
+          </div>
+    
+          <footer class="post_meta">
+          </footer>
+          <hr/>
+        </article>
+        
+    
+        <article class="post_card post">
+          <header class="post_header">
             <h1 class="post_title"><a href="/mindset/2019/01/08/Some-meaningful-thoughts-for-entire-2018.html">Some meaningful thoughts for entire 2018</a></h2>
             <time class="post_date">Published on Tuesday 08 January 2019 - 3 min read</time>
           </header>
@@ -121,11 +141,11 @@
     
         <article class="post_card post">
           <header class="post_header">
-            <h1 class="post_title"><a href="/security/2018/12/05/Critial-vulnerability-on-policykit-of-systemd.html">Critical vulnerability on policykit of systemd</a></h2>
+            <h1 class="post_title"><a href="/technical/security/2018/12/05/Critial-vulnerability-on-policykit-of-systemd.html">Critical vulnerability on policykit of systemd</a></h2>
             <time class="post_date">Published on Wednesday 05 December 2018 - 2 min read</time>
           </header>
     
-          <div class="post_excerpt" title="Read full article" onclick="location.href='/security/2018/12/05/Critial-vulnerability-on-policykit-of-systemd.html';" style="cursor: pointer;">
+          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/security/2018/12/05/Critial-vulnerability-on-policykit-of-systemd.html';" style="cursor: pointer;">
             <p>
               <p><strong>[CVE-2018-19788]</strong>: A flaw was found in PolicyKit (aka <code class="highlighter-rouge">polkit 0.115</code>) that allows a user with a uid greater than <code class="highlighter-rouge">INT_MAX</code> to successfully execute any <code class="highlighter-rouge">systemctl</code> command.</p>
 <ul>
@@ -197,35 +217,6 @@ Arch: armv7l
 <p>Nowadays, there are many many contexts &amp; examples for blaming. I only want to wide the scope of this mindset, into SRE/Devops/Sysadmin fields. <strong>Why we blaming each others</strong>, right or wrong? How can we fix/improve our mindset? <strong>How can we do better?</strong></p>
 
 <p><img src="https://imgs.xkcd.com/comics/blame_2x.png" alt="" /></p>
-
- 
-            </p> 
-          </div>
-    
-          <footer class="post_meta">
-          </footer>
-          <hr/>
-        </article>
-        
-    
-        <article class="post_card post">
-          <header class="post_header">
-            <h1 class="post_title"><a href="/technical/2018/08/15/Signal-of-linux.html">Signal of linux</a></h2>
-            <time class="post_date">Published on Wednesday 15 August 2018 - 3 min read</time>
-          </header>
-    
-          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2018/08/15/Signal-of-linux.html';" style="cursor: pointer;">
-            <p>
-              <h2 id="definition">Definition:</h2>
-
-<ul>
-  <li>System calls: communication chanel between user space program and kernel</li>
-  <li>Signals: a different channel, used for inter-process communication</li>
-  <li>Signals don’t carry any agrgument, they are self explanatory by their name</li>
-  <li>Some signals identified by a number, ie <code class="highlighter-rouge">SIGKILL</code> (9)</li>
-  <li>That’s why we use <code class="highlighter-rouge">kill -9 &lt;PID&gt;</code> to kill a process, because the kill command will send a defined signal to a process with a given identity <code class="highlighter-rouge">&lt;PID&gt;</code></li>
-  <li>when we run <code class="highlighter-rouge">kill -9 &lt;PID&gt;</code> command, that process is not terminate itself, instead we’re telling that OS to stop running the program, no matter what the program is doing</li>
-</ul>
 
  
             </p> 

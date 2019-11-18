@@ -93,6 +93,35 @@
     
         <article class="post_card post">
           <header class="post_header">
+            <h1 class="post_title"><a href="/technical/2018/08/15/Signal-of-linux.html">Signal of linux</a></h2>
+            <time class="post_date">Published on Wednesday 15 August 2018 - 3 min read</time>
+          </header>
+    
+          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2018/08/15/Signal-of-linux.html';" style="cursor: pointer;">
+            <p>
+              <h2 id="definition">Definition:</h2>
+
+<ul>
+  <li>System calls: communication chanel between user space program and kernel</li>
+  <li>Signals: a different channel, used for inter-process communication</li>
+  <li>Signals don’t carry any agrgument, they are self explanatory by their name</li>
+  <li>Some signals identified by a number, ie <code class="highlighter-rouge">SIGKILL</code> (9)</li>
+  <li>That’s why we use <code class="highlighter-rouge">kill -9 &lt;PID&gt;</code> to kill a process, because the kill command will send a defined signal to a process with a given identity <code class="highlighter-rouge">&lt;PID&gt;</code></li>
+  <li>when we run <code class="highlighter-rouge">kill -9 &lt;PID&gt;</code> command, that process is not terminate itself, instead we’re telling that OS to stop running the program, no matter what the program is doing</li>
+</ul>
+
+ 
+            </p> 
+          </div>
+    
+          <footer class="post_meta">
+          </footer>
+          <hr/>
+        </article>
+        
+    
+        <article class="post_card post">
+          <header class="post_header">
             <h1 class="post_title"><a href="/technical/2018/08/06/Learning-logs-in-Aug.html">Learning logs in Aug</a></h2>
             <time class="post_date">Published on Monday 06 August 2018 - 1 min read</time>
           </header>
@@ -193,35 +222,6 @@ Depending on the DB instance class and the amount of storage, it can take up to 
 <p><strong><code class="highlighter-rouge">Rootcause</code></strong>: didn’t merge partition after extending and resize fs</p>
 
 <p><img src="/assets/img/ebs-aws.webp" alt="" /></p>
-
- 
-            </p> 
-          </div>
-    
-          <footer class="post_meta">
-          </footer>
-          <hr/>
-        </article>
-        
-    
-        <article class="post_card post">
-          <header class="post_header">
-            <h1 class="post_title"><a href="/technical/2017/07/16/Understanding-top-command.html">Understanding top command</a></h2>
-            <time class="post_date">Published on Sunday 16 July 2017 - 11 min read</time>
-          </header>
-    
-          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2017/07/16/Understanding-top-command.html';" style="cursor: pointer;">
-            <p>
-              <p><strong><a href="#understanding-top-command"><code class="highlighter-rouge">top</code></a></strong> is a monitoring program which is used frequently for tracking process’s resource usage and its activity in <strong>real-time</strong>, show current tasks being serviced by the kernel, help <strong>discovering</strong> and <strong>diagnosing</strong> overload or capacity of system by seeing <strong>CPU &amp; Mem usage</strong>. It’s available under many Unix/Linux operating systems.</p>
-
-<p>Keyword: <a href="/technical/2017/07/16/Understanding-top-command.html#understanding-top-command">top</a>, 
-         <a href="/technical/2017/07/16/Understanding-top-command.html#1-date-and-uptime">uptime</a>, 
-         <a href="/technical/2017/07/16/Understanding-top-command.html#2-number-of-logged-users">users</a>, 
-         <a href="/technical/2017/07/16/Understanding-top-command.html#3-load-average">load average</a>,
-         <a href="/technical/2017/07/16/Understanding-top-command.html#4-processthread-state">process/thread state</a>,
-         <a href="/technical/2017/07/16/Understanding-top-command.html#5-cpu-organization-and-operation">CPU operation</a></p>
-
-<p><img src="/assets/img/top-command-optimized.gif" alt="" /></p>
 
  
             </p> 

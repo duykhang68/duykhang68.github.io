@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>What The Fuck</title>
-    <meta name="description" content="My blog about Linux, Database, Infrastructure, some mathematics, and mindset.">
+    <title>Jenkinsfuck</title>
+    <meta name="description" content="">
 
     <!-- todo: include this into main.css -->
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="https://blog.tracelog.in/WhatTheFuck/">
+    <link rel="canonical" href="https://blog.tracelog.in/whatthefuck/2019/03/01/Jenkinsfuck.html">
     <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="https://blog.tracelog.in /feed.xml ">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script async src="https://blog.tracelog.in/assets/dist/fetch.min.js"></script>
@@ -86,40 +86,70 @@
 
         <div class="nine columns" style="z-index:100;">
           <div class="wrapper">
-            <div>
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1>What The Fuck</h1>
+  <header class="article_header">
+    <h1 class="special_title" itemprop="name headline">Jenkinsfuck</h1>
+    <time class="post_date">Published on Friday 01 March 2019 - 1 min read</time>
+  </header>
 
-  <section class="archive_list">
+  <div class="article-content" itemprop="articleBody">
+    <p><img src="/assets/img/jenkins-oops.webp" alt="img" title="EatWhatYouKill" /></p>
 
-    <div class="category-name">
-      <h2> </h2>
-    </div>
+<!--description-->
 
-    
-      <div class="post_title">
-        <a href="/whatthefuck/2019/09/18/Wildcardfuck.html">Wildcardfuck</a>
-        <span class="date">18 Sep, 2019</span>
-        <span class="date"> - 3 min read</span>
-      </div>
-    
-      <div class="post_title">
-        <a href="/whatthefuck/2019/03/01/Jenkinsfuck.html">Jenkinsfuck</a>
-        <span class="date">1 Mar, 2019</span>
-        <span class="date"> - 1 min read</span>
-      </div>
-    
-      <div class="post_title">
-        <a href="/whatthefuck/2019/01/23/Mountfuck.html">Mountfuck</a>
-        <span class="date">23 Jan, 2019</span>
-        <span class="date"> - 2 min read</span>
-      </div>
-    
+<div class="highlighter-rouge"><pre class="highlight"><code>Mar 01, 2019 11:19:14 AM org.eclipse.jetty.server.handler.ContextHandler$Context log
+WARNING: Error while serving https://ci.tools.xxxxxx.io/job/live-xxxxxx/27/logText/progressiveHtml
+java.lang.reflect.InvocationTargetException
+    at org.kohsuke.stapler.Function$MethodFunction.invoke(Function.java:347)
+    ...
+    ...
+    at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+    at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+    ...
+    ...
+Caused by: java.lang.NegativeArraySizeException
+    at hudson.console.ConsoleNote.readFrom(ConsoleNote.java:241)
+    at hudson.console.ConsoleAnnotationOutputStream.eol(ConsoleAnnotationOutputStream.java:109)
+    at hudson.console.LineTransformationOutputStream.eol(LineTransformationOutputStream.java:60)
+</code></pre>
+</div>
 
-  </section>
+<h2 id="root-cause">Root cause</h2>
 
-  <footer class="article-footer" mar>
-    <section class="author">
+<p>Details of log: <a href="/assets/raw/jenkins-NegativeArraySizeException-error.log">jenkins-NegativeArraySizeException-error.log</a></p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NegativeArraySizeException</span>
+<span class="kd">extends</span> <span class="n">RuntimeException</span>
+</code></pre>
+</div>
+
+<p>Thrown if an application tries to create an array with negative size.</p>
+
+<p>Output of this running job is: too big and spawn too fast <strong><code class="highlighter-rouge">rarely</code></strong> that reach <code class="highlighter-rouge">NegativeArraySize</code> during entire log workflow from</p>
+<ul>
+  <li>ConsoleNote &gt; ConsoleAnnotationOutputStream &gt; FileLogStorage &gt; ProxyOutputStream</li>
+  <li>to doProgressText and until doProgressiveHtml</li>
+</ul>
+
+<h2 id="solution">Solution</h2>
+
+<p>EatWhatYouKill</p>
+
+<p>Don’t panic, just wait, let them come then let them go. Wait until this fucking job DONE. Then issuse will….gone</p>
+
+    <div id="gitment-container"></div>
+    <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="iVXMIkzG" data-limit="10" data-color="E47911" data-dislikes="1" data-colorful="1"></script>
+  </div>
+
+  <footer class="article-footer">
+
+  <hr/>
+
+  <section class="author">
   <div class="authorimage box" style="background: url(/assets/img/avatar.webp)"></div>
   <div class="authorinfo box">
     <p class="bio" style="color: #222">
@@ -129,8 +159,11 @@
   </div>
 </section>
 
+
   </footer>
-</div>
+
+</article>
+
 
           </div>
         </div>

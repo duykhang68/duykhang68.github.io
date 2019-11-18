@@ -93,6 +93,35 @@
     
         <article class="post_card post">
           <header class="post_header">
+            <h1 class="post_title"><a href="/technical/2017/07/16/Understanding-top-command.html">Understanding top command</a></h2>
+            <time class="post_date">Published on Sunday 16 July 2017 - 11 min read</time>
+          </header>
+    
+          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2017/07/16/Understanding-top-command.html';" style="cursor: pointer;">
+            <p>
+              <p><strong><a href="#understanding-top-command"><code class="highlighter-rouge">top</code></a></strong> is a monitoring program which is used frequently for tracking process’s resource usage and its activity in <strong>real-time</strong>, show current tasks being serviced by the kernel, help <strong>discovering</strong> and <strong>diagnosing</strong> overload or capacity of system by seeing <strong>CPU &amp; Mem usage</strong>. It’s available under many Unix/Linux operating systems.</p>
+
+<p>Keyword: <a href="/technical/2017/07/16/Understanding-top-command.html#understanding-top-command">top</a>, 
+         <a href="/technical/2017/07/16/Understanding-top-command.html#1-date-and-uptime">uptime</a>, 
+         <a href="/technical/2017/07/16/Understanding-top-command.html#2-number-of-logged-users">users</a>, 
+         <a href="/technical/2017/07/16/Understanding-top-command.html#3-load-average">load average</a>,
+         <a href="/technical/2017/07/16/Understanding-top-command.html#4-processthread-state">process/thread state</a>,
+         <a href="/technical/2017/07/16/Understanding-top-command.html#5-cpu-organization-and-operation">CPU operation</a></p>
+
+<p><img src="/assets/img/top-command-optimized.gif" alt="" /></p>
+
+ 
+            </p> 
+          </div>
+    
+          <footer class="post_meta">
+          </footer>
+          <hr/>
+        </article>
+        
+    
+        <article class="post_card post">
+          <header class="post_header">
             <h1 class="post_title"><a href="/technical/2017/06/25/Adware-on-Betternet-chrome-extension.html">Adware on Betternet chrome extension</a></h2>
             <time class="post_date">Published on Sunday 25 June 2017 - 5 min read</time>
           </header>
@@ -199,38 +228,6 @@
 <blockquote>
   <p><strong>A small thing, repeated, is not a small thing.</strong></p>
 </blockquote>
-
- 
-            </p> 
-          </div>
-    
-          <footer class="post_meta">
-          </footer>
-          <hr/>
-        </article>
-        
-    
-        <article class="post_card post">
-          <header class="post_header">
-            <h1 class="post_title"><a href="/technical/2017/04/17/No-Reboot-Kernel-Patching.html">No Reboot Kernel patching</a></h2>
-            <time class="post_date">Published on Monday 17 April 2017 - 4 min read</time>
-          </header>
-    
-          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2017/04/17/No-Reboot-Kernel-Patching.html';" style="cursor: pointer;">
-            <p>
-              <h3 id="why-we-need-patching-linux-kernel">Why we need patching linux kernel?</h3>
-<ul>
-  <li>Kernel patches are released for a number of reasons, but fixing security holes is the most frequent reason. This is why it’s important to install the patch as soon as possible.</li>
-  <li>Unlike other operating systems, Linux is able to update many different parts of the system without a reboot, but the kernel is different. Every running process integrates with the kernel intimately, so switching out parts of the kernel while it is running is quite risky. So, When the kernel is updated via a patch, the system needs to <code class="highlighter-rouge">reboot</code></li>
-</ul>
-
-<h3 id="no-reboot-kernel-patching">“No Reboot” Kernel patching</h3>
-<ul>
-  <li>On the other hand, rebooting the computer is irksome, and in some cases, where uptime is important, it can be a real issue. This is why “no reboot” kernel patching has been a priority for many administrators.</li>
-  <li>Some servers and critical real-time applications must not be taken down without advanced scheduling, even for a few minutes. This can be a pain when administrators need to keep the system secure and a patch is released to repair a newly discovered security hole. In this case, no-reboot patching becomes a real boon</li>
-  <li>Recognizing this need, <strong>Red Hat</strong> has been working on <code class="highlighter-rouge">kpatch</code>, and <code class="highlighter-rouge">SUSE</code> has been working on <code class="highlighter-rouge">kGraft</code>. Both of these programs are designed to accomplish the same task, but they take a different approach and have different strengths.</li>
-  <li>But this doesn’t mean that system reboots are gone forever. Even on a system with the Linux 4.0 kernel, there will be security updates that still require a reboot, because there are other non-kernel components that can require patching, and some of these require a reboot as part of the process.</li>
-</ul>
 
  
             </p> 
