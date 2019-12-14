@@ -901,14 +901,14 @@ img[alt="large-img"] {
 
 /* blockquote */
 blockquote {
-  margin: 1.5rem 0;
-  padding: 0 0 0 10px;
+  margin: 1.8rem 0;
+  padding: 10px;
   font-style: normal;
   font-size: 100%;
-  line-height: 1.8rem;
+  line-height: 1.625;
   border-left: 4px solid #D0E5F2;
-  font-size: 1.45rem;
-  color: #0087CC; }
+  color: #0087CC;
+  background-color: #F7F7F7; }
 
 /* layout */
 html, .container {

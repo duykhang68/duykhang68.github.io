@@ -5,10 +5,8 @@ category: mindset
 description: Work more when you’re in the zone. Relax when you’re not.
 ---
 
-> Habit: something that you do often and regularly, sometimes without knowing that you are doing it
-
-### Habit
-It takes 21 days to form a new habit
+## Habit
+Habit: something that you do often and regularly, sometimes without knowing that you are doing it. It takes 21 days to form a new habit:
 
 - Do it For Yourself 
 - Know the Benefits
@@ -17,7 +15,7 @@ It takes 21 days to form a new habit
 - Make it Daily
 - Stay Consistent
 
-### Time management
+## Time management
 **Most important thing**: Work more when you’re in the zone. Relax when you’re not.
 
 - It's normal to have days where you just can't work,  and days where you'll work 12 hours straight.

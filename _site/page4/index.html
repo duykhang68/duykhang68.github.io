@@ -93,6 +93,36 @@
     
         <article class="post_card post">
           <header class="post_header">
+            <h1 class="post_title"><a href="/technical/2017/12/14/Increase-EBS-volume.html">Increase EBS volume of AWS on linux</a></h2>
+            <time class="post_date">[Thursday 14 December 2017] - technical - 5 min read</time>
+          </header>
+    
+          <div class="post_excerpt" title="Read full article" onclick="location.href='/technical/2017/12/14/Increase-EBS-volume.html';" style="cursor: pointer;">
+            <p>
+              <h2 id="problem">Problem</h2>
+
+<ul>
+  <li>A disk volume 32GB <code class="highlighter-rouge">/dev/xvdf1</code> is mounted into <code class="highlighter-rouge">/var/lib/mysql</code></li>
+  <li>This volume is out of space, need to be extend size to 64GB</li>
+  <li>Extended to 64GB on aws console, but from ec2 point of view, it’s just 32GB</li>
+</ul>
+
+<p><strong><code class="highlighter-rouge">Rootcause</code></strong>: didn’t merge partition after extending and resize fs</p>
+
+<p><img src="/assets/img/ebs-aws.webp" alt="" /></p>
+
+ 
+            </p> 
+          </div>
+    
+          <footer class="post_meta">
+          </footer>
+          <hr/>
+        </article>
+        
+    
+        <article class="post_card post">
+          <header class="post_header">
             <h1 class="post_title"><a href="/technical/2017/07/16/Understanding-top-command.html">Understanding top command</a></h2>
             <time class="post_date">[Sunday 16 July 2017] - technical - 11 min read</time>
           </header>
@@ -194,39 +224,6 @@
 
 <blockquote>
   <p>No matter what, these things get no attention from you until you’ve succeeded with your top 5</p>
-</blockquote>
-
- 
-            </p> 
-          </div>
-    
-          <footer class="post_meta">
-          </footer>
-          <hr/>
-        </article>
-        
-    
-        <article class="post_card post">
-          <header class="post_header">
-            <h1 class="post_title"><a href="/mindset/2017/05/07/Who-are-we-seeking-to-become.html">Who are we seeking to become?</a></h2>
-            <time class="post_date">[Sunday 07 May 2017] - mindset - 1 min read</time>
-          </header>
-    
-          <div class="post_excerpt" title="Read full article" onclick="location.href='/mindset/2017/05/07/Who-are-we-seeking-to-become.html';" style="cursor: pointer;">
-            <p>
-              <blockquote>
-  <p>behavior will become part of you</p>
-</blockquote>
-
-<p>We get what we invest in. The time we spend comes back, with interest.</p>
-
-<p>If you practice five minutes of new, difficult banjo music <code class="highlighter-rouge">every day</code>, you’ll become a <code class="highlighter-rouge">better</code> banjo player. If you spend a little bit more time each day <code class="highlighter-rouge">whining</code> or <code class="highlighter-rouge">feeling ashamed</code>, that behavior will become part of you. The words you type, the people you hang with, the media you consume</p>
-
-<p>The difference between who you are now and who you were five years ago is largely due to how you’ve spent your time along the way.</p>
-
-<p>The habits we groove become who we are, one minute at a time.</p>
-<blockquote>
-  <p><strong>A small thing, repeated, is not a small thing.</strong></p>
 </blockquote>
 
  

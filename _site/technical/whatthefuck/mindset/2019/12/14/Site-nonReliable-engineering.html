@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Site unReliable Engineering</title>
+    <meta name="description" content="I’m obsessed with keeping infrastructure up and finding better ways for commitments. My mental health turns bad because of seeing fucking services/ops that w...">
+
+    <!-- todo: include this into main.css -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="https://blog.tracelog.in/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html">
+    <link rel="alternate" type="application/rss+xml" title="Hieu's blog" href="https://blog.tracelog.in /feed.xml ">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script async src="https://blog.tracelog.in/assets/dist/fetch.min.js"></script>
+    <!-- <script>
+    (function(f, a, t, h, o, m){
+	a[h]=a[h]||function(){
+		(a[h].q=a[h].q||[]).push(arguments)
+	};
+	o=f.createElement('script'),
+	m=f.getElementsByTagName('script')[0];
+	o.async=1; o.src=t; o.id='fathom-script';
+	m.parentNode.insertBefore(o,m)
+    })(document, window, 'https://analytics.tracelog.in/tracker.js', 'fathom');
+    fathom('trackPageview');
+    </script> -->
+
+    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
+    <script>
+    (function(f, a, t, h, o, m){
+        a[h]=a[h]||function(){
+            (a[h].q=a[h].q||[]).push(arguments)
+        };
+        o=f.createElement('script'),
+        m=f.getElementsByTagName('script')[0];
+        o.async=1; o.src=t; o.id='fathom-script';
+        m.parentNode.insertBefore(o,m)
+    })(document, window, 'https://analytics.tracelog.in/tracker.js', 'fathom');
+    fathom('set', 'siteId', 'WLEYN');
+    fathom('trackPageview');
+    </script>
+    <!-- / Fathom -->
+
+    <script src="//instant.page/1.1.0" type="module" integrity="sha384-EwBObn5QAxP8f09iemwAJljc+sU+eUXeL9vSBw1eNmVarwhKk2F9vBEpaN9rsrtp"></script>
+</head>
+
+  <body>
+    <div class="page-content">
+      <div class="container">
+        <div class="three columns">
+          <header class="site-header">
+
+  <div class="nav">
+    
+    <label for="menu-toggle" class="menu-icon">
+        <!--div data-icon="ei-navicon"></div-->
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+    </label>
+    <input type="checkbox" id="menu-toggle">
+
+    <div class="top-bar fixed">
+      <nav>
+        <ul class="page-link">
+          <li><a href="/">Home</a></li>
+          <li><a href="/archive">Posts</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/photography">Photo</a></li>
+          <li><a href="/friends">Friends</a></li>
+          <li><a href="/hireme" style="color: white;font-size: 15px;padding: 2px;background-color: #C25;">Hire me</a></span></li>
+          <li><a href="/WhatTheFuck">WhatTheFuck</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</header>
+
+        </div>
+
+        <div class="nine columns" style="z-index:100;">
+          <div class="wrapper">
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="article_header">
+    <h1 class="special_title" itemprop="name headline">Site unReliable Engineering</h1>
+    <time class="post_date">[Saturday 14 December 2019] - ["technical", "whatthefuck", "mindset"] - 10 min read</time>
+  </header>
+
+  <div class="article-content" itemprop="articleBody">
+    <p>I’m obsessed with keeping infrastructure up and finding better ways for commitments. My mental health turns bad because of seeing fucking services/ops that <strong>were built &amp; done carelessly</strong> without any sufficiently exhausting efforts <strong>including myself</strong>. I don’t care about what others think, about why they do what they do. <strong>I’m serious</strong>. Because… well, it belongs to them, no need to take my efforts for understanding it. In the end, <strong>the most important is final outcome</strong>: Is it good enough? Is it the right thing at the right time? How about quality? How about HA &amp; scalable? Is it secure? and so on.</p>
+
+<p>In Devops/SRE scope, trying to adapt incoming tasks, solve problems by providing commonplace solution is…easy, it’s get-shit-done inattentively, something is workaround, temporary. Yes, it’s <strong>EASY THINGS</strong>, come with useless, low impact also very breakable. Well… at some points in my work-life, I realize that issues are not from the context, not from others. <a style="color:red;">Mostly issues are from me</a>, from my bad habits, bad thingking, bad mindsets. It makes me feel <strong>shutting down</strong>, <strong>dumb</strong>, <strong>fucked-up</strong> also with <strong>getting lost</strong>.</p>
+
+<p>So…</p>
+<ul>
+  <li><a style="color:red;"><strong>AM I UNRELIABLE?</strong></a></li>
+  <li>what’s common failures that I was facing?</li>
+  <li>how can I make myself <strong>not to go down the wrong path</strong>?</li>
+  <li>and how can I avoid stumbling blocks and feel better?</li>
+</ul>
+
+<div style="max-width: 700px; vertical-align: middle; display: block; margin: auto;"><svg class="bar-chart"></svg></div>
+<script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+
+<script>
+  const svg = document.querySelector('.bar-chart')
+
+  new chartXkcd.Bar(svg, {
+    title: 'RELATIVE BETWEEN VALUE & DOING THINGS',
+    xLabel: 'THINGS',
+    yLabel: 'TIME + EFFORTS + VALUES',
+    data: {
+      labels: ['EASY', 'NORMAL', 'HARD'],
+      datasets: [{
+        data: [10, 30, 100],
+      }],
+    },
+    options: {
+      yTickCount: 6,
+      dataColors: ['gray', '#bbccdd', '#ff851b']
+    },
+  });
+</script>
+
+<p>Keywords: [<a href="/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#1-read-the-fucking-manual-rtfm">rtfm</a>,
+          <a href="/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#2-no-rushing">asking-why</a>,
+          <a href="/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#3-focus-on-fancy-job-titles">fancy-title</a>,
+          <a href="/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#4-stick-in-the-mud">stick-in-the-mud</a>,
+          <a href="/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#5-fearfulness">fearfulness</a>]</p>
+
+<!--description-->
+
+<p>So, here are some common failures of myself, I think that if I can describe so that maybe I can have a better version of myself.</p>
+
+<h2 id="1-read-the-fucking-manual-rtfm">1. <strong>READ THE FUCKING MANUAL RTFM</strong></h2>
+<p>Cases:</p>
+<ul>
+  <li>cannot solve issues, cannot understand what’s going on at this infra component</li>
+  <li>stuck with ambiguous logs, cannot finding rootcause, only do dirty workarounds…</li>
+</ul>
+
+<p>Stuck &amp; feel tired <strong>because having nothing to do next</strong>. The common sense is when arriving at home, out of business hours, I still spend my time to continue investigating. <strong>Kind of pointless works</strong>. It’s hard to say how can I survive, but I can confirm that mostly it’s because of not spending time for reading documents. Instead of continue working &amp; step towards the unknown, I re-audit myself and found some important things:</p>
+<ul>
+  <li><strong>Docs are not written for fun</strong>. It’s all about knowledge &amp; guidelines.</li>
+  <li>Lack of knowledge and information will lead to nowhere.</li>
+  <li>Spend time for <strong>reading docs attentively</strong> is a must, for understanding all things clearly.</li>
+  <li>Don’t wait for collecting knowledge until facing issues.</li>
+</ul>
+
+<p>A strong knowledge base for making decisions is always better than unreasonable assumption.</p>
+
+<h2 id="2-no-rushing">2. <strong>NO RUSHING</strong></h2>
+
+<p>The case is after spending one working week entirely for a task with high sense of concentration, assume that my commitments will be good, mostly finish before the fucking deadline, ready for deploying &amp; delivering to end-user, then… <strong>everything after that is nonreliable</strong>, unexpected, breakable and not important anymore. <strong>Outcome = Zero</strong>. Why? Why the fuck changes &amp; happens? No, everything is fine, everything is normal and on track with persistency requirements. Issue here is <strong>not clearly knowing goal</strong> from the outset, because of <strong>jumping to working immediately without any WHY</strong>, without any concerns:</p>
+<ul>
+  <li>without any self-researching and wonder why do I need it?</li>
+  <li>Why do I need to build it in that way, do I have any better ways?</li>
+  <li>Do I know exactly what they really want? (product owner, customers, end-user)</li>
+  <li>Does my solution fit with end-user problem?</li>
+  <li>Does my solution speed $$ less than the budget or overestimating?</li>
+</ul>
+
+<p>Sometimes <strong>just do it</strong> is common sense, it’s not wrong, because somehow I cannot spend time for understanding before doing. But not everything needs to be done immediately, no rushing. More multi-dimensional perspective could make a positive impact and lead to the right implementation, it seems to be better.</p>
+
+<h2 id="3-focus-on-fancy-job-titles">3. <strong>FOCUS ON FANCY JOB TITLES</strong></h2>
+
+<p>I was impressed by engineers with <strong>fancy</strong> title, something like: waooo, he’s too young but having senior levels, how can I <strong>do like this</strong>? Looking at senior teammates, this kind of question always stuck in my mind for suck a long time, how can I reach to principal level, How can I write and share technical docs/blog-posts that having extremely deep &amp; intense knowledge, How can I have such reputations on stackoverflow as his own, in many times, I consoled myself that because of senior/principal titles.</p>
+
+<p>The truth is: concern, wonder and set goal to reach to higher levels is suck. Consoling is suck too. <strong>If nothing changes, nothing changes</strong>. Thinking too much is mostly a waste of time. By start working on solving hard problems that I scared before, by taking effort to solve unanswered questions or providing better answers on SO, I feel more energetic and well… at least I did something instead of always asking. It all begins with that first stepping up.</p>
+
+<p><img src="/assets/img/so-reputation.png" alt="img" title="Stackoverflow Reputation" /></p>
+
+<p>From the other side, otherwise, collecting a ton of metrics on worloads from engineer is <strong>good for management board</strong>. It supports us to have a clear and fair making decision on separating levels of Devops/SRE engineer, for adapting and building structures of benefit also with responsibility. Increasing level means <strong>increasing salary/benefit</strong> based on logged metrics &amp; achievements are totally make sense. It’s fine. I do not disagree 100% about evaluation, because recently by having a chance to work on Devops/SRE evaluation report, I found it really useful to determine the situation, to know what I really need to achieve higher level. But so far, it’s only a checklist, a reference after all.</p>
+
+<h2 id="4-stick-in-the-mud">4. <strong>STICK-IN-THE-MUD</strong></h2>
+<p>My real cases:</p>
+<ul>
+  <li>stick with handling AWS on web console clicking, using only EC2 <code class="highlighter-rouge">t2.xxxx</code> type <strong>for years</strong></li>
+  <li>solve perf issues on linux with <strong>fixed viewpoint</strong>, follow up with templated steps. Feel great when receiving outputs <strong>as expected</strong>. Kind of <strong>micro skilled works</strong>, thanks for practicing &amp; developing during a long time.</li>
+  <li>bring experiences on old environment/company, <strong>apply for new place</strong>.</li>
+  <li>apply <strong>learned techniques</strong>:
+    <ul>
+      <li>on <code class="highlighter-rouge">BAREMETAL-base</code> for <code class="highlighter-rouge">VM-based</code></li>
+      <li>on <code class="highlighter-rouge">VM-based</code> for <code class="highlighter-rouge">CONTAINER-based</code></li>
+    </ul>
+  </li>
+  <li>determine that there is <strong>nothing to do</strong> with this infrastructure this week, because <strong>don’t know what to do next</strong>, or already did anything.</li>
+  <li>… and so on.</li>
+</ul>
+
+<p>I’m the guy who did all cases as above, <strong>sometimes I feel proud of myself</strong>, not because of any success I’ve achieved, but because I can <strong>see myself growing up</strong>, learn, practice and then apply. OK. Nothing wrong.</p>
+
+<blockquote>
+  <p>“The illiterate of the 21st century will not be those who cannot read and write, but those who cannot learn, unlearn, and relearn.” – Alvin Toffler</p>
+</blockquote>
+
+<p>The truth is feeling good on micro skilled works is suck. There is always something needs to do, <strong>there is always a better way of doing things</strong>, for enhancing, improving. <a href="https://www.linkedin.com/pulse/nokia-ceo-ended-his-speech-saying-we-didnt-do-anything-rahul-gupta/">Like Nokia</a>: “we didn’t do anything wrong, but somehow, we lost”. Live today in the same state as yesterday does not mean the same, it means lagging behind others. Because <strong>nothing can take the place of persistence</strong>. Any good thing can be wrong in different situations, not suitable anymore.</p>
+
+<p>The hard thing right here is not about learning, it’s about how to detect &amp; know <strong>what can be unlearned</strong>, what can be re-thinking, <strong>rework</strong>. Cannot unlearn, struggle with change, difficult to adapt will lead to fucked up. The world is descending into chaos.</p>
+
+<p><strong>Solutions (hard-to-do)</strong>:</p>
+<ul>
+  <li>when having a chance to add more steps on the old deployment that was built for 6 months ago ==&gt; work on adding new steps first ==&gt; <strong>audit entire flow</strong> ==&gt; then adding some <strong>refactoring instead of leaving it</strong>.</li>
+  <li>when operating an existing infra, the goal is not only cover the uptime of this but also <strong>cover &amp; collect feedback/disadvantage to make it evolve</strong>.</li>
+  <li>… and so on.</li>
+</ul>
+
+<p>==&gt; <strong>Utilizing</strong> every chance, every opportunity for <strong>seeking new challenges</strong>.</p>
+
+<h2 id="5-fearfulness">5. <strong>FEARFULNESS</strong></h2>
+<p>I know reading docs is good for myself, expand my knowledge base. I know that seeking challenges will help me grow up. I know that doing hard things will achieving high output &amp; have big impact, but somehow I still refuse to do. <strong>I know, but I don’t do.</strong></p>
+
+<p>There is always a reason behind everything:</p>
+<ul>
+  <li>Not everything is necessary [tentatively accept]
+    <ul>
+      <li>Out of scope, just don’t care, stop putting efforts, ask talents when needed.</li>
+      <li>Closely related, but priority &amp; situation define what &amp; when I will spend time reading &amp; learning.</li>
+    </ul>
+  </li>
+  <li>Laziness, idleness from myself. FML. I have no solution at this time. [tentatively accept]</li>
+  <li><a style="color:red;"><strong>Fucking fearfulness</strong></a>
+    <ul>
+      <li>fear of doing hard things, afraid of hard stuff, fear because that technical point is too hard to learn</li>
+      <li>fear because it’s edge case, fear &amp; <a href="/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#4-stick-in-the-mud">struggle with changes</a></li>
+      <li>fear when working with legacy/unknow things, fear of doing it wrong, making mistakes, fear of receiving bad feedbacks from others</li>
+      <li>feel scared of being not good enough for new challenges, new upcoming things</li>
+      <li>…</li>
+    </ul>
+  </li>
+</ul>
+
+<p>To be honest, fear is my close friend. Sometimes, I surprise myself that I fear more things than I think.
+So how can I survive?</p>
+<ul>
+  <li>Until <strong>there is nobody for delegating</strong> anymore. It’s becoming a <strong>must thing</strong> to do. <strong>No one can help me</strong> do this anymore, I need to do this by myself.</li>
+  <li>Until I found <a style="color:red;"><strong>myself unable to accept fucking myself</strong></a> anymore. I feel sad because I missed many good opportunities to make it happens. Set goals 3 months ago, but have done nothing. Because I <strong>realize that I cannot wait</strong>, cannot ignore hard things anymore.</li>
+  <li>Until I’m in the zone. <a href="https://www.urbandictionary.com/define.php?term=In%20The%20Zone">In the zone</a> means implies increased focus and attention which allow for higher levels of performance, your potential becomes more than what it is and anything around you becomes phased out seemingly a place where you can’t be stopped or touched. <a href="/mindset/2017/03/12/habit-time-management.html">Work more when you’re in the zone</a>. Relax when you’re not. By utilizing in the zone, <a style="color:green;"><strong>“eager” is something more than “fear”</strong></a>.</li>
+</ul>
+
+<h2 id="conclusion"><strong>CONCLUSION</strong></h2>
+
+<p>There’s nothing new under the sun.</p>
+
+<p>But I still wanna audit &amp; write for myself, not about nothing new, it’s about I wanna come to the end of the road of myself to see what it is.</p>
+
+<h2 id="references--read-more"><strong>REFERENCES &amp; READ MORE</strong></h2>
+<ul>
+  <li><a href="http://www.hvaonline.net/hvaonline/posts/list/0/42715.hva">Chín thói quen tệ hại cần loại bỏ</a></li>
+  <li><a href="https://vnhacker.blogspot.com/2012/02/de-hoac-ung.html">Dễ hoặc đúng</a></li>
+  <li><a href="https://vnhacker.blogspot.com/2017/04/thap-thanh-cong.html">Tháp thành công</a></li>
+  <li>Some mindsets on <a href="https://vnhacker.blogspot.com/2012/05/lam-toan-thong-tin-thi-hoc-gi.html">Làm an toàn thông tin thì học gì</a>
+<img src="/assets/img/end-of-the-road.png" alt="img" title="From ThaiDN" /></li>
+</ul>
+
+    <div id="gitment-container"></div>
+    <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="iVXMIkzG" data-limit="10" data-color="E47911" data-dislikes="1" data-colorful="1"></script>
+  </div>
+
+  <footer class="article-footer">
+
+  <hr/>
+
+  <section class="author">
+  <div class="authorimage box" style="background: url(/assets/img/avatar.webp)"></div>
+  <div class="authorinfo box">
+    <p class="bio" style="color: #222">
+      I'm an engineer who likes learning, discussing, and solving problems. These days, I'm focusing on DevOps because I'd love to help ensure that services stay up and running, while continuing to ship software to customers rapidly. I also have a passion for building robust infrastructure at world scale.
+    </p>
+    <a class="github-button" href="https://github.com/hieuhtr" data-size="large" data-show-count="true" aria-label="Follow @hieuhtr on GitHub">Follow @hieuhtr</a>
+  </div>
+</section>
+
+
+  </footer>
+
+</article>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

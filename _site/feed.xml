@@ -5,9 +5,190 @@
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://blog.tracelog.in/</link>
     <atom:link href="https://blog.tracelog.in/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 18 Nov 2019 22:23:59 +0700</pubDate>
-    <lastBuildDate>Mon, 18 Nov 2019 22:23:59 +0700</lastBuildDate>
+    <pubDate>Sat, 14 Dec 2019 11:26:18 +0700</pubDate>
+    <lastBuildDate>Sat, 14 Dec 2019 11:26:18 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
+    
+      <item>
+        <title>Site unReliable Engineering</title>
+        <description>&lt;p&gt;I’m obsessed with keeping infrastructure up and finding better ways for commitments. My mental health turns bad because of seeing fucking services/ops that &lt;strong&gt;were built &amp;amp; done carelessly&lt;/strong&gt; without any sufficiently exhausting efforts &lt;strong&gt;including myself&lt;/strong&gt;. I don’t care about what others think, about why they do what they do. &lt;strong&gt;I’m serious&lt;/strong&gt;. Because… well, it belongs to them, no need to take my efforts for understanding it. In the end, &lt;strong&gt;the most important is final outcome&lt;/strong&gt;: Is it good enough? Is it the right thing at the right time? How about quality? How about HA &amp;amp; scalable? Is it secure? and so on.&lt;/p&gt;
+
+&lt;p&gt;In Devops/SRE scope, trying to adapt incoming tasks, solve problems by providing commonplace solution is…easy, it’s get-shit-done inattentively, something is workaround, temporary. Yes, it’s &lt;strong&gt;EASY THINGS&lt;/strong&gt;, come with useless, low impact also very breakable. Well… at some points in my work-life, I realize that issues are not from the context, not from others. &lt;a style=&quot;color:red;&quot;&gt;Mostly issues are from me&lt;/a&gt;, from my bad habits, bad thingking, bad mindsets. It makes me feel &lt;strong&gt;shutting down&lt;/strong&gt;, &lt;strong&gt;dumb&lt;/strong&gt;, &lt;strong&gt;fucked-up&lt;/strong&gt; also with &lt;strong&gt;getting lost&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;So…&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a style=&quot;color:red;&quot;&gt;&lt;strong&gt;AM I UNRELIABLE?&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;what’s common failures that I was facing?&lt;/li&gt;
+  &lt;li&gt;how can I make myself &lt;strong&gt;not to go down the wrong path&lt;/strong&gt;?&lt;/li&gt;
+  &lt;li&gt;and how can I avoid stumbling blocks and feel better?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;max-width: 700px; vertical-align: middle; display: block; margin: auto;&quot;&gt;&lt;svg class=&quot;bar-chart&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  const svg = document.querySelector('.bar-chart')
+
+  new chartXkcd.Bar(svg, {
+    title: 'RELATIVE BETWEEN VALUE &amp; DOING THINGS',
+    xLabel: 'THINGS',
+    yLabel: 'TIME + EFFORTS + VALUES',
+    data: {
+      labels: ['EASY', 'NORMAL', 'HARD'],
+      datasets: [{
+        data: [10, 30, 100],
+      }],
+    },
+    options: {
+      yTickCount: 6,
+      dataColors: ['gray', '#bbccdd', '#ff851b']
+    },
+  });
+&lt;/script&gt;
+
+&lt;p&gt;Keywords: [&lt;a href=&quot;/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#1-read-the-fucking-manual-rtfm&quot;&gt;rtfm&lt;/a&gt;,
+          &lt;a href=&quot;/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#2-no-rushing&quot;&gt;asking-why&lt;/a&gt;,
+          &lt;a href=&quot;/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#3-focus-on-fancy-job-titles&quot;&gt;fancy-title&lt;/a&gt;,
+          &lt;a href=&quot;/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#4-stick-in-the-mud&quot;&gt;stick-in-the-mud&lt;/a&gt;,
+          &lt;a href=&quot;/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#5-fearfulness&quot;&gt;fearfulness&lt;/a&gt;]&lt;/p&gt;
+
+&lt;!--description--&gt;
+
+&lt;p&gt;So, here are some common failures of myself, I think that if I can describe so that maybe I can have a better version of myself.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-read-the-fucking-manual-rtfm&quot;&gt;1. &lt;strong&gt;READ THE FUCKING MANUAL RTFM&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Cases:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;cannot solve issues, cannot understand what’s going on at this infra component&lt;/li&gt;
+  &lt;li&gt;stuck with ambiguous logs, cannot finding rootcause, only do dirty workarounds…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Stuck &amp;amp; feel tired &lt;strong&gt;because having nothing to do next&lt;/strong&gt;. The common sense is when arriving at home, out of business hours, I still spend my time to continue investigating. &lt;strong&gt;Kind of pointless works&lt;/strong&gt;. It’s hard to say how can I survive, but I can confirm that mostly it’s because of not spending time for reading documents. Instead of continue working &amp;amp; step towards the unknown, I re-audit myself and found some important things:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Docs are not written for fun&lt;/strong&gt;. It’s all about knowledge &amp;amp; guidelines.&lt;/li&gt;
+  &lt;li&gt;Lack of knowledge and information will lead to nowhere.&lt;/li&gt;
+  &lt;li&gt;Spend time for &lt;strong&gt;reading docs attentively&lt;/strong&gt; is a must, for understanding all things clearly.&lt;/li&gt;
+  &lt;li&gt;Don’t wait for collecting knowledge until facing issues.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A strong knowledge base for making decisions is always better than unreasonable assumption.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-no-rushing&quot;&gt;2. &lt;strong&gt;NO RUSHING&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;The case is after spending one working week entirely for a task with high sense of concentration, assume that my commitments will be good, mostly finish before the fucking deadline, ready for deploying &amp;amp; delivering to end-user, then… &lt;strong&gt;everything after that is nonreliable&lt;/strong&gt;, unexpected, breakable and not important anymore. &lt;strong&gt;Outcome = Zero&lt;/strong&gt;. Why? Why the fuck changes &amp;amp; happens? No, everything is fine, everything is normal and on track with persistency requirements. Issue here is &lt;strong&gt;not clearly knowing goal&lt;/strong&gt; from the outset, because of &lt;strong&gt;jumping to working immediately without any WHY&lt;/strong&gt;, without any concerns:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;without any self-researching and wonder why do I need it?&lt;/li&gt;
+  &lt;li&gt;Why do I need to build it in that way, do I have any better ways?&lt;/li&gt;
+  &lt;li&gt;Do I know exactly what they really want? (product owner, customers, end-user)&lt;/li&gt;
+  &lt;li&gt;Does my solution fit with end-user problem?&lt;/li&gt;
+  &lt;li&gt;Does my solution speed $$ less than the budget or overestimating?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sometimes &lt;strong&gt;just do it&lt;/strong&gt; is common sense, it’s not wrong, because somehow I cannot spend time for understanding before doing. But not everything needs to be done immediately, no rushing. More multi-dimensional perspective could make a positive impact and lead to the right implementation, it seems to be better.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-focus-on-fancy-job-titles&quot;&gt;3. &lt;strong&gt;FOCUS ON FANCY JOB TITLES&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;I was impressed by engineers with &lt;strong&gt;fancy&lt;/strong&gt; title, something like: waooo, he’s too young but having senior levels, how can I &lt;strong&gt;do like this&lt;/strong&gt;? Looking at senior teammates, this kind of question always stuck in my mind for suck a long time, how can I reach to principal level, How can I write and share technical docs/blog-posts that having extremely deep &amp;amp; intense knowledge, How can I have such reputations on stackoverflow as his own, in many times, I consoled myself that because of senior/principal titles.&lt;/p&gt;
+
+&lt;p&gt;The truth is: concern, wonder and set goal to reach to higher levels is suck. Consoling is suck too. &lt;strong&gt;If nothing changes, nothing changes&lt;/strong&gt;. Thinking too much is mostly a waste of time. By start working on solving hard problems that I scared before, by taking effort to solve unanswered questions or providing better answers on SO, I feel more energetic and well… at least I did something instead of always asking. It all begins with that first stepping up.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/so-reputation.png&quot; alt=&quot;img&quot; title=&quot;Stackoverflow Reputation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;From the other side, otherwise, collecting a ton of metrics on worloads from engineer is &lt;strong&gt;good for management board&lt;/strong&gt;. It supports us to have a clear and fair making decision on separating levels of Devops/SRE engineer, for adapting and building structures of benefit also with responsibility. Increasing level means &lt;strong&gt;increasing salary/benefit&lt;/strong&gt; based on logged metrics &amp;amp; achievements are totally make sense. It’s fine. I do not disagree 100% about evaluation, because recently by having a chance to work on Devops/SRE evaluation report, I found it really useful to determine the situation, to know what I really need to achieve higher level. But so far, it’s only a checklist, a reference after all.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-stick-in-the-mud&quot;&gt;4. &lt;strong&gt;STICK-IN-THE-MUD&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;My real cases:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;stick with handling AWS on web console clicking, using only EC2 &lt;code class=&quot;highlighter-rouge&quot;&gt;t2.xxxx&lt;/code&gt; type &lt;strong&gt;for years&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;solve perf issues on linux with &lt;strong&gt;fixed viewpoint&lt;/strong&gt;, follow up with templated steps. Feel great when receiving outputs &lt;strong&gt;as expected&lt;/strong&gt;. Kind of &lt;strong&gt;micro skilled works&lt;/strong&gt;, thanks for practicing &amp;amp; developing during a long time.&lt;/li&gt;
+  &lt;li&gt;bring experiences on old environment/company, &lt;strong&gt;apply for new place&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;apply &lt;strong&gt;learned techniques&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;on &lt;code class=&quot;highlighter-rouge&quot;&gt;BAREMETAL-base&lt;/code&gt; for &lt;code class=&quot;highlighter-rouge&quot;&gt;VM-based&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;on &lt;code class=&quot;highlighter-rouge&quot;&gt;VM-based&lt;/code&gt; for &lt;code class=&quot;highlighter-rouge&quot;&gt;CONTAINER-based&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;determine that there is &lt;strong&gt;nothing to do&lt;/strong&gt; with this infrastructure this week, because &lt;strong&gt;don’t know what to do next&lt;/strong&gt;, or already did anything.&lt;/li&gt;
+  &lt;li&gt;… and so on.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I’m the guy who did all cases as above, &lt;strong&gt;sometimes I feel proud of myself&lt;/strong&gt;, not because of any success I’ve achieved, but because I can &lt;strong&gt;see myself growing up&lt;/strong&gt;, learn, practice and then apply. OK. Nothing wrong.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“The illiterate of the 21st century will not be those who cannot read and write, but those who cannot learn, unlearn, and relearn.” – Alvin Toffler&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The truth is feeling good on micro skilled works is suck. There is always something needs to do, &lt;strong&gt;there is always a better way of doing things&lt;/strong&gt;, for enhancing, improving. &lt;a href=&quot;https://www.linkedin.com/pulse/nokia-ceo-ended-his-speech-saying-we-didnt-do-anything-rahul-gupta/&quot;&gt;Like Nokia&lt;/a&gt;: “we didn’t do anything wrong, but somehow, we lost”. Live today in the same state as yesterday does not mean the same, it means lagging behind others. Because &lt;strong&gt;nothing can take the place of persistence&lt;/strong&gt;. Any good thing can be wrong in different situations, not suitable anymore.&lt;/p&gt;
+
+&lt;p&gt;The hard thing right here is not about learning, it’s about how to detect &amp;amp; know &lt;strong&gt;what can be unlearned&lt;/strong&gt;, what can be re-thinking, &lt;strong&gt;rework&lt;/strong&gt;. Cannot unlearn, struggle with change, difficult to adapt will lead to fucked up. The world is descending into chaos.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solutions (hard-to-do)&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;when having a chance to add more steps on the old deployment that was built for 6 months ago ==&amp;gt; work on adding new steps first ==&amp;gt; &lt;strong&gt;audit entire flow&lt;/strong&gt; ==&amp;gt; then adding some &lt;strong&gt;refactoring instead of leaving it&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;when operating an existing infra, the goal is not only cover the uptime of this but also &lt;strong&gt;cover &amp;amp; collect feedback/disadvantage to make it evolve&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;… and so on.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;==&amp;gt; &lt;strong&gt;Utilizing&lt;/strong&gt; every chance, every opportunity for &lt;strong&gt;seeking new challenges&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;5-fearfulness&quot;&gt;5. &lt;strong&gt;FEARFULNESS&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;I know reading docs is good for myself, expand my knowledge base. I know that seeking challenges will help me grow up. I know that doing hard things will achieving high output &amp;amp; have big impact, but somehow I still refuse to do. &lt;strong&gt;I know, but I don’t do.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There is always a reason behind everything:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Not everything is necessary [tentatively accept]
+    &lt;ul&gt;
+      &lt;li&gt;Out of scope, just don’t care, stop putting efforts, ask talents when needed.&lt;/li&gt;
+      &lt;li&gt;Closely related, but priority &amp;amp; situation define what &amp;amp; when I will spend time reading &amp;amp; learning.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Laziness, idleness from myself. FML. I have no solution at this time. [tentatively accept]&lt;/li&gt;
+  &lt;li&gt;&lt;a style=&quot;color:red;&quot;&gt;&lt;strong&gt;Fucking fearfulness&lt;/strong&gt;&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;fear of doing hard things, afraid of hard stuff, fear because that technical point is too hard to learn&lt;/li&gt;
+      &lt;li&gt;fear because it’s edge case, fear &amp;amp; &lt;a href=&quot;/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#4-stick-in-the-mud&quot;&gt;struggle with changes&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;fear when working with legacy/unknow things, fear of doing it wrong, making mistakes, fear of receiving bad feedbacks from others&lt;/li&gt;
+      &lt;li&gt;feel scared of being not good enough for new challenges, new upcoming things&lt;/li&gt;
+      &lt;li&gt;…&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To be honest, fear is my close friend. Sometimes, I surprise myself that I fear more things than I think.
+So how can I survive?&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Until &lt;strong&gt;there is nobody for delegating&lt;/strong&gt; anymore. It’s becoming a &lt;strong&gt;must thing&lt;/strong&gt; to do. &lt;strong&gt;No one can help me&lt;/strong&gt; do this anymore, I need to do this by myself.&lt;/li&gt;
+  &lt;li&gt;Until I found &lt;a style=&quot;color:red;&quot;&gt;&lt;strong&gt;myself unable to accept fucking myself&lt;/strong&gt;&lt;/a&gt; anymore. I feel sad because I missed many good opportunities to make it happens. Set goals 3 months ago, but have done nothing. Because I &lt;strong&gt;realize that I cannot wait&lt;/strong&gt;, cannot ignore hard things anymore.&lt;/li&gt;
+  &lt;li&gt;Until I’m in the zone. &lt;a href=&quot;https://www.urbandictionary.com/define.php?term=In%20The%20Zone&quot;&gt;In the zone&lt;/a&gt; means implies increased focus and attention which allow for higher levels of performance, your potential becomes more than what it is and anything around you becomes phased out seemingly a place where you can’t be stopped or touched. &lt;a href=&quot;/mindset/2017/03/12/habit-time-management.html&quot;&gt;Work more when you’re in the zone&lt;/a&gt;. Relax when you’re not. By utilizing in the zone, &lt;a style=&quot;color:green;&quot;&gt;&lt;strong&gt;“eager” is something more than “fear”&lt;/strong&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;&lt;strong&gt;CONCLUSION&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;There’s nothing new under the sun.&lt;/p&gt;
+
+&lt;p&gt;But I still wanna audit &amp;amp; write for myself, not about nothing new, it’s about I wanna come to the end of the road of myself to see what it is.&lt;/p&gt;
+
+&lt;h2 id=&quot;references--read-more&quot;&gt;&lt;strong&gt;REFERENCES &amp;amp; READ MORE&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.hvaonline.net/hvaonline/posts/list/0/42715.hva&quot;&gt;Chín thói quen tệ hại cần loại bỏ&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://vnhacker.blogspot.com/2012/02/de-hoac-ung.html&quot;&gt;Dễ hoặc đúng&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://vnhacker.blogspot.com/2017/04/thap-thanh-cong.html&quot;&gt;Tháp thành công&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Some mindsets on &lt;a href=&quot;https://vnhacker.blogspot.com/2012/05/lam-toan-thong-tin-thi-hoc-gi.html&quot;&gt;Làm an toàn thông tin thì học gì&lt;/a&gt;
+&lt;img src=&quot;/assets/img/end-of-the-road.png&quot; alt=&quot;img&quot; title=&quot;From ThaiDN&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sat, 14 Dec 2019 00:00:00 +0700</pubDate>
+        <link>https://blog.tracelog.in/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html</guid>
+        
+        
+        <category>technical</category>
+        
+        <category>whatthefuck</category>
+        
+        <category>mindset</category>
+        
+      </item>
     
       <item>
         <title>Notes on CPDOS attack CDN</title>
@@ -829,114 +1010,6 @@ All packages are up to date.
         
         
         <category>technical</category>
-        
-      </item>
-    
-      <item>
-        <title>Solving blaming game</title>
-        <description>&lt;p&gt;&lt;strong&gt;Context&lt;/strong&gt;: stuck with problems, cannot find root cause, dunno and cannot understand and reproduce problem. Maybe feeling very tired for a long day, already taken 5 hours without any good executions. Maybe you don’t want to take responsibility for that.&lt;/p&gt;
-
-&lt;p&gt;Introducing &lt;strong&gt;blaming&lt;/strong&gt;: the fine art of making others responsible for all the difficult things that happen to you.&lt;/p&gt;
-
-&lt;p&gt;Nowadays, there are many many contexts &amp;amp; examples for blaming. I only want to wide the scope of this mindset, into SRE/Devops/Sysadmin fields. &lt;strong&gt;Why we blaming each others&lt;/strong&gt;, right or wrong? How can we fix/improve our mindset? &lt;strong&gt;How can we do better?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://imgs.xkcd.com/comics/blame_2x.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;!--description--&gt;
-
-&lt;p&gt;&lt;strong&gt;Table of Contents&lt;/strong&gt;&lt;/p&gt;
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#real-life-example&quot; id=&quot;markdown-toc-real-life-example&quot;&gt;REAL LIFE EXAMPLE&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#reasons&quot; id=&quot;markdown-toc-reasons&quot;&gt;REASONS&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#1-badness&quot; id=&quot;markdown-toc-1-badness&quot;&gt;1. Badness&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#2-defending&quot; id=&quot;markdown-toc-2-defending&quot;&gt;2. Defending&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#3-attacking&quot; id=&quot;markdown-toc-3-attacking&quot;&gt;3. Attacking&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#how-can-we-do-better&quot; id=&quot;markdown-toc-how-can-we-do-better&quot;&gt;HOW CAN WE DO BETTER?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#reference&quot; id=&quot;markdown-toc-reference&quot;&gt;REFERENCE&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;real-life-example&quot;&gt;REAL LIFE EXAMPLE&lt;/h2&gt;
-
-&lt;p&gt;Working on infras of someone else, working on services that not be built by ourself&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;many legacy/unknown components&lt;/li&gt;
-  &lt;li&gt;bad naming &amp;amp; coding conventions&lt;/li&gt;
-  &lt;li&gt;lack of resource inventory, lack of useful documents.&lt;/li&gt;
-  &lt;li&gt;found bad lines of code from developers, but must solve that shitty issue.&lt;/li&gt;
-  &lt;li&gt;found unacceptable implementations, like opened all ports, all protocols to 0.0.0.0/0 &lt;strong&gt;(WTF)&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;We start blaming others because they are bad, very bad&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Who did it?&lt;/li&gt;
-  &lt;li&gt;Who’s the interviewer of that f*cker guy?&lt;/li&gt;
-  &lt;li&gt;Hey man, you mad, go fuck yourself&lt;/li&gt;
-  &lt;li&gt;Kick this man out please, I don’t want him in my team&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;reasons&quot;&gt;REASONS&lt;/h2&gt;
-
-&lt;h4 id=&quot;1-badness&quot;&gt;1. Badness&lt;/h4&gt;
-
-&lt;p&gt;We have a deep need for a sense of identity, and one way we do this is through social comparison, contrasting ourselves against others. 
-If we can place ourselves higher in the pecking order of society then we can feel more important and have a greater sense of control.&lt;/p&gt;
-
-&lt;p&gt;We seek a higher status than others. And blame is one of the tools we use to this end. If the other person is bad, then it seems &lt;strong&gt;we must be relatively good&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h4 id=&quot;2-defending&quot;&gt;2. Defending&lt;/h4&gt;
-
-&lt;p&gt;Maybe we’re &lt;strong&gt;scared&lt;/strong&gt; that we’re going to fall, because if our boss found this issue, we will be fire, or cannot have a higher salary. If we are not at fault, we &lt;strong&gt;blame to defend&lt;/strong&gt;. If we are at fault, then we &lt;strong&gt;blame to deflect&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h4 id=&quot;3-attacking&quot;&gt;3. Attacking&lt;/h4&gt;
-
-&lt;p&gt;Sometimes we know the reasons of issues are most from our side, but also come from their side.
-We want to blame others less because we are moving attention away from ourselves and more because we &lt;strong&gt;specifically want to attack others&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;A common reason to attack others is that we have some grudge against them, believing them to be bad or unworthy in some way and hence deserving punishment. Perhaps they have blamed us unfairly in past. Maybe they have hurt one of our friends. In any case, the opportunity to blame is used as a convenient method of subtle attack.&lt;/p&gt;
-
-&lt;h2 id=&quot;how-can-we-do-better&quot;&gt;HOW CAN WE DO BETTER?&lt;/h2&gt;
-
-&lt;p&gt;The keys aka solutions are &lt;strong&gt;NO BLAMING GAME&lt;/strong&gt; + &lt;strong&gt;JUST FIX THAT SHIT&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;You are good&lt;/strong&gt;, very good enough to know the bad (after taken 10 hours for finding rootcause)
-Why don’t you sit down and plan to solve issues?
-Calm down, breath, take a deep breath, let’s standup and take a coffee/tea cup, then relax your mind.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;I recommended that you should &lt;strong&gt;switch&lt;/strong&gt; your mindset from blaming others to &lt;strong&gt;thinking that you have a change to make things better&lt;/strong&gt;. You are here to do that, you have a change to show off your experiences (devops god, hero of all things)&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Figure out the problem&lt;/strong&gt;, &lt;strong&gt;plan a hotfix&lt;/strong&gt;, write-up &amp;amp; share &lt;strong&gt;step-by-step&lt;/strong&gt;, guide the fucker to understand and &lt;strong&gt;how to find root cause&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Even the f*cker is developer or other junior devops/sysdmin. They are bad, lack of knowledge.
-Your job is inspecting, finding, &lt;strong&gt;solving&lt;/strong&gt;, validating, auditing, &lt;strong&gt;not pointing the figure elsewhere.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;Disclamer and question&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;If you cannot solve issues, it means you don’t have enough permission and knowledge to blame. RIGHT?&lt;/li&gt;
-  &lt;li&gt;Blaming or not blaming, at the end, issues still right there. Blaming is not solving problems.&lt;/li&gt;
-  &lt;li&gt;Why dont we sit down then try to fix that shit?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;center&gt;&lt;img src=&quot;https://media.giphy.com/media/l4q8gzOgUQIy7Ml44/giphy.gif&quot; /&gt;&lt;/center&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;REFERENCE&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;http://changingminds.org/explanations/behaviors/blame/why_blame_others.htm&quot;&gt;http://changingminds.org/explanations/behaviors/blame/why_blame_others.htm&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.harleytherapy.co.uk/counselling/why-we-put-the-blame-on-others.htm&quot;&gt;https://www.harleytherapy.co.uk/counselling/why-we-put-the-blame-on-others.htm&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Sat, 25 Aug 2018 00:00:00 +0700</pubDate>
-        <link>https://blog.tracelog.in/mindset/2018/08/25/Solving-blaming-game.html</link>
-        <guid isPermaLink="true">https://blog.tracelog.in/mindset/2018/08/25/Solving-blaming-game.html</guid>
-        
-        
-        <category>mindset</category>
         
       </item>
     
