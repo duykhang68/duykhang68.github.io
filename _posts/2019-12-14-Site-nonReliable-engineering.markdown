@@ -144,4 +144,3 @@ But I still wanna audit & write for myself, not about nothing new, it's about I 
 - [Dễ hoặc đúng](https://vnhacker.blogspot.com/2012/02/de-hoac-ung.html)
 - [Tháp thành công](https://vnhacker.blogspot.com/2017/04/thap-thanh-cong.html)
 - Some mindsets on [Làm an toàn thông tin thì học gì](https://vnhacker.blogspot.com/2012/05/lam-toan-thong-tin-thi-hoc-gi.html)
-![img](/assets/img/end-of-the-road.png "From ThaiDN")
