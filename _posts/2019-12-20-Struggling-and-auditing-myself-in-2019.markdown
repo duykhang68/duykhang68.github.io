@@ -1,22 +1,21 @@
 ---
 layout: post
-title: Site unReliable Engineering
-category: 
-- technical
-- whatthefuck
+title: Struggling and auditing myself in 2019
+category:
 - mindset
 description: Common failures and wrong thinking mindsets lead to fucked up
 ---
 
-I'm obsessed with keeping infrastructure up and finding better ways for commitments. My mental health turns bad because of seeing fucking services/ops that **were built & done carelessly** without any sufficiently exhausting efforts **including myself**. I don't care about what others think, about why they do what they do. **I'm serious**. Because... well, it belongs to them, no need to take my efforts for understanding it. In the end, **the most important is final outcome**: Is it good enough? Is it the right thing at the right time? How about quality? How about HA & scalable? Is it secure? and so on. 
+**Before you read**: 
+- I write this post only for myself in devops & infrastructure context, not everyone's else issues. 
+- And the whole thing could be very discrete, not closely related to each other.
 
-In Devops/SRE scope, trying to adapt incoming tasks, solve problems by providing commonplace solution is...easy, it's get-shit-done inattentively, something is workaround, temporary. Yes, it's **EASY THINGS**, come with useless, low impact also very breakable. Well... at some points in my work-life, I realize that issues are not from the context, not from others. <a style="color:red;">Mostly issues are from me</a>, from my bad habits, bad thingking, bad mindsets. It makes me feel **shutting down**, **dumb**, **fucked-up** also with **getting lost**. 
+## **FACTS**
 
-So...
-- <a style="color:red;">**AM I UNRELIABLE?**</a>
-- what's common failures that I was facing?
-- how can I make myself **not to go down the wrong path**?
-- and how can I avoid stumbling blocks and feel better?
+1. I'm obsessed with keeping infrastructure up and finding better ways for commitments everyday. My mental health turns bad because of seeing fucking services/ops that **were built & done carelessly** without any sufficiently exhausting efforts, not only from others engineers, but also **from myself**.
+
+2. In Devops/SRE scope, trying to adapt incoming tasks, solve problems by providing commonplace solution is...easy, it's get-shit-done inattentively, something is workaround, temporary. It's **EASY THINGS**, come with useless, low impact also very breakable. But **good things take time and efforts**. And the hard things make big impact.
+  > As a good rule of thumb, proprietary technology must be at least 10 times better than its closest substitute in some important dimension to lead to a real monopolistic advantage. - Zero to One – Peter Thiel
 
 <div style="max-width: 700px; vertical-align: middle; display: block; margin: auto;"><svg class="bar-chart"></svg></div>
 <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
@@ -40,16 +39,23 @@ So...
   });
 </script>
 
-Keywords: [[rtfm]({% post_url 2019-12-14-Site-nonReliable-engineering %}#1-read-the-fucking-manual-rtfm),
-          [asking-why]({% post_url 2019-12-14-Site-nonReliable-engineering %}#2-no-rushing),
-          [fancy-title]({% post_url 2019-12-14-Site-nonReliable-engineering %}#3-focus-on-fancy-job-titles),
-          [stick-in-the-mud]({% post_url 2019-12-14-Site-nonReliable-engineering %}#4-stick-in-the-mud),
-          [fearfulness]({% post_url 2019-12-14-Site-nonReliable-engineering %}#5-fearfulness)]
+
+Well... at some points in my work-life, I realize that issues are not from the context, not from others. <a style="color:red;">**Mostly issues are from me**</a>, from my bad habits, bad thingking, bad mindsets. It makes me feel **shutting down**, **dumb**, **fucked-up** also with **getting lost**. I went down the wrong path many times, also got many bad results in 2019.
+
+So...
+- <a style="color:red;">**AM I UNRELIABLE?**</a>
+- what's common failures that I was facing? Lesson learn?
+- how can I make myself **not to go down the wrong path**?
+- and how can I avoid stumbling blocks and feel better?
+
+
+Clickable key points: [[rtfm]({% post_url 2019-12-20-Struggling-and-auditing-myself-in-2019 %}#1-read-the-fucking-manual-rtfm),
+          [asking-why]({% post_url 2019-12-20-Struggling-and-auditing-myself-in-2019 %}#2-no-rushing),
+          [fancy-title]({% post_url 2019-12-20-Struggling-and-auditing-myself-in-2019 %}#3-focus-on-fancy-job-titles),
+          [stick-in-the-mud]({% post_url 2019-12-20-Struggling-and-auditing-myself-in-2019 %}#4-stick-in-the-mud),
+          [fearfulness]({% post_url 2019-12-20-Struggling-and-auditing-myself-in-2019 %}#5-fearfulness)]
 
 <!--description-->
-
-
-So, here are some common failures of myself, I think that if I can describe so that maybe I can have a better version of myself.
 
 ## 1. **READ THE FUCKING MANUAL RTFM**
 Cases:
@@ -121,7 +127,7 @@ There is always a reason behind everything:
   - Laziness, idleness from myself. FML. I have no solution at this time. [tentatively accept]
   - <a style="color:red;">**Fucking fearfulness**</a>
     * fear of doing hard things, afraid of hard stuff, fear because that technical point is too hard to learn
-    * fear because it's edge case, fear & [struggle with changes]({% post_url 2019-12-14-Site-nonReliable-engineering %}#4-stick-in-the-mud)
+    * fear because it's edge case, fear & [struggle with changes]({% post_url 2019-12-20-Struggling-and-auditing-myself-in-2019 %}#4-stick-in-the-mud)
     * fear when working with legacy/unknow things, fear of doing it wrong, making mistakes, fear of receiving bad feedbacks from others
     * feel scared of being not good enough for new challenges, new upcoming things
     * ...
@@ -144,3 +150,5 @@ But I still wanna audit & write for myself, not about nothing new, it's about I 
 - [Dễ hoặc đúng](https://vnhacker.blogspot.com/2012/02/de-hoac-ung.html)
 - [Tháp thành công](https://vnhacker.blogspot.com/2017/04/thap-thanh-cong.html)
 - Some mindsets on [Làm an toàn thông tin thì học gì](https://vnhacker.blogspot.com/2012/05/lam-toan-thong-tin-thi-hoc-gi.html)
+
+

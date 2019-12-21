@@ -5,23 +5,31 @@
     <description>My blog about Linux, Database, Infrastructure, some mathematics, and mindset.</description>
     <link>https://blog.tracelog.in/</link>
     <atom:link href="https://blog.tracelog.in/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 Dec 2019 11:29:07 +0700</pubDate>
-    <lastBuildDate>Sat, 14 Dec 2019 11:29:07 +0700</lastBuildDate>
+    <pubDate>Sat, 21 Dec 2019 09:16:52 +0700</pubDate>
+    <lastBuildDate>Sat, 21 Dec 2019 09:16:52 +0700</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
-        <title>Site unReliable Engineering</title>
-        <description>&lt;p&gt;I’m obsessed with keeping infrastructure up and finding better ways for commitments. My mental health turns bad because of seeing fucking services/ops that &lt;strong&gt;were built &amp;amp; done carelessly&lt;/strong&gt; without any sufficiently exhausting efforts &lt;strong&gt;including myself&lt;/strong&gt;. I don’t care about what others think, about why they do what they do. &lt;strong&gt;I’m serious&lt;/strong&gt;. Because… well, it belongs to them, no need to take my efforts for understanding it. In the end, &lt;strong&gt;the most important is final outcome&lt;/strong&gt;: Is it good enough? Is it the right thing at the right time? How about quality? How about HA &amp;amp; scalable? Is it secure? and so on.&lt;/p&gt;
-
-&lt;p&gt;In Devops/SRE scope, trying to adapt incoming tasks, solve problems by providing commonplace solution is…easy, it’s get-shit-done inattentively, something is workaround, temporary. Yes, it’s &lt;strong&gt;EASY THINGS&lt;/strong&gt;, come with useless, low impact also very breakable. Well… at some points in my work-life, I realize that issues are not from the context, not from others. &lt;a style=&quot;color:red;&quot;&gt;Mostly issues are from me&lt;/a&gt;, from my bad habits, bad thingking, bad mindsets. It makes me feel &lt;strong&gt;shutting down&lt;/strong&gt;, &lt;strong&gt;dumb&lt;/strong&gt;, &lt;strong&gt;fucked-up&lt;/strong&gt; also with &lt;strong&gt;getting lost&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;So…&lt;/p&gt;
+        <title>Struggling and auditing myself in 2019</title>
+        <description>&lt;p&gt;&lt;strong&gt;Before you read&lt;/strong&gt;:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;a style=&quot;color:red;&quot;&gt;&lt;strong&gt;AM I UNRELIABLE?&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;what’s common failures that I was facing?&lt;/li&gt;
-  &lt;li&gt;how can I make myself &lt;strong&gt;not to go down the wrong path&lt;/strong&gt;?&lt;/li&gt;
-  &lt;li&gt;and how can I avoid stumbling blocks and feel better?&lt;/li&gt;
+  &lt;li&gt;I write this post only for myself in devops &amp;amp; infrastructure context, not everyone’s else issues.&lt;/li&gt;
+  &lt;li&gt;And the whole thing could be very discrete, not closely related to each other.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&quot;facts&quot;&gt;&lt;strong&gt;FACTS&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;I’m obsessed with keeping infrastructure up and finding better ways for commitments everyday. My mental health turns bad because of seeing fucking services/ops that &lt;strong&gt;were built &amp;amp; done carelessly&lt;/strong&gt; without any sufficiently exhausting efforts, not only from others engineers, but also &lt;strong&gt;from myself&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In Devops/SRE scope, trying to adapt incoming tasks, solve problems by providing commonplace solution is…easy, it’s get-shit-done inattentively, something is workaround, temporary. It’s &lt;strong&gt;EASY THINGS&lt;/strong&gt;, come with useless, low impact also very breakable. But &lt;strong&gt;good things take time and efforts&lt;/strong&gt;. And the hard things make big impact.&lt;/p&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;As a good rule of thumb, proprietary technology must be at least 10 times better than its closest substitute in some important dimension to lead to a real monopolistic advantage. - Zero to One – Peter Thiel&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;div style=&quot;max-width: 700px; vertical-align: middle; display: block; margin: auto;&quot;&gt;&lt;svg class=&quot;bar-chart&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
 &lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js&quot;&gt;&lt;/script&gt;
@@ -46,15 +54,23 @@
   });
 &lt;/script&gt;
 
-&lt;p&gt;Keywords: [&lt;a href=&quot;/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#1-read-the-fucking-manual-rtfm&quot;&gt;rtfm&lt;/a&gt;,
-          &lt;a href=&quot;/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#2-no-rushing&quot;&gt;asking-why&lt;/a&gt;,
-          &lt;a href=&quot;/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#3-focus-on-fancy-job-titles&quot;&gt;fancy-title&lt;/a&gt;,
-          &lt;a href=&quot;/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#4-stick-in-the-mud&quot;&gt;stick-in-the-mud&lt;/a&gt;,
-          &lt;a href=&quot;/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#5-fearfulness&quot;&gt;fearfulness&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;Well… at some points in my work-life, I realize that issues are not from the context, not from others. &lt;a style=&quot;color:red;&quot;&gt;&lt;strong&gt;Mostly issues are from me&lt;/strong&gt;&lt;/a&gt;, from my bad habits, bad thingking, bad mindsets. It makes me feel &lt;strong&gt;shutting down&lt;/strong&gt;, &lt;strong&gt;dumb&lt;/strong&gt;, &lt;strong&gt;fucked-up&lt;/strong&gt; also with &lt;strong&gt;getting lost&lt;/strong&gt;. I went down the wrong path many times, also got many bad results in 2019.&lt;/p&gt;
+
+&lt;p&gt;So…&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a style=&quot;color:red;&quot;&gt;&lt;strong&gt;AM I UNRELIABLE?&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;what’s common failures that I was facing? Lesson learn?&lt;/li&gt;
+  &lt;li&gt;how can I make myself &lt;strong&gt;not to go down the wrong path&lt;/strong&gt;?&lt;/li&gt;
+  &lt;li&gt;and how can I avoid stumbling blocks and feel better?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Clickable key points: [&lt;a href=&quot;/mindset/2019/12/20/Struggling-and-auditing-myself-in-2019.html#1-read-the-fucking-manual-rtfm&quot;&gt;rtfm&lt;/a&gt;,
+          &lt;a href=&quot;/mindset/2019/12/20/Struggling-and-auditing-myself-in-2019.html#2-no-rushing&quot;&gt;asking-why&lt;/a&gt;,
+          &lt;a href=&quot;/mindset/2019/12/20/Struggling-and-auditing-myself-in-2019.html#3-focus-on-fancy-job-titles&quot;&gt;fancy-title&lt;/a&gt;,
+          &lt;a href=&quot;/mindset/2019/12/20/Struggling-and-auditing-myself-in-2019.html#4-stick-in-the-mud&quot;&gt;stick-in-the-mud&lt;/a&gt;,
+          &lt;a href=&quot;/mindset/2019/12/20/Struggling-and-auditing-myself-in-2019.html#5-fearfulness&quot;&gt;fearfulness&lt;/a&gt;]&lt;/p&gt;
 
 &lt;!--description--&gt;
-
-&lt;p&gt;So, here are some common failures of myself, I think that if I can describe so that maybe I can have a better version of myself.&lt;/p&gt;
 
 &lt;h2 id=&quot;1-read-the-fucking-manual-rtfm&quot;&gt;1. &lt;strong&gt;READ THE FUCKING MANUAL RTFM&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;Cases:&lt;/p&gt;
@@ -146,7 +162,7 @@
   &lt;li&gt;&lt;a style=&quot;color:red;&quot;&gt;&lt;strong&gt;Fucking fearfulness&lt;/strong&gt;&lt;/a&gt;
     &lt;ul&gt;
       &lt;li&gt;fear of doing hard things, afraid of hard stuff, fear because that technical point is too hard to learn&lt;/li&gt;
-      &lt;li&gt;fear because it’s edge case, fear &amp;amp; &lt;a href=&quot;/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html#4-stick-in-the-mud&quot;&gt;struggle with changes&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;fear because it’s edge case, fear &amp;amp; &lt;a href=&quot;/mindset/2019/12/20/Struggling-and-auditing-myself-in-2019.html#4-stick-in-the-mud&quot;&gt;struggle with changes&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;fear when working with legacy/unknow things, fear of doing it wrong, making mistakes, fear of receiving bad feedbacks from others&lt;/li&gt;
       &lt;li&gt;feel scared of being not good enough for new challenges, new upcoming things&lt;/li&gt;
       &lt;li&gt;…&lt;/li&gt;
@@ -175,15 +191,12 @@ So how can I survive?&lt;/p&gt;
   &lt;li&gt;&lt;a href=&quot;https://vnhacker.blogspot.com/2017/04/thap-thanh-cong.html&quot;&gt;Tháp thành công&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Some mindsets on &lt;a href=&quot;https://vnhacker.blogspot.com/2012/05/lam-toan-thong-tin-thi-hoc-gi.html&quot;&gt;Làm an toàn thông tin thì học gì&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
 </description>
-        <pubDate>Sat, 14 Dec 2019 00:00:00 +0700</pubDate>
-        <link>https://blog.tracelog.in/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html</link>
-        <guid isPermaLink="true">https://blog.tracelog.in/technical/whatthefuck/mindset/2019/12/14/Site-nonReliable-engineering.html</guid>
+        <pubDate>Fri, 20 Dec 2019 00:00:00 +0700</pubDate>
+        <link>https://blog.tracelog.in/mindset/2019/12/20/Struggling-and-auditing-myself-in-2019.html</link>
+        <guid isPermaLink="true">https://blog.tracelog.in/mindset/2019/12/20/Struggling-and-auditing-myself-in-2019.html</guid>
         
-        
-        <category>technical</category>
-        
-        <category>whatthefuck</category>
         
         <category>mindset</category>
         
