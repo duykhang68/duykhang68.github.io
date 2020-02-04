@@ -1,0 +1,36 @@
+
+Container-based infra:
+- Bulding Dockerfile, docker-compose, microK8s, podman for local & testing environment
+- Dockerize legacy vm-based webapps
+- Handling micro-services by using Kubernetes on GCP, evolved from DEIS architecture to GKE with Helm
+- Operating GKE on multi regions (EU & ASIA)
+- Buiding main routing application traffic by using nginx-ingress on both name-based & path-based
+- Scaling services during high traffic ~50K rpm
+- Streaming logs from stdout/syslog-protocol to Logentries & ELK
+- 
+
+- Experience with K8s terminologies: ingress, deployment, pod, registry, replicaSet, backendconfig, controller, LB, kubectl,... 
+
+VM-based infra:
+- Solid skills and practicing on linux: top, dmesg, systemd, cron, shell scripts, tuning linux vm,...
+- Understanding in MySQL/MongoDB internals, clustering, HA failover, backup/restore (on VM-based, RDS, CloudSQL)
+- Familiarity with writing from micro to complete flow of script by using shell/python/ansible/jenkinsfile for adapting multi-purposes.
+
+General
+- Cover A-Z from kicking off startups, discussing and making decisions on tech stack, provision infra, tracing problems & provide solutions.  
+- Building entire infrastructure from scratch to micro-services, maintain & scale during high traffic and under pressure (~ over 50K rpm for some big services)
+- Automation provisioning infra using terraform, ansible playbooks to make sure versioning almost everything (Infra as Code)
+- Apply best practices for setting up automation CI/CD build, deployment flows to release web apps on multi clouds (AWS, GCP) using Jenkins: jenkinsfile, pipeline, git hooks, notification.
+- Building many kinds of monitoring/tracing/APM system: Sentry, ELK, telegraf, influxdb, grafana, NewRelic, monit
+- Taking strong responsibility/ownership during on-call periods, identifying failures and execute actions for resolving live issues (postmortem, prevention plan), achieve goals on uptime & MTTR
+
+
+
+
+
+vnr.mycontentbird.io
+webversiert.mycontentbird.io
+werner.mycontentbird.io
+xiaowaico.mycontentbird.io
+yuhegame.mycontentbird.io
+
