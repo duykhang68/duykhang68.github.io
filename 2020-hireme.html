@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-    <head>
+    <div>
         <meta charset="UTF-8">
         <title>Hieu Huynh - Resume</title>
         <link rel="stylesheet" href="/hireme.css">
@@ -48,8 +48,11 @@
                     <span class="key">AWS/GCP</span>
                     <span class="key">VM-based/K8s</span>
                     <span class="key">MySQL/MongoDB</span>
+                    <span class="key">Terraform</span>
+                    <span class="key">Ansible</span>
                     <span class="key">Jenkins CI/CD</span>
-                    <span class="key">Perf test</span>
+                    <span class="key">Tracing</span>
+                    <span class="key">Performance</span>
                 </div>
             </div>
             <div class="section row">
@@ -65,18 +68,24 @@
                         <div class="emph col">accelerate startups and scale enterprises as DevOps Engineer</div>
                         <div class="col-right light">August 2017 - Now</div>
                     </div>
-                    <div>General & VM-based infra</div>
+
+                    <div>General & Process:</div>
                     <ul class="desc">
-                            <li>Cover A-Z from kicking off startups, discussing and making decisions on tech stack, provision infra, tracing problems & provide solutions. Build entire infra from scratch to micro-services, maintain & scale during high traffic and under pressure.</li>
-                            <li>Designing plugable & producing standardized Infra as Code with bottom-up approach: base-network, base-environment, application/service & support tools.</li>
-                            <li>Coding, contributing & guiding standards on ~20 terraform modules with ~30 ansible roles.</li>
-                            <li>Setting up Gitflow with automation CI/CD build, deploy webapps on multi clouds (AWS, GCP) using Jenkinsfile, pipeline, git hooks, webhook, scheduler, notification.</li>
-                            <li>Building monitoring/logging/APM tracing: Sentry, ELK, telegraf, influxdb, grafana, NewRelic, monit, Cloudwatch, Datadog.</li>
-                            <li>Solid skills and practicing on linux: top, vmstat, sysstat, iotop, dmesg, systemd, cron, shell scripts, tuning linux vm.</li>
-                            <li>Understanding in MySQL/MongoDB internals, replication, sharding, multi AZ, HA failover, backup/restore on VM-based, RDS, CloudSQL, MongoDB Atlas with VPC peering.</li>
-                            <li>Familiarity with writing from micro to complete flow of script by using shell/python/ansible/jenkinsfile.</li>
-                            <li>Taking strong responsibility/ownership during on-call periods, identifying failures and execute actions for resolving live issues (postmortem, prevention plan), achieve goals on uptime & MTTR.</li>
+                            <li>Cover A-Z from kicking off startups: techstack, build infra from scratch to micro-services, tracing problems, maintain & scale.</li>
+                            <li>Taking strong responsibility/ownership during on-call periods, identifying failures and execute actions for resolving live issues: postmortem, prevention plan, achieve goals on basic SLA, uptime & MTTR.</li>
+                            <li>Producing DEVOPS evaluation standards for team: 4 levels (Assoc, Std, Senior, Principal), 17 technical topics and 70-mindset/30-tech ratio.</li>
                     </ul>
+
+                    <div>VM-based infra:</div>
+                    <ul class="desc">
+                            <li>Designing modular, pluggable & standardized IaC with bottom-up approach: base-network, base-env, webapp/services & internal tools.</li>
+                            <li>Working, contributing & guiding standards on ~20 terraform modules with ~30 ansible roles.</li>
+                            <li>Solid skills on GNU/Linux: top, vmstat, sysstat, iotop, dmesg, logger, mount/fstab, systemd, cron, supervisord, strace, time, tuning linux.</li>
+                            <li>Building & deep operating MySQL/MongoDB internals, replication, sharding, multi-AZ, HA failover, backup/restore on VM-based, RDS, CloudSQL, MongoDB Atlas with VPC peering.</li>
+                            <li>Designing networking: external/internal DNS, VPC, NAT, subnet, Cloudflare, ALB, NLB, Nginx, HAproxy, OpenVPN, Wireguard VPN, CDN.
+                            <li>Building monitoring/logging/APM tracing: Sentry, ELK, telegraf, influxdb, grafana, NewRelic, monit, Cloudwatch, Datadog.</li>    
+                    </ul>
+
                     <div>Container-based infra</div>
                     <ul class="desc">
                         <li>Dockerize legacy vm-based webapps, building Dockerfile, docker-compose, microK8s, podman for local & testing environment</li>
@@ -87,6 +96,15 @@
                         <li>Scaling up/down services during high traffic ~50K rpm</li>
                         <li>Streaming logs from stdout/syslog-protocol to Logentries & ELK</li>
                         <li>Deploying & patching GKE deployment using jenkins, GCR with fully automation Gitflow</li>
+                    </ul>
+
+                    <div>Web application:</div>
+                    <ul class="desc">
+                            <li>Proposing HA & scalable scheduler/one-off architecture by using internal HTTP endpoint.</li>
+                            <li>Designing database migration process for multi tenancy DBs using pub/sub queue worker.</li>
+                            <li>Guiding & setup Gitflow with auto CI/CD on multi clouds: Jenkins, Ansistrano, pipeline, parallel, webhook, cron, notification.</li>
+                    </ul>
+
                 </div>
 
                 <div class="section-text col-right">
@@ -99,19 +117,19 @@
                         <div class="emph col">work as DevOps Engineer for SalesHood - San Francisco</div>
                         <div class="col-right light">August 2016 - June 2017</div>
                     </div>
-                    <div> Maintain, troubleshoot CI/CD infrastructure issues, including dev, stage and production environments on AWS. 
+                    <div> Maintain, troubleshoot CI/CD infrastructure issues, multi environments on AWS. 
                           Build and manage MySQL replication, handle SPOF execution processes.  
                           Monitor infrastructure, log management, investigating performance issues. Implement penetration testing, run security audit and fixing vulnerabilities to pass OWASP. 
                           Design and execute scenarios for stress test.  
                     </div>
                     <ul class="desc">
-                        <li>Solid experience with GNU/Linux operating systems, debugging skills such as investigating kern.log, dmesg, syslog, auth.log, service's log on hvm virtualization AWS.</li>
-                        <li>Knowledge about system's resource like cpu, mem, swap, cache and ability to dealing with performance problems, OOM Killer. Estimating and choosing the right instance/server and applicable use cases based on benchmarking and workloads.</li>
+                        <li>Solid experience with GNU/Linux operating systems: dmesg, syslog, auth, ssh, service's log on hvm virtualization AWS.</li>
+                        <li>Knowledge on system's resource: cpu, mem, swap, cache, performance problems, OOM issue. Estimating and choosing the right instance/server and applicable use cases based on benchmarking and workloads.</li>
                         <li>Deep understanding in MySQL master-slave, identify and cure slave lag, binlog, slow query logs.</li>
                         <li>Manage deployment workflows on Jenkins CI, writing bash, python scripts and aws cli, s3.</li>
-                        <li>Familiarity with data pipeline such as Rsyslog, Logstash, Elasticsearch, Kibana (ELK). Optimize, handle webapp centralized log.</li>
+                        <li>Optimize, handle webapp centralized log & data pipeline: Rsyslog, Logstash, Elasticsearch, Kibana.</li>
                         <li>Experience with locust.io, gatling.io for performing screnario loadtest.</li>
-                        <li>Basic knowledge about ZAP, Burp and Metasploit for discovering vulnerabilities. Communicate and work effectively with dev team to pass security audit from Salesforce.</li>
+                        <li>Basic knowledge about ZAP, Burp and Metasploit for discovering vulnerabilities, pass security audit from Salesforce.</li>
                 </div>
 
                 <div class="section-text col-right">
@@ -137,42 +155,11 @@
             <div class="section row">
                 <h2 class="col">Side Projects</h2>
                 <div class="section-text col-right">
-                    <div class="row">
-                        <div class="col">
-                            <h3>Micro tools | Personal blog | Knowledge base</h3>
-                        </div>
-                    </div>
-
-                    <div class="row subsection">
-                        <div class="emph col"><a href="https://rsyslog:h9J7YZvkhPX+vRwZ7QTM@tracelog.in">https://tracelog.in</a></div>
-                        <div class="col-right light">Feb 2019 - Now</div>
-                    </div>
-                        <div>Supermirco logsystem based on rsyslog that can adapt for any linux log files (system logs, application logs, ...)
-                    </div>
-
-                    <ul class="desc">
-                        <li>Using minimal cpu, mem, io resources</li>
-                        <li>Realtime update with easy debugging/performing because of plaintext</li>
-                        <li>Core logic is based on rsyslog client-server architecture</li>
-                        <li>Basic visualize via nginx static file serving</li>
-                    </ul>
-
-                    <div class="row subsection">
-                        <div class="emph col"><a href="https://blog.tracelog.in">https://blog.tracelog.in</a></div>
-                        <div class="col-right light">Jan 2017 - Now</div>
-                    </div>
-
-                    <div>A blog about linux, database, infrastructure, and mindset. Share my passion with people like me and to improve my knowledge.
-                    </div>
-                    <div class="row subsection">
-                        <div class="emph col"><a href="https://knowledge.tracelog.in">https://knowledge.tracelog.in</a></div>
-                        <div class="col-right light">2018 - Now</div>
-                    </div>
-                    <div>It's a knowledge base and explanation what I learn, only for myself. Everyday I read, debug and research problems, this piece of knowledge will be forgotten if not keep it in somewhere. 
-                    </div>
-
-                    </div>
+                        <div><a href="https://github.com/hieuhtr/supermicro-logsystem">supermicro-logsystem</a> based on rsyslog that can adapt for any linux log files (system logs, application logs, ...)</div>
+                        <div><a href="https://blog.tracelog.in">blog.tracelog.in</a> a blog about linux, database, infrastructure, and mindset.</div>
+                        <div><a href="https://knowledge.tracelog.in">knowledge.tracelog.in</a> a knowledge base and explanation what I learn, only for myself.</div>
                 </div>
+            </div>
 
             
             <div class="section row">
