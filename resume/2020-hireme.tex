@@ -1,0 +1,184 @@
+%-------------------------
+% My 2020 resume
+% Author : Hieu Huynh
+% License : MIT
+% Source : from https://github.com/sb2nov/resume 
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\familydefault}{\sfdefault}
+\definecolor{orange}{HTML}{E47911}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{#2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{https://blog.tracelog.in/}{\Large \color{orange}HIEU HUYNH}} & Email: \href{mailto:huynhtrunghieu.cs@gmail.com}{huynhtrunghieu.cs@gmail.com}\\
+  \textbf{devops engineer} & Mobile: +84 38 222 5005  \\
+  \href{https://blog.tracelog.in}{https://blog.tracelog.in} & Skype: huynhtrunghieu.cs@outlook.com\\
+\end{tabular*}
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+    {\color{orange}NFQ Asia | 8Bit Rockstars}{}
+    {accelerate startups and scale enterprises as DevOps Engineer}{August 2017 - Now}
+    \resumeItemListStart
+
+    \resumeItem{General \& Process} {}
+        \resumeItemListStart
+          \resumeItem{} {Cover A-Z from kicking off: AWS/GCP stack, build infra from scratch to micro services, trace problems \& scale.}
+          \resumeItem{} {Taking strong responsibility/ownership during on-call periods, identifying failures and execute actions for resolving live issues: postmortem, prevention plan, achieve goals on basic SLA, uptime \& MTTR.}
+          \resumeItem{} {Producing DEVOPS evaluation standards: 4 levels, 17 technical topics and 70-mindset/30-tech ratio.}
+        \resumeItemListEnd
+
+    \resumeItem{VM-based infra} {}
+        \resumeItemListStart
+          \resumeItem{} {Designing modular, pluggable \& standardized IaC with bottom-up approach: network, env, app, services, tools.}
+          \resumeItem{} {Working, contributing \& guiding standards on ~20 terraform modules with ~30 ansible roles.}
+          \resumeItem{} {Solid skills on GNU/Linux: top, vmstat, sysstat, iotop, dmesg, logger, mount/fstab, systemd, cron, supervisord, strace, time, tuning linux.}
+          \resumeItem{} {Building \& deep operating MySQL/MongoDB internals, replication, sharding, multi-AZ, HA failover, backup/restore on VM-based, RDS, CloudSQL, MongoDB Atlas with VPC peering.}
+          \resumeItem{} {Designing network: Route53, VPC, NAT, Cloudflare, ALB, NLB, Nginx, HAproxy, OpenVPN, Wireguard VPN, Cloudfront CDN.}
+          \resumeItem{} {Building monitoring/logging/APM: Sentry, ELK, Telegraf, Influxdb, Grafana, NewRelic, Monit, Cloudwatch.}
+        \resumeItemListEnd
+
+    \resumeItem{Container-based infra} {}
+        \resumeItemListStart
+          \resumeItem{} {Dockerize vm-based webapps, building Dockerfile, docker-compose, microK8s, podman for local \& testing.}
+          \resumeItem{} {Handling micro-services by using Kubernetes on GCP, evolved from DEIS architecture to GKE with pure YAML.}
+          \resumeItem{} {Operating multiple GKE clusters across regions (EU \& ASIA)}
+          \resumeItem{} {Buiding main routing application traffic by using nginx-ingress on both name-based \& path-based}
+          \resumeItem{} {Config Cloud Nat gateway on GKE for limiting outbound IP}
+          \resumeItem{} {Scaling up/down services during high traffic ~50K rpm}
+          \resumeItem{} {Streaming logs from stdout/syslog-protocol to Logentries \& ELK}
+          \resumeItem{} {Deploying \& patching GKE deployment using jenkins, GCR with fully automation Gitflow}
+        \resumeItemListEnd
+
+    \resumeItem{Web application} {}
+        \resumeItemListStart
+          \resumeItem{} {Proposing HA \& scalable scheduler/one-off architecture by using internal HTTP endpoint.}
+          \resumeItem{} {Designing database migration process for multi tenancy DBs using pub/sub queue worker.}
+          \resumeItem{} {Handling perf bottle-neck: Redis caching, MySQL/MongoDB index \& perf schema, tuning PHP/NodeJS.}
+          \resumeItem{} {Producing Gitflow with CI/CD on multi clouds: Jenkins, Ansistrano, pipeline, parallel, webhook, cron, notification.}
+        \resumeItemListEnd
+
+  \resumeItemListEnd
+
+    \resumeSubheading
+    {\color{orange}Codebox Solutions}{}
+    {work as DevOps Engineer for SalesHood - San Francisco}{August 2016 - June 2017}
+    \resumeItemListStart
+      \resumeItem{Maintain: }
+        {troubleshoot CI/CD infrastructure issues, multi env on AWS, handle SPOF execution processes. Manage deployment workflows on Jenkins, writing bash, python scripts and aws cli, s3.}
+      \resumeItem{Investigating: }
+        {performance problems, OOM issue. Estimating and choosing the right instance/server and applicable use cases based on benchmarking. Experience with locust.io, gatling.io for performing screnario loadtest. 
+        Handle webapp centralized log \& data pipeline: Rsyslog, Logstash, Elasticsearch, Kibana.}
+      \resumeItem{MySQL master-slave: }
+        {Deep understanding in replication, identify and cure slave lag, binlog, slow query logs.}
+      \resumeItem{Penetration testing: }
+        {run security audit and fixing vulnerabilities to pass OWASP. Basic knowledge about ZAP, Burp and Metasploit for discovering vulnerabilities, pass security audit from Salesforce.}
+    \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubItem{\href{https://github.com/hieuhtr/supermicro-logsystem}{supermicro-logsystem}}
+      { Based on rsyslog that can adapt for any linux log files (system logs, application logs, ...)}
+    \resumeSubItem{\href{https://blog.tracelog.in}{blog.tracelog.in}}
+      { a blog about linux, database, infrastructure, and mindset.}
+  \resumeSubHeadingListEnd
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {\color{orange}University of Technology - Bach Khoa HCM}{}
+      {Bachelor of Engineering in Computer Science}{August 2012 - April 2017}
+        \resumeItemListStart
+          \resumeItem{} {Graduated with good grade and excellent thesis 9.5/10}
+          \resumeItem{} {Working as a leader in most teams at university, having fluent presentation skills.}
+        \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}
