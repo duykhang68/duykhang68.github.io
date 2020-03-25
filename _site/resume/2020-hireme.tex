@@ -5,8 +5,9 @@
 % Source : from https://github.com/sb2nov/resume 
 %------------------------
 
-\documentclass[letterpaper,11pt]{article}
+\documentclass[letterpaper,11pt, margin=0.0in]{article}
 
+\usepackage[margin=0.0in]{geometry}
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
@@ -30,11 +31,12 @@
 \definecolor{orange}{HTML}{E47911}
 
 % Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
+\addtolength{\oddsidemargin}{-0.65in}
+%\addtolength{\evensidemargin}{-1in}
+\addtolength{\textwidth}{1.3in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.3in}
+\addtolength{\marginparsep}{0in}
 
 \urlstyle{same}
 
@@ -51,7 +53,7 @@
 % Custom commands
 \newcommand{\resumeItem}[2]{
   \item\small{
-    \textbf{#1}{#2 \vspace{-2pt}}
+    \textbf{#1}{#2 \vspace{-1.2pt}}
   }
 }
 
@@ -91,9 +93,12 @@
   \href{https://blog.tracelog.in}{https://blog.tracelog.in} & Skype: huynhtrunghieu.cs@outlook.com\\
 \end{tabular*}
 
+%-----------Competences-----------------
+\section{Competences}
+{GNU/Linux - AWS/GCP - VM-based/K8s - MySQL/MongoDB - Terraform - Ansible - Jenkins - Tracing - Performance} 
 
 %-----------EXPERIENCE-----------------
-\section{Experience}
+\section{Experiences}
   \resumeSubHeadingListStart
 
     \resumeSubheading
@@ -112,9 +117,9 @@
         \resumeItemListStart
           \resumeItem{} {Designing modular, pluggable \& standardized IaC with bottom-up approach: network, env, app, services, tools.}
           \resumeItem{} {Working, contributing \& guiding standards on ~20 terraform modules with ~30 ansible roles.}
-          \resumeItem{} {Solid skills on GNU/Linux: top, vmstat, sysstat, iotop, dmesg, logger, mount/fstab, systemd, cron, supervisord, strace, time, tuning linux.}
+          \resumeItem{} {Solid GNU/Linux: top, vmstat, sysstat, iotop, dmesg, logger, mount/fstab, systemd, supervisord, strace, time, tuning.}
           \resumeItem{} {Building \& deep operating MySQL/MongoDB internals, replication, sharding, multi-AZ, HA failover, backup/restore on VM-based, RDS, CloudSQL, MongoDB Atlas with VPC peering.}
-          \resumeItem{} {Designing network: Route53, VPC, NAT, Cloudflare, ALB, NLB, Nginx, HAproxy, OpenVPN, Wireguard VPN, Cloudfront CDN.}
+          \resumeItem{} {Designing network: Route53, VPC, NAT, Cloudflare, CDN, ALB, NLB, Nginx, HAproxy, OpenVPN, WireguardVPN.}
           \resumeItem{} {Building monitoring/logging/APM: Sentry, ELK, Telegraf, Influxdb, Grafana, NewRelic, Monit, Cloudwatch.}
         \resumeItemListEnd
 
@@ -145,14 +150,14 @@
     {work as DevOps Engineer for SalesHood - San Francisco}{August 2016 - June 2017}
     \resumeItemListStart
       \resumeItem{Maintain: }
-        {troubleshoot CI/CD infrastructure issues, multi env on AWS, handle SPOF execution processes. Manage deployment workflows on Jenkins, writing bash, python scripts and aws cli, s3.}
+        {troubleshoot CI/CD infra issues, deployment workflows, multi env on AWS, handle SPOF execution processes.}
       \resumeItem{Investigating: }
-        {performance problems, OOM issue. Estimating and choosing the right instance/server and applicable use cases based on benchmarking. Experience with locust.io, gatling.io for performing screnario loadtest. 
-        Handle webapp centralized log \& data pipeline: Rsyslog, Logstash, Elasticsearch, Kibana.}
+        {performance bottle-neck, OOM. Estimating and choosing the right server and applicable use cases based on benchmarking. Performing locust.io, gatling.io for screnario loadtest. 
+        Handle R-ELK for webapp centralized log.}
       \resumeItem{MySQL master-slave: }
         {Deep understanding in replication, identify and cure slave lag, binlog, slow query logs.}
       \resumeItem{Penetration testing: }
-        {run security audit and fixing vulnerabilities to pass OWASP. Basic knowledge about ZAP, Burp and Metasploit for discovering vulnerabilities, pass security audit from Salesforce.}
+        {audit and fix vulnerabilities to pass OWASP, Salesforce. Basic knowledge on ZAP, Burp, Metasploit.}
     \resumeItemListEnd
 
   \resumeSubHeadingListEnd
